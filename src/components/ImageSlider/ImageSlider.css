@@ -1,0 +1,21 @@
+.slider-container {
+    width: 80%;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    margin: 20px auto;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.3s ease;
+    cursor: grab;
+}
+
+.slider img {
+    max-width: 100%;
+    user-select: none;
+    pointer-events: none;
+    margin-right: 10px;
+    /* Adjust spacing between images if needed */
+}
