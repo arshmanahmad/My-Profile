@@ -1,25 +1,6 @@
-import React, { useEffect } from "react";
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-const SimpleCard = ({ heading, about, className }) => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from('.paragraph', {
-      opacity: 0,
-      duration: 0.1,
-      stagger: 0.1,
-      onComplete: () => {
-        gsap.to('.paragraph', { opacity: 1, duration: 1 });
-      },
-      scrollTrigger: {
-        trigger: '.paragraph',
-        start: 'top 80%',
-        end: 'bottom 20%',
-        toggleActions: 'play none none none',
-      },
-    });
-  }, []);
+import React from "react";
 
+const SimpleCard = ({ heading, about, className }) => {
   return (
     <>
       <div
@@ -29,7 +10,9 @@ const SimpleCard = ({ heading, about, className }) => {
           <div className="text-[1rem] font-[700] text-primary text-center">
             {heading}
           </div>
-          <div className="paragraph text-[14px] font-[400] text-[#434343]">{about}</div>
+          <div className="text-[14px] text-justify font-[400] text-[#434343]">
+            {about}
+          </div>
         </div>
       </div>
     </>

@@ -2,22 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  /* Position relative to the TaskManagement container */
+  position: absolute; /* Position relative to the TaskManagement container */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
-  z-index: 10;
-  /* Adjust as needed to ensure loader is above other content */
+  z-index: 10; /* Adjust as needed to ensure loader is above other content */
 }
 
 .loader {
-  border: 4px solid #f3f3f3;
-  /* Light grey */
-  border-top: 4px solid #019320;
-  /* Blue */
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #019320; /* Blue */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -28,7 +24,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -36,4 +31,49 @@
 
 .cap-first {
   text-transform: capitalize;
+}
+
+/* oul crousel */
+.banner .owl-nav {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 35%;
+  left: 28px;
+  width: 95%;
+}
+
+.banner .owl-nav button:hover {
+  outline: none;
+  background: none !important;
+}
+
+/* video */
+
+.video-player {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #fff; /* Optional: border styling */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+@media only screen and (min-width: 701px) {
+  .banner .owl-nav .owl-prev img {
+    width: 100px;
+    height: 100px;
+  }
+  .banner .owl-nav .owl-next img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media only screen and (max-width: 701px) {
+  .banner .owl-nav {
+    top: auto;
+    width: 40%;
+    bottom: -30%;
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
 }
