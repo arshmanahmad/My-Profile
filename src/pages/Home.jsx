@@ -151,24 +151,33 @@ const Home = () => {
           </ReactOwlCarousel>
         </div>
         {/* <div className="w-full mt-[1rem] overflow-hidden flex items-center justify-center mb-[2rem]"></div> */}
-        <div className="flex mb-[2rem] mt-[2.5rem]  items-center justify-center ">
+        <div className="flex mb-[2rem] mt-[2.5rem] mt-[10rem] items-center justify-center ">
           <div className="w-[80%] flex md:flex-wrap md:flex-col-reverse gap-[2rem]">
             <div className="w-[50%] md:w-full">
               <div className="border-[#d7ebd1] bg-[black]    border-[1rem]  rounded-[1rem]">
                 <img src={leafPhoto} className="rounded-none" alt="" />
               </div>
             </div>
-            <div className="flex flex-col justify-center md:items-center  md:text-center  w-[50%] md:w-full">
-              <div className=" font-[700]  text-[1.4rem] md:mb-[1rem]  text-[#434343]">
-                {t("Development.Heading")}
+            <div className="flex flex-col justify-center w-full ">
+              <div className="font-bold text-3xl md:mb-4 text-[#FFFFFF]">
+                Web & App Development Services
               </div>
-              <div className="font-[400]   text-[0.9rem] sm:text-[0.7rem] text-[#434343] ">
-                {t("Development.Description")}
+              <div className="font-normal text-base sm:text-sm text-[#FFFFFF]">
+                Hi there! I'm passionate about crafting responsive and intuitive web
+                experiences. With expertise in frontend and backend development, I specialize in:
+                <ul className="list-disc pl-6 mt-2 text-[#FFFFFF]">
+                  <li>Building modern and scalable web applications.</li>
+                  <li>Optimizing user interfaces for speed and accessibility.</li>
+                  <li>Integrating APIs and backend services.</li>
+                  <li>Implementing responsive designs with attention to detail.</li>
+                </ul>
+                Let's work together to bring your ideas to life!
               </div>
-              <Button className="mt-[1.5rem] sm:max-w-[8rem] max-w-[10rem]">
-                {t("Development.LearnMore")}
-              </Button>
+              <button className="mt-6 sm:max-w-[8rem] max-w-[10rem] bg-[#3498DB] hover:bg-[#2980B9] text-[#FFFFFF] px-4 py-2 rounded-md">
+                Learn More
+              </button>
             </div>
+
           </div>
         </div>
         <div className="flex flex-col mt-[2rem] items-center justify-center">
