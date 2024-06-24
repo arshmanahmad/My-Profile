@@ -8,7 +8,7 @@ import KeyCards from "../components/KeyCards/KeyCards";
 import curveLine from "../assets/roundLine.png";
 import swingPathImage from "../assets/swingPath.png";
 import SimpleCard from "../components/SimpleCard/SimpleCard";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ReactOwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -17,7 +17,7 @@ import arrowC2 from "../assets/arrow-c2.svg";
 import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-
+import githubImage from '../assets/github.png'
 import dummyVideo from "../assets/dummy.mp4";
 
 const Home = () => {
@@ -28,7 +28,7 @@ const Home = () => {
   const handleNavigationBar = () => {
     setNavigationBar(!navigationBar);
   };
-
+  const navigate = useNavigate()
   return (
     <>
       <div
@@ -36,13 +36,19 @@ const Home = () => {
       >
         <div className="relative w-full items-center flex justify-between py-[3rem] px-[6rem] md:px-[2rem] md:py-8 ">
           <h1 className="text-[white] text-[2rem] font-bold">ArshWhiz</h1>
-          <div className="md:hidden flex gap-[2rem] text-[#434343] mt-[1rem] mb-[1rem] font-[600]">
-            <NavLink className="text-primary" to={"/"}>
-              {t("Header.Links.Home")}
-            </NavLink>
-            <NavLink href="" to={"/metaverse"} className="hover:text-primary">
-              {t("Header.Links.Metaverse")}
-            </NavLink>
+          <div className="md:hidden flex gap-[2rem] text-[white] mt-[1rem] mb-[1rem] font-[600]">
+            <Link to={"/"} className="hover:text-[#434343]">
+              Home
+            </Link>
+            <a href={"https://github.com/arshmanahmad"} className="hover:text-[#434343]">
+              Github
+            </a>
+            <a className="hover:text-[#434343]" href={"https://www.linkedin.com/in/arshman-ahmad-334829298/"}>
+              LinkedIn
+            </a>
+            <a className="hover:text-[#434343]" >
+              Facebook
+            </a>
           </div>
           <div className="relative flex hidden md:flex  mt-4 mb-4">
             <img
@@ -78,22 +84,23 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="w-full mt-[1.5rem] mb-[2rem] px-8 md:text-center flex gap-[1.1rem] flex-col justify-center items-center bg-black py-10">
-          <div className="font-[700] text-[1.4rem] text-white">
+        <div className="w-full mt-[1.5rem] mb-[2rem] px-8 md:text-center flex gap-[0.5rem] flex-col justify-center items-center bg-black py-10">
+          <div className="font-bold text-xl text-[white]">
             Welcome to My Profile
           </div>
-          <div className="font-[700] text-[2.5rem] text-white relative mb-5">
+          <div className="font-bold text-3xl md:text-2xl text-[white] relative ">
             Showcasing My Work and Projects{" "}
-            <span className="text-[#039443]"></span>{" "}
+            <span className="text-green-600"> {/* Placeholder for any additional styling */}
+            </span>{" "}
             in the Digital World
           </div>
-          <div className="font-[400] w-[80%] md:w-[100%] sm:text-[0.9rem] text-white text-[0.9rem] text-center">
+          <div className="font-normal  md:w-full text-sm text-[white] text-center">
             Explore my social media profiles and projects that I have worked on. Connect with me to know more about my work and collaborations.
           </div>
         </div>
 
 
-        <div className="w-full flex items-center justify-center md:mb-[3rem]">
+        <div className="w-full mb-[2rem] flex items-center justify-center md:mb-[3rem]">
           <ReactOwlCarousel
             className="banner owl-theme"
             nav={true}
@@ -107,18 +114,40 @@ const Home = () => {
             smartSpeed={1500}
             loop
           >
-            <div className="item mx-[20%] md:mx-[10%] ">
-              <video controls className="w-full h-full" autoPlay loop>
-                <source src={dummyVideo} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+
+            <div className="item border mx-[20%] md:mx-[10%] bg-[#1a365d] bg-black bg-opacity-50 p-8 flex flex-col justify-center items-center text-center gap-4 text-white rounded-lg shadow-lg">
+              <a href="https://github.com/arshmanahmad">
+                <svg style={{ cursor: "pointer" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="100" height="100" fill="white">
+                  <path fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.262.82-.58 0-.287-.013-1.04-.013-1.905-3.01.655-3.905-.732-4.155-1.405-.14-.358-.747-1.405-1.28-1.685-.437-.23-1.06-.795-.013-.808.985-.013 1.68.905 1.92 1.28 1.12 1.896 2.92 1.37 3.628 1.042.11-.808.437-1.37.795-1.685-2.785-.313-5.72-1.395-5.72-6.202 0-1.37.49-2.495 1.28-3.37-.135-.313-.585-1.595.135-3.32 0 0 1.05-.337 3.44 1.28 1-.287 2.075-.426 3.135-.426 1.06 0 2.125.14 3.135.426 2.385-1.617 3.435-1.28 3.435-1.28.72 1.725.27 3.007.135 3.32.795.875 1.28 2 1.28 3.37 0 4.82-2.94 5.885-5.735 6.185.45.387.855 1.15.855 2.32 0 1.675-.015 3.025-.015 3.44 0 .32.21.7.825.58C20.565 21.793 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+                </svg>
+              </a>
+              <div className="w-full flex items-center">
+                <a href="" to={"https://github.com/arshmanahmad"} className="hover:text-primary w-full">
+                  <img style={{ cursor: "pointer" }} src={githubImage} />
+                </a>
+              </div>
             </div>
-            <div className="item mx-[20%] md:mx-[10%]">
-              <img className="w-full" src={fieldPhoto} alt="" />
+
+            <div className="item border mx-[20%] md:mx-[10%] bg-[#1a365d] p-8 flex flex-col justify-center items-center text-center gap-4 text-white rounded-lg shadow-lg">
+              <a href={"https://www.linkedin.com/in/arshman-ahmad-334829298/"}>
+                <svg style={{ cursor: "pointer" }} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" width="100" height="100">
+                  <rect width="100%" height="100%" fill="#0077B5" rx="4.5" ry="4.5"></rect>
+                  <path d="M12.225 12.297h-3.9V23.9h3.9zM10.275 6.839c-1.253 0-2.018.841-2.018 1.93 0 1.067.746 1.93 1.972 1.93h.022c1.254 0 2.019-.864 2.019-1.93-.023-1.089-.767-1.93-1.995-1.93zm14.514 5.458h-3.891v1.579h.028c.512-.864 1.4-1.64 2.882-1.64 3.094 0 3.66 2.034 3.66 4.681v5.978h-3.9v-5.558c0-1.398-.026-3.197-2.023-3.197-2.024 0-2.335 1.517-2.335 3.092v5.664h-3.9V12.297h3.747v1.589h.054c.523-.99 1.799-1.999 3.702-1.999 3.946 0 4.678 2.593 4.678 5.963V23.9h-3.9V17.61c0-1.528-.026-3.502-2.011-3.502-2.013 0-2.343 1.617-2.343 3.285v6.507h-3.89V12.297h3.89v1.52h.055c.511-.879 1.384-1.674 2.781-1.674 3.014 0 3.507 1.987 3.507 4.573V23.9z" fill="white"></path>
+                </svg>
+              </a>
+              <div className="mt-4">
+                <h2 className="text-2xl md:text-xl font-bold text-[white]">Connect with Me on LinkedIn</h2>
+                <p className="text-md md:text-[0.9rem] sm:text-[0rem]  text-[white]">
+                  Hi, I'm Arshman Ahmad! I'm passionate about software development,
+                  technology, and making impactful projects. Explore my LinkedIn profile
+                  to learn more about my professional journey, experiences, and
+                  achievements. Let's connect and collaborate!
+                </p>
+              </div>
             </div>
-            <div className="item mx-[20%] md:mx-[10%]">
-              <img className="w-full" src={fieldPhoto} alt="" />
-            </div>
+
+
+
           </ReactOwlCarousel>
         </div>
         {/* <div className="w-full mt-[1rem] overflow-hidden flex items-center justify-center mb-[2rem]"></div> */}
