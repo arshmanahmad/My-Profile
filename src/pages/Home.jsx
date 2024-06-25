@@ -141,7 +141,7 @@ const Home = () => {
                   Hi, I'm Arshman Ahmad! I'm passionate about software development,
                   technology, and making impactful projects. Explore my LinkedIn profile
                   to learn more about my professional journey, experiences, and
-                  achievements. Let's connect and collaborate!
+                  achievements. Let's connect and collaborate !
                 </p>
               </div>
             </div>
