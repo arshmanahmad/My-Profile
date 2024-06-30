@@ -236,16 +236,17 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-        <div className="w-full mt-[12rem]">
-          <div className="font-[700]   text-center text-[2rem] text-[#fff]">
+        <div className="w-full mt-[12rem] mb-[12rem]">
+          <div className="font-[700] mb-[8rem]   text-center text-[2rem] text-[#fff] ">
             My Skills
           </div>
           <div className=" w-full flex items-center justify-center">
-            <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12  gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center -mt-[10rem]">
+            <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12  gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center ">
               {cardData.map(
                 (option, index) => {
                   return (
                     <SimpleCard
+                      key={index}
                       className="col-span-3 w-full  h-full md:col-span-6 sm:col-span-12"
                       heading={option.Title}
                       about={option.Description}
