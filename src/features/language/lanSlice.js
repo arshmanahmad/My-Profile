@@ -1,17 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: "en",
+    value: "en",
 };
 
 export const lanSlice = createSlice({
-  name: "language",
-  initialState,
-  reducers: {
-    language: (state, { payload }) => {
-      state.value = payload;
+    name: "language",
+    initialState,
+    reducers: {
+        language: (state, { payload }) => {
+            state.value = payload;
+        },
     },
-  },
 });
 
 // Action creators are generated for each case reducer function

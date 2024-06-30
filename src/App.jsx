@@ -6,8 +6,7 @@ import "./index.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Home from "./pages/Home";
 import Metaverse from "./pages/Metaverse";
-import { useSelector } from "react-redux";
-import { useTranslation } from "react-i18next";
+
 
 function App() {
   return (

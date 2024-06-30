@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import headerLogo from "../assets/LogoGreen1.png";
-import fieldPhoto from "../assets/fieldphoto.png";
 import leafPhoto from "../assets/leaf.png";
 import menuBar from "../assets/menu.svg";
 import Button from "../components/Button/Button";
-import KeyCards from "../components/KeyCards/KeyCards";
-import curveLine from "../assets/roundLine.png";
 import swingPathImage from "../assets/swingPath.png";
 import SimpleCard from "../components/SimpleCard/SimpleCard";
 import { Link, NavLink, useNavigate } from "react-router-dom";
@@ -14,15 +11,53 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import arrowC1 from "../assets/arrow-c1.svg";
 import arrowC2 from "../assets/arrow-c2.svg";
-import LanguageSelector from "../components/LanguageSelector/LanguageSelector";
-import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import githubImage from '../assets/github.png'
-import dummyVideo from "../assets/dummy.mp4";
 
+
+const cardData = [
+  {
+    Title: "JavaScript Mastery",
+    Description: "Proficient in modern JavaScript, including ES6+ features, async programming, and functional paradigms.",
+  },
+  {
+    Title: "React Development",
+    Description: "Experienced in building dynamic and responsive user interfaces with React, using hooks and context for state management.",
+  },
+  {
+    Title: "Redux for State Management",
+    Description: "Skilled in managing complex application states with Redux and Redux Toolkit, ensuring predictable state transitions.",
+  },
+  {
+    Title: "Backend with Node.js",
+    Description: "Developed RESTful APIs and server-side applications using Node.js, Express, and integrating with databases like MongoDB and PostgreSQL.",
+  },
+  {
+    Title: "CSS and Responsive Design",
+    Description: "Expertise in CSS3, Flexbox, Grid, and frameworks like Tailwind CSS for creating responsive and visually appealing web designs.",
+  },
+  {
+    Title: "Version Control with Git",
+    Description: "Proficient in using Git for version control, branching, merging, and collaborating on code with teams using platforms like GitHub.",
+  },
+  {
+    Title: "Unit Testing and TDD",
+    Description: "Experienced in writing unit tests with Jest and utilizing Test-Driven Development (TDD) practices to ensure robust and reliable code.",
+  },
+  {
+    Title: "Agile Methodologies",
+    Description: "Familiar with Agile practices, including Scrum and Kanban, for iterative development and effective project management.",
+  },
+  {
+    Title: "Problem-Solving",
+    Description: "Strong analytical and problem-solving skills, with the ability to debug and resolve complex issues efficiently.",
+  },
+  {
+    Title: "Continuous Learning",
+    Description: "Committed to continuous learning and staying updated with the latest trends and best practices in web development.",
+  },
+];
 const Home = () => {
-  const { t } = useTranslation();
-  const lang = useSelector((state) => state.language.value);
+
   const [navigationBar, setNavigationBar] = useState(false);
 
   const handleNavigationBar = () => {
@@ -75,10 +110,10 @@ const Home = () => {
               </div>
               <div className=" flex w-full p-[2rem]  gap-[2rem] flex-col text-[#434343] mt-[1rem] mb-[1rem] font-[600]">
                 <NavLink className="text-primary" to={"/"}>
-                  {t("Header.Links.Home")}
+                  Home
                 </NavLink>
                 <NavLink className="hover:text-primary" to={"/metaverse"}>
-                  {t("Header.Links.Metaverse")}
+                  Metaverse
                 </NavLink>
               </div>
             </div>
@@ -180,7 +215,7 @@ const Home = () => {
 
           </div>
         </div>
-        <div className="flex flex-col mt-[2rem] items-center justify-center">
+        {/* <div className="flex flex-col mt-[2rem] items-center justify-center">
           <div className="font-[700] mt-[3rem] mb-[3rem] text-[1.8rem] ">
             {t("KeyFeatures.Heading")}
           </div>
@@ -200,29 +235,24 @@ const Home = () => {
               )}
             </div>
           </div>
-        </div>
-        <div className="w-full">
-          <div className="relative w-full mt-[2rem]">
-            <div className="py-[2rem] md:h-[50vh] w-full bg-[#039443] flex items-center justify-center flex-col">
-              <div className="font-[700] relative  text-center text-[2rem] text-[#FFFFFF]">
-                {t("Choose.Heading")}
-              </div>
-              <img src={swingPathImage} className="w-full" alt="" />
-            </div>
-            <div className="relative w-full flex items-center justify-center bg-[#fff]">
-              <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12 lg:relative gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center -mt-[10rem]">
-                {t("Choose.Reasons", { returnObjects: true }).map(
-                  (option, index) => {
-                    return (
-                      <SimpleCard
-                        className="col-span-3 w-full  h-full md:col-span-6 sm:col-span-12"
-                        heading={option.Title}
-                        about={option.Description}
-                      />
-                    );
-                  }
-                )}
-              </div>
+        </div> */}
+        <div className="w-full mt-[12rem]">
+          <div className="font-[700]   text-center text-[2rem] text-[#fff]">
+            My Skills
+          </div>
+          <div className=" w-full flex items-center justify-center">
+            <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12  gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center -mt-[10rem]">
+              {cardData.map(
+                (option, index) => {
+                  return (
+                    <SimpleCard
+                      className="col-span-3 w-full  h-full md:col-span-6 sm:col-span-12"
+                      heading={option.Title}
+                      about={option.Description}
+                    />
+                  );
+                }
+              )}
             </div>
           </div>
         </div>
@@ -230,39 +260,39 @@ const Home = () => {
         <div className="w-full   bg-[#fff] flex items-center justify-center ">
           <div className="w-[60%]  md:w-[90%] flex items-center gap-[1.2rem] justify-center text-center flex-col">
             <div className="font-[700] mt-[4rem]   text-[2rem] text-[#000000]">
-              {t("Tuned.Heading")}
+              We appreciate your patience as we develop AgerLink into state-of-the-art platform.
             </div>
             <div className="font-[400] text-[1rem] text-[#4E4E4E]">
-              {t("Tuned.Description1")}
             </div>
             <div className="font-[600] text-[1rem]">
-              {t("Tuned.Description1")}
+              We appreciate your patience as we develop AgerLink into state-of-the-art platform.
             </div>
             <Button className="sm:max-w-[8rem] w-[10rem] mb-[5rem] md:mb-[3rem] ">
-              {t("Development.LearnMore")}
+              Learn More
             </Button>
           </div>
         </div>
         <div className="w-full bg-[#039443] flex items-center justify-center ">
           <div className="w-[90%] flex items-center justify-center flex-col text-center gap-[2rem]">
             <div className="font-[700] mt-[2rem] text-[#fff]   text-[1.8rem] text-[#434343]">
-              {t("JoinUs.Heading")}
+              Join Us
             </div>
             <div className="text-[#fff] font-[300] text-[16px]">
-              {t("JoinUs.Description1")}
+              To access and benefit from the innovative technologies of AgerLink and AgerLin k DAO, it is essential to be a member of OP Ager Campanus. Our platform is designed to strengthen and enhance the companies that are part of this cooperative, offering advanced tools and resources for the agricultural sector
             </div>
             <div className="text-[#fff] font-[400] text-[1.4rem]">
-              {t("JoinUs.Description2")}
+              By participating in OP Ager Campanus, you will have the opportunity to integrate your company with AgerLink solutions, leveraging the power of the DAO for collective decisions, efficient resource management, and collaboration within the industry. Join us to drive innovation and sustainable development in the agricultural sector.
+
             </div>
 
             <div className="md:hidden flex mb-[3rem] justify-center items-center justify-between pl-[1rem] bg-[#fff] p-[0.3rem] gap-[1rem] h-[2.5rem] rounded-[0.5rem]">
               <input
                 type="text"
                 className="text-[0.8rem] w-full bg-[transparent] outline-none"
-                placeholder={t("JoinUs.EnterEmail")}
+                placeholder={"Enter Email Address"}
               />{" "}
               <button className="p-[0.5rem] flex items-center justify-center  w-[12rem] text-[0.8em] text-[#fff]  h-[2rem] bg-primary rounded-[0.5rem]">
-                {t("JoinUs.Subscribe")}
+                Join Us
               </button>
             </div>
             <div className="  flex flex-col w-[100%] items-center justify-center hidden md:flex  ">
@@ -275,7 +305,7 @@ const Home = () => {
                 Subscribe Now
               </button>
             </div>
-            {/* <LanguageSelector /> */}
+
           </div>
         </div>
       </div>
