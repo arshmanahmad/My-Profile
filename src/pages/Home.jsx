@@ -238,7 +238,7 @@ const Home = () => {
         </div> */}
         <div className="w-full mt-[12rem] mb-[12rem]">
           <div className="font-[700] mb-[8rem]   text-center text-[2rem] text-[#fff] ">
-            My Skills
+            My Skills::
           </div>
           <div className=" w-full flex items-center justify-center">
             <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12  gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center ">
