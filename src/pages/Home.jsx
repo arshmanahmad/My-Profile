@@ -57,7 +57,23 @@ const cardData = [
   },
 ];
 const Home = () => {
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement('script');
+    script.id = 'fiverr-seller-widget-script-ce2857b8-a12b-4bbf-869f-647b369e6410';
+    script.src = 'https://widgets.fiverr.com/api/v1/seller/arsh153?widget_id=ce2857b8-a12b-4bbf-869f-647b369e6410';
+    script.async = true;
+    script.defer = true;
+    script.setAttribute('data-config', '{"category_name":"Programming \u0026 Tech"}');
 
+    // Append the script to the document body
+    document.body.appendChild(script);
+
+    // Cleanup script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
   const [navigationBar, setNavigationBar] = useState(false);
 
   const handleNavigationBar = () => {
@@ -258,7 +274,79 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-full   bg-[#fff] flex items-center justify-center ">
+
+
+
+        <div
+          itemscope
+          itemtype='http://schema.org/Person'
+          className='fiverr-seller-widget'
+          style={{ display: 'inline-block' }}
+        >
+          <a
+            itemprop='url'
+            href='https://www.fiverr.com/arsh153'
+            rel="nofollow"
+            target="_blank"
+            style={{ display: 'inline-block' }}
+          >
+            <div
+              className='fiverr-seller-content'
+              id='fiverr-seller-widget-content-ce2857b8-a12b-4bbf-869f-647b369e6410'
+              itemprop='contentURL'
+              style={{ display: 'none' }}
+            ></div>
+            <div id='fiverr-widget-seller-data' style={{ display: 'none' }}>
+              <div itemprop='name'>arsh153</div>
+              <div itemscope itemtype='http://schema.org/Organization'>
+                <span itemprop='name'>Fiverr</span>
+              </div>
+              <div itemprop='jobtitle'>Seller</div>
+              <div itemprop='description'>
+                About Me
+                <br />
+                👋 Hi there! I'm Arshman, a dedicated and professional React developer with over 3 years of experience in web and app development. I specialize in creating high-quality, responsive, and user-friendly applications using a variety of modern technologies.
+                <br />
+                My Expertise:
+                <br />
+                <strong>Frontend Development:</strong>
+                <br />
+                React JS & React Native
+                <br />
+                Tailwind CSS
+                <br />
+                HTML
+                <br />
+                Bootstrap
+                <br />
+                <strong>Backend Development:</strong>
+                <br />
+                Node JS
+                <br />
+                Express JS
+                <br />
+                <strong>Programming Languages:</strong>
+                <br />
+                TypeScript
+                <br />
+                JavaScript
+                <br />
+                Services provided by me:
+                <br />
+                🚀 Web Development
+                <br />
+                📱 App Development
+              </div>
+            </div>
+          </a>
+        </div>
+
+
+
+
+
+
+        <div className="w-full    flex items-center justify-center ">
           <div className="w-[60%]  md:w-[90%] flex items-center gap-[1.2rem] justify-center text-center flex-col">
             <div className="font-[700] mt-[4rem]   text-[2rem] text-[#000000]">
               We appreciate your patience as we develop AgerLink into state-of-the-art platform.
@@ -273,7 +361,7 @@ const Home = () => {
             </Button>
           </div>
         </div>
-        <div className="w-full bg-[#039443] flex items-center justify-center ">
+        <div className="w-full flex items-center justify-center ">
           <div className="w-[90%] flex items-center justify-center flex-col text-center gap-[2rem]">
             <div className="font-[700] mt-[2rem] text-[#fff]   text-[1.8rem] text-[#434343]">
               Join Us
