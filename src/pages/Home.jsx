@@ -12,50 +12,9 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import arrowC1 from "../assets/arrow-c1.svg";
 import arrowC2 from "../assets/arrow-c2.svg";
 import githubImage from '../assets/github.png'
+import HrProjectImage from '../assets/projectsImages/hr7.png'
 
 
-const cardData = [
-  {
-    Title: "JavaScript Mastery",
-    Description: "Proficient in modern JavaScript, including ES6+ features, async programming, and functional paradigms.",
-  },
-  {
-    Title: "React Development",
-    Description: "Experienced in building dynamic and responsive user interfaces with React, using hooks and context for state management.",
-  },
-  {
-    Title: "Redux for State Management",
-    Description: "Skilled in managing complex application states with Redux and Redux Toolkit, ensuring predictable state transitions.",
-  },
-  {
-    Title: "Backend with Node.js",
-    Description: "Developed RESTful APIs and server-side applications using Node.js, Express, and integrating with databases like MongoDB and PostgreSQL.",
-  },
-  {
-    Title: "CSS and Responsive Design",
-    Description: "Expertise in CSS3, Flexbox, Grid, and frameworks like Tailwind CSS for creating responsive and visually appealing web designs.",
-  },
-  {
-    Title: "Version Control with Git",
-    Description: "Proficient in using Git for version control, branching, merging, and collaborating on code with teams using platforms like GitHub.",
-  },
-  {
-    Title: "Unit Testing and TDD",
-    Description: "Experienced in writing unit tests with Jest and utilizing Test-Driven Development (TDD) practices to ensure robust and reliable code.",
-  },
-  {
-    Title: "Agile Methodologies",
-    Description: "Familiar with Agile practices, including Scrum and Kanban, for iterative development and effective project management.",
-  },
-  {
-    Title: "Problem-Solving",
-    Description: "Strong analytical and problem-solving skills, with the ability to debug and resolve complex issues efficiently.",
-  },
-  {
-    Title: "Continuous Learning",
-    Description: "Committed to continuous learning and staying updated with the latest trends and best practices in web development.",
-  },
-];
 const Home = () => {
   useEffect(() => {
     // Create the script element
@@ -80,6 +39,14 @@ const Home = () => {
     setNavigationBar(!navigationBar);
   };
   const navigate = useNavigate()
+  const project = [
+    {
+      projectName: "HR Portal",
+      description: "HR Management Web Application with full fledge functionalities",
+      url: "https://hr-portal-nu.vercel.app/",
+      image: HrProjectImage,
+    }
+  ]
   return (
     <>
       <div
@@ -257,19 +224,58 @@ const Home = () => {
             My Skills
           </div>
           <div className=" w-full flex items-center justify-center">
-            <div className="w-[90%] place-items-center  md:w-[100%] grid grid-cols-12  gap-[2rem] sm:gap-[0.5rem] flex justify-center items-center ">
-              {cardData.map(
-                (option, index) => {
-                  return (
-                    <SimpleCard
-                      key={index}
-                      className="col-span-3 w-full  h-full md:col-span-6 sm:col-span-12"
-                      heading={option.Title}
-                      about={option.Description}
-                    />
-                  );
-                }
-              )}
+            <div className="flex flex-wrap justify-center gap-[2rem] p-[2rem] bg-black">
+              {project.map((item) => {
+                return <SimpleCard
+                  projectName={item.projectName}
+                  projectDescription={item.description}
+                  imageUrl={item.image}
+                  url={item.url}
+                />
+              })}
+              <SimpleCard
+                projectName="Awesome Project"
+                projectDescription="An innovative project that combines cutting-edge technology with user-centric design."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project1" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              <SimpleCard
+                projectName="Another Project"
+                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
+                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
+                url="https://example.com/project2" // Replace with your project URL
+              />
+              {/* Add more SimpleCard components as needed */}
             </div>
           </div>
         </div>
