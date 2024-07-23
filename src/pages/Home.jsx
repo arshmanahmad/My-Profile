@@ -308,6 +308,7 @@ const Home = () => {
                 <span itemprop='name'>Fiverr</span>
               </div>
               <div itemprop='jobtitle'>Seller</div>
+              {/* asdasd */}
               <div itemprop='description'>
                 About Me
                 <br />
