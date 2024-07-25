@@ -22,7 +22,7 @@ import GoroaSkinCare from '../assets/goroa1.png'
 import zelle1 from '../assets/zelle1.png'
 import task from '../assets/task.png'
 import chat from '../assets/chat.png'
-
+import { FaLinkedin, FaGithub, FaFacebook } from 'react-icons/fa'
 
 
 const Home = () => {
@@ -397,40 +397,59 @@ const Home = () => {
         </div>
         <div className="w-full flex items-center justify-center ">
           <div className="w-[90%] flex items-center justify-center flex-col text-center gap-[2rem]">
-            <div className="font-[700] mt-[2rem] text-[#fff]   text-[1.8rem] text-[#fff]">
-              Join Us
+            <div className="font-[700] mt-[2rem] text-[#fff] text-[1.8rem]">
+              Contact Us
             </div>
             <div className="text-[#fff] font-[300] text-[16px]">
-              To access and benefit from the innovative technologies of AgerLink and AgerLin k DAO, it is essential to be a member of OP Ager Campanus. Our platform is designed to strengthen and enhance the companies that are part of this cooperative, offering advanced tools and resources for the agricultural sector
+              We value open communication and are here to assist you with any questions or concerns. Our dedicated support team is available to provide you with the information you need. Reach out to us via email, phone, or through our contact form, and we will respond promptly. We look forward to hearing from you and helping you in any way we can.
             </div>
             <div className="text-[#fff] font-[400] text-[1.4rem]">
-              By participating in OP Ager Campanus, you will have the opportunity to integrate your company with AgerLink solutions, leveraging the power of the DAO for collective decisions, efficient resource management, and collaboration within the industry. Join us to drive innovation and sustainable development in the agricultural sector.
+              Connect with us on social media to stay updated on our latest news, projects, and opportunities. Follow us on LinkedIn, Twitter, and Facebook to join our growing community and engage with our content. Your feedback and inquiries are important to us, and we are committed to providing you with exceptional service.
+            </div>
 
+            <div className="flex flex-col items-center gap-[1rem]">
+              <div className="text-[#fff] font-[400] text-[1.4rem]">
+                Phone: <a href="tel:+1234567890" className="text-primary">03156054390</a>
+              </div>
+              <div className="text-[#fff] font-[400] text-[1.4rem]">
+                Email: <a href="mailto:info@example.com" className="text-primary">ArshWhiz@gmail.com</a>
+              </div>
+              <div className="flex items-center gap-[1rem]">
+                <a href="https://www.linkedin.com/in/arshman-ahmad-334829298/" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="text-[#fff] text-[2rem] hover:text-primary" />
+                </a>
+                <a href="https://github.com/arshmanahmad" target="_blank" rel="noopener noreferrer">
+                  <FaGithub className="text-[#fff] text-[2rem] hover:text-primary" />
+                </a>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                  <FaFacebook className="text-[#fff] text-[2rem] hover:text-primary" />
+                </a>
+              </div>
             </div>
 
             <div className="md:hidden flex mb-[3rem] justify-center items-center justify-between pl-[1rem] bg-[#fff] p-[0.3rem] gap-[1rem] h-[2.5rem] rounded-[0.5rem]">
               <input
                 type="text"
                 className="text-[0.8rem] w-full bg-[transparent] outline-none"
-                placeholder={"Enter Email Address"}
-              />{" "}
-              <button className="p-[0.5rem] flex items-center justify-center  w-[12rem] text-[0.8em] text-[#fff]  h-[2rem] bg-primary rounded-[0.5rem]">
+                placeholder="Enter Email Address"
+              />
+              <button className="p-[0.5rem] flex items-center justify-center w-[12rem] text-[0.8rem] text-[#fff] h-[2rem] bg-primary rounded-[0.5rem]">
                 Join Us
               </button>
             </div>
-            <div className="  flex flex-col w-[100%] items-center justify-center hidden md:flex  ">
+            <div className="flex flex-col w-[100%] items-center justify-center hidden md:flex">
               <input
                 type="text"
-                className=" text-[0.7rem]  text-center w-full font-[500] bg-[#fff] text-[1rem]  p-[0.8rem] rounded-[0.5rem] outline-none"
+                className="text-[0.7rem] text-center w-full font-[500] bg-[#fff] text-[1rem] p-[0.8rem] rounded-[0.5rem] outline-none"
                 placeholder="Enter Email Address"
               />
-              <button className="p-[0.5rem] mt-[1rem]   mb-[1.5rem] font-[500] text-[1rem]  flex items-center justify-center  w-full text-[0.7rem] text-primary bg-[#fff] rounded-[0.5rem]">
+              <button className="p-[0.5rem] mt-[1rem] mb-[1.5rem] font-[500] text-[1rem] flex items-center justify-center w-full text-[0.7rem] text-primary bg-[#fff] rounded-[0.5rem]">
                 Subscribe Now
               </button>
             </div>
-
           </div>
         </div>
+
       </div>
     </>
   );
