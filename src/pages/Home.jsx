@@ -19,6 +19,7 @@ import eternal from '../assets/eternal.png'
 import feedy from '../assets/as.png'
 import weatherApp from '../assets/weather app.png'
 import GoroaSkinCare from '../assets/goroa1.png'
+import zelle1 from '../assets/zelle1.png'
 
 
 
@@ -88,6 +89,12 @@ const Home = () => {
       description: "This the Web App for skincare made in React js",
       url: "https://garoa-skincare.vercel.app/",
       image: GoroaSkinCare,
+    },
+    {
+      projectName: "Zelle",
+      description: "TLanding page for Zelle Web App",
+      url: "https://home-page-iota-nine.vercel.app/",
+      image: zelle1,
     },
   ]
   return (
