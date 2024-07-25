@@ -21,6 +21,7 @@ import weatherApp from '../assets/weather app.png'
 import GoroaSkinCare from '../assets/goroa1.png'
 import zelle1 from '../assets/zelle1.png'
 import task from '../assets/task.png'
+import chat from '../assets/chat.png'
 
 
 
@@ -90,6 +91,12 @@ const Home = () => {
       description: "This the Web App for skincare made in React js",
       url: "https://garoa-skincare.vercel.app/",
       image: GoroaSkinCare,
+    },
+    {
+      projectName: "Chat Box",
+      description: "This the Chat Box interface",
+      url: "https://66a2990fb65e2b7cd9dc529a--steady-alfajores-a4ab4b.netlify.app/",
+      image: chat,
     },
     {
       projectName: "Zelle",
@@ -276,9 +283,12 @@ const Home = () => {
             </div>
           </div>
         </div> */}
-        <div className="w-full mt-[12rem] mb-[12rem]">
-          <div className="font-[700] mb-[8rem]   text-center text-[2rem] text-[#fff] ">
+        <div className="w-full mt-[10rem] mb-[8rem]">
+          <div className="font-[700]    text-center text-[2rem] text-[#fff] ">
             My Skills
+          </div>
+          <div className="font-[500] mb-[2rem]   text-center text-[1rem] text-[#fff] ">
+            Some of my projects are given below:
           </div>
           <div className=" w-full flex items-center justify-center">
             <div className="flex flex-wrap justify-center gap-[2rem] p-[2rem] bg-black">
@@ -370,22 +380,24 @@ const Home = () => {
 
         <div className="w-full    flex items-center justify-center ">
           <div className="w-[60%]  md:w-[90%] flex items-center gap-[1.2rem] justify-center text-center flex-col">
-            <div className="font-[700] mt-[4rem]   text-[2rem] text-[#fff]">
-              We appreciate your patience as we develop AgerLink into state-of-the-art platform.
+            <div className="font-[500] mt-[4rem]   text-[2rem] text-[#fff]">
+              With over 3 years in the industry, I have successfully delivered numerous projects that meet and exceed client expectations. I thrive in dynamic and collaborative environments, consistently providing high-quality solutions.
             </div>
             <div className="font-[400] text-[1rem] text-[#fff]">
             </div>
-            <div className="font-[600] text-[1rem]">
-              We appreciate your patience as we develop AgerLink into state-of-the-art platform.
+            <div className="font-[600] text-[1.2rem] text-[#fff]">
+              {/* We appreciate your patience as we develop AgerLink into state-of-the-art platform. */}
             </div>
-            <Button className="sm:max-w-[8rem] w-[10rem] mb-[5rem] md:mb-[3rem] ">
-              Learn More
-            </Button>
+            <a href="https://github.com/arshmanahmad" target="_blank" rel="noopener noreferrer">
+              <Button className="sm:max-w-[8rem] w-[10rem] mb-[5rem] md:mb-[3rem] ">
+                Learn More
+              </Button>
+            </a>
           </div>
         </div>
         <div className="w-full flex items-center justify-center ">
           <div className="w-[90%] flex items-center justify-center flex-col text-center gap-[2rem]">
-            <div className="font-[700] mt-[2rem] text-[#fff]   text-[1.8rem] text-[#434343]">
+            <div className="font-[700] mt-[2rem] text-[#fff]   text-[1.8rem] text-[#fff]">
               Join Us
             </div>
             <div className="text-[#fff] font-[300] text-[16px]">
