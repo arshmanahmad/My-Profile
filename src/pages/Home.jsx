@@ -16,6 +16,9 @@ import HrProjectImage from '../assets/projectsImages/hr7.png'
 import AgerLink from '../assets/agrilanding.png'
 import Trippn from '../assets/trippn.png'
 import eternal from '../assets/eternal.png'
+import feedy from '../assets/as.png'
+import weatherApp from '../assets/weather app.png'
+import GoroaSkinCare from '../assets/goroa1.png'
 
 
 
@@ -63,11 +66,29 @@ const Home = () => {
       image: Trippn,
     },
     {
+      projectName: "Feedy",
+      description: "Feedy Web App made in React js",
+      url: "https://feedy-eta.vercel.app/",
+      image: feedy,
+    },
+    {
+      projectName: "Weather App",
+      description: "This the Weather App with integration to check the weather in realtime sense in React js",
+      url: "https://weather-new-app.vercel.app/",
+      image: weatherApp,
+    },
+    {
       projectName: "Eternal",
       description: "Eternal Landing page made in React js",
       url: "https://eternel-website.vercel.app/",
       image: eternal,
-    }
+    },
+    {
+      projectName: "Goroa Skincare",
+      description: "This the Web App for skincare made in React js",
+      url: "https://garoa-skincare.vercel.app/",
+      image: GoroaSkinCare,
+    },
   ]
   return (
     <>
