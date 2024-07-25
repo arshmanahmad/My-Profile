@@ -13,6 +13,10 @@ import arrowC1 from "../assets/arrow-c1.svg";
 import arrowC2 from "../assets/arrow-c2.svg";
 import githubImage from '../assets/github.png'
 import HrProjectImage from '../assets/projectsImages/hr7.png'
+import AgerLink from '../assets/agrilanding.png'
+import Trippn from '../assets/trippn.png'
+import eternal from '../assets/eternal.png'
+
 
 
 const Home = () => {
@@ -42,9 +46,27 @@ const Home = () => {
   const project = [
     {
       projectName: "HR Portal",
-      description: "HR Management Web Application with full fledge functionalities",
+      description: "HR Management made in React | Vite | TypeScript   Web Application with full fledge functionalities",
       url: "https://hr-portal-nu.vercel.app/",
       image: HrProjectImage,
+    },
+    {
+      projectName: "Agerlink Landing Page",
+      description: "The Landing page which is made in React | Vite | JavaScript of Agerlink, which describes it as an intro for the whole web app",
+      url: "https://agri-landing.vercel.app/",
+      image: AgerLink,
+    },
+    {
+      projectName: "Trippn",
+      description: "Trippn Web App made in React js",
+      url: "https://trippn.vercel.app/",
+      image: Trippn,
+    },
+    {
+      projectName: "Eternal",
+      description: "Eternal Landing page made in React js",
+      url: "https://eternel-website.vercel.app/",
+      image: eternal,
     }
   ]
   return (
