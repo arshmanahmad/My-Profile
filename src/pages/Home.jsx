@@ -20,6 +20,7 @@ import feedy from '../assets/as.png'
 import weatherApp from '../assets/weather app.png'
 import GoroaSkinCare from '../assets/goroa1.png'
 import zelle1 from '../assets/zelle1.png'
+import task from '../assets/task.png'
 
 
 
@@ -92,9 +93,15 @@ const Home = () => {
     },
     {
       projectName: "Zelle",
-      description: "TLanding page for Zelle Web App",
+      description: "Landing page for Zelle Web App",
       url: "https://home-page-iota-nine.vercel.app/",
       image: zelle1,
+    },
+    {
+      projectName: "Task Management App",
+      description: "Task management app in React Js",
+      url: "https://task-management-app-blue-omega.vercel.app/",
+      image: task,
     },
   ]
   return (
@@ -283,49 +290,7 @@ const Home = () => {
                   url={item.url}
                 />
               })}
-              <SimpleCard
-                projectName="Awesome Project"
-                projectDescription="An innovative project that combines cutting-edge technology with user-centric design."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project1" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              <SimpleCard
-                projectName="Another Project"
-                projectDescription="A revolutionary project that redefines industry standards and delivers exceptional results."
-                imageUrl="https://via.placeholder.com/300" // Replace with your image URL
-                url="https://example.com/project2" // Replace with your project URL
-              />
-              {/* Add more SimpleCard components as needed */}
+
             </div>
           </div>
         </div>
@@ -405,10 +370,10 @@ const Home = () => {
 
         <div className="w-full    flex items-center justify-center ">
           <div className="w-[60%]  md:w-[90%] flex items-center gap-[1.2rem] justify-center text-center flex-col">
-            <div className="font-[700] mt-[4rem]   text-[2rem] text-[#000000]">
+            <div className="font-[700] mt-[4rem]   text-[2rem] text-[#fff]">
               We appreciate your patience as we develop AgerLink into state-of-the-art platform.
             </div>
-            <div className="font-[400] text-[1rem] text-[#4E4E4E]">
+            <div className="font-[400] text-[1rem] text-[#fff]">
             </div>
             <div className="font-[600] text-[1rem]">
               We appreciate your patience as we develop AgerLink into state-of-the-art platform.
