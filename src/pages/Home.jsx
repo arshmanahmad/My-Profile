@@ -386,7 +386,7 @@ const Home = () => {
             <div className="font-[400] text-[1rem] text-[#fff]">
             </div>
             <div className="font-[600] text-[1.2rem] text-[#fff]">
-              {/* We appreciate yasdasdaour patience as we develop AgerLink into state-of-the-art platforasdasdadasdasm. */}
+              {/* We appreciate yasdasdasdfasour patience as we develop AgerLink into state-of-the-art platforasdasdadasdasm. */}
             </div>
             <a href="https://github.com/arshmanahmad" target="_blank" rel="noopener noreferrer">
               <Button className="sm:max-w-[8rem] w-[10rem] mb-[5rem] md:mb-[3rem] ">
