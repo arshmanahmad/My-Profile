@@ -117,18 +117,18 @@ const Home = () => {
         className="overflow-hidden bg-gradient-to-r  from-[black] to-[#000529] flex flex-col justify-center items-center"
       >
         <div className="relative w-full items-center flex justify-between py-[3rem] px-[6rem] md:px-[2rem] md:py-8 ">
-          <h1 className="text-[white] text-[2rem] font-bold">ArshWhiz</h1>
+          <h1 className="text-[white] text-[2rem] font-bold">Dev Sash</h1>
           <div className="md:hidden flex gap-[2rem] text-[white] mt-[1rem] mb-[1rem] font-[600]">
             <Link to={"/"} className="hover:text-[#434343]">
               Home
             </Link>
-            <a href={"https://github.com/arshmanahmad"} className="hover:text-[#434343]">
+            <a href={"https://github.com/arshmanahmad"} target="_blank" className="hover:text-[#434343]">
               Github
             </a>
-            <a className="hover:text-[#434343]" href={"https://www.linkedin.com/in/arshman-ahmad-334829298/"}>
+            <a className="hover:text-[#434343]" target="_blank" href={"https://www.linkedin.com/in/arshman-ahmad-334829298/"}>
               LinkedIn
             </a>
-            <a className="hover:text-[#434343]" >
+            <a className="hover:text-[#434343]" target="_blank">
               Facebook
             </a>
           </div>
@@ -153,15 +153,18 @@ const Home = () => {
                 ✖
               </div>
               <div className="w-full mt-[2rem] h-[3rem] flex items-center justify-center">
-                <img src={headerLogo} alt="" />
+                <h1 className="text-[#000] text-[2rem] font-bold">Dev Sash</h1>
               </div>
               <div className=" flex w-full p-[2rem]  gap-[2rem] flex-col text-[#434343] mt-[1rem] mb-[1rem] font-[600]">
-                <NavLink className="text-primary" to={"/"}>
-                  Home
-                </NavLink>
-                <NavLink className="hover:text-primary" to={"/metaverse"}>
-                  Metaverse
-                </NavLink>
+                <a href={"https://github.com/arshmanahmad"} target="_blank" className="hover:text-[#434343]">
+                  Github
+                </a>
+                <a className="hover:text-[#434343]" target="_blank" href={"https://www.linkedin.com/in/arshman-ahmad-334829298/"}>
+                  LinkedIn
+                </a>
+                <a className="hover:text-[#434343]" target="_blank" >
+                  Facebook
+                </a>
               </div>
             </div>
           </div>
@@ -412,7 +415,7 @@ const Home = () => {
                 Phone: <a href="tel:+1234567890" className="text-primary">03156054390</a>
               </div>
               <div className="text-[#fff] font-[400] text-[1.4rem]">
-                Email: <a href="mailto:info@example.com" className="text-primary">ArshWhiz@gmail.com</a>
+                Email: <a href="mailto:info@example.com" className="text-primary">arshwhiz@gmail.com</a>
               </div>
               <div className="flex items-center gap-[1rem]">
                 <a href="https://www.linkedin.com/in/arshman-ahmad-334829298/" target="_blank" rel="noopener noreferrer">
