@@ -1,11 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
-import headerLogo from "../assets/LogoGreen1.png";
 import leafPhoto from "../assets/leaf.png";
 import menuBar from "../assets/menu.svg";
 import Button from "../components/Button/Button";
-import swingPathImage from "../assets/swingPath.png";
 import SimpleCard from "../components/SimpleCard/SimpleCard";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import ReactOwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -23,6 +21,7 @@ import zelle1 from "../assets/zelle1.png";
 import task from "../assets/task.png";
 import nurseAIHub from "../assets/nurseAIHub.png";
 import chat from "../assets/chat.png";
+import swanThai from "../assets/swanThai.png";
 import { FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 
 const Home = () => {
@@ -49,7 +48,6 @@ const Home = () => {
     };
   }, []);
   const [navigationBar, setNavigationBar] = useState(false);
-
   const handleNavigationBar = () => {
     setNavigationBar(!navigationBar);
   };
@@ -68,6 +66,12 @@ const Home = () => {
         "The Landing page which is made in React | Vite | JavaScript of Agerlink, which describes it as an intro for the whole web app",
       url: "https://agri-landing.vercel.app/",
       image: AgerLink,
+    },
+    {
+      projectName: "Swan Thai",
+      description: "Swan Thai made in React | Vite | TypeScript",
+      url: "https://swan-thai.vercel.app/",
+      image: swanThai,
     },
     {
       projectName: "Trippn",
@@ -130,7 +134,7 @@ const Home = () => {
     <>
       <div className="overflow-hidden bg-gradient-to-r  from-[black] to-[#000529] flex flex-col justify-center items-center">
         <div className="relative w-full items-center flex justify-between py-[3rem] px-[6rem] md:px-[2rem] md:py-8 ">
-          <h1 className="text-[white] text-[2rem] font-bold">Dev Sash</h1>
+          <h1 className="text-[white] text-[2rem] font-bold">Arshman</h1>
           <div className="md:hidden flex gap-[2rem] text-[white] mt-[1rem] mb-[1rem] font-[600]">
             <Link to={"/"} className="hover:text-[#434343]">
               Home
@@ -149,9 +153,9 @@ const Home = () => {
             >
               LinkedIn
             </a>
-            <a className="hover:text-[#434343]" target="_blank">
+            {/* <a className="hover:text-[#434343]" target="_blank">
               Facebook
-            </a>
+            </a> */}
           </div>
           <div className="relative flex hidden md:flex  mt-4 mb-4">
             <img
@@ -192,9 +196,9 @@ const Home = () => {
                 >
                   LinkedIn
                 </a>
-                <a className="hover:text-[#434343]" target="_blank">
+                {/* <a className="hover:text-[#434343]" target="_blank">
                   Facebook
-                </a>
+                </a> */}
               </div>
             </div>
           </div>
@@ -323,9 +327,15 @@ const Home = () => {
                 </ul>
                 Let's work together to bring your ideas to life!
               </div>
-              <button className="mt-6 sm:max-w-[8rem] max-w-[10rem] bg-[#3498DB] hover:bg-[#2980B9] text-[#FFFFFF] px-4 py-2 rounded-md">
-                Learn More
-              </button>
+              <a
+                href="https://github.com/arshmanahmad"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="mt-6 sm:max-w-[8rem] max-w-[10rem] bg-[#3498DB] hover:bg-[#2980B9] text-[#FFFFFF] px-4 py-2 rounded-md">
+                  Learn More
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -352,7 +362,7 @@ const Home = () => {
         </div> */}
         <div className="w-full mt-[10rem] mb-[8rem]">
           <div className="font-[700]    text-center text-[2rem] text-[#fff] ">
-            My Skills
+            My Projects
           </div>
           <div className="font-[500] mb-[2rem]   text-center text-[1rem] text-[#fff] ">
             Some of my projects are given below:
@@ -514,9 +524,9 @@ const Home = () => {
                 >
                   <FaGithub className="text-[#fff] text-[2rem] hover:text-primary" />
                 </a>
-                <a href="" target="_blank" rel="noopener noreferrer">
+                {/* <a href="" target="_blank" rel="noopener noreferrer">
                   <FaFacebook className="text-[#fff] text-[2rem] hover:text-primary" />
-                </a>
+                </a> */}
               </div>
             </div>
 
