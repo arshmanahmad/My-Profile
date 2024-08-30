@@ -61,12 +61,12 @@ const Home = () => {
       url: "https://hr-portal-nu.vercel.app/",
       image: HrProjectImage,
     },
-    {
-      projectName: "Swan Thai",
-      description: "Swan Thai made in React | Vite | TypeScript.",
-      url: "https://swan-thai.vercel.app/",
-      image: swanThai,
-    },
+    // {
+    //   projectName: "Swan Thai",
+    //   description: "Swan Thai made in React | Vite | TypeScript.",
+    //   url: "https://swan-thai.vercel.app/",
+    //   image: swanThai,
+    // },
     {
       projectName: "AI Chat App",
       description:
