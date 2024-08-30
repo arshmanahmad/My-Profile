@@ -22,6 +22,7 @@ import task from "../assets/task.png";
 import nurseAIHub from "../assets/nurseAIHub.png";
 import chat from "../assets/chat.png";
 import swanThai from "../assets/swanThai.png";
+import AIChat from "../assets/AIChat.png";
 import { FaLinkedin, FaGithub, FaFacebook } from "react-icons/fa";
 
 const Home = () => {
@@ -65,6 +66,12 @@ const Home = () => {
       description: "Swan Thai made in React | Vite | TypeScript",
       url: "https://swan-thai.vercel.app/",
       image: swanThai,
+    },
+    {
+      projectName: "AI Chat App",
+      description: "",
+      url: "https://ai-chat-app-delta.vercel.app/",
+      image: AIChat,
     },
     {
       projectName: "Agerlink Landing Page",
