@@ -506,7 +506,7 @@ const Home = () => {
               <div className="text-[#fff] font-[400] text-[1.4rem]">
                 Email:{" "}
                 <a href="mailto:info@example.com" className="text-primary">
-                  arshwhiz@gmail.com
+                  arshmanwhiz@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-[1rem]">
