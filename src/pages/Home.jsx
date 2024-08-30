@@ -57,26 +57,27 @@ const Home = () => {
     {
       projectName: "HR Portal",
       description:
-        "HR Management made in React | Vite | TypeScript   Web Application with full fledge functionalities",
+        "HR Management made in React | Vite | TypeScript   Web Application with full fledge functionalities.",
       url: "https://hr-portal-nu.vercel.app/",
       image: HrProjectImage,
     },
     {
       projectName: "Swan Thai",
-      description: "Swan Thai made in React | Vite | TypeScript",
+      description: "Swan Thai made in React | Vite | TypeScript.",
       url: "https://swan-thai.vercel.app/",
       image: swanThai,
     },
     {
       projectName: "AI Chat App",
-      description: "",
+      description:
+        "AI Chat from MetaBrain made for providing ease for documentation concising purpose, means extraction the more informative or required data from the bulk data, yet working on it.",
       url: "https://ai-chat-app-delta.vercel.app/",
       image: AIChat,
     },
     {
       projectName: "Agerlink Landing Page",
       description:
-        "The Landing page which is made in React | Vite | JavaScript of Agerlink, which describes it as an intro for the whole web app",
+        "The Landing page which is made in React | Vite | JavaScript of Agerlink, which describes it as an intro for the whole web app.",
       url: "https://agri-landing.vercel.app/",
       image: AgerLink,
     },
@@ -89,50 +90,50 @@ const Home = () => {
     },
     {
       projectName: "Feedy",
-      description: "Feedy Web App made in React js",
+      description: "Feedy Web App made in React js.",
       url: "https://feedy-eta.vercel.app/",
       image: feedy,
     },
     {
       projectName: "Weather App",
       description:
-        "This the Weather App with integration to check the weather in realtime sense in React js",
+        "This the Weather App with integration to check the weather in realtime sense in React js.",
       url: "https://weather-new-app.vercel.app/",
       image: weatherApp,
     },
     {
       projectName: "Trippn",
-      description: "Trippn Web App made in React js",
+      description: "Trippn Web App made in React js.",
       url: "https://trippn.vercel.app/",
       image: Trippn,
     },
     {
       projectName: "Eternal",
-      description: "Eternal Landing page made in React js",
+      description: "Eternal Landing page made in React js.",
       url: "https://eternel-website.vercel.app/",
       image: eternal,
     },
     {
       projectName: "Goroa Skincare",
-      description: "This the Web App for skincare made in React js",
+      description: "This the Web App for skincare made in React js.",
       url: "https://garoa-skincare.vercel.app/",
       image: GoroaSkinCare,
     },
     {
       projectName: "Chat Box",
-      description: "This the Chat Box interface",
+      description: "This the Chat Box interface.",
       url: "https://66a2990fb65e2b7cd9dc529a--steady-alfajores-a4ab4b.netlify.app/",
       image: chat,
     },
     {
       projectName: "Zelle",
-      description: "Landing page for Zelle Web App",
+      description: "Landing page for Zelle Web App.",
       url: "https://home-page-iota-nine.vercel.app/",
       image: zelle1,
     },
     {
       projectName: "Task Management App",
-      description: "Task management app in React Js",
+      description: "Task management app in React Js.",
       url: "https://task-management-app-blue-omega.vercel.app/",
       image: task,
     },
