@@ -61,6 +61,12 @@ const Home = () => {
       image: HrProjectImage,
     },
     {
+      projectName: "Swan Thai",
+      description: "Swan Thai made in React | Vite | TypeScript",
+      url: "https://swan-thai.vercel.app/",
+      image: swanThai,
+    },
+    {
       projectName: "Agerlink Landing Page",
       description:
         "The Landing page which is made in React | Vite | JavaScript of Agerlink, which describes it as an intro for the whole web app",
@@ -68,16 +74,11 @@ const Home = () => {
       image: AgerLink,
     },
     {
-      projectName: "Swan Thai",
-      description: "Swan Thai made in React | Vite | TypeScript",
-      url: "https://swan-thai.vercel.app/",
-      image: swanThai,
-    },
-    {
-      projectName: "Trippn",
-      description: "Trippn Web App made in React js",
-      url: "https://trippn.vercel.app/",
-      image: Trippn,
+      projectName: "Nurse AI Hub",
+      description:
+        "Nurse AI Hub made in React typescript, developed to provide ease in the sense of nursing or medical by providing an environment of chatbot in text as well as audio response as described in visual representation.",
+      url: "https://nurse-ai-hub.vercel.app/",
+      image: nurseAIHub,
     },
     {
       projectName: "Feedy",
@@ -93,11 +94,10 @@ const Home = () => {
       image: weatherApp,
     },
     {
-      projectName: "Nurse AI Hub",
-      description:
-        "Nurse AI Hub made in React typescript, developed to provide ease in the sense of nursing or medical by providing an environment of chatbot in text as well as audio response as described in visual representation.",
-      url: "https://nurse-ai-hub.vercel.app/",
-      image: nurseAIHub,
+      projectName: "Trippn",
+      description: "Trippn Web App made in React js",
+      url: "https://trippn.vercel.app/",
+      image: Trippn,
     },
     {
       projectName: "Eternal",
