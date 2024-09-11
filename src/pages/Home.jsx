@@ -90,7 +90,7 @@ const Home = () => {
     },
     {
       projectName: "Feedy",
-      description: "Feedy Web App made in React JS.",
+      description: "Feedy Web App made in React Js.",
       url: "https://feedy-eta.vercel.app/",
       image: feedy,
     },
