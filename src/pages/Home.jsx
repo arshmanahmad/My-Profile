@@ -95,7 +95,7 @@ const Home = () => {
       image: feedy,
     },
     {
-      projectName: "Weather App",
+      projectName: "Weather APP",
       description:
         "This the Weather App with integration to check the weather in realtime sense in React js.",
       url: "https://weather-new-app.vercel.app/",
