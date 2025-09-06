@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { cn } from "../utils/cnFunction";
 
 const Button = React.forwardRef(({
     children,
@@ -8,48 +10,75 @@ const Button = React.forwardRef(({
     disabled = false,
     loading = false,
     variant = "primary",
+    size = "md",
     type = "button",
     className = "",
-    w_full = false
+    w_full = false,
+    animate = true,
+    ...props
 }, ref) => {
-    const baseClass = "relative flex items-center justify-center rounded-md px-5 py-3 font-poppins text-base font-medium leading-6 transition duration-150 ease-in-out focus:outline-none disabled:cursor-not-allowed";
+    const baseClass = "relative flex items-center justify-center font-medium leading-6 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
     const fullWidth = w_full ? "w-full" : "";
 
-    // Variant styling logic
-    let variantClasses = "";
-    switch (variant) {
-        case "outlined":
-            variantClasses = "border-2 border-primary bg-white text-primary hover:bg-gray-100 active:bg-gray-200";
-            break;
-        case "secondary":
-            variantClasses = "bg-secondary text-white hover:bg-secondaryDark active:bg-secondaryDarker";
-            break;
-        case "ghost":
-            variantClasses = "bg-transparent text-primary hover:bg-gray-100 active:bg-gray-200 border border-primary";
-            break;
-        default:
-            variantClasses = "bg-primary text-white hover:bg-primaryDark active:bg-primaryDarker";
-            break;
-    }
+    // Size variants
+    const sizeClasses = {
+        sm: "px-3 py-2 text-sm rounded-lg",
+        md: "px-4 py-2.5 text-base rounded-lg",
+        lg: "px-6 py-3 text-lg rounded-xl",
+        xl: "px-8 py-4 text-xl rounded-xl"
+    };
 
-    return (
+    // Variant styling logic
+    const variantClasses = {
+        primary: "bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white hover:from-[#2563EB] hover:to-[#7C3AED] focus:ring-[#3B82F6]/50 shadow-lg hover:shadow-xl",
+        secondary: "bg-gradient-to-r from-[#10B981] to-[#059669] text-white hover:from-[#059669] hover:to-[#047857] focus:ring-[#10B981]/50 shadow-lg hover:shadow-xl",
+        outline: "border-2 border-[#3B82F6] bg-transparent text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white focus:ring-[#3B82F6]/50",
+        ghost: "bg-transparent text-[#3B82F6] hover:bg-[#3B82F6]/10 focus:ring-[#3B82F6]/50",
+        danger: "bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white hover:from-[#DC2626] hover:to-[#B91C1C] focus:ring-[#EF4444]/50 shadow-lg hover:shadow-xl"
+    };
+
+    const buttonContent = (
         <button
             ref={ref}
             type={type}
             onClick={onClick}
             disabled={disabled || loading}
             style={style}
-            className={`${baseClass} ${variantClasses} ${fullWidth} ${className}`}
+            className={cn(
+                baseClass,
+                sizeClasses[size],
+                variantClasses[variant],
+                fullWidth,
+                "transform hover:scale-105 active:scale-95",
+                className
+            )}
+            {...props}
         >
-            {icon && !loading && (
-                <span className="mr-2 flex items-center">{icon}</span>
-            )}
-            <div className={`${loading ? "opacity-0" : ""}`}>{children}</div>
             {loading && (
-                <span className="absolute text-sm">...</span>
+                <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                </div>
             )}
+            <div className={cn("flex items-center", loading && "opacity-0")}>
+                {icon && <span className="mr-2 flex items-center">{icon}</span>}
+                {children}
+            </div>
         </button>
     );
+
+    if (animate && !disabled) {
+        return (
+            <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+                {buttonContent}
+            </motion.div>
+        );
+    }
+
+    return buttonContent;
 });
 
 Button.displayName = "Button";

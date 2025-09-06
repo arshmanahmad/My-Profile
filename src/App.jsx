@@ -5,7 +5,6 @@ import "./index.css";
 
 import { SkeletonTheme } from "react-loading-skeleton";
 import Home from "./pages/Home";
-import Metaverse from "./pages/Metaverse";
 
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/metaverse" element={<Metaverse />} />
           </Routes>
         </Router>
       </SkeletonTheme>
