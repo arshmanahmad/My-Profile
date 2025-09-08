@@ -13,8 +13,6 @@ import { Footer } from "../components/Footer"
 import { Background } from "../components/Background"
 import { LoadingSpinner } from "../components/LoadingSpinner"
 
-
-
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [isLoading, setIsLoading] = useState(true)
@@ -85,31 +83,31 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gradient-to-br from-[#000000] to-[#000529] overflow-x-hidden">
       <Background />
 
-      <Navigation 
+      <Navigation
         navItems={navItems}
         activeSection={activeSection}
         onNavClick={scrollToSection}
       />
 
-      <Hero 
+      <Hero
         onViewWork={handleViewWork}
         onScrollDown={handleScrollDown}
       />
-      
+
       <Stats />
 
-      <Section 
-        id="about" 
-        title="About" 
+      <Section
+        id="about"
+        title="About"
         gradient="Me"
         subtitle="I'm a passionate MERN stack developer with over 3 years of experience in creating robust, scalable web applications. I love turning complex problems into simple, beautiful, and intuitive solutions."
       >
         <About />
       </Section>
 
-      <Section 
-        id="skills" 
-        title="My" 
+      <Section
+        id="skills"
+        title="My"
         gradient="Skills"
         subtitle="Here are the technologies and tools I work with to bring ideas to life"
         background
@@ -117,18 +115,18 @@ export default function Portfolio() {
         <Skills />
       </Section>
 
-      <Section 
-        id="projects" 
-        title="Featured" 
+      <Section
+        id="projects"
+        title="Featured"
         gradient="Projects"
         subtitle="Here are some of my recent projects that showcase my skills and expertise in modern web development"
       >
         <Projects />
       </Section>
 
-      <Section 
-        id="contact" 
-        title="Get In" 
+      <Section
+        id="contact"
+        title="Get In"
         gradient="Touch"
         subtitle="Ready to work together? Let's discuss your project and bring your ideas to life with cutting-edge technology."
         background
