@@ -34,19 +34,19 @@ const Navigation = ({
         : "bg-transparent",
       className
     )}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3 md:py-4">
+      <div className="max-w-7xl mx-auto px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
+        <div className="flex justify-between items-center py-2 sm:py-3 md:py-4">
           {/* Logo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-[#D1D5DB]"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] bg-clip-text text-[#D1D5DB]"
           >
             Arshman Ahmad
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-4 lg:space-x-6 xl:space-x-8">
+          <div className="hidden md:flex space-x-3 lg:space-x-4 xl:space-x-6 2xl:space-x-8">
             {navItems.map((item, index) => (
               <motion.button
                 key={item.name}
@@ -55,7 +55,7 @@ const Navigation = ({
                 transition={{ delay: index * 0.1 }}
                 onClick={() => handleNavClick(item.href.substring(1))}
                 className={cn(
-                  "text-sm font-medium transition-all duration-300 px-3 py-2 rounded-lg relative",
+                  "text-xs sm:text-sm font-medium transition-all duration-300 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg relative",
                   activeSection === item.href.substring(1)
                     ? "text-[#3B82F6] bg-[#3B82F6]/10 border border-[#3B82F6]/20"
                     : "text-[#D1D5DB] hover:text-[#3B82F6] hover:bg-[#3B82F6]/5"
@@ -77,7 +77,7 @@ const Navigation = ({
 
           {/* Mobile Menu Button */}
           <motion.button
-            className="md:hidden text-[#FFFFFF] p-2 rounded-lg bg-[#1F2937]/50 hover:bg-[#374151]/50 transition-colors"
+            className="md:hidden text-[#FFFFFF] p-1.5 sm:p-2 rounded-lg bg-[#1F2937]/50 hover:bg-[#374151]/50 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
@@ -91,7 +91,7 @@ const Navigation = ({
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -101,7 +101,7 @@ const Navigation = ({
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-5 h-5" />
+                  <Menu className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -117,7 +117,7 @@ const Navigation = ({
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-[#111827]/95 backdrop-blur-lg border-t border-[#374151]/50 rounded-b-lg overflow-hidden"
             >
-              <div className="px-4 py-4 space-y-2">
+              <div className="px-3 sm:px-4 py-3 sm:py-4 space-y-1.5 sm:space-y-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.name}
@@ -126,7 +126,7 @@ const Navigation = ({
                     transition={{ delay: index * 0.1 }}
                     onClick={() => handleNavClick(item.href.substring(1))}
                     className={cn(
-                      "block w-full text-left px-3 py-3 rounded-lg transition-colors text-sm",
+                      "block w-full text-left px-2 sm:px-3 py-2 sm:py-3 rounded-lg transition-colors text-xs sm:text-sm",
                       activeSection === item.href.substring(1)
                         ? "text-[#3B82F6] bg-[#3B82F6]/10"
                         : "text-[#D1D5DB] hover:text-[#3B82F6] hover:bg-[#3B82F6]/10"

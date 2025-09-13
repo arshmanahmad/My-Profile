@@ -42,7 +42,7 @@ const About = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
       {aboutCards.map((card, index) => (
         <motion.div
           key={card.title}
@@ -55,23 +55,23 @@ const About = () => {
             className={`bg-gradient-to-br ${card.gradient} ${card.borderColor} backdrop-blur-sm h-full ${card.hoverBorderColor} transition-all duration-300 transform hover:scale-105 hover:shadow-2xl`}
             hover
           >
-            <CardContent className="p-5 sm:p-6 md:p-8 lg:p-10 text-center">
-              <div className={`bg-gradient-to-r ${card.iconGradient} rounded-full p-3 sm:p-4 md:p-5 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-5 md:mb-6 lg:mb-8 shadow-lg`}>
-                <card.icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 text-[#FFFFFF]" />
+            <CardContent className="p-4 sm:p-5 md:p-6 lg:p-8 xl:p-10 text-center">
+              <div className={`bg-gradient-to-r ${card.iconGradient} rounded-full p-2 sm:p-3 md:p-4 lg:p-5 w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 lg:w-20 lg:h-20 xl:w-24 xl:h-24 mx-auto mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8 shadow-lg`}>
+                <card.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 xl:w-12 xl:h-12 text-[#FFFFFF]" />
               </div>
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#FFFFFF] mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-[#FFFFFF] mb-2 sm:mb-3 md:mb-4 lg:mb-5 xl:mb-6">
                 {card.title}
               </h3>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#D1D5DB] leading-relaxed mb-4 sm:mb-5 md:mb-6 lg:mb-8">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-[#D1D5DB] leading-relaxed mb-3 sm:mb-4 md:mb-5 lg:mb-6 xl:mb-8">
                 {card.description}
               </p>
-              <div className="flex flex-wrap gap-2 sm:gap-3 justify-center">
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 justify-center">
                 {card.tech.map((tech, techIndex) => (
                   <Badge
                     key={tech}
                     variant={card.techVariants[techIndex]}
-                    size="md"
-                    className="text-sm font-medium"
+                    size="sm"
+                    className="text-xs sm:text-sm font-medium"
                   >
                     {tech}
                   </Badge>

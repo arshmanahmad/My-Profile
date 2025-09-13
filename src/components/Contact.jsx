@@ -52,12 +52,12 @@ const Contact = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
+    <div className="space-y-6 sm:space-y-8 md:space-y-10 lg:space-y-12">
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="space-y-4 sm:space-y-6 md:space-y-8"
+        className="space-y-3 sm:space-y-4 md:space-y-6 lg:space-y-8"
       >
         {contactInfo.map((info, index) => (
           <motion.div
@@ -68,11 +68,11 @@ const Contact = () => {
             className="flex items-center gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 bg-[#1F2937]/30 rounded-lg sm:rounded-xl border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
             whileHover={{ x: 5 }}
           >
-            <div className={`bg-gradient-to-r ${info.color} rounded-full p-1.5 sm:p-2 md:p-3 shadow-lg`}>
-              <info.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-[#FFFFFF]" />
+            <div className={`bg-gradient-to-r ${info.color} rounded-full p-1 sm:p-1.5 sm:p-2 md:p-3 shadow-lg`}>
+              <info.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#FFFFFF]" />
             </div>
             <div>
-              <h3 className="text-[#FFFFFF] font-semibold text-sm sm:text-base md:text-lg">
+              <h3 className="text-[#FFFFFF] font-semibold text-xs sm:text-sm md:text-base lg:text-lg">
                 {info.title}
               </h3>
               <a
@@ -91,13 +91,13 @@ const Contact = () => {
           transition={{ delay: 0.4 }}
           className="pt-2 sm:pt-4 md:pt-8"
         >
-          <h3 className="text-[#FFFFFF] font-semibold text-sm sm:text-base md:text-lg mb-2 sm:mb-3 md:mb-4">
+          <h3 className="text-[#FFFFFF] font-semibold text-sm sm:text-base md:text-lg mb-2 sm:mb-3">
             Ready to get started?
           </h3>
           <p className="text-[#9CA3AF] text-xs sm:text-sm mb-3 sm:mb-4">
             Let's discuss your project and how I can help you achieve your goals.
           </p>
-          <div className="flex gap-2 sm:gap-3 md:gap-4">
+          <div className="flex gap-2 sm:gap-3">
             {socialLinks.map((link, index) => (
               <motion.a
                 key={link.label}
@@ -123,32 +123,32 @@ const Contact = () => {
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="hidden lg:block"
+        className="w-full"
       >
-        <div className="bg-[#1F2937]/30 backdrop-blur-sm rounded-xl border border-[#374151]/50 p-6 md:p-8">
-          <h3 className="text-[#FFFFFF] font-bold text-lg md:text-xl mb-4">
+        <div className="bg-[#1F2937]/30 backdrop-blur-sm rounded-xl border border-[#374151]/50 p-4 sm:p-6 md:p-8">
+          <h3 className="text-[#FFFFFF] font-bold text-base sm:text-lg md:text-xl mb-3 sm:mb-4">
             Ready to Transform Your Business?
           </h3>
-          <p className="text-[#D1D5DB] text-sm md:text-base mb-6">
+          <p className="text-[#D1D5DB] text-xs sm:text-sm md:text-base mb-4 sm:mb-6">
             Let's discuss how my expertise in full-stack development, automation, and optimization can drive your success. 
             I deliver measurable results that impact your bottom line.
           </p>
-          <div className="space-y-4">
-            <div className="flex items-center gap-3 text-[#D1D5DB]">
-              <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
-              <span className="text-sm font-medium">🚀 Available for immediate projects</span>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#10B981] rounded-full"></div>
+              <span className="text-xs sm:text-sm font-medium">🚀 Available for immediate projects</span>
             </div>
-            <div className="flex items-center gap-3 text-[#D1D5DB]">
-              <div className="w-2 h-2 bg-[#3B82F6] rounded-full"></div>
-              <span className="text-sm font-medium">💼 Open to full-time positions</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#3B82F6] rounded-full"></div>
+              <span className="text-xs sm:text-sm font-medium">💼 Open to full-time positions</span>
             </div>
-            <div className="flex items-center gap-3 text-[#D1D5DB]">
-              <div className="w-2 h-2 bg-[#8B5CF6] rounded-full"></div>
-              <span className="text-sm font-medium">⚡ Specialized in automation & optimization</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#8B5CF6] rounded-full"></div>
+              <span className="text-xs sm:text-sm font-medium">⚡ Specialized in automation & optimization</span>
             </div>
-            <div className="flex items-center gap-3 text-[#D1D5DB]">
-              <div className="w-2 h-2 bg-[#F59E0B] rounded-full"></div>
-              <span className="text-sm font-medium">💰 Payment gateway integration expert</span>
+            <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#F59E0B] rounded-full"></div>
+              <span className="text-xs sm:text-sm font-medium">💰 Payment gateway integration expert</span>
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ const Footer = () => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
             className="text-[#6B7280] text-xs mt-2"
           >
             Built with React, TypeScript, and Tailwind CSS

@@ -72,21 +72,58 @@ const Hero = ({
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 pt-16 sm:pt-20 relative">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 2xl:gap-20 items-center relative z-10">
+            
+          <section id="home" className="min-h-screen flex items-center justify-center px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 pt-12 sm:pt-16 md:pt-20 relative">
+      <div className="">
+        {/* Profile Image - Full width on mobile, half on desktop */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="w-full lg:w-auto mb-4 sm:mb-6 lg:mb-0"
+        >
+          <div className="relative w-full flex justify-center lg:justify-end">
+            <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[20rem] xl:h-[20rem] 2xl:w-[22rem] 2xl:h-[22rem] rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] p-1 shadow-2xl">
+              <div className="w-full h-full rounded-full bg-[#111827] p-1 sm:p-2 md:p-3 lg:p-4 flex items-center justify-center">
+                <img
+                  src="/src/assets/arshman3.png"
+                  alt="Arshman Ahmad"
+                  className="w-full h-full rounded-full object-cover shadow-lg"
+                />
+              </div>
+            </div>
+
+          {/* Floating Icons */}
+          {floatingIcons.map((item, index) => (
+            <motion.div
+              key={index}
+              animate={item.animation}
+              transition={{ 
+                duration: 3, 
+                repeat: Infinity, 
+                delay: item.delay 
+              }}
+              className={`${item.position} bg-gradient-to-r ${item.gradient} rounded-full p-1.5 sm:p-2 md:p-3 shadow-lg`}
+            >
+              <item.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 text-[#FFFFFF]" />
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+
         {/* Profile Content */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center lg:text-left order-2 lg:order-1"
+          className="text-center"
         >
-          <div className="mb-6 sm:mb-8">
+          <div className="mb-4 sm:mb-6 md:mb-8 w-full">
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block text-[#3B82F6] text-xs sm:text-sm md:text-base font-medium mb-2 px-2 sm:px-3 md:px-4 py-1 sm:py-2 bg-[#3B82F6]/10 rounded-full border border-[#3B82F6]/20"
+              className="inline-block  text-[#3B82F6] text-xs sm:text-sm md:text-base font-medium mb-1 sm:mb-2 px-2 sm:px-3 md:px-4 py-1 sm:py-2 bg-[#3B82F6]/10 rounded-full border border-[#3B82F6]/20"
             >
               👋 Hello, I'm
             </motion.span>
@@ -95,7 +132,7 @@ const Hero = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-[#FFFFFF] mt-2 sm:mt-3 md:mt-4 mb-2 sm:mb-3 md:mb-4 leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-[#FFFFFF] mt-1 sm:mt-2 md:mt-3 mb-1 sm:mb-2 md:mb-3 leading-tight"
             >
               Arshman
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899]">
@@ -107,7 +144,7 @@ const Hero = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#D1D5DB] mb-3 sm:mb-4 md:mb-6 font-semibold"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-[#D1D5DB] mb-2 sm:mb-3 md:mb-4 font-semibold"
             >
               <span className="text-[#10B981]">Full-Stack</span> Developer & <span className="text-[#3B82F6]">Automation</span> Expert
             </motion.h2>
@@ -116,7 +153,7 @@ const Hero = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#9CA3AF] max-w-3xl leading-relaxed"
+              className="text-sm sm:text-base md:text-lg lg:text-xl text-[#9CA3AF] max-w-3xl leading-relaxed"
             >
               Transforming businesses with <span className="text-[#3B82F6] font-semibold">4+ years</span> of expertise in 
               <span className="text-[#10B981] font-semibold"> MERN stack</span>, 
@@ -130,20 +167,20 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
+            className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start mb-4 sm:mb-6 md:mb-8"
           >
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 md:gap-4 w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:from-[#2563EB] hover:to-[#7C3AED] text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3"
+                className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:from-[#2563EB] hover:to-[#7C3AED] text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 w-full sm:w-auto"
                 onClick={onViewWork}
               >
-                View My Work <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+                View My Work <ArrowRight className="ml-1 sm:ml-2 w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-[#10B981] text-[#10B981] hover:bg-[#10B981] hover:text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3"
+                className="border-[#10B981] text-[#10B981] hover:bg-[#10B981] hover:text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-3 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-3 w-full sm:w-auto"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Hire Me Now
@@ -156,7 +193,7 @@ const Hero = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.2 }}
-            className="flex gap-3 sm:gap-4 justify-center lg:justify-start"
+            className="flex gap-2 sm:gap-3 md:gap-4 justify-center lg:justify-start"
           >
             {socialLinks.map((link, index) => (
               <motion.a
@@ -164,7 +201,7 @@ const Hero = ({
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 sm:p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${link.className}`}
+                className={`p-2 sm:p-2.5 md:p-3 rounded-full transition-all duration-300 transform hover:scale-110 hover:shadow-lg ${link.className}`}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -175,42 +212,6 @@ const Hero = ({
               </motion.a>
             ))}
           </motion.div>
-        </motion.div>
-
-        {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center lg:justify-end order-1 lg:order-2"
-          >
-            <div className="relative max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl">
-              <div className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[20rem] xl:h-[20rem] 2xl:w-[22rem] 2xl:h-[22rem] rounded-full bg-gradient-to-r from-[#3B82F6] via-[#8B5CF6] to-[#EC4899] p-1 shadow-2xl">
-              <div className="w-full h-full rounded-full bg-[#111827] p-2 sm:p-3 md:p-4 flex items-center justify-center">
-                <img
-                  src="/src/assets/arshman3.png"
-                  alt="Arshman Ahmad"
-                  className="w-full h-full rounded-full object-cover shadow-lg"
-                />
-              </div>
-            </div>
-
-            {/* Floating Icons */}
-            {floatingIcons.map((item, index) => (
-              <motion.div
-                key={index}
-                animate={item.animation}
-                transition={{ 
-                  duration: 3, 
-                  repeat: Infinity, 
-                  delay: item.delay 
-                }}
-                className={`${item.position} bg-gradient-to-r ${item.gradient} rounded-full p-1.5 sm:p-2 md:p-3 shadow-lg`}
-              >
-                <item.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-6 md:h-6 text-[#FFFFFF]" />
-              </motion.div>
-            ))}
-          </div>
         </motion.div>
       </div>
 

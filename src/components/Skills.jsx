@@ -105,38 +105,38 @@ const Skills = ({ skills = [] }) => {
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
       {displaySkills.map((skill, index) => (
         <motion.div
           key={skill.name}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: index * 0.1 }}
-          className="bg-[#1F2937]/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
+          className="bg-[#1F2937]/30 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
           whileHover={{ scale: 1.05, y: -5 }}
         >
-          <div className="flex items-center justify-between mb-3 sm:mb-4 md:mb-5">
-            <div className="flex items-center gap-3 sm:gap-4">
-              <div className={`text-[#FFFFFF] bg-gradient-to-r ${skill.color} p-2 sm:p-2.5 md:p-3 rounded-lg shadow-lg`}>
-                <skill.icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7" />
+          <div className="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+              <div className={`text-[#FFFFFF] bg-gradient-to-r ${skill.color} p-1.5 sm:p-2 md:p-2.5 lg:p-3 rounded-lg shadow-lg`}>
+                <skill.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
               </div>
-              <span className="text-[#FFFFFF] font-bold text-base sm:text-lg md:text-xl lg:text-2xl">
+              <span className="text-[#FFFFFF] font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
                 {skill.name}
               </span>
             </div>
             <span
-              className={`font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
+              className={`font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
             >
               {skill.level}%
             </span>
           </div>
 
-          <div className="w-full bg-[#374151]/50 rounded-full h-3 sm:h-4 md:h-5 overflow-hidden shadow-inner">
+          <div className="w-full bg-[#374151]/50 rounded-full h-2 sm:h-3 md:h-4 lg:h-5 overflow-hidden shadow-inner">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: `${skill.level}%` }}
               transition={{ duration: 1.5, delay: index * 0.1 }}
-              className={`bg-gradient-to-r ${skill.color} h-3 sm:h-4 md:h-5 rounded-full shadow-lg relative`}
+              className={`bg-gradient-to-r ${skill.color} h-2 sm:h-3 md:h-4 lg:h-5 rounded-full shadow-lg relative`}
             >
               <motion.div
                 className="absolute inset-0 bg-white/30 rounded-full"
