@@ -46,15 +46,15 @@ const Projects = ({ projects = [] }) => {
       tech: ["React", "API Integration", "JavaScript"],
       gradient: "from-[#0EA5E9] to-[#3B82F6]",
     },
-    {
-      title: "SmartLedger System",
-      description: "My flagship application - an advanced ledger management system with intelligent features for financial tracking, reporting, and business analytics. Built with cutting-edge technologies to provide real-time data processing and comprehensive financial insights for modern businesses.",
-      image: "/src/assets/eternal.png",
-      url: "https://smarledger.com",
-      tech: ["React", "Node.js", "MongoDB", "Analytics", "Payment Integration"],
-      featured: true,
-      gradient: "from-[#3B82F6] to-[#1D4ED8]",
-    },
+    // {
+    //   title: "SmartLedger System",
+    //   description: "My flagship application - an advanced ledger management system with intelligent features for financial tracking, reporting, and business analytics. Built with cutting-edge technologies to provide real-time data processing and comprehensive financial insights for modern businesses.",
+    //   image: "/src/assets/eternal.png",
+    //   url: "https://smarledger.com",
+    //   tech: ["React", "Node.js", "MongoDB", "Analytics", "Payment Integration"],
+    //   featured: true,
+    //   gradient: "from-[#3B82F6] to-[#1D4ED8]",
+    // },
     {
       title: "Task Management System",
       description: "Comprehensive task management solution for improved productivity and team collaboration with real-time updates.",
@@ -85,12 +85,13 @@ const Projects = ({ projects = [] }) => {
           whileHover={{ y: -5 }}
         >
           <Card className="overflow-hidden transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#3B82F6]/20 border-2 border-transparent hover:border-[#3B82F6]/30 transition-all duration-500 bg-gradient-to-r from-[#1F2937]/40 to-[#111827]/40">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-              <div className="relative overflow-hidden order-2 lg:order-1">
+            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-0">
+              {/* Image Section */}
+              <div className="relative overflow-hidden order-1 lg:order-2">
                 <img
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
-                  className="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-48 sm:h-56 md:h-64 lg:h-96 xl:h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/60 via-transparent to-transparent" />
@@ -103,10 +104,10 @@ const Projects = ({ projects = [] }) => {
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     whileHover={{ scale: 1, opacity: 1 }}
-                    className="bg-[#000000]/80 backdrop-blur-sm rounded-lg p-6 text-center"
+                    className="bg-[#000000]/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 text-center"
                   >
-                    <ExternalLink className="w-10 h-10 text-[#FFFFFF] mx-auto mb-3" />
-                    <p className="text-[#FFFFFF] font-medium text-lg">View Featured Project</p>
+                    <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 text-[#FFFFFF] mx-auto mb-2 sm:mb-3" />
+                    <p className="text-[#FFFFFF] font-medium text-sm sm:text-lg">View Featured Project</p>
                   </motion.div>
                 </div>
 
@@ -114,16 +115,17 @@ const Projects = ({ projects = [] }) => {
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
                   transition={{ delay: index * 0.1 + 0.5 }}
-                  className="absolute top-4 left-4"
+                  className="absolute top-2 sm:top-4 left-2 sm:left-4"
                 >
-                  <Badge className="bg-gradient-to-r from-[#F59E0B] to-[#F97316] text-[#FFFFFF] border-0 shadow-lg text-base font-bold px-4 py-2">
-                    <Star className="w-4 h-4 mr-2" />
+                  <Badge className="bg-gradient-to-r from-[#F59E0B] to-[#F97316] text-[#FFFFFF] border-0 shadow-lg text-xs sm:text-sm font-bold px-2 sm:px-4 py-1 sm:py-2">
+                    <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
                     Featured Project
                   </Badge>
                 </motion.div>
               </div>
 
-              <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center order-1 lg:order-2">
+              {/* Content Section */}
+              <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center order-2 lg:order-1">
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#FFFFFF] mb-3 sm:mb-4 md:mb-6 group-hover:text-[#3B82F6] transition-colors">
                   {project.title}
                 </h3>
