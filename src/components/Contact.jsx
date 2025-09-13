@@ -92,8 +92,11 @@ const Contact = () => {
           className="pt-2 sm:pt-4 md:pt-8"
         >
           <h3 className="text-[#FFFFFF] font-semibold text-sm sm:text-base md:text-lg mb-2 sm:mb-3 md:mb-4">
-            Connect with me
+            Ready to get started?
           </h3>
+          <p className="text-[#9CA3AF] text-xs sm:text-sm mb-3 sm:mb-4">
+            Let's discuss your project and how I can help you achieve your goals.
+          </p>
           <div className="flex gap-2 sm:gap-3 md:gap-4">
             {socialLinks.map((link, index) => (
               <motion.a
@@ -124,24 +127,28 @@ const Contact = () => {
       >
         <div className="bg-[#1F2937]/30 backdrop-blur-sm rounded-xl border border-[#374151]/50 p-6 md:p-8">
           <h3 className="text-[#FFFFFF] font-bold text-lg md:text-xl mb-4">
-            Let's Work Together
+            Ready to Transform Your Business?
           </h3>
           <p className="text-[#D1D5DB] text-sm md:text-base mb-6">
-            I'm always interested in new opportunities and exciting projects. 
-            Feel free to reach out if you'd like to discuss a potential collaboration.
+            Let's discuss how my expertise in full-stack development, automation, and optimization can drive your success. 
+            I deliver measurable results that impact your bottom line.
           </p>
           <div className="space-y-4">
             <div className="flex items-center gap-3 text-[#D1D5DB]">
               <div className="w-2 h-2 bg-[#10B981] rounded-full"></div>
-              <span className="text-sm">Available for freelance work</span>
+              <span className="text-sm font-medium">🚀 Available for immediate projects</span>
             </div>
             <div className="flex items-center gap-3 text-[#D1D5DB]">
               <div className="w-2 h-2 bg-[#3B82F6] rounded-full"></div>
-              <span className="text-sm">Open to full-time opportunities</span>
+              <span className="text-sm font-medium">💼 Open to full-time positions</span>
             </div>
             <div className="flex items-center gap-3 text-[#D1D5DB]">
               <div className="w-2 h-2 bg-[#8B5CF6] rounded-full"></div>
-              <span className="text-sm">Interested in startup projects</span>
+              <span className="text-sm font-medium">⚡ Specialized in automation & optimization</span>
+            </div>
+            <div className="flex items-center gap-3 text-[#D1D5DB]">
+              <div className="w-2 h-2 bg-[#F59E0B] rounded-full"></div>
+              <span className="text-sm font-medium">💰 Payment gateway integration expert</span>
             </div>
           </div>
         </div>

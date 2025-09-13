@@ -109,7 +109,7 @@ const Hero = ({
               transition={{ delay: 0.6 }}
               className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#D1D5DB] mb-3 sm:mb-4 md:mb-6 font-semibold"
             >
-              <span className="text-[#10B981]">MERN</span> Stack Developer
+              <span className="text-[#10B981]">Full-Stack</span> Developer & <span className="text-[#3B82F6]">Automation</span> Expert
             </motion.h2>
             
             <motion.p
@@ -118,9 +118,11 @@ const Hero = ({
               transition={{ delay: 0.8 }}
               className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#9CA3AF] max-w-3xl leading-relaxed"
             >
-              Passionate full-stack developer with <span className="text-[#3B82F6] font-semibold">3+ years</span> of
-              experience crafting exceptional web applications using modern technologies. I transform ideas into
-              powerful digital solutions.
+              Transforming businesses with <span className="text-[#3B82F6] font-semibold">4+ years</span> of expertise in 
+              <span className="text-[#10B981] font-semibold"> MERN stack</span>, 
+              <span className="text-[#F59E0B] font-semibold"> Python automation</span>, and 
+              <span className="text-[#8B5CF6] font-semibold"> payment integrations</span>. 
+              I deliver scalable solutions that drive growth and optimize performance.
             </motion.p>
           </div>
 
@@ -130,13 +132,23 @@ const Hero = ({
             transition={{ delay: 1 }}
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mb-6 sm:mb-8"
           >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:from-[#2563EB] hover:to-[#7C3AED] text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3"
-              onClick={onViewWork}
-            >
-              View My Work <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] hover:from-[#2563EB] hover:to-[#7C3AED] text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3"
+                onClick={onViewWork}
+              >
+                View My Work <ArrowRight className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-[#10B981] text-[#10B981] hover:bg-[#10B981] hover:text-[#FFFFFF] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-xs sm:text-sm md:text-base px-4 sm:px-6 md:px-8 py-2 sm:py-3"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Hire Me Now
+              </Button>
+            </div>
           </motion.div>
 
           {/* Social Links */}

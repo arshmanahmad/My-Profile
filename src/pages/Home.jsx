@@ -100,7 +100,7 @@ export default function Portfolio() {
         id="about"
         title="About"
         gradient="Me"
-        subtitle="I'm a passionate MERN stack developer with over 3 years of experience in creating robust, scalable web applications. I love turning complex problems into simple, beautiful, and intuitive solutions."
+        subtitle="A results-driven Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, and payment integrations. I transform complex business challenges into scalable digital solutions that drive growth and optimize performance."
       >
         <About />
       </Section>
@@ -109,7 +109,7 @@ export default function Portfolio() {
         id="skills"
         title="My"
         gradient="Skills"
-        subtitle="Here are the technologies and tools I work with to bring ideas to life"
+        subtitle="Mastering cutting-edge technologies to deliver exceptional results. From full-stack development to automation and optimization - here's what I bring to your project."
         background
       >
         <Skills />
@@ -119,16 +119,16 @@ export default function Portfolio() {
         id="projects"
         title="Featured"
         gradient="Projects"
-        subtitle="Here are some of my recent projects that showcase my skills and expertise in modern web development"
+        subtitle="Real-world solutions that demonstrate my ability to deliver results. Each project showcases technical expertise, business impact, and client satisfaction."
       >
         <Projects />
       </Section>
 
       <Section
         id="contact"
-        title="Get In"
-        gradient="Touch"
-        subtitle="Ready to work together? Let's discuss your project and bring your ideas to life with cutting-edge technology."
+        title="Let's Work"
+        gradient="Together"
+        subtitle="Ready to transform your business with innovative solutions? Let's discuss how my expertise in full-stack development, automation, and optimization can drive your success."
         background
       >
         <Contact />

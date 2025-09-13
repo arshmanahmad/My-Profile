@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Server, Smartphone } from "lucide-react";
+import { Code, Server, Smartphone, Container, Zap, CreditCard, Wrench, TrendingUp } from "lucide-react";
 import { Card, CardContent } from "./Card";
 import { Badge } from "./Badge";
 
@@ -8,36 +8,36 @@ const About = () => {
   const aboutCards = [
     {
       icon: Code,
-      title: "Frontend Development",
-      description: "Expert in React.js, Next.js, and modern frontend technologies. Creating responsive, interactive user interfaces with exceptional UX and performance optimization.",
-      tech: ["React", "Next.js", "TypeScript"],
+      title: "Full-Stack Development",
+      description: "Expert in MERN stack with 4+ years of experience building scalable web applications. Specialized in React.js, Node.js, and modern frontend technologies with focus on performance optimization and user experience.",
+      tech: ["React", "Next.js", "TypeScript", "Tailwind"],
       gradient: "from-[#1E3A8A]/20 to-[#0891B2]/20",
       borderColor: "border-[#3B82F6]/20",
       hoverBorderColor: "hover:border-[#60A5FA]/40",
       iconGradient: "from-[#61DAFB] to-[#21D4FD]",
-      techVariants: ["default", "secondary", "purple"]
+      techVariants: ["default", "secondary", "purple", "outline"]
     },
     {
-      icon: Server,
-      title: "Backend Development",
-      description: "Proficient in Node.js, Express.js, and database management. Building secure, scalable server-side applications and RESTful APIs with optimal performance.",
-      tech: ["Node.js", "Express", "MongoDB"],
+      icon: Zap,
+      title: "Automation & Integration",
+      description: "Specialized in Python automation, web scraping, and payment gateway integrations. Building efficient systems that reduce manual work and increase business productivity through smart automation solutions.",
+      tech: ["Python", "Docker", "APIs", "Scraping"],
       gradient: "from-[#14532D]/20 to-[#059669]/20",
       borderColor: "border-[#10B981]/20",
       hoverBorderColor: "hover:border-[#34D399]/40",
       iconGradient: "from-[#68A063] to-[#8CC84B]",
-      techVariants: ["success", "secondary", "success"]
+      techVariants: ["success", "secondary", "success", "outline"]
     },
     {
-      icon: Smartphone,
-      title: "Mobile Development",
-      description: "Experienced in React Native for cross-platform mobile applications. Delivering native performance with shared codebase and seamless user experiences.",
-      tech: ["React Native", "Expo", "Mobile UI"],
+      icon: TrendingUp,
+      title: "Performance & Growth",
+      description: "Focused on optimization, maintenance, and conversion improvements. Delivering measurable results through performance tuning, system maintenance, and data-driven optimization strategies that drive business growth.",
+      tech: ["Optimization", "Maintenance", "Analytics", "Growth"],
       gradient: "from-[#581C87]/20 to-[#BE185D]/20",
       borderColor: "border-[#8B5CF6]/20",
       hoverBorderColor: "hover:border-[#A78BFA]/40",
       iconGradient: "from-[#8B5CF6] to-[#EC4899]",
-      techVariants: ["purple", "outline", "purple"]
+      techVariants: ["purple", "outline", "purple", "success"]
     }
   ];
 

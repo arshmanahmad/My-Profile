@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Server, Database, Smartphone, Globe } from "lucide-react";
+import { Code, Server, Database, Smartphone, Globe, Container, Zap, CreditCard, Wrench, TrendingUp, Settings } from "lucide-react";
 
 const Skills = ({ skills = [] }) => {
   const defaultSkills = [
@@ -17,6 +17,36 @@ const Skills = ({ skills = [] }) => {
       color: "from-[#68A063] to-[#8CC84B]",
     },
     {
+      name: "Docker",
+      level: 88,
+      icon: Container,
+      color: "from-[#2496ED] to-[#0EA5E9]",
+    },
+    {
+      name: "Python Scraping",
+      level: 85,
+      icon: Zap,
+      color: "from-[#3776AB] to-[#FFD43B]",
+    },
+    {
+      name: "Python Automation",
+      level: 87,
+      icon: Settings,
+      color: "from-[#3776AB] to-[#4B8BBE]",
+    },
+    {
+      name: "Payment Gateways",
+      level: 90,
+      icon: CreditCard,
+      color: "from-[#10B981] to-[#059669]",
+    },
+    {
+      name: "RESTful APIs",
+      level: 92,
+      icon: Server,
+      color: "from-[#8B5CF6] to-[#EC4899]",
+    },
+    {
       name: "MongoDB",
       level: 85,
       icon: Database,
@@ -27,6 +57,24 @@ const Skills = ({ skills = [] }) => {
       level: 88,
       icon: Server,
       color: "from-[#404040] to-[#000000]",
+    },
+    {
+      name: "Maintenance",
+      level: 90,
+      icon: Wrench,
+      color: "from-[#F59E0B] to-[#D97706]",
+    },
+    {
+      name: "Optimization",
+      level: 93,
+      icon: TrendingUp,
+      color: "from-[#EF4444] to-[#DC2626]",
+    },
+    {
+      name: "Conversions",
+      level: 88,
+      icon: TrendingUp,
+      color: "from-[#06B6D4] to-[#0891B2]",
     },
     {
       name: "React Native",
@@ -57,7 +105,7 @@ const Skills = ({ skills = [] }) => {
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
       {displaySkills.map((skill, index) => (
         <motion.div
           key={skill.name}

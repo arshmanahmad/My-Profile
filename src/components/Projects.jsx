@@ -12,7 +12,6 @@ const Projects = ({ projects = [] }) => {
       image: "/src/assets/projectsImages/hr7.png",
       url: "https://hr-portal-nu.vercel.app/",
       tech: ["React", "TypeScript", "Vite", "Tailwind"],
-      featured: true,
       gradient: "from-[#8B5CF6] to-[#EC4899]",
     },
     {
@@ -46,6 +45,15 @@ const Projects = ({ projects = [] }) => {
       url: "https://weather-new-app.vercel.app/",
       tech: ["React", "API Integration", "JavaScript"],
       gradient: "from-[#0EA5E9] to-[#3B82F6]",
+    },
+    {
+      title: "SmartLedger System",
+      description: "My flagship application - an advanced ledger management system with intelligent features for financial tracking, reporting, and business analytics. Built with cutting-edge technologies to provide real-time data processing and comprehensive financial insights for modern businesses.",
+      image: "/src/assets/eternal.png",
+      url: "https://smarledger.com",
+      tech: ["React", "Node.js", "MongoDB", "Analytics", "Payment Integration"],
+      featured: true,
+      gradient: "from-[#3B82F6] to-[#1D4ED8]",
     },
     {
       title: "Task Management System",
