@@ -12,7 +12,6 @@ import { Contact } from "../components/Contact"
 import { Footer } from "../components/Footer"
 import { Background } from "../components/Background"
 import { LoadingSpinner } from "../components/LoadingSpinner"
-
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [isLoading, setIsLoading] = useState(true)
