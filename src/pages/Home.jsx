@@ -20,7 +20,6 @@ export default function Portfolio() {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
   ]
-
   useEffect(() => {
     // Simulate loading
     const timer = setTimeout(() => {
