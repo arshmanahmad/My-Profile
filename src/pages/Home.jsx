@@ -14,13 +14,14 @@ import { LoadingSpinner } from "../components/LoadingSpinner"
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home")
   const [isLoading, setIsLoading] = useState(true)
-  
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
   ]
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
