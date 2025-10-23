@@ -1,77 +1,81 @@
-"use client"
-import { useState, useEffect } from "react"
-import { Navigation } from "../components/Navigation"
-import { Hero } from "../components/Hero"
-import { Stats } from "../components/Stats"
-import { Section } from "../components/Section"
-import { About } from "../components/About"
-import { Skills } from "../components/Skills"
-import { Projects } from "../components/Projects"
-import { Contact } from "../components/Contact"
-import { Footer } from "../components/Footer"
-import { Background } from "../components/Background"
-import { LoadingSpinner } from "../components/LoadingSpinner"
+"use client";
+import { useState, useEffect } from "react";
+import { Navigation } from "../components/Navigation";
+import { Hero } from "../components/Hero";
+import { Stats } from "../components/Stats";
+import { Section } from "../components/Section";
+import { About } from "../components/About";
+import { Skills } from "../components/Skills";
+import { Projects } from "../components/Projects";
+import { Contact } from "../components/Contact";
+import { Footer } from "../components/Footer";
+import { Background } from "../components/Background";
+import { LoadingSpinner } from "../components/LoadingSpinner";
 export default function Portfolio() {
-  const [activeSection, setActiveSection] = useState("home")
-  const [isLoading, setIsLoading] = useState(true)
+  const [activeSection, setActiveSection] = useState("home");
+  const [isLoading, setIsLoading] = useState(true);
+
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
-  ]
+  ];
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 1500)
+      setIsLoading(false);
+    }, 1500);
 
     const handleScroll = () => {
-      const sections = navItems.map((item) => item.href.substring(1))
-      const scrollPosition = window.scrollY + 100
+      const sections = navItems.map((item) => item.href.substring(1));
+      const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const offsetTop = element.offsetTop
-          const offsetHeight = element.offsetHeight
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section)
-            break
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
+            setActiveSection(section);
+            break;
           }
         }
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-      clearTimeout(timer)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(timer);
+    };
+  }, []);
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
-      const offsetTop = element.offsetTop - 100 // Account for fixed navigation
+      const offsetTop = element.offsetTop - 100; // Account for fixed navigation
       window.scrollTo({
         top: offsetTop,
-        behavior: "smooth"
-      })
-      setActiveSection(sectionId)
+        behavior: "smooth",
+      });
+      setActiveSection(sectionId);
     }
-  }
+  };
 
   const handleViewWork = () => {
-    scrollToSection("projects")
-  }
+    scrollToSection("projects");
+  };
 
   const handleScrollDown = () => {
-    scrollToSection("about")
-  }
+    scrollToSection("about");
+  };
 
   if (isLoading) {
-    return <LoadingSpinner fullScreen text="Loading Portfolio..." />
+    return <LoadingSpinner fullScreen text="Loading Portfolio..." />;
   }
 
   return (
@@ -84,10 +88,7 @@ export default function Portfolio() {
         onNavClick={scrollToSection}
       />
 
-      <Hero
-        onViewWork={handleViewWork}
-        onScrollDown={handleScrollDown}
-      />
+      <Hero onViewWork={handleViewWork} onScrollDown={handleScrollDown} />
 
       <Stats />
 
@@ -131,5 +132,5 @@ export default function Portfolio() {
 
       <Footer />
     </div>
-  )
+  );
 }
