@@ -10,15 +10,15 @@ const Contact = () => {
       value: "arshmanwhiz@gmail.com",
       href: "mailto:arshmanwhiz@gmail.com",
       color: "from-[#10B981] to-[#059669]",
-      textColor: "text-[#10B981] hover:text-[#34D399]"
+      textColor: "text-[#10B981] hover:text-[#34D399]",
     },
     {
       icon: Phone,
       title: "Phone",
-      value: "+92 329 4494502",
+      value: "+92 315 6054390",
       href: "tel:+923156054390",
       color: "from-[#3B82F6] to-[#0EA5E9]",
-      textColor: "text-[#3B82F6] hover:text-[#60A5FA]"
+      textColor: "text-[#3B82F6] hover:text-[#60A5FA]",
     },
     {
       icon: MapPin,
@@ -26,8 +26,8 @@ const Contact = () => {
       value: "Pakistan",
       href: "#",
       color: "from-[#8B5CF6] to-[#EC4899]",
-      textColor: "text-[#8B5CF6]"
-    }
+      textColor: "text-[#8B5CF6]",
+    },
   ];
 
   const socialLinks = [
@@ -35,20 +35,23 @@ const Contact = () => {
       href: "https://github.com/arshmanahmad",
       icon: Github,
       label: "GitHub",
-      className: "bg-[#1F2937]/50 hover:bg-[#374151]/50 text-[#9CA3AF] group-hover:text-[#FFFFFF]"
+      className:
+        "bg-[#1F2937]/50 hover:bg-[#374151]/50 text-[#9CA3AF] group-hover:text-[#FFFFFF]",
     },
     {
       href: "https://www.linkedin.com/in/arshman-ahmad-334829298/",
       icon: Linkedin,
       label: "LinkedIn",
-      className: "bg-[#3B82F6]/20 hover:bg-[#3B82F6]/30 text-[#3B82F6] group-hover:text-[#60A5FA]"
+      className:
+        "bg-[#3B82F6]/20 hover:bg-[#3B82F6]/30 text-[#3B82F6] group-hover:text-[#60A5FA]",
     },
     {
       href: "https://www.fiverr.com/arsh153",
       icon: Globe,
       label: "Fiverr",
-      className: "bg-[#10B981]/20 hover:bg-[#10B981]/30 text-[#10B981] group-hover:text-[#34D399]"
-    }
+      className:
+        "bg-[#10B981]/20 hover:bg-[#10B981]/30 text-[#10B981] group-hover:text-[#34D399]",
+    },
   ];
 
   return (
@@ -68,7 +71,9 @@ const Contact = () => {
             className="flex items-center gap-2 sm:gap-3 md:gap-4 p-2 sm:p-3 md:p-4 bg-[#1F2937]/30 rounded-lg sm:rounded-xl border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
             whileHover={{ x: 5 }}
           >
-            <div className={`bg-gradient-to-r ${info.color} rounded-full p-1 sm:p-1.5 sm:p-2 md:p-3 shadow-lg`}>
+            <div
+              className={`bg-gradient-to-r ${info.color} rounded-full p-1 sm:p-1.5 sm:p-2 md:p-3 shadow-lg`}
+            >
               <info.icon className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 lg:w-6 lg:h-6 text-[#FFFFFF]" />
             </div>
             <div>
@@ -95,7 +100,8 @@ const Contact = () => {
             Ready to get started?
           </h3>
           <p className="text-[#9CA3AF] text-xs sm:text-sm mb-3 sm:mb-4">
-            Let's discuss your project and how I can help you achieve your goals.
+            Let's discuss your project and how I can help you achieve your
+            goals.
           </p>
           <div className="flex gap-2 sm:gap-3">
             {socialLinks.map((link, index) => (
@@ -130,25 +136,34 @@ const Contact = () => {
             Ready to Transform Your Business?
           </h3>
           <p className="text-[#D1D5DB] text-xs sm:text-sm md:text-base mb-4 sm:mb-6">
-            Let's discuss how my expertise in full-stack development, automation, and optimization can drive your success. 
-            I deliver measurable results that impact your bottom line.
+            Let's discuss how my expertise in full-stack development,
+            automation, and optimization can drive your success. I deliver
+            measurable results that impact your bottom line.
           </p>
           <div className="space-y-3 sm:space-y-4">
             <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#10B981] rounded-full"></div>
-              <span className="text-xs sm:text-sm font-medium">🚀 Available for immediate projects</span>
+              <span className="text-xs sm:text-sm font-medium">
+                🚀 Available for immediate projects
+              </span>
             </div>
             <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#3B82F6] rounded-full"></div>
-              <span className="text-xs sm:text-sm font-medium">💼 Open to full-time positions</span>
+              <span className="text-xs sm:text-sm font-medium">
+                💼 Open to full-time positions
+              </span>
             </div>
             <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#8B5CF6] rounded-full"></div>
-              <span className="text-xs sm:text-sm font-medium">⚡ Specialized in automation & optimization</span>
+              <span className="text-xs sm:text-sm font-medium">
+                ⚡ Specialized in automation & optimization
+              </span>
             </div>
             <div className="flex items-center gap-2 sm:gap-3 text-[#D1D5DB]">
               <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#F59E0B] rounded-full"></div>
-              <span className="text-xs sm:text-sm font-medium">💰 Payment gateway integration expert</span>
+              <span className="text-xs sm:text-sm font-medium">
+                💰 Payment gateway integration expert
+              </span>
             </div>
           </div>
         </div>
