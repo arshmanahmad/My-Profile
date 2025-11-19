@@ -1,6 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code, Server, Database, Smartphone, Globe, Container, Zap, CreditCard, Wrench, TrendingUp, Settings } from "lucide-react";
+import {
+  Code,
+  Server,
+  Database,
+  Smartphone,
+  Globe,
+  Container,
+  Zap,
+  CreditCard,
+  Wrench,
+  TrendingUp,
+  Settings,
+  Network,
+  Brain,
+  ShoppingCart,
+} from "lucide-react";
 
 const Skills = ({ skills = [] }) => {
   const defaultSkills = [
@@ -33,6 +48,30 @@ const Skills = ({ skills = [] }) => {
       level: 87,
       icon: Settings,
       color: "from-[#3776AB] to-[#4B8BBE]",
+    },
+    {
+      name: "FastAPI",
+      level: 90,
+      icon: Server,
+      color: "from-[#009688] to-[#00BCD4]",
+    },
+    {
+      name: "LangChain",
+      level: 88,
+      icon: Brain,
+      color: "from-[#FF6B6B] to-[#FF8E53]",
+    },
+    {
+      name: "LangGraph",
+      level: 86,
+      icon: Network,
+      color: "from-[#9B59B6] to-[#8E44AD]",
+    },
+    {
+      name: "Shopify API",
+      level: 89,
+      icon: ShoppingCart,
+      color: "from-[#95BF47] to-[#5E8E3E]",
     },
     {
       name: "Payment Gateways",
@@ -117,7 +156,9 @@ const Skills = ({ skills = [] }) => {
         >
           <div className="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <div className={`text-[#FFFFFF] bg-gradient-to-r ${skill.color} p-1.5 sm:p-2 md:p-2.5 lg:p-3 rounded-lg shadow-lg`}>
+              <div
+                className={`text-[#FFFFFF] bg-gradient-to-r ${skill.color} p-1.5 sm:p-2 md:p-2.5 lg:p-3 rounded-lg shadow-lg`}
+              >
                 <skill.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
               </div>
               <span className="text-[#FFFFFF] font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">

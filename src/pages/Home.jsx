@@ -93,7 +93,7 @@ export default function Portfolio() {
         id="about"
         title="About"
         gradient="Me"
-        subtitle="A results-driven Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, and payment integrations. I transform complex business challenges into scalable digital solutions that drive growth and optimize performance."
+        subtitle="A results-driven Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. I transform complex business challenges into scalable digital solutions that drive growth and optimize performance."
       >
         <About />
       </Section>
