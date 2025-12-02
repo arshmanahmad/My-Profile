@@ -98,7 +98,6 @@ export default function Portfolio() {
       >
         <About />
       </Section>
-
       <Section
         id="skills"
         title="My"
