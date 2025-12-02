@@ -6,7 +6,6 @@ import "./index.css";
 import { SkeletonTheme } from "react-loading-skeleton";
 import Home from "./pages/Home";
 
-
 function App() {
   return (
     <>
