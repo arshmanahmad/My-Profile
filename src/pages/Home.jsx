@@ -27,7 +27,6 @@ export default function Portfolio() {
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
-
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
