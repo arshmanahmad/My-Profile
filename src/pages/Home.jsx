@@ -24,6 +24,7 @@ export default function Portfolio() {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1500);
+    
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
       const scrollPosition = window.scrollY + 100;
