@@ -87,7 +87,6 @@ export default function Portfolio() {
       <Hero onViewWork={handleViewWork} onScrollDown={handleScrollDown} />
 
       <Stats />
-
       <Section
         id="about"
         title="About"
