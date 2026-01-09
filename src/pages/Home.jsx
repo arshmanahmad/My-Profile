@@ -114,7 +114,6 @@ export default function Portfolio() {
       >
         <Projects />
       </Section>
-
       <Section
         id="contact"
         title="Let's Work"
