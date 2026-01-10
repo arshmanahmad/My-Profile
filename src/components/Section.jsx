@@ -25,17 +25,17 @@ const Section = ({
     <motion.section
       id={id}
       className={cn(
-        "py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 relative",
-        background && "bg-[#111827]/30",
+        "py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32 px-4 sm:px-6 md:px-8 lg:px-12 relative w-full overflow-hidden",
+        background && "bg-slate-900/20 backdrop-blur-md border-y border-slate-700/30",
         className
       )}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={sectionVariants}
       {...props}
     >
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10 w-full">
         {(title || subtitle) && (
           <motion.div
             className="text-center mb-8 sm:mb-12 md:mb-16"
@@ -44,17 +44,17 @@ const Section = ({
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {title && (
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#FFFFFF] mb-4 sm:mb-5 md:mb-6 lg:mb-8">
-                {title}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 tracking-tight leading-[1.1] drop-shadow-2xl">
+                <span className="text-white">{title}</span>
                 {gradient && (
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6]">
+                  <span className="block sm:inline bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent">
                     {" "}{gradient}
                   </span>
                 )}
               </h2>
             )}
             {subtitle && (
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#D1D5DB] max-w-4xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-medium px-4 drop-shadow-lg">
                 {subtitle}
               </p>
             )}

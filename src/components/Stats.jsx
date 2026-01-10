@@ -7,68 +7,71 @@ const Stats = ({ stats = [] }) => {
     {
       icon: Calendar,
       label: "Years Experience",
-      value: "3+",
-      color: "text-[#3B82F6]",
+      value: "4+",
+      color: "text-blue-400",
     },
     {
       icon: Briefcase,
       label: "Projects Completed",
-      value: "50+",
-      color: "text-[#10B981]",
+      value: "100+",
+      color: "text-indigo-400",
     },
     {
       icon: Users,
       label: "Happy Clients",
-      value: "30+",
-      color: "text-[#8B5CF6]",
+      value: "50+",
+      color: "text-sky-400",
     },
     {
       icon: Award,
       label: "Technologies",
       value: "15+",
-      color: "text-[#F59E0B]",
+      color: "text-blue-500",
     },
   ];
 
   const displayStats = stats.length > 0 ? stats : defaultStats;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.4, duration: 0.8 }}
-      className="bottom-8 sm:bottom-12 md:bottom-20 px-4 sm:px-6 md:px-8 lg:px-12 flex justify-center z-10"
-    >
-      <div className="w-full max-w-6xl">
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-10">
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8"
+        >
           {displayStats.map((stat, index) => (
             <motion.div
               key={stat.label}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6 + index * 0.1 }}
-              className="bg-[#1F2937]/30 backdrop-blur-sm rounded-xl lg:rounded-2xl p-4 sm:p-5 md:p-6 lg:p-8 text-center border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
-              whileHover={{ y: -5, scale: 1.05 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              className="bg-slate-800/40 backdrop-blur-xl rounded-2xl p-4 sm:p-5 md:p-6 text-center border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 group shadow-xl hover:shadow-2xl hover:shadow-blue-500/30"
+              whileHover={{ y: -8, scale: 1.05, rotate: [0, -2, 2, 0] }}
             >
-              <div className={`${stat.color} mb-3 sm:mb-4 md:mb-5 flex justify-center text-[#fff]`}>
-                <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12" />
+              <div className={`${stat.color} mb-3 sm:mb-4 flex justify-center`}>
+                <stat.icon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 drop-shadow-lg" />
               </div>
               <motion.div 
-                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#fff] mb-2"
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ delay: 1.8 + index * 0.1, type: "spring", stiffness: 200 }}
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent mb-2 drop-shadow-lg"
+                initial={{ scale: 0.8, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.2, type: "spring", stiffness: 200 }}
               >
                 {stat.value}
               </motion.div>
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-400 leading-tight text-[#fff] font-medium">
+              <div className="text-xs sm:text-sm md:text-base text-slate-400 leading-tight font-semibold uppercase tracking-wide">
                 {stat.label}
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

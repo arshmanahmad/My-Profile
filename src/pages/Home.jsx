@@ -11,6 +11,7 @@ import { Contact } from "../components/Contact";
 import { Footer } from "../components/Footer";
 import { Background } from "../components/Background";
 import { LoadingSpinner } from "../components/LoadingSpinner";
+import { ClientReviews } from "../components/ClientReviews";
 export default function Portfolio() {
   const [activeSection, setActiveSection] = useState("home");
   const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +20,8 @@ export default function Portfolio() {
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
+    { name: "Reviews", href: "#reviews" },
+    { name: "Contact", href: "#contact" },
   ];
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -26,7 +29,7 @@ export default function Portfolio() {
     }, 1500);
     const handleScroll = () => {
       const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 150;
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -75,7 +78,7 @@ export default function Portfolio() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#000000] to-[#000529] overflow-x-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden relative">
       <Background />
 
       <Navigation
@@ -86,13 +89,16 @@ export default function Portfolio() {
 
       <Hero onViewWork={handleViewWork} onScrollDown={handleScrollDown} />
 
-      <Stats />
+      <div className="relative w-full -mt-32 sm:-mt-40 md:-mt-48 pb-8 sm:pb-12 md:pb-16">
+        <Stats />
+      </div>
 
       <Section
         id="about"
         title="About"
         gradient="Me"
         subtitle="A results-driven Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. I transform complex business challenges into scalable digital solutions that drive growth and optimize performance."
+        background
       >
         <About />
       </Section>
@@ -114,12 +120,22 @@ export default function Portfolio() {
       >
         <Projects />
       </Section>
+
+      <Section
+        id="reviews"
+        title="Client"
+        gradient="Reviews"
+        subtitle="Don't just take my word for it. Here's what clients say about working with me. Each review reflects real experiences and measurable results from successful projects."
+        background
+      >
+        <ClientReviews />
+      </Section>
+
       <Section
         id="contact"
         title="Let's Work"
         gradient="Together"
         subtitle="Ready to transform your business with innovative solutions? Let's discuss how my expertise in full-stack development, automation, and optimization can drive your success."
-        background
       >
         <Contact />
       </Section>

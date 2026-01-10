@@ -17,10 +17,10 @@ const LoadingSpinner = ({
   };
 
   const colorClasses = {
-    primary: "border-[#3B82F6]",
-    secondary: "border-[#10B981]",
+    primary: "border-blue-400",
+    secondary: "border-indigo-400",
     white: "border-white",
-    gray: "border-gray-400"
+    gray: "border-slate-400"
   };
 
   const spinner = (
@@ -36,7 +36,7 @@ const LoadingSpinner = ({
       />
       {text && (
         <motion.p
-          className="mt-2 text-sm text-[#D1D5DB]"
+          className="mt-2 text-sm text-white font-semibold drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
@@ -49,8 +49,10 @@ const LoadingSpinner = ({
 
   if (fullScreen) {
     return (
-      <div className="fixed inset-0 bg-[#000000]/80 backdrop-blur-sm flex items-center justify-center z-50">
-        {spinner}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 backdrop-blur-xl flex items-center justify-center z-50">
+        <div className="bg-slate-800/80 backdrop-blur-2xl rounded-3xl p-12 border border-slate-700/50 shadow-2xl">
+          {spinner}
+        </div>
       </div>
     );
   }

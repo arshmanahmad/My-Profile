@@ -7,14 +7,14 @@ const badgeVariants = cva(
     {
         variants: {
             variant: {
-                default: "bg-[#3B82F6]/20 text-[#3B82F6] border border-[#3B82F6]/30 hover:bg-[#3B82F6]/30",
-                secondary: "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 hover:bg-[#10B981]/30",
-                success: "bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/30 hover:bg-[#10B981]/30",
-                warning: "bg-[#F59E0B]/20 text-[#F59E0B] border border-[#F59E0B]/30 hover:bg-[#F59E0B]/30",
-                danger: "bg-[#EF4444]/20 text-[#EF4444] border border-[#EF4444]/30 hover:bg-[#EF4444]/30",
-                purple: "bg-[#8B5CF6]/20 text-[#8B5CF6] border border-[#8B5CF6]/30 hover:bg-[#8B5CF6]/30",
-                outline: "bg-transparent text-[#D1D5DB] border border-[#4B5563]/50 hover:bg-[#4B5563]/20",
-                tech: "bg-[#374151]/50 text-[#D1D5DB] border border-[#4B5563]/50 hover:bg-[#4B5563]/50",
+                default: "bg-slate-700/50 text-slate-200 border border-slate-600/50 hover:bg-slate-700/70 backdrop-blur-sm",
+                secondary: "bg-blue-600/20 text-blue-300 border border-blue-500/30 hover:bg-blue-600/30 backdrop-blur-sm",
+                success: "bg-emerald-600/20 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-600/30 backdrop-blur-sm",
+                warning: "bg-amber-600/20 text-amber-300 border border-amber-500/30 hover:bg-amber-600/30 backdrop-blur-sm",
+                danger: "bg-red-600/20 text-red-300 border border-red-500/30 hover:bg-red-600/30 backdrop-blur-sm",
+                purple: "bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-600/30 backdrop-blur-sm",
+                outline: "bg-transparent text-slate-300 border border-slate-600/50 hover:bg-slate-800/50 backdrop-blur-sm",
+                tech: "bg-slate-700/30 text-slate-200 border border-slate-600/50 hover:bg-slate-700/50 backdrop-blur-sm",
             },
             size: {
                 sm: "px-2 py-0.5 text-xs",

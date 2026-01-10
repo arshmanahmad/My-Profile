@@ -30,11 +30,11 @@ const Button = React.forwardRef(({
 
     // Variant styling logic
     const variantClasses = {
-        primary: "bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] text-white hover:from-[#2563EB] hover:to-[#7C3AED] focus:ring-[#3B82F6]/50 shadow-lg hover:shadow-xl",
-        secondary: "bg-gradient-to-r from-[#10B981] to-[#059669] text-white hover:from-[#059669] hover:to-[#047857] focus:ring-[#10B981]/50 shadow-lg hover:shadow-xl",
-        outline: "border-2 border-[#3B82F6] bg-transparent text-[#3B82F6] hover:bg-[#3B82F6] hover:text-white focus:ring-[#3B82F6]/50",
-        ghost: "bg-transparent text-[#3B82F6] hover:bg-[#3B82F6]/10 focus:ring-[#3B82F6]/50",
-        danger: "bg-gradient-to-r from-[#EF4444] to-[#DC2626] text-white hover:from-[#DC2626] hover:to-[#B91C1C] focus:ring-[#EF4444]/50 shadow-lg hover:shadow-xl"
+        primary: "bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-700 hover:to-indigo-700 focus:ring-blue-500/50 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50",
+        secondary: "bg-gradient-to-r from-indigo-600 to-sky-600 text-white hover:from-indigo-700 hover:to-sky-700 focus:ring-indigo-500/50 shadow-lg shadow-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/50",
+        outline: "border-2 border-blue-500 bg-transparent text-blue-400 hover:bg-blue-500/20 hover:text-blue-300 focus:ring-blue-500/50 shadow-md shadow-blue-500/10 hover:shadow-lg hover:shadow-blue-500/30",
+        ghost: "bg-transparent text-blue-400 hover:bg-blue-500/10 focus:ring-blue-500/50",
+        danger: "bg-gradient-to-r from-red-600 to-rose-600 text-white hover:from-red-700 hover:to-rose-700 focus:ring-red-500/50 shadow-lg shadow-red-500/30 hover:shadow-xl hover:shadow-red-500/50"
     };
 
     const buttonContent = (

@@ -144,46 +144,54 @@ const Skills = ({ skills = [] }) => {
   const displaySkills = skills.length > 0 ? skills : defaultSkills;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 xl:gap-10">
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-3 xs:gap-4 sm:gap-5 md:gap-6 w-full">
       {displaySkills.map((skill, index) => (
         <motion.div
           key={skill.name}
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: index * 0.1 }}
-          className="bg-[#1F2937]/30 backdrop-blur-sm rounded-lg sm:rounded-xl lg:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 xl:p-8 border border-[#374151]/50 hover:border-[#4B5563]/50 transition-all duration-300 group"
-          whileHover={{ scale: 1.05, y: -5 }}
+          className="bg-slate-800/40 backdrop-blur-xl rounded-xl xs:rounded-2xl p-3 xs:p-4 sm:p-5 md:p-6 border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 group shadow-xl hover:shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-2 min-w-0 overflow-hidden"
+          whileHover={{ scale: 1.03, y: -6, rotate: [0, -1, 1, 0] }}
         >
-          <div className="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <div
-                className={`text-[#FFFFFF] bg-gradient-to-r ${skill.color} p-1.5 sm:p-2 md:p-2.5 lg:p-3 rounded-lg shadow-lg`}
+          <div className="flex items-center justify-between mb-4 gap-2">
+            <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3 flex-1 min-w-0 overflow-hidden">
+              <motion.div
+                className={`bg-gradient-to-r ${skill.color} p-1.5 xs:p-2 sm:p-2.5 rounded-lg xs:rounded-xl shadow-lg flex-shrink-0 group-hover:scale-110 transition-transform`}
+                whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                transition={{ duration: 0.5 }}
               >
-                <skill.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-              </div>
-              <span className="text-[#FFFFFF] font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+                <skill.icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 text-white drop-shadow-md" />
+              </motion.div>
+              <span className="text-white font-bold text-xs xs:text-sm sm:text-base md:text-lg truncate tracking-tight drop-shadow-md min-w-0 overflow-hidden">
                 {skill.name}
               </span>
             </div>
-            <span
-              className={`font-bold text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl bg-gradient-to-r ${skill.color} bg-clip-text text-transparent`}
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 + 0.3 }}
+              className="font-bold text-sm xs:text-base sm:text-lg md:text-xl bg-gradient-to-r from-blue-400 via-indigo-400 to-sky-400 bg-clip-text text-transparent ml-1 xs:ml-2 flex-shrink-0 drop-shadow-lg whitespace-nowrap"
             >
               {skill.level}%
-            </span>
+            </motion.span>
           </div>
 
-          <div className="w-full bg-[#374151]/50 rounded-full h-2 sm:h-3 md:h-4 lg:h-5 overflow-hidden shadow-inner">
+          <div className="w-full bg-slate-700/50 rounded-full h-2 xs:h-2.5 sm:h-3 overflow-hidden shadow-inner backdrop-blur-sm">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: `${skill.level}%` }}
-              transition={{ duration: 1.5, delay: index * 0.1 }}
-              className={`bg-gradient-to-r ${skill.color} h-2 sm:h-3 md:h-4 lg:h-5 rounded-full shadow-lg relative`}
+              viewport={{ once: true }}
+              transition={{ duration: 1.5, delay: index * 0.1, ease: "easeOut" }}
+              className={`bg-gradient-to-r ${skill.color} h-2 xs:h-2.5 sm:h-3 rounded-full shadow-lg relative overflow-hidden`}
             >
               <motion.div
                 className="absolute inset-0 bg-white/30 rounded-full"
                 initial={{ x: "-100%" }}
                 whileInView={{ x: "100%" }}
-                transition={{ duration: 1.5, delay: index * 0.1 + 0.5 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, delay: index * 0.1 + 0.5, repeat: Infinity, repeatDelay: 2 }}
               />
             </motion.div>
           </div>

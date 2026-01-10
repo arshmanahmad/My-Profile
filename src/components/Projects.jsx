@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink, Star, Github, ArrowRight, Sparkles } from "lucide-react";
 import { Card, CardContent } from "./Card";
 import { Badge } from "./Badge";
 
@@ -8,232 +8,340 @@ const Projects = ({ projects = [] }) => {
   const defaultProjects = [
     {
       title: "HR Portal",
-      description: "Comprehensive HR Management system built with React, TypeScript, and Vite. Features full-fledged functionalities for modern HR operations including employee management, payroll, and analytics.",
+      description:
+        "Comprehensive HR Management system built with React, TypeScript, and Vite. Features full-fledged functionalities for modern HR operations including employee management, payroll, and analytics.",
       image: "/src/assets/projectsImages/hr7.png",
       url: "https://hr-portal-nu.vercel.app/",
-      tech: ["React", "TypeScript", "Vite", "Tailwind"],
-      gradient: "from-[#8B5CF6] to-[#EC4899]",
+      tech: ["React", "TypeScript", "Vite", "Tailwind CSS", "State Management"],
+      gradient: "from-violet-500 to-fuchsia-600",
+      featured: true,
+      category: "Full-Stack",
     },
     {
       title: "Swan Thai Restaurant",
-      description: "Modern restaurant website with elegant design, built using React, TypeScript, and Vite for optimal performance and user experience.",
+      description:
+        "Modern restaurant website with elegant design, built using React, TypeScript, and Vite for optimal performance and user experience.",
       image: "/src/assets/swanThai.png",
       url: "https://swan.eyada360.com/",
-      tech: ["React", "TypeScript", "Vite"],
-      gradient: "from-[#F97316] to-[#EF4444]",
+      tech: ["React", "TypeScript", "Vite", "Responsive Design"],
+      gradient: "from-amber-500 to-orange-600",
+      category: "Frontend",
     },
     {
       title: "AI Chat Application",
-      description: "Intelligent chat application for document processing and data extraction, featuring advanced AI capabilities and real-time responses.",
+      description:
+        "Intelligent chat application for document processing and data extraction, featuring advanced AI capabilities and real-time responses.",
       image: "/src/assets/AIChat.png",
       url: "https://ai-chat-app-delta.vercel.app/",
-      tech: ["React", "AI/ML", "Node.js"],
-      gradient: "from-[#10B981] to-[#14B8A6]",
+      tech: ["React", "AI/ML", "LangChain", "FastAPI", "Node.js"],
+      gradient: "from-emerald-500 to-teal-600",
+      category: "AI/ML",
     },
     {
       title: "Nurse AI Hub",
-      description: "Healthcare-focused AI platform providing text and audio responses for nursing and medical assistance with advanced healthcare analytics.",
+      description:
+        "Healthcare-focused AI platform providing text and audio responses for nursing and medical assistance with advanced healthcare analytics.",
       image: "/src/assets/nurseAIHub.png",
       url: "https://nurse-ai-hub.vercel.app/",
-      tech: ["React", "TypeScript", "AI/ML"],
-      gradient: "from-[#3B82F6] to-[#4F46E5]",
+      tech: ["React", "TypeScript", "AI/ML", "LangGraph", "Healthcare APIs"],
+      gradient: "from-indigo-500 to-blue-600",
+      category: "Healthcare AI",
     },
     {
       title: "Weather Application",
-      description: "Real-time weather tracking application with intuitive interface and accurate forecasting capabilities using modern APIs.",
+      description:
+        "Real-time weather tracking application with intuitive interface and accurate forecasting capabilities using modern APIs.",
       image: "/src/assets/weather app.png",
       url: "https://weather-new-app.vercel.app/",
-      tech: ["React", "API Integration", "JavaScript"],
-      gradient: "from-[#0EA5E9] to-[#3B82F6]",
+      tech: ["React", "API Integration", "JavaScript", "Data Visualization"],
+      gradient: "from-cyan-500 to-blue-600",
+      category: "API Integration",
     },
-    // {
-    //   title: "SmartLedger System",
-    //   description: "My flagship application - an advanced ledger management system with intelligent features for financial tracking, reporting, and business analytics. Built with cutting-edge technologies to provide real-time data processing and comprehensive financial insights for modern businesses.",
-    //   image: "/src/assets/eternal.png",
-    //   url: "https://smarledger.com",
-    //   tech: ["React", "Node.js", "MongoDB", "Analytics", "Payment Integration"],
-    //   featured: true,
-    //   gradient: "from-[#3B82F6] to-[#1D4ED8]",
-    // },
     {
       title: "Task Management System",
-      description: "Comprehensive task management solution for improved productivity and team collaboration with real-time updates.",
+      description:
+        "Comprehensive task management solution for improved productivity and team collaboration with real-time updates.",
       image: "/src/assets/task.png",
       url: "https://task-management-app-blue-omega.vercel.app/",
-      tech: ["React", "Node.js", "MongoDB"],
-      gradient: "from-[#8B5CF6] to-[#7C3AED]",
+      tech: ["React", "Node.js", "MongoDB", "Real-time Updates", "WebSockets"],
+      gradient: "from-purple-500 to-indigo-600",
+      category: "Full-Stack",
     },
   ];
 
   const displayProjects = projects.length > 0 ? projects : defaultProjects;
+  const featuredProjects = displayProjects.filter(
+    (project) => project.featured
+  );
+  const regularProjects = displayProjects.filter(
+    (project) => !project.featured
+  );
 
   const handleProjectClick = (url) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
-    <div className="space-y-6 sm:space-y-8 md:space-y-12 lg:space-y-16">
-      {/* Featured Project - Full Width */}
-      {displayProjects.filter(project => project.featured).map((project, index) => (
-        <motion.div
-          key={`featured-${project.title}`}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.1 }}
-          className="group cursor-pointer"
-          onClick={() => handleProjectClick(project.url)}
-          whileHover={{ y: -5 }}
-        >
-          <Card className="overflow-hidden transform hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#3B82F6]/20 border-2 border-transparent hover:border-[#3B82F6]/30 transition-all duration-500 bg-gradient-to-r from-[#1F2937]/40 to-[#111827]/40">
-            <div className="flex flex-col lg:grid lg:grid-cols-2 gap-0">
-              {/* Image Section */}
-              <div className="relative overflow-hidden order-1 lg:order-2">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-48 sm:h-56 md:h-64 lg:h-96 xl:h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/60 via-transparent to-transparent" />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
-                />
-                
-                {/* Overlay with project info */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileHover={{ scale: 1, opacity: 1 }}
-                    className="bg-[#000000]/80 backdrop-blur-sm rounded-lg p-4 sm:p-6 text-center"
-                  >
-                    <ExternalLink className="w-8 h-8 sm:w-10 sm:h-10 text-[#FFFFFF] mx-auto mb-2 sm:mb-3" />
-                    <p className="text-[#FFFFFF] font-medium text-sm sm:text-lg">View Featured Project</p>
-                  </motion.div>
-                </div>
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                  className="absolute top-2 sm:top-4 left-2 sm:left-4"
-                >
-                  <Badge className="bg-gradient-to-r from-[#F59E0B] to-[#F97316] text-[#FFFFFF] border-0 shadow-lg text-xs sm:text-sm font-bold px-2 sm:px-4 py-1 sm:py-2">
-                    <Star className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                    Featured Project
-                  </Badge>
-                </motion.div>
-              </div>
-
-              {/* Content Section */}
-              <CardContent className="p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center order-2 lg:order-1">
-                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#FFFFFF] mb-3 sm:mb-4 md:mb-6 group-hover:text-[#3B82F6] transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-[#D1D5DB] mb-4 sm:mb-6 md:mb-8 leading-relaxed text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6 md:mb-8">
-                  {project.tech.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="tech"
-                      size="sm"
-                      className="hover:bg-[#4B5563]/50 transition-colors text-xs sm:text-sm font-medium px-2 sm:px-3 md:px-4 py-1 sm:py-2"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-[#374151]/50">
-                  <span className="text-sm sm:text-base md:text-lg text-[#9CA3AF] font-medium">Click to view project</span>
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 45 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <ExternalLink className="w-5 h-5 sm:w-6 sm:h-6 text-[#3B82F6] group-hover:text-[#60A5FA] transition-colors" />
-                  </motion.div>
-                </div>
-              </CardContent>
+    <div className="w-full space-y-12 sm:space-y-16 md:space-y-20">
+      {/* Featured Projects Section */}
+      {featuredProjects.length > 0 && (
+        <div className="space-y-6 sm:space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
+          >
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                Featured Projects
+              </h3>
             </div>
-          </Card>
-        </motion.div>
-      ))}
+            <div className="flex-1 h-px bg-gradient-to-r from-blue-500/50 via-indigo-500/50 to-transparent"></div>
+          </motion.div>
+
+          <div className="space-y-6 sm:space-y-8">
+            {featuredProjects.map((project, index) => (
+              <motion.div
+                key={`featured-${project.title}`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="group relative"
+              >
+                <Card
+                  className="overflow-hidden border-2 border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 bg-slate-800/40 backdrop-blur-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer"
+                  onClick={() => handleProjectClick(project.url)}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-5 gap-0">
+                    {/* Image Section - Takes 2 columns on desktop */}
+                    <div className="lg:col-span-2 relative overflow-hidden bg-slate-900/50">
+                      <div className="aspect-video lg:aspect-auto lg:h-full">
+                        <img
+                          src={project.image || "/placeholder.svg"}
+                          alt={`${project.title} project screenshot`}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.target.src = "/placeholder.svg";
+                          }}
+                        />
+                      </div>
+                      {/* Gradient Overlay */}
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+                      ></div>
+
+                      {/* Featured Badge */}
+                      <div className="absolute top-3 left-3 z-10">
+                        <Badge className="bg-gradient-to-r from-amber-400 to-orange-500 text-white border-0 shadow-lg px-3 py-1.5 flex items-center gap-1.5 text-xs sm:text-sm font-bold">
+                          <Star className="w-3 h-3 sm:w-4 sm:h-4 fill-white" />
+                          Featured
+                        </Badge>
+                      </div>
+
+                      {/* Category Badge */}
+                      {project.category && (
+                        <div className="absolute top-3 right-3 z-10">
+                          <Badge className="bg-slate-800/80 backdrop-blur-sm text-white border border-slate-600/50 px-2.5 py-1 text-xs font-medium">
+                            {project.category}
+                          </Badge>
+                        </div>
+                      )}
+
+                      {/* View Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/70 backdrop-blur-sm">
+                        <motion.div
+                          initial={{ scale: 0.8 }}
+                          whileHover={{ scale: 1 }}
+                          className="flex flex-col items-center gap-2 text-white"
+                        >
+                          <div className="w-12 h-12 rounded-full bg-blue-500/20 backdrop-blur-md border-2 border-blue-400/50 flex items-center justify-center">
+                            <ExternalLink className="w-6 h-6 text-blue-400" />
+                          </div>
+                          <span className="text-sm font-semibold">
+                            View Project
+                          </span>
+                        </motion.div>
+                      </div>
+                    </div>
+
+                    {/* Content Section - Takes 3 columns on desktop */}
+                    <div className="lg:col-span-3 p-5 sm:p-6 md:p-8 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-indigo-400 group-hover:to-sky-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 leading-tight">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6 line-clamp-3 sm:line-clamp-none">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
+                          {project.tech.map((tech, techIndex) => (
+                            <Badge
+                              key={tech}
+                              variant="secondary"
+                              size="sm"
+                              className="text-xs sm:text-sm font-medium px-3 py-1 border-slate-600/50 bg-slate-700/40 backdrop-blur-sm text-slate-200 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all"
+                            >
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-slate-700/50">
+                        <span className="text-sm text-slate-400 font-medium">
+                          Click to explore
+                        </span>
+                        <motion.div
+                          whileHover={{ x: 5 }}
+                          transition={{ type: "spring", stiffness: 400 }}
+                          className="flex items-center gap-2 text-blue-400 group-hover:text-blue-300 transition-colors"
+                        >
+                          <span className="text-sm font-semibold hidden sm:inline">
+                            Visit Project
+                          </span>
+                          <ArrowRight className="w-5 h-5" />
+                        </motion.div>
+                      </div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Regular Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-12">
-        {displayProjects.filter(project => !project.featured).map((project, index) => (
+      {regularProjects.length > 0 && (
+        <div className="space-y-6 sm:space-y-8">
           <motion.div
-            key={project.title}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="group cursor-pointer"
-            onClick={() => handleProjectClick(project.url)}
-            whileHover={{ y: -8, scale: 1.02 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center gap-3 mb-6"
           >
-            <Card className="overflow-hidden h-full transform hover:scale-105 hover:shadow-2xl hover:shadow-[#3B82F6]/20 border-2 border-transparent hover:border-[#3B82F6]/30 transition-all duration-500">
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 object-cover group-hover:scale-110 transition-transform duration-700"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/90 via-[#000000]/30 to-transparent" />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-40 transition-opacity duration-500`}
-                />
-                
-                {/* Overlay with project info */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    whileHover={{ scale: 1, opacity: 1 }}
-                    className="bg-[#000000]/80 backdrop-blur-sm rounded-lg p-4 text-center"
-                  >
-                    <ExternalLink className="w-8 h-8 text-[#FFFFFF] mx-auto mb-2" />
-                    <p className="text-[#FFFFFF] font-medium">View Project</p>
-                  </motion.div>
-                </div>
-              </div>
-
-              <CardContent className="p-4 sm:p-5 md:p-6 lg:p-8">
-                <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#FFFFFF] mb-2 sm:mb-3 md:mb-4 group-hover:text-[#3B82F6] transition-colors">
-                  {project.title}
-                </h3>
-                <p className="text-[#D1D5DB] mb-3 sm:mb-4 md:mb-5 leading-relaxed text-xs sm:text-sm md:text-base lg:text-lg line-clamp-3">
-                  {project.description}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 mb-3 sm:mb-4 md:mb-5">
-                  {project.tech.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="tech"
-                      size="sm"
-                      className="hover:bg-[#4B5563]/50 transition-colors text-xs font-medium px-2 py-1"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between pt-2 sm:pt-3 border-t border-[#374151]/50">
-                  <span className="text-xs sm:text-sm text-[#9CA3AF] font-medium">View Project</span>
-                  <motion.div
-                    whileHover={{ scale: 1.2, rotate: 45 }}
-                    transition={{ type: "spring", stiffness: 400 }}
-                  >
-                    <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 text-[#3B82F6] group-hover:text-[#60A5FA] transition-colors" />
-                  </motion.div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="flex items-center gap-2">
+              <Github className="w-5 h-5 sm:w-6 sm:h-6 text-indigo-400" />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                All Projects
+              </h3>
+            </div>
+            <div className="flex-1 h-px bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-transparent"></div>
           </motion.div>
-        ))}
-      </div>
+
+          <div className="grid grid-cols-1 xs:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+            {regularProjects.map((project, index) => (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="group h-full"
+              >
+                <Card
+                  className="overflow-hidden h-full flex flex-col border-2 border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 bg-slate-800/40 backdrop-blur-xl hover:shadow-2xl hover:shadow-blue-500/20 cursor-pointer hover:-translate-y-1"
+                  onClick={() => handleProjectClick(project.url)}
+                >
+                  {/* Image Section */}
+                  <div className="relative overflow-hidden bg-slate-900/50">
+                    <div className="aspect-video w-full">
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={`${project.title} project screenshot`}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.src = "/placeholder.svg";
+                        }}
+                      />
+                    </div>
+
+                    {/* Gradient Overlay */}
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-25 transition-opacity duration-500`}
+                    ></div>
+
+                    {/* Category Badge */}
+                    {project.category && (
+                      <div className="absolute top-3 right-3 z-10">
+                        <Badge className="bg-slate-800/90 backdrop-blur-sm text-white border border-slate-600/50 px-2 py-1 text-[10px] xs:text-xs font-medium">
+                          {project.category}
+                        </Badge>
+                      </div>
+                    )}
+
+                    {/* View Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-900/80 backdrop-blur-sm">
+                      <motion.div
+                        initial={{ scale: 0.8 }}
+                        whileHover={{ scale: 1 }}
+                        className="w-10 h-10 rounded-full bg-blue-500/20 backdrop-blur-md border-2 border-blue-400/50 flex items-center justify-center"
+                      >
+                        <ExternalLink className="w-5 h-5 text-blue-400" />
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Content Section */}
+                  <CardContent className="p-4 sm:p-5 flex flex-col flex-grow">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 sm:mb-3 group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:via-indigo-400 group-hover:to-sky-400 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300 line-clamp-1">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-slate-300 text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-2 sm:line-clamp-3 flex-grow">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-1.5 xs:gap-2 mb-3 sm:mb-4">
+                      {project.tech.slice(0, 3).map((tech) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          size="sm"
+                          className="text-[10px] xs:text-xs font-medium px-2 py-0.5 border-slate-600/50 bg-slate-700/40 backdrop-blur-sm text-slate-200 hover:bg-blue-500/20 hover:border-blue-500/50 transition-all"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                      {project.tech.length > 3 && (
+                        <Badge
+                          variant="outline"
+                          size="sm"
+                          className="text-[10px] xs:text-xs font-medium px-2 py-0.5 border-slate-600/50 text-slate-400"
+                        >
+                          +{project.tech.length - 3}
+                        </Badge>
+                      )}
+                    </div>
+
+                    <div className="flex items-center justify-between pt-3 border-t border-slate-700/50 mt-auto">
+                      <span className="text-xs text-slate-400 font-medium">
+                        Explore
+                      </span>
+                      <motion.div
+                        whileHover={{ x: 3 }}
+                        transition={{ type: "spring", stiffness: 400 }}
+                        className="text-blue-400 group-hover:text-blue-300 transition-colors"
+                      >
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
