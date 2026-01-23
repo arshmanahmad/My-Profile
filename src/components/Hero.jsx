@@ -227,8 +227,8 @@ const Hero = ({
                     />
                   </div>
                 </div>
+                
               </motion.div>
-
               {/* Floating Icons */}
               {floatingIcons.map((item, index) => (
                 <motion.div
