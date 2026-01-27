@@ -11,12 +11,10 @@ import {
   ChevronDown,
 } from "lucide-react";
 import { Button } from "./Button";
-import { LoadingSpinner } from "./LoadingSpinner";
 
 const Hero = ({
   onViewWork = () => {},
   onScrollDown = () => {},
-  isLoading = false,
 }) => {
   const socialLinks = [
     {
@@ -68,20 +66,12 @@ const Hero = ({
     },
   ];
 
-  if (isLoading) {
-    return (
-      <section className="min-h-screen flex items-center justify-center">
-        <LoadingSpinner size="xl" text="Loading Portfolio..." />
-      </section>
-    );
-  }
-
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 pt-20 sm:pt-24 md:pt-28 pb-20 sm:pb-24 md:pb-32 relative w-full overflow-hidden"
+      className="min-h-screen flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 pt-20 sm:pt-24 md:pt-28 pb-0 relative w-full overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16">
           {/* Profile Content - Left side on desktop */}
           <motion.div
@@ -248,22 +238,25 @@ const Hero = ({
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 sm:bottom-12 left-1/2 transform -translate-x-1/2 cursor-pointer z-10"
-        onClick={onScrollDown}
-      >
+      {/* Scroll indicator – dedicated strip so it doesn't mix with Stats cards */}
+      <div className="flex-shrink-0 flex justify-center items-center pt-6 pb-8 sm:pb-10 md:pb-12 min-h-[5rem]">
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="p-3 rounded-full bg-slate-800/50 backdrop-blur-md border border-slate-700/50 shadow-xl hover:bg-slate-700/50 transition-all"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="cursor-pointer z-10"
+          onClick={onScrollDown}
+          aria-label="Scroll to next section"
         >
-          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-colors" />
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="p-3 rounded-full bg-slate-800/50 backdrop-blur-md border border-slate-700/50 shadow-xl hover:bg-slate-700/50 transition-all"
+          >
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 transition-colors" />
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };
