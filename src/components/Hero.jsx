@@ -226,7 +226,6 @@ const Hero = ({
                       className="w-full h-full rounded-full object-cover"
                     />
                   </div>
-                  
                 </div>
               </motion.div>
               {/* Floating Icons */}
