@@ -60,6 +60,7 @@ const CardFooter = React.forwardRef(({ className, ...props }, ref) => (
     ref={ref}
     className={cn("flex items-center p-4 sm:p-6 pt-0", className)}
     {...props}
+    
   />
 ));
 CardFooter.displayName = "CardFooter";
