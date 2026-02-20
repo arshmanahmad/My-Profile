@@ -9,7 +9,10 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Arshman Ahmad | Full-Stack Developer & Automation Expert",
+  title: {
+    default: "Arshman Ahmad | Full-Stack Developer & Automation Expert",
+    template: "%s | Arshman Ahmad",
+  },
   description:
     "Arshman Ahmad — Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. Available for freelance and full-time projects.",
   keywords: [
@@ -54,6 +57,13 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/apple-icon",
   },
 };
 
