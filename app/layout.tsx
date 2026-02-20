@@ -59,11 +59,7 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
     shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
   },
 };
 
@@ -80,6 +76,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="apple-touch-icon" href="/favicon.svg" />
+      </head>
       <body className="bg-navy-900 text-[#e0f2ff] font-sans antialiased">
         {children}
       </body>
