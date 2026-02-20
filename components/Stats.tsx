@@ -13,7 +13,7 @@ export default function Stats({ stats }: StatsProps) {
   return (
     <section
       className="relative z-10 border-y"
-      style={{ borderColor: "rgba(16,217,160,0.08)" }}
+      style={{ borderColor: "rgba(0,200,255,0.08)" }}
     >
       <div
         className="absolute inset-0"
@@ -30,7 +30,7 @@ export default function Stats({ stats }: StatsProps) {
                 >
                   {stat.value}
                 </div>
-                <div className="text-sm font-medium text-[#f0fdf4]/55 uppercase tracking-wider">
+                <div className="text-sm font-medium text-[#e0f2ff]/55 uppercase tracking-wider">
                   {stat.label}
                 </div>
               </div>

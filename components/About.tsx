@@ -20,11 +20,11 @@ export default function About({ cards }: AboutProps) {
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="section-badge mb-4 mx-auto w-fit">About Me</div>
-            <h2 className="section-heading text-[#f0fdf4] mb-5">
+            <h2 className="section-heading text-[#e0f2ff] mb-5">
               A Developer Who{" "}
               <span className="gradient-text">Delivers Results</span>
             </h2>
-            <p className="max-w-2xl mx-auto text-base md:text-lg text-[#f0fdf4]/60 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-base md:text-lg text-[#e0f2ff]/60 leading-relaxed">
               A results-driven Full-Stack Developer with 4+ years of expertise
               in MERN stack, Python automation, FastAPI, LangChain, LangGraph,
               and Shopify API integration. I don&apos;t just write code — I
@@ -44,18 +44,18 @@ export default function About({ cards }: AboutProps) {
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-105"
                     style={{
-                      background: "rgba(16,217,160,0.1)",
-                      border: "1px solid rgba(16,217,160,0.2)",
+                      background: "rgba(0,200,255,0.1)",
+                      border: "1px solid rgba(0,200,255,0.2)",
                     }}
                   >
-                    <Icon size={22} style={{ color: "#10d9a0" }} />
+                    <Icon size={22} style={{ color: "#00c8ff" }} />
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-bold text-[#f0fdf4] mb-3">
+                  <h3 className="text-lg font-bold text-[#e0f2ff] mb-3">
                     {card.title}
                   </h3>
-                  <p className="text-sm leading-relaxed text-[#f0fdf4]/58 mb-5 flex-1">
+                  <p className="text-sm leading-relaxed text-[#e0f2ff]/58 mb-5 flex-1">
                     {card.description}
                   </p>
 

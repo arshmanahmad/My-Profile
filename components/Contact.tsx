@@ -53,11 +53,11 @@ export default function Contact({ personalInfo }: ContactProps) {
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="section-badge mb-4 mx-auto w-fit">Contact</div>
-            <h2 className="section-heading text-[#f0fdf4] mb-5">
+            <h2 className="section-heading text-[#e0f2ff] mb-5">
               Ready to{" "}
               <span className="gradient-text">Transform Your Business?</span>
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#f0fdf4]/58 leading-relaxed">
+            <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
               Whether you need a full-stack web app, Python automation, AI
               integration, or payment gateway setup — I&apos;m here to make it
               happen. Let&apos;s talk.
@@ -74,25 +74,25 @@ export default function Contact({ personalInfo }: ContactProps) {
                   <div
                     className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{
-                      background: "rgba(16,217,160,0.1)",
-                      border: "1px solid rgba(16,217,160,0.2)",
+                      background: "rgba(0,200,255,0.1)",
+                      border: "1px solid rgba(0,200,255,0.2)",
                     }}
                   >
-                    <Icon size={18} style={{ color: "#10d9a0" }} />
+                    <Icon size={18} style={{ color: "#00c8ff" }} />
                   </div>
                   <div>
-                    <p className="text-xs text-[#f0fdf4]/45 uppercase tracking-wider font-medium">
+                    <p className="text-xs text-[#e0f2ff]/45 uppercase tracking-wider font-medium">
                       {label}
                     </p>
                     {href ? (
                       <a
                         href={href}
-                        className="text-sm font-semibold text-[#f0fdf4]/85 hover:text-[#10d9a0] transition-colors"
+                        className="text-sm font-semibold text-[#e0f2ff]/85 hover:text-[#00c8ff] transition-colors"
                       >
                         {value}
                       </a>
                     ) : (
-                      <p className="text-sm font-semibold text-[#f0fdf4]/85">
+                      <p className="text-sm font-semibold text-[#e0f2ff]/85">
                         {value}
                       </p>
                     )}
@@ -118,14 +118,14 @@ export default function Contact({ personalInfo }: ContactProps) {
                   <MessageCircle size={18} style={{ color: "#22c55e" }} />
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-[#f0fdf4]/45 uppercase tracking-wider font-medium">
+                  <p className="text-xs text-[#e0f2ff]/45 uppercase tracking-wider font-medium">
                     WhatsApp
                   </p>
-                  <p className="text-sm font-semibold text-[#f0fdf4]/85 group-hover:text-[#22c55e] transition-colors">
+                  <p className="text-sm font-semibold text-[#e0f2ff]/85 group-hover:text-[#22c55e] transition-colors">
                     {personalInfo.whatsapp}
                   </p>
                 </div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full text-[#020d0b] bg-[#22c55e]">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full text-[#050d1a] bg-[#22c55e]">
                   Chat Now
                 </span>
               </a>
@@ -136,10 +136,10 @@ export default function Contact({ personalInfo }: ContactProps) {
           <ScrollReveal delay={120}>
             <div className="glass-card p-7 h-full flex flex-col justify-between">
               <div>
-                <h3 className="text-lg font-bold text-[#f0fdf4] mb-2">
+                <h3 className="text-lg font-bold text-[#e0f2ff] mb-2">
                   Find Me Online
                 </h3>
-                <p className="text-sm text-[#f0fdf4]/50 mb-6 leading-relaxed">
+                <p className="text-sm text-[#e0f2ff]/50 mb-6 leading-relaxed">
                   Connect on professional networks.
                 </p>
 
@@ -150,7 +150,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                       icon: Github,
                       label: "GitHub",
                       sub: "@arshmanahmad",
-                      color: "#f0fdf4",
+                      color: "#e0f2ff",
                     },
                     {
                       href: personalInfo.linkedin,
@@ -170,14 +170,14 @@ export default function Contact({ personalInfo }: ContactProps) {
                     >
                       <Icon size={20} style={{ color }} />
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-[#f0fdf4]/85">
+                        <p className="text-sm font-semibold text-[#e0f2ff]/85">
                           {label}
                         </p>
-                        <p className="text-xs text-[#f0fdf4]/40">{sub}</p>
+                        <p className="text-xs text-[#e0f2ff]/40">{sub}</p>
                       </div>
                       <ExternalLink
                         size={13}
-                        className="text-[#f0fdf4]/25 group-hover:text-[#10d9a0] transition-colors"
+                        className="text-[#e0f2ff]/25 group-hover:text-[#00c8ff] transition-colors"
                       />
                     </a>
                   ))}
@@ -187,21 +187,21 @@ export default function Contact({ personalInfo }: ContactProps) {
               {/* Availability badge */}
               <div
                 className="mt-6 p-4 rounded-xl"
-                style={{ background: "rgba(16,217,160,0.07)", border: "1px solid rgba(16,217,160,0.18)" }}
+                style={{ background: "rgba(0,200,255,0.07)", border: "1px solid rgba(0,200,255,0.18)" }}
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span
                     className="w-2 h-2 rounded-full"
                     style={{
-                      background: "#10d9a0",
-                      boxShadow: "0 0 6px rgba(16,217,160,0.8)",
+                      background: "#00c8ff",
+                      boxShadow: "0 0 6px rgba(0,200,255,0.8)",
                     }}
                   />
-                  <span className="text-sm font-semibold" style={{ color: "#10d9a0" }}>
+                  <span className="text-sm font-semibold" style={{ color: "#00c8ff" }}>
                     Open to Projects
                   </span>
                 </div>
-                <ul className="space-y-1 text-xs text-[#f0fdf4]/55">
+                <ul className="space-y-1 text-xs text-[#e0f2ff]/55">
                   <li>✓ Available for freelance &amp; full-time</li>
                   <li>✓ Automation &amp; AI specialist</li>
                   <li>✓ Payment gateway expert</li>

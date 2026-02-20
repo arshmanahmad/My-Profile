@@ -54,7 +54,7 @@ export default function Background() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(160deg, #010806 0%, #020d0b 25%, #031510 55%, #041a14 80%, #020d0b 100%)",
+            "linear-gradient(160deg, #010806 0%, #050d1a 25%, #031510 55%, #080e24 80%, #050d1a 100%)",
         }}
       />
 
@@ -88,7 +88,7 @@ export default function Background() {
           width: "600px",
           height: "500px",
           borderRadius: "50%",
-          background: "rgba(16, 217, 160, 0.04)",
+          background: "rgba(0, 200, 255, 0.04)",
           filter: "blur(100px)",
         }}
       />
@@ -100,7 +100,7 @@ export default function Background() {
           width: "500px",
           height: "400px",
           borderRadius: "50%",
-          background: "rgba(245, 158, 11, 0.03)",
+          background: "rgba(124, 58, 237, 0.03)",
           filter: "blur(90px)",
         }}
       />
@@ -112,7 +112,7 @@ export default function Background() {
           width: "350px",
           height: "350px",
           borderRadius: "50%",
-          background: "rgba(16, 217, 160, 0.025)",
+          background: "rgba(0, 200, 255, 0.025)",
           filter: "blur(80px)",
         }}
       />
@@ -127,7 +127,7 @@ export default function Background() {
             bottom: `-5%`,
             width: `${p.size}px`,
             height: `${p.size}px`,
-            background: `rgba(16, 217, 160, ${p.opacity})`,
+            background: `rgba(0, 200, 255, ${p.opacity})`,
             animation: `particleRise ${p.speed}s linear ${p.delay}s infinite`,
             "--drift-x": `${p.drift}px`,
           } as React.CSSProperties}

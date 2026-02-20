@@ -110,10 +110,10 @@ export default function ClientReviews() {
         {/* Heading */}
         <div className="text-center mb-16">
           <div className="section-badge mb-4 mx-auto w-fit">Client Reviews</div>
-          <h2 className="section-heading text-[#f0fdf4] mb-5">
+          <h2 className="section-heading text-[#e0f2ff] mb-5">
             Trusted by <span className="gradient-text">Clients Worldwide</span>
           </h2>
-          <p className="max-w-xl mx-auto text-base text-[#f0fdf4]/58 leading-relaxed">
+          <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
             Real feedback from real clients — across platforms, time zones, and industries.
           </p>
         </div>
@@ -127,14 +127,14 @@ export default function ClientReviews() {
             {/* Rating card */}
             <div className="glass-card p-8">
               <div className="flex items-end gap-3 mb-1">
-                <span className="text-5xl font-extrabold text-[#f0fdf4] leading-none">5.0</span>
+                <span className="text-5xl font-extrabold text-[#e0f2ff] leading-none">5.0</span>
                 <div className="pb-1">
                   <div className="flex items-center gap-0.5 mb-1">
                     {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={18} style={{ color: "#f59e0b", fill: "#f59e0b" }} />
+                      <Star key={i} size={18} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
                     ))}
                   </div>
-                  <p className="text-xs text-[#f0fdf4]/45">Based on 50+ reviews</p>
+                  <p className="text-xs text-[#e0f2ff]/45">Based on 50+ reviews</p>
                 </div>
               </div>
 
@@ -146,15 +146,15 @@ export default function ClientReviews() {
                   { stars: 3, pct: 2 },
                 ].map(({ stars, pct }) => (
                   <div key={stars} className="flex items-center gap-3">
-                    <span className="text-xs text-[#f0fdf4]/40 w-4">{stars}</span>
-                    <Star size={9} style={{ color: "#f59e0b", fill: "#f59e0b" }} />
-                    <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(16,217,160,0.1)" }}>
+                    <span className="text-xs text-[#e0f2ff]/40 w-4">{stars}</span>
+                    <Star size={9} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
+                    <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(0,200,255,0.1)" }}>
                       <div
                         className="h-full rounded-full"
-                        style={{ width: `${pct}%`, background: "linear-gradient(90deg,#10d9a0,#4de9b7)" }}
+                        style={{ width: `${pct}%`, background: "linear-gradient(90deg,#00c8ff,#66d9ff)" }}
                       />
                     </div>
-                    <span className="text-xs text-[#f0fdf4]/35 w-7 text-right">{pct}%</span>
+                    <span className="text-xs text-[#e0f2ff]/35 w-7 text-right">{pct}%</span>
                   </div>
                 ))}
               </div>
@@ -169,10 +169,10 @@ export default function ClientReviews() {
                   <div
                     key={label}
                     className="text-center py-3 rounded-xl"
-                    style={{ background: "rgba(16,217,160,0.05)", border: "1px solid rgba(16,217,160,0.1)" }}
+                    style={{ background: "rgba(0,200,255,0.05)", border: "1px solid rgba(0,200,255,0.1)" }}
                   >
                     <div className="text-lg font-extrabold gradient-text">{value}</div>
-                    <div className="text-[10px] text-[#f0fdf4]/40 mt-0.5">{label}</div>
+                    <div className="text-[10px] text-[#e0f2ff]/40 mt-0.5">{label}</div>
                   </div>
                 ))}
               </div>
@@ -180,7 +180,7 @@ export default function ClientReviews() {
 
             {/* Platforms card */}
             <div className="glass-card p-5">
-              <p className="text-[10px] text-[#f0fdf4]/35 uppercase tracking-widest mb-4 font-semibold">
+              <p className="text-[10px] text-[#e0f2ff]/35 uppercase tracking-widest mb-4 font-semibold">
                 Reviewed On
               </p>
               <div className="flex items-center gap-6">
@@ -194,7 +194,7 @@ export default function ClientReviews() {
                       >
                         <Icon size={13} style={{ color: logoColor }} />
                       </div>
-                      <span className="text-sm text-[#f0fdf4]/65">{label}</span>
+                      <span className="text-sm text-[#e0f2ff]/65">{label}</span>
                     </div>
                   );
                 })}
@@ -214,7 +214,7 @@ export default function ClientReviews() {
                   style={review.pos}
                 >
                   {/* Platform header */}
-                  <div className="flex items-center justify-between mb-3 pb-3" style={{ borderBottom: "1px solid rgba(16,217,160,0.1)" }}>
+                  <div className="flex items-center justify-between mb-3 pb-3" style={{ borderBottom: "1px solid rgba(0,200,255,0.1)" }}>
                     <div className="flex items-center gap-2.5">
                       <div
                         className={`w-9 h-9 flex items-center justify-center flex-shrink-0 ${logoRadius}`}
@@ -226,28 +226,28 @@ export default function ClientReviews() {
                         <div className="text-[13px] font-bold leading-none" style={{ color }}>
                           {label}
                         </div>
-                        <div className="text-[9px] text-[#f0fdf4]/35 mt-0.5">Verified Review</div>
+                        <div className="text-[9px] text-[#e0f2ff]/35 mt-0.5">Verified Review</div>
                       </div>
                     </div>
-                    <Quote size={13} style={{ color: "#10d9a0", opacity: 0.35 }} />
+                    <Quote size={13} style={{ color: "#00c8ff", opacity: 0.35 }} />
                   </div>
 
                   {/* Text */}
-                  <p className="text-xs text-[#f0fdf4]/68 leading-relaxed mb-3 line-clamp-3">
+                  <p className="text-xs text-[#e0f2ff]/68 leading-relaxed mb-3 line-clamp-3">
                     &quot;{review.text}&quot;
                   </p>
 
                   {/* Stars */}
                   <div className="flex items-center gap-0.5 mb-3">
                     {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} size={10} style={{ color: "#f59e0b", fill: "#f59e0b" }} />
+                      <Star key={i} size={10} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
                     ))}
                   </div>
 
                   {/* Author row */}
-                  <div className="mt-3 pt-2.5" style={{ borderTop: "1px solid rgba(16,217,160,0.08)" }}>
-                    <div className="text-[11px] font-semibold text-[#f0fdf4]/80 leading-none">{review.name}</div>
-                    <div className="text-[9px] text-[#f0fdf4]/38 mt-0.5">{review.role}</div>
+                  <div className="mt-3 pt-2.5" style={{ borderTop: "1px solid rgba(0,200,255,0.08)" }}>
+                    <div className="text-[11px] font-semibold text-[#e0f2ff]/80 leading-none">{review.name}</div>
+                    <div className="text-[9px] text-[#e0f2ff]/38 mt-0.5">{review.role}</div>
                   </div>
                 </div>
               );

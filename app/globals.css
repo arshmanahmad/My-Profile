@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  background-color: #020d0b;
-  color: #f0fdf4;
+  background-color: #050d1a;
+  color: #e0f2ff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -26,32 +26,32 @@ body {
   width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #020d0b;
+  background: #050d1a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #10d9a0;
+  background: #00c8ff;
   border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0bb885;
+  background: #009acc;
 }
 
 /* ─── Text selection ─── */
 ::selection {
-  background-color: rgba(16, 217, 160, 0.3);
-  color: #f0fdf4;
+  background-color: rgba(0, 200, 255, 0.25);
+  color: #e0f2ff;
 }
 
 /* ─── Gradient text ─── */
 .gradient-text {
-  background: linear-gradient(135deg, #10d9a0 0%, #4de9b7 100%);
+  background: linear-gradient(135deg, #00c8ff 0%, #66d9ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-amber {
-  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,17 +59,17 @@ body {
 
 /* ─── Glass card ─── */
 .glass-card {
-  background: rgba(6, 24, 20, 0.78);
+  background: rgba(8, 14, 36, 0.78);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(16, 217, 160, 0.14);
+  border: 1px solid rgba(0, 200, 255, 0.14);
   border-radius: 16px;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
-  border-color: rgba(16, 217, 160, 0.32);
-  box-shadow: 0 4px 40px rgba(16, 217, 160, 0.08);
+  border-color: rgba(0, 200, 255, 0.32);
+  box-shadow: 0 4px 40px rgba(0, 200, 255, 0.08);
 }
 
 /* ─── Section badge ─── */
@@ -78,12 +78,12 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.375rem 1rem;
-  background: rgba(16, 217, 160, 0.1);
-  border: 1px solid rgba(16, 217, 160, 0.25);
+  background: rgba(0, 200, 255, 0.1);
+  border: 1px solid rgba(0, 200, 255, 0.25);
   border-radius: 100px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: #10d9a0;
+  color: #00c8ff;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -94,8 +94,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.875rem 2rem;
-  background: linear-gradient(135deg, #10d9a0, #0bb885);
-  color: #020d0b;
+  background: linear-gradient(135deg, #00c8ff, #009acc);
+  color: #050d1a;
   font-weight: 700;
   font-size: 0.9375rem;
   border-radius: 12px;
@@ -106,7 +106,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 36px rgba(16, 217, 160, 0.4);
+  box-shadow: 0 10px 36px rgba(0, 200, 255, 0.4);
 }
 
 .btn-primary:active {
@@ -119,10 +119,10 @@ body {
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   background: transparent;
-  color: #10d9a0;
+  color: #00c8ff;
   font-weight: 600;
   font-size: 0.9375rem;
-  border: 2px solid rgba(16, 217, 160, 0.35);
+  border: 2px solid rgba(0, 200, 255, 0.35);
   border-radius: 12px;
   text-decoration: none;
   transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
@@ -130,8 +130,8 @@ body {
 }
 
 .btn-outline:hover {
-  background: rgba(16, 217, 160, 0.1);
-  border-color: #10d9a0;
+  background: rgba(0, 200, 255, 0.1);
+  border-color: #00c8ff;
   transform: translateY(-3px);
 }
 
@@ -140,12 +140,12 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  background: rgba(16, 217, 160, 0.08);
-  border: 1px solid rgba(16, 217, 160, 0.2);
+  background: rgba(0, 200, 255, 0.08);
+  border: 1px solid rgba(0, 200, 255, 0.2);
   border-radius: 100px;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #4de9b7;
+  color: #66d9ff;
 }
 
 /* ─── Section layout ─── */
@@ -178,9 +178,9 @@ body {
   background: linear-gradient(
     to bottom,
     transparent 0%,
-    rgba(16, 217, 160, 0.04) 20%,
-    rgba(16, 217, 160, 0.07) 50%,
-    rgba(16, 217, 160, 0.04) 80%,
+    rgba(0, 200, 255, 0.04) 20%,
+    rgba(0, 200, 255, 0.07) 50%,
+    rgba(0, 200, 255, 0.04) 80%,
     transparent 100%
   );
   filter: blur(50px);
@@ -267,10 +267,10 @@ body {
 
 /* ─── Social link hover (CSS-only, no JS handlers needed) ─── */
 .social-link {
-  background: rgba(16, 217, 160, 0.04);
+  background: rgba(0, 200, 255, 0.04);
 }
 .social-link:hover {
-  background: rgba(16, 217, 160, 0.09);
+  background: rgba(0, 200, 255, 0.09);
 }
 
 /* ─── Particle rise keyframe ─── */
@@ -289,8 +289,8 @@ body {
 
 /* ─── Glow pulse for status dot ─── */
 @keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 4px rgba(16, 217, 160, 0.6); }
-  50% { box-shadow: 0 0 12px rgba(16, 217, 160, 0.9); }
+  0%, 100% { box-shadow: 0 0 4px rgba(0, 200, 255, 0.6); }
+  50% { box-shadow: 0 0 12px rgba(0, 200, 255, 0.9); }
 }
 
 /* ─── Reduce motion ─── */

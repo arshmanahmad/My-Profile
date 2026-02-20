@@ -21,10 +21,10 @@ export default function Skills({ skills }: SkillsProps) {
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="section-badge mb-4 mx-auto w-fit">Skills</div>
-            <h2 className="section-heading text-[#f0fdf4] mb-5">
+            <h2 className="section-heading text-[#e0f2ff] mb-5">
               My <span className="gradient-text">Technical Arsenal</span>
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#f0fdf4]/58 leading-relaxed">
+            <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
               A versatile stack built over 4+ years of real-world project
               delivery — from full-stack web apps to AI-driven automation
               pipelines.

@@ -11,10 +11,10 @@ const CATEGORY_LABELS: Record<Skill["category"], string> = {
 };
 
 const CATEGORY_COLORS: Record<Skill["category"], string> = {
-  frontend: "#10d9a0",
-  backend: "#4de9b7",
-  ai: "#f59e0b",
-  devops: "#fbbf24",
+  frontend: "#00c8ff",
+  backend: "#66d9ff",
+  ai: "#7c3aed",
+  devops: "#a78bfa",
 };
 
 interface SkillBarsProps {
@@ -72,7 +72,7 @@ export default function SkillBars({ skills }: SkillBarsProps) {
               .map((skill) => (
                 <div key={skill.name}>
                   <div className="flex justify-between items-center mb-1.5">
-                    <span className="text-sm font-medium text-[#f0fdf4]/85">
+                    <span className="text-sm font-medium text-[#e0f2ff]/85">
                       {skill.name}
                     </span>
                     <span
@@ -86,7 +86,7 @@ export default function SkillBars({ skills }: SkillBarsProps) {
                     className="w-full rounded-full"
                     style={{
                       height: "6px",
-                      background: "rgba(16,217,160,0.1)",
+                      background: "rgba(0,200,255,0.1)",
                     }}
                   >
                     <div

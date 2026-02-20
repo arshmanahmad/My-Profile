@@ -19,7 +19,7 @@ export default function Hero({ personalInfo }: HeroProps) {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(16,217,160,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,200,255,0.06) 0%, transparent 70%)",
         }}
       />
 
@@ -32,8 +32,8 @@ export default function Hero({ personalInfo }: HeroProps) {
               <span
                 className="w-2 h-2 rounded-full inline-block"
                 style={{
-                  background: "#10d9a0",
-                  boxShadow: "0 0 6px rgba(16,217,160,0.8)",
+                  background: "#00c8ff",
+                  boxShadow: "0 0 6px rgba(0,200,255,0.8)",
                 }}
               />
               Hello, I&apos;m Arshman
@@ -42,21 +42,21 @@ export default function Hero({ personalInfo }: HeroProps) {
             {/* Name + title */}
             <div>
               <h1 className="section-heading mb-2">
-                <span className="text-[#f0fdf4]">Arshman </span>
+                <span className="text-[#e0f2ff]">Arshman </span>
                 <span className="gradient-text">Ahmad</span>
               </h1>
               <p
                 className="text-lg md:text-xl font-semibold"
-                style={{ color: "#f59e0b" }}
+                style={{ color: "#7c3aed" }}
               >
                 Full-Stack Developer &amp; Automation Expert
               </p>
             </div>
 
             {/* Description */}
-            <p className="text-base md:text-lg leading-relaxed text-[#f0fdf4]/65 max-w-lg">
+            <p className="text-base md:text-lg leading-relaxed text-[#e0f2ff]/65 max-w-lg">
               Transforming businesses with{" "}
-              <span className="text-[#f0fdf4]/90 font-medium">4+ years</span> of
+              <span className="text-[#e0f2ff]/90 font-medium">4+ years</span> of
               expertise in MERN stack, Python automation, and payment
               integrations. I build fast, scalable solutions that drive real
               results.
@@ -76,7 +76,7 @@ export default function Hero({ personalInfo }: HeroProps) {
 
             {/* Social links */}
             <div className="flex items-center gap-4 pt-2">
-              <span className="text-xs text-[#f0fdf4]/40 uppercase tracking-widest font-medium">
+              <span className="text-xs text-[#e0f2ff]/40 uppercase tracking-widest font-medium">
                 Connect
               </span>
               <div className="flex gap-3">
@@ -85,25 +85,25 @@ export default function Hero({ personalInfo }: HeroProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#10d9a0]/50"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
                 >
-                  <Github size={16} className="text-[#f0fdf4]/70" />
+                  <Github size={16} className="text-[#e0f2ff]/70" />
                 </a>
                 <a
                   href={personalInfo.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#10d9a0]/50"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
                 >
-                  <Linkedin size={16} className="text-[#f0fdf4]/70" />
+                  <Linkedin size={16} className="text-[#e0f2ff]/70" />
                 </a>
                 <a
                   href={`mailto:${personalInfo.email}`}
                   aria-label="Email"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#10d9a0]/50"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
                 >
-                  <Mail size={16} className="text-[#f0fdf4]/70" />
+                  <Mail size={16} className="text-[#e0f2ff]/70" />
                 </a>
               </div>
             </div>
@@ -116,9 +116,9 @@ export default function Hero({ personalInfo }: HeroProps) {
               <div
                 className="relative w-52 h-52 rounded-full overflow-hidden"
                 style={{
-                  border: "2px solid rgba(16,217,160,0.3)",
+                  border: "2px solid rgba(0,200,255,0.3)",
                   boxShadow:
-                    "0 0 0 8px rgba(16,217,160,0.06), 0 0 60px rgba(16,217,160,0.15)",
+                    "0 0 0 8px rgba(0,200,255,0.06), 0 0 60px rgba(0,200,255,0.15)",
                 }}
               >
                 <Image
@@ -141,9 +141,9 @@ export default function Hero({ personalInfo }: HeroProps) {
             <div
               className="relative w-44 h-44 rounded-full overflow-hidden"
               style={{
-                border: "2px solid rgba(16,217,160,0.3)",
+                border: "2px solid rgba(0,200,255,0.3)",
                 boxShadow:
-                  "0 0 0 6px rgba(16,217,160,0.06), 0 0 40px rgba(16,217,160,0.12)",
+                  "0 0 0 6px rgba(0,200,255,0.06), 0 0 40px rgba(0,200,255,0.12)",
               }}
             >
               <Image
@@ -161,14 +161,14 @@ export default function Hero({ personalInfo }: HeroProps) {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-40">
-        <span className="text-[10px] uppercase tracking-widest text-[#10d9a0]">
+        <span className="text-[10px] uppercase tracking-widest text-[#00c8ff]">
           Scroll
         </span>
         <div
           className="w-px h-8"
           style={{
             background:
-              "linear-gradient(to bottom, #10d9a0, transparent)",
+              "linear-gradient(to bottom, #00c8ff, transparent)",
           }}
         />
       </div>

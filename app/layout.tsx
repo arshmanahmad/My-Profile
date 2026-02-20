@@ -63,12 +63,12 @@ export const metadata: Metadata = {
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
     shortcut: "/favicon.svg",
-    apple: "/apple-icon",
+    apple: "/favicon.svg",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#020d0b",
+  themeColor: "#050d1a",
   width: "device-width",
   initialScale: 1,
 };
@@ -80,7 +80,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-ocean-900 text-[#f0fdf4] font-sans antialiased">
+      <body className="bg-navy-900 text-[#e0f2ff] font-sans antialiased">
         {children}
       </body>
     </html>

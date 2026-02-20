@@ -48,7 +48,7 @@ export default function Navigation() {
               background: "rgba(2, 13, 11, 0.88)",
               backdropFilter: "blur(16px)",
               WebkitBackdropFilter: "blur(16px)",
-              borderBottom: "1px solid rgba(16, 217, 160, 0.1)",
+              borderBottom: "1px solid rgba(0, 200, 255, 0.1)",
             }
           : {}
       }
@@ -61,7 +61,7 @@ export default function Navigation() {
           onClick={handleLinkClick}
         >
           <span className="gradient-text">Arshman</span>
-          <span className="text-[#f0fdf4]/80"> Ahmad</span>
+          <span className="text-[#e0f2ff]/80"> Ahmad</span>
         </a>
 
         {/* Desktop nav */}
@@ -74,14 +74,14 @@ export default function Navigation() {
                 href={link.href}
                 className="relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200"
                 style={{
-                  color: isActive ? "#10d9a0" : "rgba(240,253,244,0.7)",
+                  color: isActive ? "#00c8ff" : "rgba(240,253,244,0.7)",
                 }}
               >
                 {link.label}
                 {isActive && (
                   <span
                     className="absolute inset-x-2 bottom-1 h-0.5 rounded-full"
-                    style={{ background: "#10d9a0" }}
+                    style={{ background: "#00c8ff" }}
                   />
                 )}
               </a>
@@ -97,7 +97,7 @@ export default function Navigation() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-2 rounded-lg text-[#10d9a0]"
+          className="md:hidden p-2 rounded-lg text-[#00c8ff]"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -112,7 +112,7 @@ export default function Navigation() {
           style={{
             background: "rgba(2, 13, 11, 0.97)",
             backdropFilter: "blur(20px)",
-            borderBottom: "1px solid rgba(16, 217, 160, 0.12)",
+            borderBottom: "1px solid rgba(0, 200, 255, 0.12)",
           }}
         >
           <nav className="flex flex-col px-6 py-4 gap-1" aria-label="Mobile navigation">
@@ -125,9 +125,9 @@ export default function Navigation() {
                   onClick={handleLinkClick}
                   className="py-3 px-4 rounded-lg text-sm font-medium transition-colors duration-200"
                   style={{
-                    color: isActive ? "#10d9a0" : "rgba(240,253,244,0.75)",
+                    color: isActive ? "#00c8ff" : "rgba(240,253,244,0.75)",
                     background: isActive
-                      ? "rgba(16, 217, 160, 0.08)"
+                      ? "rgba(0, 200, 255, 0.08)"
                       : "transparent",
                   }}
                 >
