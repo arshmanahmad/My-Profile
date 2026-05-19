@@ -1,174 +1,163 @@
-import Image from "next/image";
-import { Github, Linkedin, Mail, ArrowRight, ExternalLink } from "lucide-react";
-import FloatingCards from "./FloatingCards";
+import { ArrowRight, ExternalLink, Code2, Cpu, Zap, CreditCard } from "lucide-react";
 import { personalInfo as PersonalInfo } from "@/lib/data";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiPython,
+  SiDocker,
+  SiMongodb,
+} from "react-icons/si";
 
 interface HeroProps {
   personalInfo: typeof PersonalInfo;
 }
 
+const techIcons = [
+  { icon: SiReact, label: "React", color: "#61dafb" },
+  { icon: SiNextdotjs, label: "Next.js", color: "#0f172a" },
+  { icon: SiNodedotjs, label: "Node.js", color: "#16a34a" },
+  { icon: SiPython, label: "Python", color: "#4f46e5" },
+  { icon: SiDocker, label: "Docker", color: "#0ea5e9" },
+  { icon: SiMongodb, label: "MongoDB", color: "#22c55e" },
+];
+
+const services = [
+  { icon: Code2, label: "Full-Stack Development" },
+  { icon: Cpu, label: "AI & Automation" },
+  { icon: Zap, label: "Performance Optimization" },
+  { icon: CreditCard, label: "Payment Integrations" },
+];
+
 export default function Hero({ personalInfo }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center"
-      style={{ paddingTop: "80px" }}
+      className="relative min-h-screen flex flex-col items-center justify-center text-center"
+      style={{ paddingTop: "80px", paddingBottom: "80px" }}
     >
-      {/* Hero glow backdrop */}
+      {/* Top gradient glow */}
       <div
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2"
+        aria-hidden="true"
         style={{
+          width: "1000px",
+          height: "600px",
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0,200,255,0.06) 0%, transparent 70%)",
+            "radial-gradient(ellipse at top, rgba(79,70,229,0.07) 0%, transparent 65%)",
         }}
       />
 
-      <div className="section-container relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-6 items-center">
-          {/* ── LEFT: Text content ── */}
-          <div className="flex flex-col gap-6">
-            {/* Greeting badge */}
-            <div className="section-badge w-fit">
-              <span
-                className="w-2 h-2 rounded-full inline-block"
-                style={{
-                  background: "#00c8ff",
-                  boxShadow: "0 0 6px rgba(0,200,255,0.8)",
-                }}
-              />
-              Hello, I&apos;m Arshman
-            </div>
+      <div className="section-container relative z-10 w-full flex flex-col items-center">
+        {/* Agency badge */}
+        <div className="section-badge mb-8">
+          <span
+            className="w-2 h-2 rounded-full inline-block"
+            style={{
+              background: "#4f46e5",
+              animation: "statusPulse 2s ease-in-out infinite",
+            }}
+          />
+          Premium Web Development · Now Accepting Projects
+        </div>
 
-            {/* Name + title */}
-            <div>
-              <h1 className="section-heading mb-2">
-                <span className="text-[#e0f2ff]">Arshman </span>
-                <span className="gradient-text">Ahmad</span>
-              </h1>
-              <p
-                className="text-lg md:text-xl font-semibold"
-                style={{ color: "#7c3aed" }}
-              >
-                Full-Stack Developer &amp; Automation Expert
-              </p>
-            </div>
+        {/* Main heading */}
+        <h1
+          className="font-extrabold text-slate-900 max-w-4xl mb-5 leading-tight tracking-tight"
+          style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
+        >
+          We Build Digital Products
+          <br />
+          <span
+            style={{
+              background:
+                "linear-gradient(135deg, #4f46e5 0%, #818cf8 55%, #06b6d4 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            That Drive Real Results
+          </span>
+        </h1>
 
-            {/* Description */}
-            <p className="text-base md:text-lg leading-relaxed text-[#e0f2ff]/65 max-w-lg">
-              Transforming businesses with{" "}
-              <span className="text-[#e0f2ff]/90 font-medium">4+ years</span> of
-              expertise in MERN stack, Python automation, and payment
-              integrations. I build fast, scalable solutions that drive real
-              results.
-            </p>
+        {/* Sub-copy */}
+        <p className="text-base md:text-lg leading-relaxed text-slate-400 max-w-2xl mb-10">
+          Nexluma delivers fast, scalable web applications — from MERN stack
+          development and Python automation to AI integrations and payment
+          gateways. 4+ years, 100+ projects, 50+ happy clients.
+        </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3">
-              <a href="#projects" className="btn-primary">
-                View My Work
-                <ArrowRight size={16} />
-              </a>
-              <a href="#contact" className="btn-outline">
-                Hire Me Now
-                <ExternalLink size={15} />
-              </a>
-            </div>
+        {/* CTA Buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+          <a
+            href={`https://wa.me/${personalInfo.whatsapp.replace(/\D/g, "")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+          >
+            Start a Project
+            <ArrowRight size={16} />
+          </a>
+          <a href="#projects" className="btn-outline">
+            View Our Work
+            <ExternalLink size={15} />
+          </a>
+        </div>
 
-            {/* Social links */}
-            <div className="flex items-center gap-4 pt-2">
-              <span className="text-xs text-[#e0f2ff]/40 uppercase tracking-widest font-medium">
-                Connect
-              </span>
-              <div className="flex gap-3">
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="GitHub"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
-                >
-                  <Github size={16} className="text-[#e0f2ff]/70" />
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
-                >
-                  <Linkedin size={16} className="text-[#e0f2ff]/70" />
-                </a>
-                <a
-                  href={`mailto:${personalInfo.email}`}
-                  aria-label="Email"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center glass-card transition-colors duration-200 hover:border-[#00c8ff]/50"
-                >
-                  <Mail size={16} className="text-[#e0f2ff]/70" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* ── RIGHT: Profile photo + floating cards ── */}
-          <div className="relative hidden lg:block h-[460px]">
-            {/* Profile photo */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-              <div
-                className="relative w-52 h-52 rounded-full overflow-hidden"
-                style={{
-                  border: "2px solid rgba(0,200,255,0.3)",
-                  boxShadow:
-                    "0 0 0 8px rgba(0,200,255,0.06), 0 0 60px rgba(0,200,255,0.15)",
-                }}
-              >
-                <Image
-                  src="/assets/arshman3.png"
-                  alt="Arshman Ahmad — Full-Stack Developer"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="208px"
-                />
-              </div>
-            </div>
-
-            {/* Floating UI cards */}
-            <FloatingCards />
-          </div>
-
-          {/* Mobile: profile photo only */}
-          <div className="flex justify-center lg:hidden">
+        {/* Service chips */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
+          {services.map(({ icon: Icon, label }) => (
             <div
-              className="relative w-44 h-44 rounded-full overflow-hidden"
+              key={label}
+              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-slate-600"
               style={{
-                border: "2px solid rgba(0,200,255,0.3)",
-                boxShadow:
-                  "0 0 0 6px rgba(0,200,255,0.06), 0 0 40px rgba(0,200,255,0.12)",
+                background: "#ffffff",
+                border: "1px solid #e2e8f0",
+                boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
               }}
             >
-              <Image
-                src="/assets/arshman3.png"
-                alt="Arshman Ahmad — Full-Stack Developer"
-                fill
-                priority
-                className="object-cover"
-                sizes="176px"
-              />
+              <Icon size={14} style={{ color: "#4f46e5" }} />
+              {label}
             </div>
+          ))}
+        </div>
+
+        {/* Tech stack strip */}
+        <div className="flex flex-col items-center gap-4">
+          <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold">
+            Our Tech Stack
+          </span>
+          <div className="flex items-center gap-2 flex-wrap justify-center">
+            {techIcons.map(({ icon: Icon, label, color }) => (
+              <div
+                key={label}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl"
+                style={{
+                  background: "#ffffff",
+                  border: "1px solid #e2e8f0",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
+                }}
+              >
+                <Icon size={15} style={{ color }} />
+                <span className="text-xs font-medium text-slate-500">
+                  {label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-40">
-        <span className="text-[10px] uppercase tracking-widest text-[#00c8ff]">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-40">
+        <span className="text-[10px] uppercase tracking-widest text-slate-400">
           Scroll
         </span>
         <div
-          className="w-px h-8"
+          className="w-px h-6"
           style={{
-            background:
-              "linear-gradient(to bottom, #00c8ff, transparent)",
+            background: "linear-gradient(to bottom, #4f46e5, transparent)",
           }}
         />
       </div>

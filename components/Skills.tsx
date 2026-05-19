@@ -8,32 +8,29 @@ interface SkillsProps {
 
 export default function Skills({ skills }: SkillsProps) {
   return (
-    <section id="skills" className="relative z-10">
-      {/* Subtle section divider tint */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "rgba(4,26,20,0.3)" }}
-        aria-hidden="true"
-      />
-
-      <div className="section-container relative">
+    <section
+      id="skills"
+      className="relative z-10"
+      style={{ background: "#f8fafc" }}
+    >
+      <div className="section-container">
         {/* Heading */}
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="section-badge mb-4 mx-auto w-fit">Skills</div>
-            <h2 className="section-heading text-[#e0f2ff] mb-5">
-              My <span className="gradient-text">Technical Arsenal</span>
+            <h2 className="section-heading text-slate-900 mb-5">
+              Our <span className="gradient-text">Technical Arsenal</span>
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
-              A versatile stack built over 4+ years of real-world project
-              delivery — from full-stack web apps to AI-driven automation
-              pipelines.
+            <p className="max-w-xl mx-auto text-base text-slate-500 leading-relaxed">
+              A versatile, battle-tested stack built across 4+ years of
+              real-world delivery — from full-stack web apps to AI-driven
+              automation pipelines.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Skill bars */}
-        <ScrollReveal delay={100}>
+        {/* Skill category cards with animated bars */}
+        <ScrollReveal delay={80}>
           <SkillBars skills={skills} />
         </ScrollReveal>
       </div>

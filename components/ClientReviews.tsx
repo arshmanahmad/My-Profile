@@ -12,24 +12,22 @@ interface Review {
   platform: Platform;
   rating: number;
   text: string;
-  cardClass: string;
-  pos: React.CSSProperties;
-  width: string;
 }
 
-const platformConfig: Record<Platform, {
-  icon: React.ElementType;
-  color: string;
-  bg: string;
-  logoBg: string;
-  logoColor: string;
-  logoRadius: string;
-  label: string;
-}> = {
+const platformConfig: Record<
+  Platform,
+  {
+    icon: React.ElementType;
+    color: string;
+    logoBg: string;
+    logoColor: string;
+    logoRadius: string;
+    label: string;
+  }
+> = {
   linkedin: {
     icon: SiLinkedin,
     color: "#0a66c2",
-    bg: "rgba(10,102,194,0.12)",
     logoBg: "#0a66c2",
     logoColor: "#ffffff",
     logoRadius: "rounded-md",
@@ -38,7 +36,6 @@ const platformConfig: Record<Platform, {
   whatsapp: {
     icon: SiWhatsapp,
     color: "#25d366",
-    bg: "rgba(37,211,102,0.12)",
     logoBg: "#25d366",
     logoColor: "#ffffff",
     logoRadius: "rounded-full",
@@ -47,7 +44,6 @@ const platformConfig: Record<Platform, {
   fiverr: {
     icon: SiFiverr,
     color: "#1dbf73",
-    bg: "rgba(29,191,115,0.12)",
     logoBg: "#1dbf73",
     logoColor: "#ffffff",
     logoRadius: "rounded-md",
@@ -63,9 +59,6 @@ const reviews: Review[] = [
     platform: "linkedin",
     rating: 5,
     text: "Delivered an HR portal that transformed how our team operates. Clean code, great communication, shipped ahead of schedule!",
-    cardClass: "review-card-1",
-    pos: { top: "0px", right: "0px" },
-    width: "w-56",
   },
   {
     id: 2,
@@ -74,9 +67,6 @@ const reviews: Review[] = [
     platform: "whatsapp",
     rating: 5,
     text: "The automation bot he built saves us 30+ hours every week. Best investment we've made this year.",
-    cardClass: "review-card-2",
-    pos: { top: "190px", left: "0px" },
-    width: "w-52",
   },
   {
     id: 3,
@@ -85,9 +75,6 @@ const reviews: Review[] = [
     platform: "fiverr",
     rating: 5,
     text: "Full-stack expertise at its best. Payment integration was flawless — exceeded all expectations.",
-    cardClass: "review-card-3",
-    pos: { bottom: "10px", right: "10px" },
-    width: "w-52",
   },
   {
     id: 4,
@@ -95,165 +82,143 @@ const reviews: Review[] = [
     role: "AI Product Lead",
     platform: "linkedin",
     rating: 5,
-    text: "LangChain chatbot cut our support tickets by 40%. Exceptional AI integration skills.",
-    cardClass: "review-card-4",
-    pos: { bottom: "120px", left: "10px" },
-    width: "w-48",
+    text: "LangChain chatbot cut our support tickets by 40%. Exceptional AI integration skills and deep technical knowledge.",
   },
 ];
 
+function ReviewCard({ review }: { review: Review }) {
+  const { icon: PIcon, color, logoBg, logoColor, logoRadius, label } =
+    platformConfig[review.platform];
+
+  return (
+    <div className="light-card p-6 flex flex-col gap-4 h-full">
+      {/* Top: platform + stars */}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div
+            className={`w-7 h-7 flex items-center justify-center ${logoRadius}`}
+            style={{ background: logoBg }}
+          >
+            <PIcon size={15} style={{ color: logoColor }} />
+          </div>
+          <span className="text-xs font-semibold" style={{ color }}>
+            {label}
+          </span>
+        </div>
+        <div className="flex items-center gap-0.5">
+          {Array.from({ length: review.rating }).map((_, i) => (
+            <Star
+              key={i}
+              size={11}
+              style={{ color: "#4f46e5", fill: "#4f46e5" }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Quote */}
+      <div className="flex-1">
+        <Quote
+          size={18}
+          className="mb-2"
+          style={{ color: "#c7d2fe" }}
+        />
+        <p className="text-sm text-slate-600 leading-relaxed">
+          &ldquo;{review.text}&rdquo;
+        </p>
+      </div>
+
+      {/* Author */}
+      <div
+        className="flex items-center gap-3 pt-4"
+        style={{ borderTop: "1px solid #f1f5f9" }}
+      >
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0"
+          style={{ background: "linear-gradient(135deg, #4f46e5, #818cf8)" }}
+        >
+          {review.name[0]}
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-slate-800">{review.name}</p>
+          <p className="text-xs text-slate-400">{review.role}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function ClientReviews() {
   return (
-    <section id="reviews" className="relative z-10">
+    <section
+      id="reviews"
+      className="relative z-10"
+      style={{ background: "#f8fafc" }}
+    >
       <div className="section-container">
-
         {/* Heading */}
         <div className="text-center mb-16">
           <div className="section-badge mb-4 mx-auto w-fit">Client Reviews</div>
-          <h2 className="section-heading text-[#e0f2ff] mb-5">
-            Trusted by <span className="gradient-text">Clients Worldwide</span>
+          <h2 className="section-heading text-slate-900 mb-5">
+            Trusted by{" "}
+            <span className="gradient-text">Clients Worldwide</span>
           </h2>
-          <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
-            Real feedback from real clients — across platforms, time zones, and industries.
+          <p className="max-w-xl mx-auto text-base text-slate-500 leading-relaxed">
+            Real feedback from real clients — across platforms, time zones, and
+            industries.
           </p>
         </div>
 
-        {/* Two-column layout */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-          {/* Left: aggregate stats */}
-          <div className="space-y-5">
-
-            {/* Rating card */}
-            <div className="glass-card p-8">
-              <div className="flex items-end gap-3 mb-1">
-                <span className="text-5xl font-extrabold text-[#e0f2ff] leading-none">5.0</span>
-                <div className="pb-1">
-                  <div className="flex items-center gap-0.5 mb-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} size={18} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
-                    ))}
-                  </div>
-                  <p className="text-xs text-[#e0f2ff]/45">Based on 50+ reviews</p>
-                </div>
+        {/* Top stats bar */}
+        <div className="light-card p-6 mb-10 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { value: "5.0", label: "Average Rating" },
+            { value: "100%", label: "Satisfaction Rate" },
+            { value: "50+", label: "Total Reviews" },
+            { value: "4+", label: "Years Experience" },
+          ].map(({ value, label }) => (
+            <div key={label} className="text-center">
+              <div className="text-2xl font-extrabold gradient-text mb-1">
+                {value}
               </div>
-
-              {/* Rating bars */}
-              <div className="mt-6 space-y-2">
-                {[
-                  { stars: 5, pct: 92 },
-                  { stars: 4, pct: 6 },
-                  { stars: 3, pct: 2 },
-                ].map(({ stars, pct }) => (
-                  <div key={stars} className="flex items-center gap-3">
-                    <span className="text-xs text-[#e0f2ff]/40 w-4">{stars}</span>
-                    <Star size={9} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
-                    <div className="flex-1 h-1.5 rounded-full" style={{ background: "rgba(0,200,255,0.1)" }}>
-                      <div
-                        className="h-full rounded-full"
-                        style={{ width: `${pct}%`, background: "linear-gradient(90deg,#00c8ff,#66d9ff)" }}
-                      />
-                    </div>
-                    <span className="text-xs text-[#e0f2ff]/35 w-7 text-right">{pct}%</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-3 mt-7">
-                {[
-                  { value: "100%", label: "Satisfaction" },
-                  { value: "50+",  label: "Reviews" },
-                  { value: "4+",   label: "Yrs Exp" },
-                ].map(({ value, label }) => (
-                  <div
-                    key={label}
-                    className="text-center py-3 rounded-xl"
-                    style={{ background: "rgba(0,200,255,0.05)", border: "1px solid rgba(0,200,255,0.1)" }}
-                  >
-                    <div className="text-lg font-extrabold gradient-text">{value}</div>
-                    <div className="text-[10px] text-[#e0f2ff]/40 mt-0.5">{label}</div>
-                  </div>
-                ))}
-              </div>
+              <div className="text-xs text-slate-400 font-medium">{label}</div>
             </div>
+          ))}
+        </div>
 
-            {/* Platforms card */}
-            <div className="glass-card p-5">
-              <p className="text-[10px] text-[#e0f2ff]/35 uppercase tracking-widest mb-4 font-semibold">
-                Reviewed On
-              </p>
-              <div className="flex items-center gap-6">
-                {(["linkedin", "whatsapp", "fiverr"] as Platform[]).map((p) => {
-                  const { icon: Icon, logoBg, logoColor, logoRadius, label } = platformConfig[p];
-                  return (
-                    <div key={p} className="flex items-center gap-2">
-                      <div
-                        className={`w-6 h-6 flex items-center justify-center ${logoRadius}`}
-                        style={{ background: logoBg }}
-                      >
-                        <Icon size={13} style={{ color: logoColor }} />
-                      </div>
-                      <span className="text-sm text-[#e0f2ff]/65">{label}</span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+        {/* Review grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
+          {reviews.map((review) => (
+            <ReviewCard key={review.id} review={review} />
+          ))}
+        </div>
 
-          </div>
-
-          {/* Right: floating review cards */}
-          <div className="relative w-full min-h-[500px]">
-            {reviews.map((review) => {
-              const { icon: PIcon, color, bg, logoBg, logoColor, logoRadius, label } = platformConfig[review.platform];
-              return (
+        {/* Platforms strip */}
+        <div className="flex items-center justify-center gap-3 flex-wrap">
+          <span className="text-xs text-slate-400 font-semibold uppercase tracking-widest mr-2">
+            Reviewed on
+          </span>
+          {(["linkedin", "whatsapp", "fiverr"] as Platform[]).map((p) => {
+            const { icon: Icon, logoBg, logoColor, logoRadius, label } =
+              platformConfig[p];
+            return (
+              <div
+                key={p}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+                style={{ background: "#ffffff", border: "1px solid #e2e8f0" }}
+              >
                 <div
-                  key={review.id}
-                  className={`glass-card absolute p-4 ${review.width} ${review.cardClass}`}
-                  style={review.pos}
+                  className={`w-5 h-5 flex items-center justify-center ${logoRadius}`}
+                  style={{ background: logoBg }}
                 >
-                  {/* Platform header */}
-                  <div className="flex items-center justify-between mb-3 pb-3" style={{ borderBottom: "1px solid rgba(0,200,255,0.1)" }}>
-                    <div className="flex items-center gap-2.5">
-                      <div
-                        className={`w-9 h-9 flex items-center justify-center flex-shrink-0 ${logoRadius}`}
-                        style={{ background: logoBg }}
-                      >
-                        <PIcon size={20} style={{ color: logoColor }} />
-                      </div>
-                      <div>
-                        <div className="text-[13px] font-bold leading-none" style={{ color }}>
-                          {label}
-                        </div>
-                        <div className="text-[9px] text-[#e0f2ff]/35 mt-0.5">Verified Review</div>
-                      </div>
-                    </div>
-                    <Quote size={13} style={{ color: "#00c8ff", opacity: 0.35 }} />
-                  </div>
-
-                  {/* Text */}
-                  <p className="text-xs text-[#e0f2ff]/68 leading-relaxed mb-3 line-clamp-3">
-                    &quot;{review.text}&quot;
-                  </p>
-
-                  {/* Stars */}
-                  <div className="flex items-center gap-0.5 mb-3">
-                    {Array.from({ length: review.rating }).map((_, i) => (
-                      <Star key={i} size={10} style={{ color: "#7c3aed", fill: "#7c3aed" }} />
-                    ))}
-                  </div>
-
-                  {/* Author row */}
-                  <div className="mt-3 pt-2.5" style={{ borderTop: "1px solid rgba(0,200,255,0.08)" }}>
-                    <div className="text-[11px] font-semibold text-[#e0f2ff]/80 leading-none">{review.name}</div>
-                    <div className="text-[9px] text-[#e0f2ff]/38 mt-0.5">{review.role}</div>
-                  </div>
+                  <Icon size={11} style={{ color: logoColor }} />
                 </div>
-              );
-            })}
-          </div>
-
+                <span className="text-xs font-medium text-slate-600">
+                  {label}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

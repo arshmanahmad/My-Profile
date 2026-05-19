@@ -1,21 +1,32 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 
+/* Display font — Syne: wide geometric, ultra-modern at large sizes */
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+/* Body font — Inter: clean, neutral, highly readable */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Arshman Ahmad | Full-Stack Developer & Automation Expert",
-    template: "%s | Arshman Ahmad",
+    default: "Nexluma | Arshman Ahmad — Full-Stack Developer & Automation Expert",
+    template: "%s | Nexluma",
   },
   description:
-    "Arshman Ahmad — Full-Stack Developer with 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. Available for freelance and full-time projects.",
+    "Nexluma — Premium web development led by Arshman Ahmad. 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. Available for freelance and full-time projects.",
   keywords: [
+    "Nexluma",
     "Full-Stack Developer",
     "MERN Stack Developer",
     "React Developer",
@@ -30,22 +41,24 @@ export const metadata: Metadata = {
     "Web Developer Pakistan",
     "Arshman Ahmad",
     "Freelance Developer",
+    "Web Development Agency",
+    "Software Development Agency",
   ],
   authors: [{ name: "Arshman Ahmad", url: "https://github.com/arshmanahmad" }],
   creator: "Arshman Ahmad",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Arshman Ahmad | Full-Stack Developer & Automation Expert",
+    title: "Nexluma | Arshman Ahmad — Full-Stack Developer & Automation Expert",
     description:
-      "4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, and Shopify API integration.",
-    siteName: "Arshman Ahmad Portfolio",
+      "Premium web development — MERN stack, Python automation, FastAPI, LangChain, and Shopify API integration.",
+    siteName: "Nexluma",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arshman Ahmad | Full-Stack Developer & Automation Expert",
+    title: "Nexluma | Arshman Ahmad — Full-Stack Developer",
     description:
-      "4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, and Shopify API integration.",
+      "Premium web development — MERN stack, Python automation, FastAPI, LangChain.",
   },
   robots: {
     index: true,
@@ -64,7 +77,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050d1a",
+  themeColor: "#4f46e5",
   width: "device-width",
   initialScale: 1,
 };
@@ -75,11 +88,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
       <head>
         <link rel="apple-touch-icon" href="/favicon.svg" />
       </head>
-      <body className="bg-navy-900 text-[#e0f2ff] font-sans antialiased">
+      <body className="bg-white text-slate-900 font-sans antialiased">
         {children}
       </body>
     </html>

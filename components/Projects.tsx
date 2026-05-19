@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { ExternalLink, Star } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 import { Project } from "@/lib/data";
 
@@ -7,251 +6,245 @@ interface ProjectsProps {
   projects: Project[];
 }
 
-function TechPill({ tech }: { tech: string }) {
-  return <span className="tech-pill">{tech}</span>;
+function accentGradient(badge?: string): [string, string] {
+  if (badge?.toLowerCase().includes("development")) return ["#06b6d4", "#67e8f9"];
+  if (badge?.toLowerCase().includes("owned")) return ["#4f46e5", "#818cf8"];
+  return ["#6366f1", "#a5b4fc"];
 }
 
-function ProjectIcon({ letter, tagline }: { letter: string; tagline?: string }) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
-      <defs>
-        <linearGradient id={`bg-${letter}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#050d1a" />
-          <stop offset="100%" stopColor="#080e24" />
-        </linearGradient>
-        <linearGradient id={`glow-${letter}`} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00c8ff" />
-          <stop offset="100%" stopColor="#0090c0" />
-        </linearGradient>
-        <filter id={`blur-${letter}`}>
-          <feGaussianBlur stdDeviation="40" />
-        </filter>
-      </defs>
-      <rect width="800" height="450" fill={`url(#bg-${letter})`} />
-      <circle cx="200" cy="150" r="120" fill="#00c8ff" opacity="0.06" filter={`url(#blur-${letter})`} />
-      <circle cx="600" cy="300" r="150" fill="#00c8ff" opacity="0.05" filter={`url(#blur-${letter})`} />
-      <line x1="0" y1="150" x2="800" y2="150" stroke="#00c8ff" strokeWidth="0.4" opacity="0.12" />
-      <line x1="0" y1="300" x2="800" y2="300" stroke="#00c8ff" strokeWidth="0.4" opacity="0.12" />
-      <line x1="200" y1="0" x2="200" y2="450" stroke="#00c8ff" strokeWidth="0.4" opacity="0.12" />
-      <line x1="400" y1="0" x2="400" y2="450" stroke="#00c8ff" strokeWidth="0.4" opacity="0.12" />
-      <line x1="600" y1="0" x2="600" y2="450" stroke="#00c8ff" strokeWidth="0.4" opacity="0.12" />
-      <rect width="800" height="450" fill="none" stroke="#00c8ff" strokeWidth="1" opacity="0.15" rx="2" />
-      <circle cx="400" cy="185" r="52" fill="none" stroke={`url(#glow-${letter})`} strokeWidth="1.5" opacity="0.6" />
-      <circle cx="400" cy="185" r="42" fill="#00c8ff" opacity="0.08" />
-      <text x="400" y="205" fontFamily="Georgia, serif" fontSize="54" fontWeight="bold" fill={`url(#glow-${letter})`} textAnchor="middle" opacity="0.95">{letter}</text>
-      {tagline && (
-        <text x="400" y="308" fontFamily="Arial, sans-serif" fontSize="13" fill="#00c8ff" textAnchor="middle" opacity="0.75" letterSpacing="2">{tagline}</text>
-      )}
-      <circle cx="370" cy="330" r="2" fill="#00c8ff" opacity="0.4" />
-      <circle cx="400" cy="330" r="2" fill="#00c8ff" opacity="0.7" />
-      <circle cx="430" cy="330" r="2" fill="#00c8ff" opacity="0.4" />
-    </svg>
-  );
-}
+/* ── Featured horizontal card ───────────────────────── */
+function FeaturedCard({ project, reverse }: { project: Project; reverse?: boolean }) {
+  const [from, to] = accentGradient(project.badge);
 
-function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="glass-card overflow-hidden group flex flex-col h-full">
-      {/* Image */}
-      <div className="relative h-44 overflow-hidden bg-navy-800">
-        {project.image && (
-          <Image
-            src={project.image}
-            alt={`${project.title} screenshot`}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          />
-        )}
+    <article
+      className="overflow-hidden rounded-2xl border border-slate-200"
+      style={{ boxShadow: "0 2px 20px rgba(0,0,0,0.06)" }}
+    >
+      <div className="md:grid md:grid-cols-5">
+        {/* Visual panel */}
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
-          style={{ background: "rgba(2,13,11,0.7)" }}
+          className={`relative md:col-span-2 min-h-[260px] flex flex-col items-center justify-center gap-4 p-8 overflow-hidden ${
+            reverse ? "md:order-2" : "md:order-1"
+          }`}
+          style={{ background: `linear-gradient(145deg, ${from} 0%, ${to} 100%)` }}
         >
+          {/* Large decorative letter */}
+          <span
+            className="absolute select-none font-black"
+            style={{
+              fontSize: "120px",
+              color: "rgba(255,255,255,0.1)",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%,-50%)",
+              lineHeight: 1,
+            }}
+            aria-hidden="true"
+          >
+            {project.iconLetter ?? project.title[0]}
+          </span>
+
+          {/* Letter badge */}
+          <div
+            className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-extrabold text-white"
+            style={{
+              background: "rgba(255,255,255,0.18)",
+              border: "1.5px solid rgba(255,255,255,0.35)",
+            }}
+          >
+            {project.iconLetter ?? project.title[0]}
+          </div>
+
+          {project.badge && (
+            <span
+              className="relative z-10 text-xs font-semibold px-3 py-1 rounded-full text-white"
+              style={{
+                background: "rgba(255,255,255,0.2)",
+                border: "1px solid rgba(255,255,255,0.3)",
+              }}
+            >
+              {project.badge}
+            </span>
+          )}
+        </div>
+
+        {/* Content panel */}
+        <div
+          className={`md:col-span-3 bg-white p-8 flex flex-col justify-center ${
+            reverse ? "md:order-1" : "md:order-2"
+          }`}
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <Star size={13} style={{ color: "#4f46e5", fill: "#4f46e5" }} />
+            <span className="text-xs font-bold uppercase tracking-widest gradient-text">
+              Featured Project
+            </span>
+          </div>
+
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-3 leading-tight">
+            {project.title}
+          </h3>
+
+          <p className="text-sm text-slate-500 leading-relaxed mb-5">
+            {project.description}
+          </p>
+
+          <div className="flex flex-wrap gap-2 mb-7">
+            {project.tech.map((t) => (
+              <span key={t} className="tech-pill">{t}</span>
+            ))}
+          </div>
+
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary !py-2 !px-4 !text-sm"
+            className="btn-primary self-start !py-2.5 !px-5 !text-sm"
           >
-            Live Demo
-            <ExternalLink size={13} />
+            View Live
+            <ArrowUpRight size={15} />
           </a>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-bold text-[#e0f2ff] mb-2">{project.title}</h3>
-        <p className="text-sm text-[#e0f2ff]/56 leading-relaxed mb-4 flex-1">
-          {project.description}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.tech.map((t) => (
-            <TechPill key={t} tech={t} />
-          ))}
         </div>
       </div>
     </article>
   );
 }
 
+/* ── Grid card ─────────────────────────────────────── */
+function ProjectCard({ project }: { project: Project }) {
+  const [from, to] = accentGradient(project.badge);
+
+  return (
+    <article
+      className="group bg-white rounded-2xl border border-slate-200 overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-slate-300"
+      style={{ boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}
+    >
+      {/* Coloured accent bar */}
+      <div
+        className="h-1 w-full flex-shrink-0"
+        style={{ background: `linear-gradient(90deg, ${from}, ${to})` }}
+      />
+
+      <div className="p-6 flex flex-col flex-1">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-3 mb-5">
+          {/* Letter avatar */}
+          <div
+            className="w-11 h-11 rounded-xl flex items-center justify-center text-lg font-extrabold text-white flex-shrink-0"
+            style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
+          >
+            {project.iconLetter ?? project.title[0]}
+          </div>
+
+          {/* Icon link — hover uses group */}
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.title}`}
+            className="w-8 h-8 rounded-lg flex items-center justify-center border border-slate-200 text-slate-400 bg-slate-50 transition-all duration-200 group-hover:border-indigo-300 group-hover:text-indigo-600 group-hover:bg-indigo-50"
+          >
+            <ArrowUpRight size={15} />
+          </a>
+        </div>
+
+        {/* Title */}
+        <h3 className="text-base font-bold text-slate-900 mb-2 leading-snug">
+          {project.title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-slate-500 leading-relaxed mb-5 flex-1">
+          {project.description}
+        </p>
+
+        {/* Tech pills */}
+        <div className="flex flex-wrap gap-1.5">
+          {project.tech.slice(0, 4).map((t) => (
+            <span key={t} className="tech-pill">{t}</span>
+          ))}
+          {project.tech.length > 4 && (
+            <span className="tech-pill text-slate-400">
+              +{project.tech.length - 4}
+            </span>
+          )}
+        </div>
+      </div>
+
+      {/* Card footer */}
+      <div
+        className="px-6 py-4 flex items-center justify-between"
+        style={{ borderTop: "1px solid #f1f5f9" }}
+      >
+        {project.badge ? (
+          <span
+            className="text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{
+              background: `${from}15`,
+              color: from,
+              border: `1px solid ${from}30`,
+            }}
+          >
+            {project.badge}
+          </span>
+        ) : (
+          <span className="text-xs text-slate-300">Project</span>
+        )}
+
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-semibold text-slate-500 flex items-center gap-1 transition-all duration-200 group-hover:text-indigo-600 group-hover:gap-1.5"
+        >
+          View Project <ArrowUpRight size={13} />
+        </a>
+      </div>
+    </article>
+  );
+}
+
+/* ── Section ─────────────────────────────────────── */
 export default function Projects({ projects }: ProjectsProps) {
-  const [featured, secondFeatured] = projects.filter((p) => p.featured);
+  const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
   return (
-    <section id="projects" className="relative z-10">
+    <section id="projects" className="relative z-10 bg-white">
       <div className="section-container">
-        {/* Heading */}
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="section-badge mb-4 mx-auto w-fit">Projects</div>
-            <h2 className="section-heading text-[#e0f2ff] mb-5">
+            <h2 className="section-heading text-slate-900 mb-5">
               Work That <span className="gradient-text">Speaks for Itself</span>
             </h2>
-            <p className="max-w-xl mx-auto text-base text-[#e0f2ff]/58 leading-relaxed">
-              A selection of projects spanning full-stack web apps, AI
-              automation tools, and real-time platforms — all shipped and live.
+            <p className="max-w-xl mx-auto text-base text-slate-500 leading-relaxed">
+              From owned SaaS products to client-shipped apps — full-stack web,
+              AI automation, and real-time platforms.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Featured project */}
-        {featured && (
-          <ScrollReveal delay={80}>
-            <article
-              className="glass-card overflow-hidden mb-8 group"
-              aria-label={`Featured project: ${featured.title}`}
-            >
-              <div className="md:grid md:grid-cols-2">
-                {/* Icon / Image */}
-                <div className="relative h-56 md:h-full min-h-[240px] overflow-hidden bg-navy-800">
-                  {featured.iconLetter ? (
-                    <ProjectIcon letter={featured.iconLetter} tagline={featured.badge?.toUpperCase()} />
-                  ) : (
-                    <Image
-                      src={featured.image}
-                      alt={`${featured.title} screenshot`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      priority
-                    />
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Star
-                      size={14}
-                      style={{ color: "#7c3aed", fill: "#7c3aed" }}
-                    />
-                    <span className="text-xs font-semibold uppercase tracking-widest gradient-text-amber">
-                      Featured Project
-                    </span>
-                    {featured.badge && (
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full border border-[#00c8ff]/40 text-[#00c8ff] bg-[#00c8ff]/10">
-                        {featured.badge}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-[#e0f2ff] mb-3">
-                    {featured.title}
-                  </h3>
-                  <p className="text-sm text-[#e0f2ff]/60 leading-relaxed mb-5">
-                    {featured.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {featured.tech.map((t) => (
-                      <TechPill key={t} tech={t} />
-                    ))}
-                  </div>
-                  <a
-                    href={featured.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary self-start"
-                  >
-                    View Live
-                    <ExternalLink size={15} />
-                  </a>
-                </div>
-              </div>
-            </article>
-          </ScrollReveal>
+        {featured.length > 0 && (
+          <div className="flex flex-col gap-6 mb-10">
+            {featured.map((project, i) => (
+              <ScrollReveal key={project.id} delay={i * 80}>
+                <FeaturedCard project={project} reverse={i % 2 !== 0} />
+              </ScrollReveal>
+            ))}
+          </div>
         )}
 
-        {/* Second featured project */}
-        {secondFeatured && (
-          <ScrollReveal delay={80}>
-            <article
-              className="glass-card overflow-hidden mb-8 group"
-              aria-label={`Featured project: ${secondFeatured.title}`}
-            >
-              <div className="md:grid md:grid-cols-2">
-                <div className="p-8 flex flex-col justify-center md:order-1">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Star
-                      size={14}
-                      style={{ color: "#7c3aed", fill: "#7c3aed" }}
-                    />
-                    <span className="text-xs font-semibold uppercase tracking-widest gradient-text-amber">
-                      Featured Project
-                    </span>
-                    {secondFeatured.badge && (
-                      <span className="text-xs font-semibold px-2 py-0.5 rounded-full border border-[#00c8ff]/40 text-[#00c8ff] bg-[#00c8ff]/10">
-                        {secondFeatured.badge}
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-[#e0f2ff] mb-3">
-                    {secondFeatured.title}
-                  </h3>
-                  <p className="text-sm text-[#e0f2ff]/60 leading-relaxed mb-5">
-                    {secondFeatured.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {secondFeatured.tech.map((t) => (
-                      <TechPill key={t} tech={t} />
-                    ))}
-                  </div>
-                  <a
-                    href={secondFeatured.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary self-start"
-                  >
-                    View Live
-                    <ExternalLink size={15} />
-                  </a>
-                </div>
-                <div className="relative h-56 md:h-full min-h-[240px] overflow-hidden bg-navy-800 md:order-2">
-                  {secondFeatured.iconLetter ? (
-                    <ProjectIcon letter={secondFeatured.iconLetter} tagline={secondFeatured.badge?.toUpperCase()} />
-                  ) : (
-                    <Image
-                      src={secondFeatured.image}
-                      alt={`${secondFeatured.title} screenshot`}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                    />
-                  )}
-                </div>
-              </div>
-            </article>
-          </ScrollReveal>
+        {rest.length > 0 && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {rest.map((project, i) => (
+              <ScrollReveal key={project.id} delay={i * 80}>
+                <ProjectCard project={project} />
+              </ScrollReveal>
+            ))}
+          </div>
         )}
-
-        {/* Project grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rest.map((project, i) => (
-            <ScrollReveal key={project.id} delay={i * 80}>
-              <ProjectCard project={project} />
-            </ScrollReveal>
-          ))}
-        </div>
       </div>
     </section>
   );
