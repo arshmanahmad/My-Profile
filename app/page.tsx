@@ -2,39 +2,60 @@ import Background from "@/components/Background";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Stats from "@/components/Stats";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
+import Services from "@/components/Services";
 import Projects from "@/components/Projects";
+import WorkProcess from "@/components/WorkProcess";
+import WhyWorkWithMe from "@/components/WhyWorkWithMe";
+import About from "@/components/About";
 import ClientReviews from "@/components/ClientReviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import { stats, aboutCards, skills, projects, personalInfo } from "@/lib/data";
+import {
+  stats,
+  services,
+  projects,
+  processSteps,
+  whyWorkWithMe,
+  testimonials,
+  personalInfo,
+} from "@/lib/data";
 
-// Structured data for SEO (JSON-LD)
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Arshman Ahmad",
-  jobTitle: "Full-Stack Developer & Automation Expert",
-  email: "arshmanwhiz@gmail.com",
+  jobTitle: "Full Stack Developer",
+  email: "arshman.codes@gmail.com",
+  telephone: "+923294494502",
   url: "https://github.com/arshmanahmad",
   sameAs: [
     "https://github.com/arshmanahmad",
     "https://linkedin.com/in/arshmanahmad",
   ],
   knowsAbout: [
-    "React.js",
+    "React",
     "Next.js",
-    "Node.js",
-    "Python",
-    "FastAPI",
-    "LangChain",
-    "MongoDB",
     "TypeScript",
-    "Docker",
-    "Shopify API",
-    "Payment Gateway Integration",
+    "Node.js",
+    "AI Integration",
+    "Business Automation",
+    "SaaS Development",
+    "CRM Systems",
+    "LangChain",
+    "FastAPI",
   ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Arshman Ahmad — Full Stack Developer",
+  description:
+    "Building scalable web applications, AI solutions & business automation for startups and businesses.",
+  author: {
+    "@type": "Person",
+    name: "Arshman Ahmad",
+  },
 };
 
 export default function Home() {
@@ -44,15 +65,21 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <Background />
       <Navigation />
       <main>
         <Hero personalInfo={personalInfo} />
         <Stats stats={stats} />
-        <About cards={aboutCards} />
-        <Skills skills={skills} />
+        <Services services={services} />
         <Projects projects={projects} />
-        <ClientReviews />
+        <WorkProcess steps={processSteps} />
+        <WhyWorkWithMe items={whyWorkWithMe} />
+        <About />
+        <ClientReviews testimonials={testimonials} />
         <Contact personalInfo={personalInfo} />
       </main>
       <Footer />

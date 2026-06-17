@@ -9,68 +9,49 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: "#4f46e5",
-          dark: "#4338ca",
-          light: "#818cf8",
-          50: "#eef2ff",
-          100: "#e0e7ff",
-          200: "#c7d2fe",
-          300: "#a5b4fc",
-          400: "#818cf8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
-        },
-        accent: {
-          DEFAULT: "#06b6d4",
-          dark: "#0891b2",
-          light: "#67e8f9",
-          50: "#ecfeff",
-          100: "#cffafe",
-        },
+        background: "#0B0F19",
         surface: {
-          DEFAULT: "#ffffff",
-          50: "#f8fafc",
-          100: "#f1f5f9",
-          200: "#e2e8f0",
+          DEFAULT: "#111827",
+          light: "#1a2234",
+          hover: "#1e293b",
         },
+        primary: {
+          DEFAULT: "#4F46E5",
+          dark: "#4338CA",
+          light: "#818CF8",
+        },
+        secondary: {
+          DEFAULT: "#8B5CF6",
+          light: "#A78BFA",
+        },
+        muted: "#9CA3AF",
+        border: "rgba(255,255,255,0.08)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       animation: {
-        "float-1": "float1 8s ease-in-out infinite",
-        "float-2": "float2 10s ease-in-out infinite",
-        "float-3": "float3 7s ease-in-out infinite",
-        "fade-up": "fadeUp 0.7s ease-out forwards",
-        "status-pulse": "statusPulse 2s ease-in-out infinite",
+        "gradient-shift": "gradientShift 8s ease infinite",
+        "float-slow": "floatSlow 6s ease-in-out infinite",
+        "pulse-glow": "pulseGlow 3s ease-in-out infinite",
       },
       keyframes: {
-        float1: {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "40%": { transform: "translateY(-14px) rotate(1.5deg)" },
-          "70%": { transform: "translateY(-7px) rotate(-1deg)" },
+        gradientShift: {
+          "0%, 100%": { backgroundPosition: "0% 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
         },
-        float2: {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "35%": { transform: "translateY(-18px) rotate(-1.5deg)" },
-          "65%": { transform: "translateY(-9px) rotate(1deg)" },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
-        float3: {
-          "0%, 100%": { transform: "translateY(0px) rotate(0deg)" },
-          "50%": { transform: "translateY(-11px) rotate(2deg)" },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
         },
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(30px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        statusPulse: {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(79,70,229,0.4)" },
-          "50%": { boxShadow: "0 0 0 5px rgba(79,70,229,0)" },
-        },
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
     },
   },

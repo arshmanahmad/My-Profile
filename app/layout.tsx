@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Syne, Inter } from "next/font/google";
 import "./globals.css";
 
-/* Display font — Syne: wide geometric, ultra-modern at large sizes */
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
@@ -10,7 +9,6 @@ const syne = Syne({
   display: "swap",
 });
 
-/* Body font — Inter: clean, neutral, highly readable */
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -20,45 +18,43 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Nexluma | Arshman Ahmad — Full-Stack Developer & Automation Expert",
-    template: "%s | Nexluma",
+    default:
+      "Arshman Ahmad — Full Stack Developer | React, Next.js, AI & SaaS",
+    template: "%s | Arshman Ahmad",
   },
   description:
-    "Nexluma — Premium web development led by Arshman Ahmad. 4+ years of expertise in MERN stack, Python automation, FastAPI, LangChain, LangGraph, and Shopify API integration. Available for freelance and full-time projects.",
+    "Arshman Ahmad — Full Stack Developer specializing in React, Next.js, TypeScript, Node.js, AI Integrations, Business Automation, SaaS Development, and CRM Systems. Available for freelance projects.",
   keywords: [
-    "Nexluma",
-    "Full-Stack Developer",
-    "MERN Stack Developer",
+    "Arshman Ahmad",
+    "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
-    "Python Automation",
-    "Node.js",
-    "FastAPI",
-    "LangChain",
-    "LangGraph",
-    "Shopify API",
-    "Payment Gateway Integration",
-    "Web Developer Pakistan",
-    "Arshman Ahmad",
+    "TypeScript Developer",
+    "Node.js Developer",
+    "AI Integration",
+    "Business Automation",
+    "SaaS Development",
+    "CRM Systems",
     "Freelance Developer",
-    "Web Development Agency",
-    "Software Development Agency",
+    "Web Developer Pakistan",
+    "LangChain Developer",
+    "Scalable Web Applications",
   ],
   authors: [{ name: "Arshman Ahmad", url: "https://github.com/arshmanahmad" }],
   creator: "Arshman Ahmad",
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Nexluma | Arshman Ahmad — Full-Stack Developer & Automation Expert",
+    title: "Arshman Ahmad — Full Stack Developer",
     description:
-      "Premium web development — MERN stack, Python automation, FastAPI, LangChain, and Shopify API integration.",
-    siteName: "Nexluma",
+      "Building scalable web applications, AI solutions & business automation for startups and businesses.",
+    siteName: "Arshman Ahmad",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexluma | Arshman Ahmad — Full-Stack Developer",
+    title: "Arshman Ahmad — Full Stack Developer",
     description:
-      "Premium web development — MERN stack, Python automation, FastAPI, LangChain.",
+      "React, Next.js, TypeScript, Node.js, AI Integrations & Business Automation.",
   },
   robots: {
     index: true,
@@ -72,12 +68,14 @@ export const metadata: Metadata = {
     },
   },
   icons: {
+    icon: "/logo.svg",
     shortcut: "/favicon.svg",
+    apple: "/logo.svg",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#4f46e5",
+  themeColor: "#0B0F19",
   width: "device-width",
   initialScale: 1,
 };
@@ -90,9 +88,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${inter.variable}`}>
       <head>
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/logo.svg" />
       </head>
-      <body className="bg-white text-slate-900 font-sans antialiased">
+      <body className="bg-background text-[#F9FAFB] font-sans antialiased">
         {children}
       </body>
     </html>

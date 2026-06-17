@@ -1,166 +1,246 @@
-import { ArrowRight, ExternalLink, Code2, Cpu, Zap, CreditCard } from "lucide-react";
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  ExternalLink,
+  CheckCircle2,
+  Code2,
+  Sparkles,
+} from "lucide-react";
 import { personalInfo as PersonalInfo } from "@/lib/data";
+import { LogoMark } from "./Logo";
 import {
   SiReact,
   SiNextdotjs,
   SiNodedotjs,
-  SiPython,
-  SiDocker,
-  SiMongodb,
+  SiTypescript,
 } from "react-icons/si";
 
 interface HeroProps {
   personalInfo: typeof PersonalInfo;
 }
 
-const techIcons = [
-  { icon: SiReact, label: "React", color: "#61dafb" },
-  { icon: SiNextdotjs, label: "Next.js", color: "#0f172a" },
-  { icon: SiNodedotjs, label: "Node.js", color: "#16a34a" },
-  { icon: SiPython, label: "Python", color: "#4f46e5" },
-  { icon: SiDocker, label: "Docker", color: "#0ea5e9" },
-  { icon: SiMongodb, label: "MongoDB", color: "#22c55e" },
+const trustIndicators = [
+  "5+ Years Experience",
+  "50+ Projects Delivered",
+  "Available for Hire",
 ];
 
-const services = [
-  { icon: Code2, label: "Full-Stack Development" },
-  { icon: Cpu, label: "AI & Automation" },
-  { icon: Zap, label: "Performance Optimization" },
-  { icon: CreditCard, label: "Payment Integrations" },
+const techStack = [
+  { icon: SiReact, label: "React", color: "#61DAFB" },
+  { icon: SiNextdotjs, label: "Next.js", color: "#F9FAFB" },
+  { icon: SiTypescript, label: "TypeScript", color: "#3178C6" },
+  { icon: SiNodedotjs, label: "Node.js", color: "#22C55E" },
 ];
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
 
 export default function Hero({ personalInfo }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center"
+      className="relative min-h-screen flex items-center"
       style={{ paddingTop: "80px", paddingBottom: "80px" }}
     >
-      {/* Top gradient glow */}
-      <div
-        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2"
-        aria-hidden="true"
-        style={{
-          width: "1000px",
-          height: "600px",
-          background:
-            "radial-gradient(ellipse at top, rgba(79,70,229,0.07) 0%, transparent 65%)",
-        }}
-      />
-
-      <div className="section-container relative z-10 w-full flex flex-col items-center">
-        {/* Agency badge */}
-        <div className="section-badge mb-8">
-          <span
-            className="w-2 h-2 rounded-full inline-block"
-            style={{
-              background: "#4f46e5",
-              animation: "statusPulse 2s ease-in-out infinite",
-            }}
-          />
-          Premium Web Development · Now Accepting Projects
-        </div>
-
-        {/* Main heading */}
-        <h1
-          className="font-extrabold text-slate-900 max-w-4xl mb-5 leading-tight tracking-tight"
-          style={{ fontSize: "clamp(2.6rem, 6vw, 4.2rem)" }}
-        >
-          We Build Digital Products
-          <br />
-          <span
-            style={{
-              background:
-                "linear-gradient(135deg, #4f46e5 0%, #818cf8 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
+      <div className="section-container relative z-10 w-full">
+        <div className="grid xl:grid-cols-2 gap-12 xl:gap-16 items-center">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="w-full min-w-0"
           >
-            That Drive Real Results
-          </span>
-        </h1>
+            <motion.div variants={itemVariants} className="section-badge mb-6">
+              <span className="w-2 h-2 rounded-full bg-primary status-dot inline-block" />
+              Full Stack Developer · Available for Projects
+            </motion.div>
 
-        {/* Sub-copy */}
-        <p className="text-base md:text-lg leading-relaxed text-slate-400 max-w-2xl mb-10">
-          Nexluma delivers fast, scalable web applications — from MERN stack
-          development and Python automation to AI integrations and payment
-          gateways. 4+ years, 100+ projects, 50+ happy clients.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-          <a
-            href={`https://wa.me/${personalInfo.whatsapp.replace(/\D/g, "")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary"
-          >
-            Start a Project
-            <ArrowRight size={16} />
-          </a>
-          <a href="#projects" className="btn-outline">
-            View Our Work
-            <ExternalLink size={15} />
-          </a>
-        </div>
-
-        {/* Service chips */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-14">
-          {services.map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-slate-600"
-              style={{
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-              }}
+            <motion.h1
+              variants={itemVariants}
+              className="font-sans font-extrabold text-[#F9FAFB] leading-[1.2] tracking-tight mb-6 text-balance"
+              style={{ fontSize: "clamp(1.875rem, 3.5vw + 0.75rem, 3.25rem)" }}
             >
-              <Icon size={14} style={{ color: "#4f46e5" }} />
-              {label}
-            </div>
-          ))}
-        </div>
+              Building Scalable Web Applications,{" "}
+              <span className="gradient-text">
+                AI Solutions &amp; Business Automation
+              </span>
+            </motion.h1>
 
-        {/* Tech stack strip */}
-        <div className="flex flex-col items-center gap-4">
-          <span className="text-xs text-slate-400 uppercase tracking-widest font-semibold">
-            Our Tech Stack
-          </span>
-          <div className="flex items-center gap-2 flex-wrap justify-center">
-            {techIcons.map(({ icon: Icon, label, color }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl"
-                style={{
-                  background: "#ffffff",
-                  border: "1px solid #e2e8f0",
-                  boxShadow: "0 1px 4px rgba(0,0,0,0.04)",
-                }}
-              >
-                <Icon size={15} style={{ color }} />
-                <span className="text-xs font-medium text-slate-500">
-                  {label}
-                </span>
+            <motion.p
+              variants={itemVariants}
+              className="text-base md:text-lg text-muted leading-relaxed mb-8 max-w-2xl"
+            >
+              I help startups and businesses build modern software, automate
+              workflows, and launch faster using React, Next.js, Node.js,
+              TypeScript, and AI.
+            </motion.p>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center gap-4 mb-8"
+            >
+              <a href="#contact" className="btn-primary">
+                Book a Call
+                <ArrowRight size={16} />
+              </a>
+              <a href="#projects" className="btn-outline">
+                View Projects
+                <ExternalLink size={15} />
+              </a>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4 mb-8"
+            >
+              {trustIndicators.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-2 text-sm text-muted"
+                >
+                  <CheckCircle2 size={15} className="text-primary-light shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="flex items-center gap-3">
+              <span className="text-xs text-muted uppercase tracking-widest font-semibold">
+                Tech Stack
+              </span>
+              <div className="flex items-center gap-2">
+                {techStack.map(({ icon: Icon, label, color }) => (
+                  <div
+                    key={label}
+                    title={label}
+                    className="w-9 h-9 rounded-lg flex items-center justify-center premium-card !transform-none hover:!transform-none"
+                    style={{ borderRadius: "10px" }}
+                  >
+                    <Icon size={16} style={{ color }} />
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="relative flex justify-center xl:justify-end w-full min-w-0"
+          >
+            <div className="relative w-full max-w-sm">
+              <div
+                className="absolute inset-0 rounded-3xl blur-3xl opacity-40"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #4F46E5, #8B5CF6)",
+                }}
+              />
+
+              <div className="relative premium-card p-8 rounded-3xl">
+                <div className="flex items-center gap-4 mb-6">
+                  <LogoMark size={72} className="shrink-0" />
+                  <div>
+                    <h2 className="font-sans text-xl font-bold text-[#F9FAFB]">
+                      {personalInfo.name}
+                    </h2>
+                    <p className="text-sm text-primary-light font-medium">
+                      {personalInfo.title}
+                    </p>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      <span className="w-2 h-2 rounded-full bg-green-400 status-dot" />
+                      <span className="text-xs text-muted">Open to work</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-sm text-muted leading-relaxed mb-6">
+                  Specializing in React, Next.js, TypeScript, Node.js, AI
+                  Integrations, SaaS Development, and Business Automation.
+                </p>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { icon: Code2, label: "Full Stack" },
+                    { icon: Sparkles, label: "AI Solutions" },
+                  ].map(({ icon: Icon, label }) => (
+                    <div
+                      key={label}
+                      className="flex items-center gap-2 p-3 rounded-xl"
+                      style={{
+                        background: "rgba(79,70,229,0.08)",
+                        border: "1px solid rgba(79,70,229,0.15)",
+                      }}
+                    >
+                      <Icon size={16} className="text-primary-light" />
+                      <span className="text-xs font-medium text-[#F9FAFB]">
+                        {label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-4 -right-4 premium-card px-4 py-2 !transform-none"
+              >
+                <span className="text-xs font-semibold text-primary-light">
+                  50+ Projects
+                </span>
+              </motion.div>
+
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+                className="absolute -bottom-4 -left-4 premium-card px-4 py-2 !transform-none"
+              >
+                <span className="text-xs font-semibold text-secondary-light">
+                  AI & Automation
+                </span>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 opacity-40">
-        <span className="text-[10px] uppercase tracking-widest text-slate-400">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] uppercase tracking-widest text-muted">
           Scroll
         </span>
-        <div
-          className="w-px h-6"
-          style={{
-            background: "linear-gradient(to bottom, #4f46e5, transparent)",
-          }}
+        <motion.div
+          animate={{ height: [0, 24, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="w-px bg-gradient-to-b from-primary to-transparent"
         />
-      </div>
+      </motion.div>
     </section>
   );
 }
