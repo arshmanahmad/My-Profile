@@ -10,6 +10,7 @@ import About from "@/components/About";
 import ClientReviews from "@/components/ClientReviews";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import {
   stats,
   services,
@@ -83,6 +84,7 @@ export default function Home() {
         <Contact personalInfo={personalInfo} />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   );
 }

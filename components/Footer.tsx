@@ -1,6 +1,7 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import Logo from "./Logo";
+import { BsWhatsapp } from "react-icons/bs";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,7 +20,7 @@ export default function Footer() {
             <Logo linked={false} showWordmark className="mb-3" />
             <p className="text-sm text-muted leading-relaxed max-w-xs">
               Full Stack Developer building scalable web applications, AI
-              solutions, and business automation for startups and businesses.
+              solutions, and business automation, business logics for startups and businesses.
             </p>
             <div className="flex items-center gap-3 mt-5">
               {[
@@ -107,6 +108,12 @@ export default function Footer() {
         >
           <p>© {year} Arshman Ahmad. All rights reserved.</p>
           <p>Built with Next.js, TypeScript &amp; Tailwind CSS</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <p className="text-xs text-muted hover:text-[#F9FAFB] transition-colors">Contact with me on WhatsApp</p>
+          <a href={`https://wa.me/${personalInfo.whatsapp}`} target="_blank" rel="noopener noreferrer">
+            <BsWhatsapp size={20} color="#25D366" />
+          </a>
         </div>
       </div>
     </footer>
