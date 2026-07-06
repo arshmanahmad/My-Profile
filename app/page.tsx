@@ -50,7 +50,7 @@ const personSchema = {
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Arshman Ahmad — Full Stack Developer",
+  name: "Arshman Ahmad, Full Stack Developer",
   description:
     "Building scalable web applications, AI solutions & business automation for startups and businesses.",
   author: {

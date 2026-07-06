@@ -10,20 +10,16 @@ interface WorkProcessProps {
 
 export default function WorkProcess({ steps }: WorkProcessProps) {
   return (
-    <section
-      id="process"
-      className="relative z-10"
-      style={{ background: "rgba(17,24,39,0.4)" }}
-    >
+    <section id="process" className="relative z-10">
       <div className="section-container">
         <MotionReveal>
-          <div className="text-center mb-16">
-            <div className="section-badge mb-4 mx-auto w-fit">Work Process</div>
-            <h2 className="section-heading text-[#F9FAFB] mb-5">
+          <div className="section-header">
+            <div className="section-badge mx-auto w-fit">Work Process</div>
+            <h2 className="section-heading">
               How We{" "}
               <span className="gradient-text">Bring Ideas to Life</span>
             </h2>
-            <p className="section-subtext text-base text-muted leading-relaxed">
+            <p className="section-subtext">
               A proven, transparent workflow from first conversation to
               long-term support.
             </p>
@@ -31,38 +27,51 @@ export default function WorkProcess({ steps }: WorkProcessProps) {
         </MotionReveal>
 
         <div className="relative">
-          <div
-            className="hidden lg:block absolute top-8 left-0 right-0 h-px"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent, rgba(79,70,229,0.4), rgba(139,92,246,0.4), transparent)",
-            }}
-          />
+          <div className="hidden lg:block absolute top-[2.25rem] left-[8%] right-[8%] h-px divider-gradient" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {steps.map((step, i) => (
-              <MotionReveal key={step.step} delay={i * 80}>
+              <MotionReveal key={step.step} delay={i * 70}>
                 <motion.div
-                  whileHover={{ y: -4 }}
-                  className="premium-card p-6 h-full relative"
+                  whileHover={{ y: -3 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="premium-card p-6 md:p-7 h-full relative group"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold text-white shrink-0 font-sans"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, #4F46E5, #8B5CF6)",
-                      }}
-                    >
-                      {step.step}
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="relative shrink-0">
+                      <div
+                        className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-background font-sans shadow-button transition-transform duration-400 group-hover:scale-105"
+                        style={{
+                          background:
+                            "linear-gradient(135deg, #B8D4F0, #8EB8E8, #6E96BE)",
+                        }}
+                      >
+                        {step.step}
+                      </div>
+                      {i < steps.length - 1 && (
+                        <div
+                          className="hidden lg:block absolute top-1/2 -right-[calc(50%+1.5rem)] w-[calc(100%+2rem)] h-px -translate-y-1/2 opacity-0"
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
-                    <h3 className="text-base font-bold text-[#F9FAFB] font-sans">
-                      {step.title}
-                    </h3>
+                    <div className="pt-1.5">
+                      <h3 className="text-[0.9375rem] font-semibold text-foreground font-sans tracking-tight mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted leading-[1.65]">
+                        {step.description}
+                      </p>
+                    </div>
                   </div>
-                  <p className="text-sm text-muted leading-relaxed">
-                    {step.description}
-                  </p>
+
+                  <div
+                    className="h-px w-0 group-hover:w-full transition-all duration-700 ease-premium rounded-full mt-2"
+                    style={{
+                      background:
+                        "linear-gradient(90deg, #8EB8E8, rgba(184,212,240,0.3))",
+                    }}
+                  />
                 </motion.div>
               </MotionReveal>
             ))}

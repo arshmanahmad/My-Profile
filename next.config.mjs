@@ -13,6 +13,13 @@ const nextConfig = {
       },
     ],
   },
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Prevents corrupt .next cache causing blank pages on Windows
+      config.cache = false;
+    }
+    return config;
+  },
 };
 
 export default nextConfig;

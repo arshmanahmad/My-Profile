@@ -1,18 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["400", "500", "600", "700", "800"],
-  display: "swap",
-});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -68,14 +61,14 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logo.svg",
-    shortcut: "/favicon.svg",
-    apple: "/logo.svg",
+    icon: "/assets/main-content/logo.png",
+    shortcut: "/assets/main-content/logo.png",
+    apple: "/assets/main-content/logo.png",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0B0F19",
+  themeColor: "#141E2E",
   width: "device-width",
   initialScale: 1,
 };
@@ -86,11 +79,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${syne.variable} ${inter.variable}`}>
+    <html lang="en" className={inter.variable}>
       <head>
-        <link rel="apple-touch-icon" href="/logo.svg" />
+        <link rel="apple-touch-icon" href="/assets/main-content/logo.png" />
       </head>
-      <body className="bg-background text-[#F9FAFB] font-sans antialiased">
+      <body
+        className={`${inter.className} bg-background text-foreground antialiased`}
+      >
         {children}
       </body>
     </html>

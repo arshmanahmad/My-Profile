@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SiWhatsapp } from "react-icons/si";
 import { MessageCircle, X } from "lucide-react";
 
@@ -14,6 +14,7 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent
 export default function WhatsAppFloat() {
   const [hovered, setHovered] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   if (dismissed) return null;
 
@@ -26,34 +27,27 @@ export default function WhatsAppFloat() {
       <AnimatePresence>
         {hovered && (
           <motion.div
-            initial={{ opacity: 0, y: 12, scale: 0.95 }}
+            initial={{ opacity: 0, y: 10, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 8, scale: 0.95 }}
-            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-            className="relative premium-card p-4 w-[260px] shadow-2xl"
-            style={{
-              boxShadow:
-                "0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(37,211,102,0.15)",
-            }}
+            exit={{ opacity: 0, y: 6, scale: 0.97 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="relative premium-card-static p-4 w-[260px] shadow-card-hover"
           >
             <button
               type="button"
               onClick={() => setDismissed(true)}
-              className="absolute top-3 right-3 text-muted hover:text-[#F9FAFB] transition-colors"
+              className="absolute top-3 right-3 text-muted hover:text-foreground transition-colors duration-300"
               aria-label="Dismiss WhatsApp widget"
             >
               <X size={14} />
             </button>
 
             <div className="flex items-center gap-3 mb-3 pr-6">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                style={{ background: "#25D366" }}
-              >
-                <SiWhatsapp size={22} color="#fff" />
+              <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0 bg-emerald-500/15 border border-emerald-400/20">
+                <SiWhatsapp size={20} color="#34D399" />
               </div>
               <div>
-                <p className="text-sm font-bold text-[#F9FAFB]">
+                <p className="text-sm font-semibold text-foreground tracking-tight">
                   Chat on WhatsApp
                 </p>
                 <p className="text-xs text-muted">Usually replies within hours</p>
@@ -68,30 +62,18 @@ export default function WhatsAppFloat() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between gap-2 w-full px-3 py-2.5 rounded-xl text-sm font-semibold transition-all hover:brightness-110"
-              style={{
-                background: "rgba(37,211,102,0.12)",
-                border: "1px solid rgba(37,211,102,0.25)",
-                color: "#4ADE80",
-              }}
+              className="flex items-center justify-between gap-2 w-full px-3 py-2.5 rounded-[12px] text-sm font-medium transition-all duration-300 hover:bg-emerald-400/15 bg-emerald-400/8 border border-emerald-400/20 text-emerald-400"
             >
               <span className="flex items-center gap-2">
                 <MessageCircle size={15} />
                 {WHATSAPP_DISPLAY}
               </span>
-              <span className="text-[10px] uppercase tracking-wider opacity-80">
+              <span className="text-[10px] uppercase tracking-wider opacity-70">
                 Open
               </span>
             </a>
 
-            <div
-              className="absolute -bottom-2 right-8 w-4 h-4 rotate-45"
-              style={{
-                background: "#111827",
-                borderRight: "1px solid rgba(255,255,255,0.08)",
-                borderBottom: "1px solid rgba(255,255,255,0.08)",
-              }}
-            />
+            <div className="absolute -bottom-2 right-8 w-3.5 h-3.5 rotate-45 glass-surface border-r border-b border-border-subtle" />
           </motion.div>
         )}
       </AnimatePresence>
@@ -101,33 +83,30 @@ export default function WhatsAppFloat() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Chat on WhatsApp — ${WHATSAPP_DISPLAY}`}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.97 }}
         animate={
-          hovered
-            ? { scale: 1.05 }
-            : { scale: [1, 1.06, 1] }
+          prefersReducedMotion || hovered
+            ? { scale: hovered ? 1.03 : 1 }
+            : { scale: [1, 1.04, 1] }
         }
         transition={
-          hovered
-            ? { duration: 0.2 }
-            : { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+          prefersReducedMotion || hovered
+            ? { duration: 0.3, ease: [0.16, 1, 0.3, 1] }
+            : { duration: 3, repeat: Infinity, ease: "easeInOut" }
         }
-        className="relative flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg"
+        className="relative flex items-center justify-center w-[3.25rem] h-[3.25rem] rounded-full text-white shadow-lg"
         style={{
-          background: "linear-gradient(135deg, #25D366, #128C7E)",
-          boxShadow: "0 8px 28px rgba(37,211,102,0.4)",
+          background: "linear-gradient(135deg, #34D399, #059669)",
+          boxShadow: "0 6px 24px rgba(52,211,153,0.25)",
         }}
       >
-        <SiWhatsapp size={28} />
+        <SiWhatsapp size={26} />
 
         {!hovered && (
           <span
-            className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full border-2 status-dot"
-            style={{
-              background: "#22C55E",
-              borderColor: "#0B0F19",
-            }}
+            className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 status-dot bg-emerald-400"
+            style={{ borderColor: "#141E2E" }}
           />
         )}
       </motion.a>

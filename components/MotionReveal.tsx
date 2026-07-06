@@ -11,12 +11,14 @@ interface MotionRevealProps {
 }
 
 const directionOffset = {
-  up: { y: 32, x: 0 },
-  down: { y: -32, x: 0 },
-  left: { x: 32, y: 0 },
-  right: { x: -32, y: 0 },
+  up: { y: 24, x: 0 },
+  down: { y: -24, x: 0 },
+  left: { x: 24, y: 0 },
+  right: { x: -24, y: 0 },
   none: { x: 0, y: 0 },
 };
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 export default function MotionReveal({
   children,
@@ -36,8 +38,12 @@ export default function MotionReveal({
       className={className}
       initial={{ opacity: 0, x: offset.x, y: offset.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.6, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{
+        duration: 0.65,
+        delay: delay / 1000,
+        ease: EASE,
+      }}
     >
       {children}
     </motion.div>

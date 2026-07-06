@@ -1,5 +1,7 @@
 export const personalInfo = {
   name: "Arshman Ahmad",
+  brandName: "ARSHMANDEV",
+  brandTagline: "BUILD • CODE • SOLVE",
   title: "Full Stack Developer",
   tagline:
     "React · Next.js · TypeScript · Node.js · AI Integrations · Business Automation",
@@ -14,6 +16,12 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/arshmanahmad",
   calendly: "#contact",
 };
+
+export const brandAssets = {
+  logo: "/assets/main-content/logo.png",
+  banner: "/assets/main-content/banner.png",
+  profilePicture: "/assets/main-content/profile-picture.png",
+} as const;
 
 export interface StatItem {
   value: number;
@@ -94,112 +102,222 @@ export const services: Service[] = [
   },
 ];
 
+export interface ProjectExpandedDetails {
+  responsibilities: string[];
+  challenges?: string[];
+  implementation?: string[];
+  architecture?: string[];
+  performance?: string[];
+  apis?: string[];
+  additionalTechnologies?: string[];
+}
+
 export interface Project {
   id: number;
   title: string;
+  category: string;
   description: string;
-  problem: string;
-  solution: string;
-  businessImpact: string;
-  tech: string[];
-  url: string;
+  experience: string;
+  technologies: string[];
+  demo: string;
   github?: string;
+  caseStudy?: string;
   image?: string;
-  featured: boolean;
-  badge?: string;
-  iconLetter?: string;
-  gradient: [string, string];
+  expandedDetails: ProjectExpandedDetails;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
     title: "Smarledger",
+    category: "SaaS",
     description:
-      "A smart financial ledger platform for real-time bookkeeping and business finance control.",
-    problem:
-      "Businesses struggled with fragmented financial tracking and manual bookkeeping processes.",
-    solution:
-      "Built a full-stack ledger platform with real-time transaction tracking, reporting dashboards, and intuitive UX.",
-    businessImpact:
-      "Reduced manual bookkeeping time by 60% and gave owners real-time financial visibility.",
-    tech: ["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS"],
-    url: "https://smarledger.com",
+      "Smart financial ledger platform for real-time bookkeeping and business finance control.",
+    experience:
+      "Built and maintained a full-stack ledger platform from the ground up. Developed reusable React components, designed real-time transaction flows, integrated secure REST APIs, optimized dashboard performance, and shipped production-ready features for business finance teams.",
+    technologies: ["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS"],
+    demo: "https://smarledger.com",
     image: "/assets/projects/smarledger.svg",
-    featured: true,
-    badge: "Owned Product",
-    iconLetter: "S",
-    gradient: ["#4F46E5", "#8B5CF6"],
+    expandedDetails: {
+      responsibilities: [
+        "Led full-stack development of the core ledger and reporting system",
+        "Designed component architecture for dashboards and transaction views",
+        "Implemented authentication, data validation, and API integration layers",
+        "Collaborated on product direction and iterative feature releases",
+      ],
+      challenges: [
+        "Handling real-time financial data updates without UI lag",
+        "Designing intuitive UX for non-technical business owners",
+      ],
+      implementation: [
+        "Modular React component library with shared state patterns",
+        "Server-side rendering for fast initial loads and SEO",
+        "Structured API layer with typed request/response contracts",
+      ],
+      architecture: [
+        "Next.js App Router with API routes and service separation",
+        "Component-driven frontend with clear data flow boundaries",
+        "Scalable folder structure for features, hooks, and utilities",
+      ],
+      performance: [
+        "Optimized re-renders with memoization and lazy-loaded sections",
+        "Reduced dashboard load time through code splitting",
+      ],
+      apis: ["RESTful transaction APIs", "Reporting and export endpoints"],
+      additionalTechnologies: ["PostgreSQL", "JWT Auth", "Chart libraries"],
+    },
   },
   {
     id: 2,
     title: "Bsello",
+    category: "Enterprise",
     description:
-      "A next-generation platform for seamless, scalable business solutions.",
-    problem:
-      "Growing businesses needed a unified platform to manage operations without complexity.",
-    solution:
-      "Architecting a modern, performance-first platform with modular services and clean UX.",
-    businessImpact:
-      "Positioned for rapid market launch with a scalable foundation for future growth.",
-    tech: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-    url: "https://bsello.com",
+      "Next-generation platform for seamless, scalable business operations.",
+    experience:
+      "Architecting a performance-first business platform with modular services and clean UX. Building reusable UI systems, establishing scalable frontend patterns, and preparing the codebase for rapid market launch and long-term growth.",
+    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    demo: "https://bsello.com",
     image: "/assets/projects/bsello.svg",
-    featured: true,
-    badge: "In Development",
-    iconLetter: "B",
-    gradient: ["#06B6D4", "#8B5CF6"],
+    expandedDetails: {
+      responsibilities: [
+        "Architecting frontend structure and design system foundations",
+        "Building modular page layouts and shared UI primitives",
+        "Establishing TypeScript conventions and code quality standards",
+        "Planning scalable service integration points for future modules",
+      ],
+      challenges: [
+        "Balancing speed of development with long-term maintainability",
+        "Designing flexible layouts for evolving business modules",
+      ],
+      implementation: [
+        "Feature-based folder organization with co-located components",
+        "Consistent spacing, typography, and interaction patterns",
+        "Reusable form and data-display components",
+      ],
+      architecture: [
+        "Next.js with modular route groups and shared layouts",
+        "Separation of UI, data fetching, and business logic layers",
+      ],
+      performance: [
+        "Image and route-level optimization for fast page transitions",
+        "Minimal bundle footprint through tree-shaking and lazy imports",
+      ],
+      additionalTechnologies: ["Vercel", "ESLint", "Prettier"],
+    },
   },
   {
     id: 3,
     title: "HR Portal",
+    category: "CRM",
     description:
-      "Comprehensive HR management with role-based access and TypeScript-first architecture.",
-    problem:
-      "HR teams lacked a centralized system for employee management and role-based workflows.",
-    solution:
-      "Delivered a full HR portal with advanced state management, RBAC, and clean admin dashboards.",
-    businessImpact:
-      "Streamlined HR operations and reduced administrative overhead for the client team.",
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    url: "https://hr-portal-nu.vercel.app",
-    featured: false,
-    iconLetter: "H",
-    gradient: ["#6366F1", "#A78BFA"],
+      "Comprehensive HR management system with role-based access control.",
+    experience:
+      "Delivered a full HR portal with advanced state management, role-based access control, and clean admin dashboards. Built reusable React components, integrated secure APIs, and optimized workflows for HR teams managing employees at scale.",
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    demo: "https://hr-portal-nu.vercel.app",
+    expandedDetails: {
+      responsibilities: [
+        "Developed employee management, role assignment, and admin dashboards",
+        "Implemented RBAC with granular permission checks across routes",
+        "Built form-heavy workflows with validation and error handling",
+        "Integrated backend APIs for CRUD operations and reporting",
+      ],
+      challenges: [
+        "Managing complex permission logic across multiple user roles",
+        "Keeping large data tables performant and responsive",
+      ],
+      implementation: [
+        "Centralized state management for auth and user context",
+        "Reusable table, filter, and modal components",
+        "Protected routes with role-aware navigation guards",
+      ],
+      architecture: [
+        "React + Vite SPA with feature modules per HR domain",
+        "Service layer abstracting API calls from UI components",
+      ],
+      performance: [
+        "Virtualized lists for large employee datasets",
+        "Debounced search and filter operations",
+      ],
+      apis: ["Employee CRUD APIs", "Role and permission endpoints"],
+      additionalTechnologies: ["React Router", "Axios", "Zustand"],
+    },
   },
   {
     id: 4,
     title: "AI Chat Application",
+    category: "AI Platform",
     description:
-      "Intelligent chat app powered by LangChain and FastAPI with real-time AI responses.",
-    problem:
-      "Users needed an intelligent conversational interface with fast, context-aware responses.",
-    solution:
-      "Integrated LangChain with FastAPI backend for real-time AI-driven chat experiences.",
-    businessImpact:
-      "Delivered a production-ready AI chat platform with sub-second response times.",
-    tech: ["React", "LangChain", "FastAPI", "Node.js"],
-    url: "https://ai-chat-app-delta.vercel.app",
-    featured: false,
-    iconLetter: "A",
-    gradient: ["#8B5CF6", "#EC4899"],
+      "Intelligent chat application with real-time AI-driven responses.",
+    experience:
+      "Integrated LangChain with a FastAPI backend to deliver real-time, context-aware AI chat experiences. Built the frontend conversation UI, managed streaming responses, and optimized for sub-second interaction latency in production.",
+    technologies: ["React", "LangChain", "FastAPI", "Node.js"],
+    demo: "https://ai-chat-app-delta.vercel.app",
+    expandedDetails: {
+      responsibilities: [
+        "Built conversational UI with message threading and streaming",
+        "Integrated LangChain chains and prompt management on the backend",
+        "Implemented session handling and context persistence",
+        "Deployed and tested production AI response pipelines",
+      ],
+      challenges: [
+        "Streaming AI responses smoothly without blocking the UI",
+        "Managing conversation context within token limits",
+      ],
+      implementation: [
+        "Server-sent events for real-time message streaming",
+        "LangChain integration with custom prompt templates",
+        "Optimistic UI updates during message send/receive cycles",
+      ],
+      architecture: [
+        "React frontend communicating with FastAPI microservice",
+        "Separation of AI logic, API layer, and presentation",
+      ],
+      performance: [
+        "Reduced perceived latency with streaming and skeleton states",
+        "Cached session context to minimize redundant API calls",
+      ],
+      apis: ["Chat completion endpoints", "Session and history APIs"],
+      additionalTechnologies: ["OpenAI API", "Python", "WebSockets"],
+    },
   },
   {
     id: 5,
     title: "Nurse AI Hub",
+    category: "Healthcare",
     description:
-      "Healthcare AI platform with LangGraph integration and nursing assistance APIs.",
-    problem:
-      "Healthcare professionals needed AI-powered tools for nursing workflows and patient support.",
-    solution:
-      "Built a specialized healthcare AI hub with LangGraph agents and nursing-specific APIs.",
-    businessImpact:
-      "Enabled faster clinical decision support and improved nursing workflow efficiency.",
-    tech: ["React", "TypeScript", "LangGraph", "Healthcare APIs"],
-    url: "https://nurse-ai-hub.vercel.app",
-    featured: false,
-    iconLetter: "N",
-    gradient: ["#10B981", "#06B6D4"],
+      "Healthcare AI platform with nursing assistance and clinical workflows.",
+    experience:
+      "Built a specialized healthcare AI hub with LangGraph agents and nursing-specific APIs. Developed secure frontend interfaces for clinical workflows, integrated AI decision-support tools, and ensured reliable performance for healthcare professionals.",
+    technologies: ["React", "TypeScript", "LangGraph", "Healthcare APIs"],
+    demo: "https://nurse-ai-hub.vercel.app",
+    expandedDetails: {
+      responsibilities: [
+        "Developed nursing workflow interfaces and AI-assisted tools",
+        "Integrated LangGraph agents for multi-step clinical reasoning",
+        "Connected healthcare APIs for patient and workflow data",
+        "Ensured accessible, reliable UI for professional users",
+      ],
+      challenges: [
+        "Designing AI tools that fit real nursing workflows",
+        "Handling sensitive healthcare data with care and clarity",
+      ],
+      implementation: [
+        "LangGraph agent orchestration for complex query chains",
+        "Step-by-step UI for AI-assisted clinical decisions",
+        "Typed API contracts for healthcare data integration",
+      ],
+      architecture: [
+        "React frontend with dedicated modules per workflow type",
+        "Agent backend separated from UI and data access layers",
+      ],
+      performance: [
+        "Progressive loading for AI-generated content sections",
+        "Efficient state updates during multi-step agent responses",
+      ],
+      apis: ["Nursing assistance APIs", "Healthcare data integration endpoints"],
+      additionalTechnologies: ["LangGraph", "FHIR-compatible APIs", "TypeScript"],
+    },
   },
 ];
 

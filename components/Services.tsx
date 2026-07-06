@@ -35,52 +35,49 @@ export default function Services({ services }: ServicesProps) {
     <section id="services" className="relative z-10">
       <div className="section-container">
         <MotionReveal>
-          <div className="text-center mb-16">
-            <div className="section-badge mb-4 mx-auto w-fit">Services</div>
-            <h2 className="section-heading text-[#F9FAFB] mb-5">
+          <div className="section-header">
+            <div className="section-badge mx-auto w-fit">Services</div>
+            <h2 className="section-heading">
               Solutions That{" "}
               <span className="gradient-text">Drive Business Growth</span>
             </h2>
-            <p className="section-subtext text-base text-muted leading-relaxed">
+            <p className="section-subtext">
               Outcome-focused development services designed to help your business
               launch faster, operate smarter, and scale with confidence.
             </p>
           </div>
         </MotionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           {services.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Code2;
             return (
-              <MotionReveal key={service.id} delay={i * 60}>
+              <MotionReveal key={service.id} delay={i * 50}>
                 <motion.article
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.25 }}
-                  className="premium-card p-6 h-full flex flex-col group cursor-default"
+                  whileHover={{ y: -4 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="premium-card p-6 md:p-7 h-full flex flex-col group cursor-default"
                 >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-all duration-300 group-hover:scale-110"
-                    style={{
-                      background: "rgba(79,70,229,0.12)",
-                      border: "1px solid rgba(79,70,229,0.2)",
-                    }}
-                  >
-                    <Icon size={22} className="text-primary-light" />
+                  <div className="w-11 h-11 rounded-[14px] flex items-center justify-center mb-5 icon-box group-hover:scale-[1.04] transition-transform duration-400 ease-premium">
+                    <Icon size={20} className="text-primary-light" strokeWidth={1.75} />
                   </div>
 
-                  <h3 className="text-base font-bold text-[#F9FAFB] mb-2 font-sans">
+                  <h3 className="text-[0.9375rem] font-semibold text-foreground mb-2.5 font-sans tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-muted leading-relaxed flex-1">
+                  <p className="text-sm text-muted leading-[1.65] flex-1">
                     {service.description}
                   </p>
 
-                  <div
-                    className="mt-5 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded-full"
-                    style={{
-                      background: "linear-gradient(90deg, #4F46E5, #8B5CF6)",
-                    }}
-                  />
+                  <div className="mt-6 pt-4 border-t border-border-subtle">
+                    <div
+                      className="h-px w-8 group-hover:w-full transition-all duration-700 ease-premium rounded-full"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, #8EB8E8, rgba(184,212,240,0.4))",
+                      }}
+                    />
+                  </div>
                 </motion.article>
               </MotionReveal>
             );

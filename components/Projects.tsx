@@ -1,280 +1,223 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  Star,
-  Github,
-  ExternalLink,
-  TrendingUp,
-  Lightbulb,
-  Zap,
-} from "lucide-react";
+import { useState, type ElementType } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ArrowUpRight, Github } from "lucide-react";
 import MotionReveal from "./MotionReveal";
-import { Project } from "@/lib/data";
+import { Project, ProjectExpandedDetails } from "@/lib/data";
+
+const EASE = [0.16, 1, 0.3, 1] as const;
 
 interface ProjectsProps {
   projects: Project[];
 }
 
-function CaseStudyCard({
-  project,
-  reverse,
+interface DetailSection {
+  key: keyof ProjectExpandedDetails;
+  label: string;
+}
+
+const DETAIL_SECTIONS: DetailSection[] = [
+  { key: "responsibilities", label: "Responsibilities" },
+  { key: "challenges", label: "Challenges" },
+  { key: "implementation", label: "Implementation" },
+  { key: "architecture", label: "Architecture" },
+  { key: "performance", label: "Performance" },
+  { key: "apis", label: "APIs" },
+  { key: "additionalTechnologies", label: "Additional Technologies" },
+];
+
+function ProjectAction({
+  href,
+  label,
+  icon: Icon,
+  external = true,
 }: {
-  project: Project;
-  reverse?: boolean;
+  href: string;
+  label: string;
+  icon?: ElementType;
+  external?: boolean;
 }) {
-  const [from, to] = project.gradient;
+  return (
+    <a
+      href={href}
+      {...(external
+        ? { target: "_blank", rel: "noopener noreferrer" }
+        : {})}
+      className="inline-flex items-center gap-1.5 text-xs font-medium text-muted hover:text-primary-light transition-colors duration-300 group/link"
+    >
+      {Icon && (
+        <Icon
+          size={13}
+          strokeWidth={2}
+          className="transition-transform duration-300 group-hover/link:-translate-y-px group-hover/link:translate-x-px"
+        />
+      )}
+      {label}
+      {!Icon && (
+        <ArrowUpRight
+          size={12}
+          strokeWidth={2.5}
+          className="transition-transform duration-300 group-hover/link:-translate-y-px group-hover/link:translate-x-px"
+        />
+      )}
+    </a>
+  );
+}
+
+function ExpandedContent({ details }: { details: ProjectExpandedDetails }) {
+  const sections = DETAIL_SECTIONS.filter(
+    (s) => details[s.key] && (details[s.key] as string[]).length > 0
+  );
 
   return (
-    <motion.article
-      whileHover={{ y: -4 }}
-      className="premium-card overflow-hidden"
-    >
-      <div className="lg:grid lg:grid-cols-5">
-        <div
-          className={`relative lg:col-span-2 min-h-[240px] flex flex-col items-center justify-center p-8 overflow-hidden ${
-            reverse ? "lg:order-2" : "lg:order-1"
-          }`}
-          style={{
-            background: `linear-gradient(145deg, ${from}22, ${to}11)`,
-            borderRight: reverse ? undefined : "1px solid rgba(255,255,255,0.06)",
-            borderLeft: reverse ? "1px solid rgba(255,255,255,0.06)" : undefined,
-          }}
-        >
-          <span
-            className="absolute select-none font-black opacity-10"
-            style={{
-              fontSize: "100px",
-              color: from,
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%,-50%)",
-              lineHeight: 1,
-            }}
-            aria-hidden="true"
-          >
-            {project.iconLetter ?? project.title[0]}
-          </span>
-
-          <div
-            className="relative z-10 w-16 h-16 rounded-2xl flex items-center justify-center text-3xl font-extrabold text-white mb-3"
-            style={{
-              background: `linear-gradient(135deg, ${from}, ${to})`,
-            }}
-          >
-            {project.iconLetter ?? project.title[0]}
-          </div>
-
-          {project.badge && (
-            <span
-              className="relative z-10 text-xs font-semibold px-3 py-1 rounded-full"
-              style={{
-                background: "rgba(255,255,255,0.1)",
-                border: "1px solid rgba(255,255,255,0.15)",
-                color: "#F9FAFB",
-              }}
-            >
-              {project.badge}
-            </span>
-          )}
-        </div>
-
-        <div
-          className={`lg:col-span-3 p-8 flex flex-col justify-center ${
-            reverse ? "lg:order-1" : "lg:order-2"
-          }`}
-        >
-          <div className="flex items-center gap-2 mb-3">
-            <Star size={13} className="text-primary fill-primary" />
-            <span className="text-xs font-bold uppercase tracking-widest gradient-text">
-              Featured Case Study
-            </span>
-          </div>
-
-          <h3 className="text-2xl font-extrabold text-[#F9FAFB] mb-3 font-sans leading-tight">
-            {project.title}
-          </h3>
-
-          <p className="text-sm text-muted leading-relaxed mb-5">
-            {project.description}
+    <div className="space-y-5 pt-1">
+      {sections.map(({ key, label }) => (
+        <div key={key}>
+          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-primary-light/80 mb-2.5">
+            {label}
           </p>
-
-          <div className="space-y-3 mb-6">
-            <div className="flex items-start gap-3">
-              <Lightbulb size={15} className="text-amber-400 shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-semibold text-[#F9FAFB] mb-0.5">
-                  Problem
-                </p>
-                <p className="text-xs text-muted leading-relaxed">
-                  {project.problem}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <Zap size={15} className="text-primary-light shrink-0 mt-0.5" />
-              <div>
-                <p className="text-xs font-semibold text-[#F9FAFB] mb-0.5">
-                  Solution
-                </p>
-                <p className="text-xs text-muted leading-relaxed">
-                  {project.solution}
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <TrendingUp
-                size={15}
-                className="text-green-400 shrink-0 mt-0.5"
-              />
-              <div>
-                <p className="text-xs font-semibold text-[#F9FAFB] mb-0.5">
-                  Business Impact
-                </p>
-                <p className="text-xs text-muted leading-relaxed">
-                  {project.businessImpact}
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tech.map((t) => (
-              <span key={t} className="tech-pill">
-                {t}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-3">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary !py-2.5 !px-5 !text-sm"
-            >
-              Live Demo
-              <ArrowUpRight size={15} />
-            </a>
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline !py-2.5 !px-5 !text-sm"
+          <ul className="space-y-2">
+            {(details[key] as string[]).map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-2.5 text-sm text-muted leading-[1.65]"
               >
-                <Github size={15} />
-                Source Code
-              </a>
-            )}
-          </div>
+                <span className="mt-2 w-1 h-1 rounded-full bg-primary/50 shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
-      </div>
-    </motion.article>
+      ))}
+    </div>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  const [from, to] = project.gradient;
+  const [expanded, setExpanded] = useState(false);
+  const panelId = `project-panel-${project.id}`;
 
   return (
     <motion.article
-      whileHover={{ y: -6 }}
-      className="premium-card overflow-hidden flex flex-col h-full group"
+      className={`project-card group flex flex-col h-full rounded-[20px] border transition-all duration-500 ease-premium ${
+        expanded
+          ? "border-primary/25 shadow-card-hover bg-surface/40"
+          : "border-border-subtle shadow-card hover:border-primary/20 hover:shadow-card-hover hover:-translate-y-0.5"
+      }`}
+      style={{
+        background: expanded
+          ? "linear-gradient(165deg, rgba(47,65,88,0.5) 0%, rgba(26,38,56,0.85) 100%)"
+          : "linear-gradient(165deg, rgba(40,56,72,0.35) 0%, rgba(26,38,56,0.75) 100%)",
+      }}
     >
-      <div
-        className="h-1 w-full"
-        style={{ background: `linear-gradient(90deg, ${from}, ${to})` }}
-      />
-
-      <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-3 mb-4">
-          <div
-            className="w-11 h-11 rounded-xl flex items-center justify-center text-lg font-extrabold text-white"
-            style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
-          >
-            {project.iconLetter ?? project.title[0]}
-          </div>
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Open ${project.title}`}
-            className="w-8 h-8 rounded-lg flex items-center justify-center border border-white/10 text-muted hover:text-primary-light hover:border-primary/30 transition-all"
-          >
-            <ExternalLink size={14} />
-          </a>
-        </div>
-
-        <h3 className="text-base font-bold text-[#F9FAFB] mb-2 font-sans">
+      <div className="flex flex-col flex-1 p-7 md:p-8">
+        {/* Title */}
+        <h3 className="text-xl md:text-[1.375rem] font-semibold text-foreground tracking-tight leading-tight mb-3">
           {project.title}
         </h3>
-        <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
-          {project.description}
-        </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
-          {project.tech.slice(0, 3).map((t) => (
-            <span key={t} className="tech-pill">
-              {t}
+        {/* Category */}
+        <span className="inline-flex self-start text-[0.6875rem] font-semibold uppercase tracking-[0.1em] text-primary-light px-2.5 py-1 rounded-full border border-primary/20 bg-primary/8 mb-5">
+          {project.category}
+        </span>
+
+        {/* Technologies */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
+          {project.technologies.map((tech) => (
+            <span key={tech} className="tech-pill project-tech-pill">
+              {tech}
             </span>
           ))}
         </div>
 
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-semibold text-primary-light flex items-center gap-1 group-hover:gap-2 transition-all"
+        {/* Experience */}
+        <p className="text-sm text-muted leading-[1.75] flex-1 mb-6">
+          {project.experience}
+        </p>
+
+        {/* Read Experience accordion trigger */}
+        <button
+          type="button"
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+          aria-controls={panelId}
+          className="inline-flex items-center gap-2 text-sm font-medium text-primary-light hover:text-foreground transition-colors duration-300 self-start mb-6 group/expand"
         >
-          View Project <ArrowUpRight size={13} />
-        </a>
+          <span>{expanded ? "Hide Details" : "Read Experience"}</span>
+          <motion.span
+            animate={{ rotate: expanded ? 180 : 0 }}
+            transition={{ duration: 0.4, ease: EASE }}
+            className="flex items-center justify-center"
+          >
+            <ChevronDown size={16} strokeWidth={2} />
+          </motion.span>
+        </button>
+
+        {/* Expandable panel */}
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              id={panelId}
+              key="panel"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.45, ease: EASE }}
+              className="overflow-hidden"
+            >
+              <div className="pb-2 border-t border-border-subtle pt-5">
+                <ExpandedContent details={project.expandedDetails} />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Actions — bottom right */}
+        <div className="flex items-center justify-end gap-5 mt-auto pt-4 border-t border-border-subtle">
+          <ProjectAction href={project.demo} label="Live Demo" />
+          {project.github && (
+            <ProjectAction
+              href={project.github}
+              label="GitHub"
+              icon={Github}
+            />
+          )}
+          {project.caseStudy && (
+            <ProjectAction href={project.caseStudy} label="Case Study" />
+          )}
+        </div>
       </div>
     </motion.article>
   );
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-
   return (
-    <section id="projects" className="relative z-10">
+    <section id="projects" className="relative z-10 section-alt">
       <div className="section-container">
         <MotionReveal>
-          <div className="text-center mb-16">
-            <div className="section-badge mb-4 mx-auto w-fit">Projects</div>
-            <h2 className="section-heading text-[#F9FAFB] mb-5">
-              Featured{" "}
-              <span className="gradient-text">Case Studies</span>
+          <div className="section-header">
+            <div className="section-badge mx-auto w-fit">Projects</div>
+            <h2 className="section-heading">
+              Selected{" "}
+              <span className="gradient-text">Work & Experience</span>
             </h2>
-            <p className="section-subtext text-base text-muted leading-relaxed">
-              Real projects with measurable business impact — from SaaS products
-              to AI-powered platforms.
+            <p className="section-subtext">
+              Real products and platforms — focused on what I built, the
+              technologies I used, and the engineering experience behind each
+              project.
             </p>
           </div>
         </MotionReveal>
 
-        {featured.length > 0 && (
-          <div className="flex flex-col gap-8 mb-10">
-            {featured.map((project, i) => (
-              <MotionReveal key={project.id} delay={i * 80}>
-                <CaseStudyCard project={project} reverse={i % 2 !== 0} />
-              </MotionReveal>
-            ))}
-          </div>
-        )}
-
-        {rest.length > 0 && (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {rest.map((project, i) => (
-              <MotionReveal key={project.id} delay={i * 70}>
-                <ProjectCard project={project} />
-              </MotionReveal>
-            ))}
-          </div>
-        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          {projects.map((project, i) => (
+            <MotionReveal key={project.id} delay={i * 60} className="h-full">
+              <ProjectCard project={project} />
+            </MotionReveal>
+          ))}
+        </div>
       </div>
     </section>
   );

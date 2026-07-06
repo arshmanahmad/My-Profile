@@ -1,9 +1,10 @@
 "use client";
 
-import { useId } from "react";
+import Image from "next/image";
+import { brandAssets } from "@/lib/data";
 
 interface LogoProps {
-  size?: number;
+  height?: number;
   showWordmark?: boolean;
   className?: string;
   onClick?: () => void;
@@ -12,56 +13,27 @@ interface LogoProps {
 }
 
 export function LogoMark({
-  size = 32,
+  height = 48,
   className = "",
 }: {
-  size?: number;
+  height?: number;
   className?: string;
 }) {
-  const gradId = useId();
-
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 32 32"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <defs>
-        <linearGradient
-          id={gradId}
-          x1="6"
-          y1="4"
-          x2="26"
-          y2="28"
-          gradientUnits="userSpaceOnUse"
-        >
-          <stop offset="0%" stopColor="#4F46E5" />
-          <stop offset="100%" stopColor="#8B5CF6" />
-        </linearGradient>
-      </defs>
-      <path
-        fill={`url(#${gradId})`}
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16 3.5L27.5 27H22.8L20.4 21.5H11.6L9.2 27H4.5L16 3.5ZM12.8 17.5H19.2L16 10.2L12.8 17.5Z"
-      />
-      <path
-        d="M10 27.5H22"
-        stroke={`url(#${gradId})`}
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeOpacity="0.55"
-      />
-    </svg>
+    <Image
+      src={brandAssets.logo}
+      alt="ARSHMANDEV logo"
+      width={620}
+      height={614}
+      className={`shrink-0 w-auto object-contain object-left ${className}`}
+      style={{ height }}
+      priority
+    />
   );
 }
 
 export default function Logo({
-  size = 32,
+  height = 48,
   showWordmark = true,
   className = "",
   onClick,
@@ -71,18 +43,19 @@ export default function Logo({
   const content = (
     <>
       <LogoMark
-        size={size}
-        className="shrink-0 transition-transform group-hover:scale-105"
+        height={height}
+        className="transition-transform duration-400 ease-premium group-hover:scale-[1.03]"
       />
       {showWordmark && (
-        <span className="font-sans text-lg font-bold tracking-tight text-[#F9FAFB]">
-          Arshman<span className="text-primary-light"> Ahmad</span>
+        <span className="font-sans text-lg font-semibold tracking-tight text-foreground">
+          <span className="text-foreground">ARSHMAN</span>
+          <span className="gradient-text">DEV</span>
         </span>
       )}
     </>
   );
 
-  const sharedClass = `flex items-center gap-2.5 group ${className}`;
+  const sharedClass = `inline-flex items-center gap-2.5 group ${className}`;
 
   if (linked) {
     return (
@@ -90,7 +63,7 @@ export default function Logo({
         href={href}
         onClick={onClick}
         className={sharedClass}
-        aria-label="Arshman Ahmad — Home"
+        aria-label="ARSHMANDEV — Home"
       >
         {content}
       </a>

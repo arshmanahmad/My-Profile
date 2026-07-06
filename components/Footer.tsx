@@ -1,41 +1,42 @@
 import { Github, Linkedin, Mail } from "lucide-react";
+import { SiWhatsapp } from "react-icons/si";
 import { personalInfo } from "@/lib/data";
 import Logo from "./Logo";
-import { BsWhatsapp } from "react-icons/bs";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
+  const socialLinks = [
+    { href: personalInfo.github, icon: Github, label: "GitHub" },
+    { href: personalInfo.linkedin, icon: Linkedin, label: "LinkedIn" },
+    { href: `mailto:${personalInfo.email}`, icon: Mail, label: "Email" },
+    {
+      href: `https://wa.me/${personalInfo.whatsapp}`,
+      icon: SiWhatsapp,
+      label: "WhatsApp",
+    },
+  ];
+
   return (
-    <footer
-      className="relative z-10"
-      style={{
-        background: "#0B0F19",
-        borderTop: "1px solid rgba(255,255,255,0.08)",
-      }}
-    >
-      <div className="section-container !py-12">
-        <div className="grid md:grid-cols-3 gap-10 mb-10">
-          <div>
-            <Logo linked={false} showWordmark className="mb-3" />
-            <p className="text-sm text-muted leading-relaxed max-w-xs">
+    <footer className="relative z-10 border-t border-border-subtle">
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(20,30,46,0) 0%, rgba(20,30,46,0.8) 100%)",
+        }}
+        aria-hidden="true"
+      />
+      <div className="section-container !py-14 md:!py-16 relative">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-8 mb-12">
+          <div className="md:col-span-5">
+            <Logo linked={false} showWordmark height={48} className="mb-4" />
+            <p className="text-sm text-muted leading-[1.7] max-w-sm">
               Full Stack Developer building scalable web applications, AI
-              solutions, and business automation, business logics for startups and businesses.
+              solutions, and business automation for startups and businesses.
             </p>
-            <div className="flex items-center gap-3 mt-5">
-              {[
-                { href: personalInfo.github, icon: Github, label: "GitHub" },
-                {
-                  href: personalInfo.linkedin,
-                  icon: Linkedin,
-                  label: "LinkedIn",
-                },
-                {
-                  href: `mailto:${personalInfo.email}`,
-                  icon: Mail,
-                  label: "Email",
-                },
-              ].map(({ href, icon: Icon, label }) => (
+            <div className="flex items-center gap-2.5 mt-6">
+              {socialLinks.map(({ href, icon: Icon, label }) => (
                 <a
                   key={label}
                   href={href}
@@ -46,21 +47,20 @@ export default function Footer() {
                       : "noopener noreferrer"
                   }
                   aria-label={label}
-                  className="w-9 h-9 rounded-lg flex items-center justify-center text-muted hover:text-[#F9FAFB] transition-all duration-200"
-                  style={{ background: "rgba(255,255,255,0.05)" }}
+                  className="w-10 h-10 rounded-[12px] flex items-center justify-center text-muted hover:text-primary-light transition-all duration-300 icon-box hover:scale-105"
                 >
-                  <Icon size={15} />
+                  <Icon size={16} strokeWidth={1.75} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div>
-            <p className="text-xs font-semibold text-muted uppercase tracking-widest mb-4">
+          <div className="md:col-span-3">
+            <p className="text-[0.6875rem] font-semibold text-muted uppercase tracking-[0.12em] mb-4">
               Navigation
             </p>
             <nav
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-2.5"
               aria-label="Footer navigation"
             >
               {[
@@ -74,7 +74,7 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
-                  className="text-sm text-muted hover:text-[#F9FAFB] transition-colors w-fit"
+                  className="text-sm text-muted hover:text-primary-light transition-colors duration-300 w-fit"
                 >
                   {label}
                 </a>
@@ -82,11 +82,11 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div>
-            <p className="text-xs font-semibold text-muted uppercase tracking-widest mb-4">
+          <div className="md:col-span-4">
+            <p className="text-[0.6875rem] font-semibold text-muted uppercase tracking-[0.12em] mb-4">
               Services
             </p>
-            <ul className="flex flex-col gap-2">
+            <ul className="flex flex-col gap-2.5">
               {[
                 "SaaS Development",
                 "AI Integration",
@@ -102,18 +102,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div
-          className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
-        >
+        <div className="divider-gradient mb-6" />
+
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
           <p>© {year} Arshman Ahmad. All rights reserved.</p>
-          <p>Built with Next.js, TypeScript &amp; Tailwind CSS</p>
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="text-xs text-muted hover:text-[#F9FAFB] transition-colors">Contact with me on WhatsApp</p>
-          <a href={`https://wa.me/${personalInfo.whatsapp}`} target="_blank" rel="noopener noreferrer">
-            <BsWhatsapp size={20} color="#25D366" />
-          </a>
+          <p className="text-muted/70">
+            Built with Next.js, TypeScript &amp; Tailwind CSS
+          </p>
         </div>
       </div>
     </footer>

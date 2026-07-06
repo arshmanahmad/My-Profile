@@ -20,13 +20,13 @@ export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
 
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 50);
+    setScrolled(window.scrollY > 40);
 
     const sections = NAV_LINKS.map((l) => l.href.slice(1));
     let current = "home";
     for (const id of sections) {
       const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 100) current = id;
+      if (el && el.getBoundingClientRect().top <= 120) current = id;
     }
     setActiveSection(current);
   }, []);
@@ -36,27 +36,28 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const handleLinkClick = () => setMobileOpen(false);
 
   return (
     <header
-      className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
-      style={
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-premium ${
         scrolled
-          ? {
-              background: "rgba(11,15,25,0.85)",
-              backdropFilter: "blur(20px)",
-              WebkitBackdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(255,255,255,0.08)",
-            }
-          : {}
-      }
+          ? "glass-surface shadow-nav border-b border-border-subtle"
+          : "bg-transparent"
+      }`}
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Logo onClick={handleLinkClick} />
+      <div className="max-w-[1200px] mx-auto px-6 h-[4.25rem] flex items-center justify-between">
+        <Logo onClick={handleLinkClick} height={48} />
 
         <nav
-          className="hidden lg:flex items-center gap-1"
+          className="hidden lg:flex items-center gap-0.5"
           aria-label="Main navigation"
         >
           {NAV_LINKS.map((link) => {
@@ -65,30 +66,38 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className="relative px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200"
-                style={{ color: isActive ? "#818CF8" : "#9CA3AF" }}
+                className={`relative px-3.5 py-2 text-[0.8125rem] font-medium rounded-lg transition-colors duration-300 ease-premium ${
+                  isActive
+                    ? "text-primary-light"
+                    : "text-muted hover:text-foreground"
+                }`}
               >
                 {link.label}
                 {isActive && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute inset-x-2 bottom-0.5 h-0.5 rounded-full bg-primary"
+                    className="absolute inset-x-3 -bottom-px h-px rounded-full bg-gradient-to-r from-primary/60 to-primary-light/40"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
               </a>
             );
           })}
-          <a href="#contact" className="ml-3 btn-primary !py-2 !px-5 !text-sm">
+          <a
+            href="#contact"
+            className="ml-4 btn-primary !py-2 !px-4 !text-[0.8125rem] !rounded-[12px]"
+          >
             Book a Call
           </a>
         </nav>
 
         <button
-          className="lg:hidden p-2 rounded-lg text-primary-light"
+          className="lg:hidden p-2.5 rounded-lg text-primary-light hover:bg-primary/8 transition-colors duration-300"
           onClick={() => setMobileOpen((o) => !o)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -98,40 +107,37 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden overflow-hidden"
-            style={{
-              background: "rgba(11,15,25,0.95)",
-              backdropFilter: "blur(20px)",
-              borderBottom: "1px solid rgba(255,255,255,0.08)",
-            }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:hidden overflow-hidden glass-surface border-b border-border-subtle"
           >
             <nav
-              className="flex flex-col px-6 py-4 gap-1"
+              className="flex flex-col px-6 py-5 gap-1"
               aria-label="Mobile navigation"
             >
-              {NAV_LINKS.map((link) => {
+              {NAV_LINKS.map((link, i) => {
                 const isActive = activeSection === link.href.slice(1);
                 return (
-                  <a
+                  <motion.a
                     key={link.href}
                     href={link.href}
                     onClick={handleLinkClick}
-                    className="py-3 px-4 rounded-lg text-sm font-medium transition-colors"
-                    style={{
-                      color: isActive ? "#818CF8" : "#9CA3AF",
-                      background: isActive
-                        ? "rgba(79,70,229,0.1)"
-                        : "transparent",
-                    }}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.04, duration: 0.3 }}
+                    className={`py-3 px-4 rounded-xl text-sm font-medium transition-colors duration-300 ${
+                      isActive
+                        ? "text-primary-light bg-primary/8 border border-primary/15"
+                        : "text-muted hover:text-foreground hover:bg-white/[0.03]"
+                    }`}
                   >
                     {link.label}
-                  </a>
+                  </motion.a>
                 );
               })}
               <a
                 href="#contact"
                 onClick={handleLinkClick}
-                className="btn-primary mt-3 justify-center !py-2.5"
+                className="btn-primary mt-4 justify-center !py-3"
               >
                 Book a Call
               </a>
