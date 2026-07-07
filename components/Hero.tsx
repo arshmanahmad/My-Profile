@@ -60,6 +60,7 @@ export default function Hero({ personalInfo }: HeroProps) {
       id="home"
       className="relative min-h-[100dvh] flex items-center pt-20 pb-24"
     >
+      
       <div className="section-container relative z-10 w-full !pt-8 !pb-0">
         <div className="grid xl:grid-cols-[1.1fr_0.9fr] gap-14 xl:gap-20 items-center">
           <motion.div
