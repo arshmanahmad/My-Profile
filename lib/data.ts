@@ -6,7 +6,7 @@ export const personalInfo = {
   tagline:
     "React · Next.js · TypeScript · Node.js · AI Integrations · Business Automation",
   description:
-    "I help startups and businesses build modern software, automate workflows, and launch faster.",
+    "ARSHMANDEV delivers web development, app development, and custom software for startups and businesses, helping you build modern products, automate workflows, and launch faster.",
   email: "arshman.codes@gmail.com",
   phone: "+92 329 4494502",
   phoneDisplay: "03294494502",
@@ -76,21 +76,21 @@ export const services: Service[] = [
     id: "web",
     title: "Web Applications",
     description:
-      "Fast, responsive web apps built with React and Next.js — optimized for performance and SEO.",
+      "Fast, responsive web apps built with React and Next.js, optimized for performance and SEO.",
     icon: "globe",
   },
   {
     id: "mobile",
     title: "Mobile Applications",
     description:
-      "Cross-platform mobile experiences with React Native — one codebase, native feel.",
+      "Cross-platform mobile experiences with React Native: one codebase, native feel.",
     icon: "smartphone",
   },
   {
     id: "api",
     title: "API Development",
     description:
-      "Robust RESTful and real-time APIs with Node.js and FastAPI — secure, documented, and scalable.",
+      "Robust RESTful and real-time APIs with Node.js and FastAPI: secure, documented, and scalable.",
     icon: "code",
   },
   {
@@ -102,222 +102,57 @@ export const services: Service[] = [
   },
 ];
 
-export interface ProjectExpandedDetails {
-  responsibilities: string[];
-  challenges?: string[];
-  implementation?: string[];
-  architecture?: string[];
-  performance?: string[];
-  apis?: string[];
-  additionalTechnologies?: string[];
-}
-
 export interface Project {
   id: number;
   title: string;
-  category: string;
-  description: string;
   experience: string;
-  technologies: string[];
-  demo: string;
+  demo?: string;
   github?: string;
-  caseStudy?: string;
-  image?: string;
-  expandedDetails: ProjectExpandedDetails;
+  inDevelopment?: boolean;
 }
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Smarledger",
-    category: "SaaS",
-    description:
-      "Smart financial ledger platform for real-time bookkeeping and business finance control.",
+    title: "True-Chance",
     experience:
-      "Built and maintained a full-stack ledger platform from the ground up. Developed reusable React components, designed real-time transaction flows, integrated secure REST APIs, optimized dashboard performance, and shipped production-ready features for business finance teams.",
-    technologies: ["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS"],
-    demo: "https://smarledger.com",
-    image: "/assets/projects/smarledger.svg",
-    expandedDetails: {
-      responsibilities: [
-        "Led full-stack development of the core ledger and reporting system",
-        "Designed component architecture for dashboards and transaction views",
-        "Implemented authentication, data validation, and API integration layers",
-        "Collaborated on product direction and iterative feature releases",
-      ],
-      challenges: [
-        "Handling real-time financial data updates without UI lag",
-        "Designing intuitive UX for non-technical business owners",
-      ],
-      implementation: [
-        "Modular React component library with shared state patterns",
-        "Server-side rendering for fast initial loads and SEO",
-        "Structured API layer with typed request/response contracts",
-      ],
-      architecture: [
-        "Next.js App Router with API routes and service separation",
-        "Component-driven frontend with clear data flow boundaries",
-        "Scalable folder structure for features, hooks, and utilities",
-      ],
-      performance: [
-        "Optimized re-renders with memoization and lazy-loaded sections",
-        "Reduced dashboard load time through code splitting",
-      ],
-      apis: ["RESTful transaction APIs", "Reporting and export endpoints"],
-      additionalTechnologies: ["PostgreSQL", "JWT Auth", "Chart libraries"],
-    },
+      "One of the most impactful projects I've built: an AI-powered hiring platform that solves a real HR problem. Companies create career pages from our dashboard and post job openings directly. Candidates visit the career page and complete AI-based interviews, allowing many applicants to be assessed simultaneously against the same opportunity. Interview scores are delivered back to the company so HR can shortlist the best candidates without wasting time on manual screening. The entire system is AI-driven and fully automated, currently live in production.",
+    demo: "https://www.true-chance.com/",
   },
   {
     id: 2,
-    title: "Bsello",
-    category: "Enterprise",
-    description:
-      "Next-generation platform for seamless, scalable business operations.",
+    title: "BSello",
     experience:
-      "Architecting a performance-first business platform with modular services and clean UX. Building reusable UI systems, establishing scalable frontend patterns, and preparing the codebase for rapid market launch and long-term growth.",
-    technologies: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
-    demo: "https://bsello.com",
-    image: "/assets/projects/bsello.svg",
-    expandedDetails: {
-      responsibilities: [
-        "Architecting frontend structure and design system foundations",
-        "Building modular page layouts and shared UI primitives",
-        "Establishing TypeScript conventions and code quality standards",
-        "Planning scalable service integration points for future modules",
-      ],
-      challenges: [
-        "Balancing speed of development with long-term maintainability",
-        "Designing flexible layouts for evolving business modules",
-      ],
-      implementation: [
-        "Feature-based folder organization with co-located components",
-        "Consistent spacing, typography, and interaction patterns",
-        "Reusable form and data-display components",
-      ],
-      architecture: [
-        "Next.js with modular route groups and shared layouts",
-        "Separation of UI, data fetching, and business logic layers",
-      ],
-      performance: [
-        "Image and route-level optimization for fast page transitions",
-        "Minimal bundle footprint through tree-shaking and lazy imports",
-      ],
-      additionalTechnologies: ["Vercel", "ESLint", "Prettier"],
-    },
+      "Built a secure marketplace platform connecting buyers and sellers for social media account transactions. Developed a dedicated chatbot supporting one-to-one and one-to-many communication in a protected environment. Implemented secure payment flows from buyer to seller with scam prevention built in, including scam detection within the chatbot, blocked user management, and a complete end-to-end system designed for safe, trustworthy deals.",
+    demo: "https://bsello.com/",
   },
   {
     id: 3,
-    title: "HR Portal",
-    category: "CRM",
-    description:
-      "Comprehensive HR management system with role-based access control.",
+    title: "Wytify",
     experience:
-      "Delivered a full HR portal with advanced state management, role-based access control, and clean admin dashboards. Built reusable React components, integrated secure APIs, and optimized workflows for HR teams managing employees at scale.",
-    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    demo: "https://hr-portal-nu.vercel.app",
-    expandedDetails: {
-      responsibilities: [
-        "Developed employee management, role assignment, and admin dashboards",
-        "Implemented RBAC with granular permission checks across routes",
-        "Built form-heavy workflows with validation and error handling",
-        "Integrated backend APIs for CRUD operations and reporting",
-      ],
-      challenges: [
-        "Managing complex permission logic across multiple user roles",
-        "Keeping large data tables performant and responsive",
-      ],
-      implementation: [
-        "Centralized state management for auth and user context",
-        "Reusable table, filter, and modal components",
-        "Protected routes with role-aware navigation guards",
-      ],
-      architecture: [
-        "React + Vite SPA with feature modules per HR domain",
-        "Service layer abstracting API calls from UI components",
-      ],
-      performance: [
-        "Virtualized lists for large employee datasets",
-        "Debounced search and filter operations",
-      ],
-      apis: ["Employee CRUD APIs", "Role and permission endpoints"],
-      additionalTechnologies: ["React Router", "Axios", "Zustand"],
-    },
+      "Led AI engineering and full-stack development on a fully automated article generation platform. Users select a membership plan, choose a topic area, and the system automatically generates relevant keywords. After keyword selection, the platform scrapes the top ten Google competitors for that topic and uses those results to guide article generation and SEO analysis, optimizing content based on real competitive data. Currently in active development.",
+    inDevelopment: true,
   },
   {
     id: 4,
-    title: "AI Chat Application",
-    category: "AI Platform",
-    description:
-      "Intelligent chat application with real-time AI-driven responses.",
+    title: "Medi-Report-AI",
     experience:
-      "Integrated LangChain with a FastAPI backend to deliver real-time, context-aware AI chat experiences. Built the frontend conversation UI, managed streaming responses, and optimized for sub-second interaction latency in production.",
-    technologies: ["React", "LangChain", "FastAPI", "Node.js"],
-    demo: "https://ai-chat-app-delta.vercel.app",
-    expandedDetails: {
-      responsibilities: [
-        "Built conversational UI with message threading and streaming",
-        "Integrated LangChain chains and prompt management on the backend",
-        "Implemented session handling and context persistence",
-        "Deployed and tested production AI response pipelines",
-      ],
-      challenges: [
-        "Streaming AI responses smoothly without blocking the UI",
-        "Managing conversation context within token limits",
-      ],
-      implementation: [
-        "Server-sent events for real-time message streaming",
-        "LangChain integration with custom prompt templates",
-        "Optimistic UI updates during message send/receive cycles",
-      ],
-      architecture: [
-        "React frontend communicating with FastAPI microservice",
-        "Separation of AI logic, API layer, and presentation",
-      ],
-      performance: [
-        "Reduced perceived latency with streaming and skeleton states",
-        "Cached session context to minimize redundant API calls",
-      ],
-      apis: ["Chat completion endpoints", "Session and history APIs"],
-      additionalTechnologies: ["OpenAI API", "Python", "WebSockets"],
-    },
+      "Developed a virtual doctor data engine powered by AI and machine learning. Trained the model on comprehensive medical data to deliver accurate responses across a wide range of user inputs, including disease risk level assessment, personalized recommendations, full diet plans, estimated recovery duration based on risk level, and more.",
+    github: "https://github.com/arshmanahmad/Medi-Report-AI-Backend",
   },
   {
     id: 5,
-    title: "Nurse AI Hub",
-    category: "Healthcare",
-    description:
-      "Healthcare AI platform with nursing assistance and clinical workflows.",
+    title: "Web-Scraper",
     experience:
-      "Built a specialized healthcare AI hub with LangGraph agents and nursing-specific APIs. Developed secure frontend interfaces for clinical workflows, integrated AI decision-support tools, and ensured reliable performance for healthcare professionals.",
-    technologies: ["React", "TypeScript", "LangGraph", "Healthcare APIs"],
-    demo: "https://nurse-ai-hub.vercel.app",
-    expandedDetails: {
-      responsibilities: [
-        "Developed nursing workflow interfaces and AI-assisted tools",
-        "Integrated LangGraph agents for multi-step clinical reasoning",
-        "Connected healthcare APIs for patient and workflow data",
-        "Ensured accessible, reliable UI for professional users",
-      ],
-      challenges: [
-        "Designing AI tools that fit real nursing workflows",
-        "Handling sensitive healthcare data with care and clarity",
-      ],
-      implementation: [
-        "LangGraph agent orchestration for complex query chains",
-        "Step-by-step UI for AI-assisted clinical decisions",
-        "Typed API contracts for healthcare data integration",
-      ],
-      architecture: [
-        "React frontend with dedicated modules per workflow type",
-        "Agent backend separated from UI and data access layers",
-      ],
-      performance: [
-        "Progressive loading for AI-generated content sections",
-        "Efficient state updates during multi-step agent responses",
-      ],
-      apis: ["Nursing assistance APIs", "Healthcare data integration endpoints"],
-      additionalTechnologies: ["LangGraph", "FHIR-compatible APIs", "TypeScript"],
-    },
+      "Built a Node.js web scraper using Playwright to extract detailed product information from Ali1688.com product pages. Engineered human-like browsing behavior patterns to avoid detection and integrated CAPTCHA solving capabilities for reliable, automated data extraction at scale.",
+    github: "https://github.com/arshmanahmad/Website-Scraping",
+  },
+  {
+    id: 6,
+    title: "Smarledger",
+    experience:
+      "Smarledger is a multi-tenant business management platform supporting many business types: Mobile, Cosmetics, Cars, Sanitary, and more, all running on the same backend infrastructure. Users select their business type during account creation and the system adapts accordingly, making Smarledger a flexible, scalable software solution for diverse retail and service operations.",
+    github: "https://github.com/arshmanahmad/SmarledgerStoreBackend",
   },
 ];
 
@@ -344,7 +179,7 @@ export const processSteps: ProcessStep[] = [
     step: 3,
     title: "Development",
     description:
-      "Building with clean, maintainable code — with regular updates and transparent progress.",
+      "Building with clean, maintainable code, with regular updates and transparent progress.",
   },
   {
     step: 4,
@@ -388,7 +223,7 @@ export const whyWorkWithMe: WhyItem[] = [
   {
     title: "Scalable Architecture",
     description:
-      "Systems designed to grow with your business — from MVP to enterprise scale.",
+      "Systems designed to grow with your business, from MVP to enterprise scale.",
     icon: "layers",
   },
   {
@@ -406,7 +241,7 @@ export const whyWorkWithMe: WhyItem[] = [
   {
     title: "Long-Term Support",
     description:
-      "I don't disappear after launch — ongoing maintenance and improvements when you need them.",
+      "I don't disappear after launch. Ongoing maintenance and improvements when you need them.",
     icon: "shield",
   },
 ];
@@ -443,7 +278,7 @@ export const testimonials: Testimonial[] = [
     role: "CTO, StartupBase",
     platform: "linkedin",
     rating: 5,
-    text: "Full-stack expertise at its best. Payment integration was flawless — exceeded all expectations.",
+    text: "Full-stack expertise at its best. Payment integration was flawless and exceeded all expectations.",
   },
   {
     id: 4,
@@ -452,5 +287,60 @@ export const testimonials: Testimonial[] = [
     platform: "linkedin",
     rating: 5,
     text: "LangChain chatbot cut our support tickets by 40%. Exceptional AI integration skills and deep technical knowledge.",
+  },
+];
+
+export type SocialPlatform = "linkedin" | "github" | "x" | "instagram";
+
+export interface SocialProfile {
+  id: string;
+  platform: SocialPlatform;
+  name: string;
+  handle: string;
+  url: string;
+  image: string;
+  pickupLine: string;
+}
+
+export const socialProfiles: SocialProfile[] = [
+  {
+    id: "linkedin",
+    platform: "linkedin",
+    name: "LinkedIn",
+    handle: "@arshman-ahmad",
+    url: "https://www.linkedin.com/in/arshman-ahmad-334829298",
+    image: "/assets/social-media/LinkedIn-1.png",
+    pickupLine:
+      "Let's connect professionally. I share projects, career insights, and the work I'm building.",
+  },
+  {
+    id: "github",
+    platform: "github",
+    name: "GitHub",
+    handle: "@arshmanahmad",
+    url: "https://github.com/arshmanahmad",
+    image: "/assets/social-media/Github-1.png",
+    pickupLine:
+      "Explore the code behind the products: repos, experiments, and real engineering work.",
+  },
+  {
+    id: "x",
+    platform: "x",
+    name: "X (Twitter)",
+    handle: "@ArshmanDev",
+    url: "https://x.com/ArshmanDev",
+    image: "/assets/social-media/X-1.png",
+    pickupLine:
+      "Follow for dev updates, build-in-public moments, and quick thoughts on tech.",
+  },
+  {
+    id: "instagram",
+    platform: "instagram",
+    name: "Instagram",
+    handle: "@arshmandev",
+    url: "https://www.instagram.com/arshmandev?igsh=cDdtN3c1eGlrcndm",
+    image: "/assets/social-media/Insta-1.png",
+    pickupLine:
+      "The personal side: behind-the-scenes, journey snapshots, and creative updates.",
   },
 ];

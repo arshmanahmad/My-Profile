@@ -23,7 +23,7 @@ export default function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(20,30,46,0) 0%, rgba(20,30,46,0.8) 100%)",
+            "linear-gradient(180deg, rgba(13,17,23,0) 0%, rgba(13,17,23,0.85) 100%)",
         }}
         aria-hidden="true"
       />
@@ -32,8 +32,9 @@ export default function Footer() {
           <div className="md:col-span-5">
             <Logo linked={false} showWordmark height={48} className="mb-4" />
             <p className="text-sm text-muted leading-[1.7] max-w-sm">
-              Full Stack Developer building scalable web applications, AI
-              solutions, and business automation for startups and businesses.
+              {personalInfo.brandName}: full stack web &amp; app development
+              services. Building scalable applications, AI solutions, and business
+              automation for startups and businesses worldwide.
             </p>
             <div className="flex items-center gap-2.5 mt-6">
               {socialLinks.map(({ href, icon: Icon, label }) => (

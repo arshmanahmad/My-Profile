@@ -43,7 +43,7 @@ export default function WorkProcess({ steps }: WorkProcessProps) {
                         className="w-11 h-11 rounded-full flex items-center justify-center text-sm font-bold text-background font-sans shadow-button transition-transform duration-400 group-hover:scale-105"
                         style={{
                           background:
-                            "linear-gradient(135deg, #B8D4F0, #8EB8E8, #6E96BE)",
+                            "linear-gradient(135deg, #91AEC8, #6E8FAD, #4F6F8C)",
                         }}
                       >
                         {step.step}
@@ -69,7 +69,7 @@ export default function WorkProcess({ steps }: WorkProcessProps) {
                     className="h-px w-0 group-hover:w-full transition-all duration-700 ease-premium rounded-full mt-2"
                     style={{
                       background:
-                        "linear-gradient(90deg, #8EB8E8, rgba(184,212,240,0.3))",
+                        "linear-gradient(90deg, #6E8FAD, rgba(145,174,200,0.3))",
                     }}
                   />
                 </motion.div>

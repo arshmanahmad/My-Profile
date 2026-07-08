@@ -42,8 +42,9 @@ export default function Services({ services }: ServicesProps) {
               <span className="gradient-text">Drive Business Growth</span>
             </h2>
             <p className="section-subtext">
-              Outcome-focused development services designed to help your business
-              launch faster, operate smarter, and scale with confidence.
+              Professional web development and app development services: SaaS,
+              AI integration, CRM systems, and business automation built to help
+              your product launch faster and scale with confidence.
             </p>
           </div>
         </MotionReveal>
@@ -74,7 +75,7 @@ export default function Services({ services }: ServicesProps) {
                       className="h-px w-8 group-hover:w-full transition-all duration-700 ease-premium rounded-full"
                       style={{
                         background:
-                          "linear-gradient(90deg, #8EB8E8, rgba(184,212,240,0.4))",
+                          "linear-gradient(90deg, #6E8FAD, rgba(145,174,200,0.35))",
                       }}
                     />
                   </div>

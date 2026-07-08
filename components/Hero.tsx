@@ -77,9 +77,10 @@ export default function Hero({ personalInfo }: HeroProps) {
               variants={itemVariants}
               className="hero-heading font-sans text-foreground mb-7 text-balance"
             >
-              Coding Scalable Web Applications and Mobile Apps{" "}
+              <span className="sr-only">{personalInfo.brandName}: </span>
+              Web &amp; App Development Services for{" "}
               <span className="gradient-text">
-                AI Solutions &amp; Business Automation
+                Scalable Software, AI &amp; Business Automation
               </span>
             </motion.h1>
 
@@ -153,7 +154,7 @@ export default function Hero({ personalInfo }: HeroProps) {
                 className="absolute -inset-4 rounded-[28px] opacity-40 blur-2xl pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(142,184,232,0.15) 0%, transparent 70%)",
+                    "radial-gradient(ellipse at center, rgba(110,143,173,0.1) 0%, transparent 70%)",
                 }}
               />
 

@@ -1,6 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import {
+  seoTitle,
+  seoDescription,
+  seoKeywords,
+  siteUrl,
+} from "@/lib/seo";
+import { personalInfo, brandAssets } from "@/lib/data";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -9,45 +16,55 @@ const inter = Inter({
   display: "swap",
 });
 
+const ogImage = `${siteUrl}${brandAssets.banner}`;
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "Arshman Ahmad — Full Stack Developer | React, Next.js, AI & SaaS",
-    template: "%s | Arshman Ahmad",
+    default: seoTitle,
+    template: `%s | ${personalInfo.brandName}`,
   },
-  description:
-    "Arshman Ahmad — Full Stack Developer specializing in React, Next.js, TypeScript, Node.js, AI Integrations, Business Automation, SaaS Development, and CRM Systems. Available for freelance projects.",
-  keywords: [
-    "Arshman Ahmad",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "TypeScript Developer",
-    "Node.js Developer",
-    "AI Integration",
-    "Business Automation",
-    "SaaS Development",
-    "CRM Systems",
-    "Freelance Developer",
-    "Web Developer Pakistan",
-    "LangChain Developer",
-    "Scalable Web Applications",
+  description: seoDescription,
+  keywords: [...seoKeywords],
+  applicationName: personalInfo.brandName,
+  authors: [
+    {
+      name: personalInfo.name,
+      url: personalInfo.github,
+    },
+    {
+      name: personalInfo.brandName,
+      url: siteUrl,
+    },
   ],
-  authors: [{ name: "Arshman Ahmad", url: "https://github.com/arshmanahmad" }],
-  creator: "Arshman Ahmad",
+  creator: personalInfo.name,
+  publisher: personalInfo.brandName,
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Arshman Ahmad — Full Stack Developer",
-    description:
-      "Building scalable web applications, AI solutions & business automation for startups and businesses.",
-    siteName: "Arshman Ahmad",
+    url: siteUrl,
+    title: seoTitle,
+    description: seoDescription,
+    siteName: personalInfo.brandName,
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${personalInfo.brandName}: Web & App Development Services`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arshman Ahmad — Full Stack Developer",
-    description:
-      "React, Next.js, TypeScript, Node.js, AI Integrations & Business Automation.",
+    title: seoTitle,
+    description: seoDescription,
+    images: [ogImage],
+    creator: "@ArshmanDev",
+    site: "@ArshmanDev",
   },
   robots: {
     index: true,
@@ -61,14 +78,15 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/assets/main-content/logo.png",
-    shortcut: "/assets/main-content/logo.png",
-    apple: "/assets/main-content/logo.png",
+    icon: brandAssets.logo,
+    shortcut: brandAssets.logo,
+    apple: brandAssets.logo,
   },
+  category: "technology",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#141E2E",
+  themeColor: "#0D1117",
   width: "device-width",
   initialScale: 1,
 };
@@ -81,7 +99,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="apple-touch-icon" href="/assets/main-content/logo.png" />
+        <link rel="apple-touch-icon" href={brandAssets.logo} />
       </head>
       <body
         className={`${inter.className} bg-background text-foreground antialiased`}

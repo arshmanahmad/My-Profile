@@ -63,7 +63,7 @@ export default function Logo({
         href={href}
         onClick={onClick}
         className={sharedClass}
-        aria-label="ARSHMANDEV — Home"
+        aria-label="ARSHMANDEV Home"
       >
         {content}
       </a>

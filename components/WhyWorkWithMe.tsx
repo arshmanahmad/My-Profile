@@ -38,7 +38,7 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
               <span className="gradient-text">Serious Clients</span>
             </h2>
             <p className="section-subtext">
-              More than code — a partnership focused on your business success.
+              More than code. A partnership focused on your business success.
             </p>
           </div>
         </MotionReveal>

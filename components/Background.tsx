@@ -35,7 +35,7 @@ export default function Background() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 40% at 50% 5%, rgba(142,184,232,0.08) 0%, transparent 65%)",
+            "radial-gradient(ellipse 55% 40% at 50% 5%, rgba(110,143,173,0.07) 0%, transparent 65%)",
         }}
       />
 
@@ -48,7 +48,7 @@ export default function Background() {
           height: "380px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(140,154,176,0.08) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(147,158,171,0.07) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -62,7 +62,7 @@ export default function Background() {
           height: "420px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(142,184,232,0.06) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(110,143,173,0.05) 0%, transparent 70%)",
           filter: "blur(90px)",
           animationDelay: "-8s",
         }}
@@ -75,7 +75,7 @@ export default function Background() {
             width: "320px",
             height: "320px",
             background:
-              "radial-gradient(circle, rgba(142,184,232,0.04) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(110,143,173,0.035) 0%, transparent 70%)",
             filter: "blur(50px)",
           }}
           animate={{
@@ -90,7 +90,7 @@ export default function Background() {
         className="absolute top-0 left-0 w-40 h-40 opacity-[0.12]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(184,212,240,0.5) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(145,174,200,0.4) 1px, transparent 1px)",
           backgroundSize: "16px 16px",
           maskImage: "radial-gradient(ellipse at top left, black 20%, transparent 70%)",
           WebkitMaskImage:
@@ -101,7 +101,7 @@ export default function Background() {
         className="absolute bottom-0 right-0 w-40 h-40 opacity-[0.1]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, rgba(184,212,240,0.4) 1px, transparent 1px)",
+            "radial-gradient(circle, rgba(145,174,200,0.3) 1px, transparent 1px)",
           backgroundSize: "16px 16px",
           maskImage:
             "radial-gradient(ellipse at bottom right, black 20%, transparent 70%)",
@@ -114,7 +114,7 @@ export default function Background() {
         className="absolute inset-0 opacity-[0.035]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(140,154,176,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(140,154,176,0.4) 1px, transparent 1px)",
+            "linear-gradient(rgba(147,158,171,0.35) 1px, transparent 1px), linear-gradient(90deg, rgba(147,158,171,0.35) 1px, transparent 1px)",
           backgroundSize: "72px 72px",
         }}
       />

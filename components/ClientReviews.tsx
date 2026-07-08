@@ -21,9 +21,9 @@ const platformConfig: Record<
 > = {
   linkedin: {
     icon: SiLinkedin,
-    color: "#5BA4E8",
-    logoBg: "rgba(10,102,194,0.15)",
-    logoColor: "#5BA4E8",
+    color: "#6E8FAD",
+    logoBg: "rgba(110,143,173,0.14)",
+    logoColor: "#91AEC8",
     logoRadius: "rounded-[8px]",
     label: "LinkedIn",
   },
@@ -85,7 +85,7 @@ function ReviewCard({ review }: { review: Testimonial }) {
         <div
           className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-background shrink-0"
           style={{
-            background: "linear-gradient(135deg, #B8D4F0, #8EB8E8, #6E96BE)",
+            background: "linear-gradient(135deg, #91AEC8, #6E8FAD, #4F6F8C)",
           }}
         >
           {review.name[0]}

@@ -9,8 +9,10 @@ import WhyWorkWithMe from "@/components/WhyWorkWithMe";
 import About from "@/components/About";
 import ClientReviews from "@/components/ClientReviews";
 import Contact from "@/components/Contact";
+import SocialPresence from "@/components/SocialPresence";
 import Footer from "@/components/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { getStructuredData } from "@/lib/seo";
 import {
   stats,
   services,
@@ -19,57 +21,21 @@ import {
   whyWorkWithMe,
   testimonials,
   personalInfo,
+  socialProfiles,
 } from "@/lib/data";
 
-const personSchema = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Arshman Ahmad",
-  jobTitle: "Full Stack Developer",
-  email: "arshman.codes@gmail.com",
-  telephone: "+923294494502",
-  url: "https://github.com/arshmanahmad",
-  sameAs: [
-    "https://github.com/arshmanahmad",
-    "https://linkedin.com/in/arshmanahmad",
-  ],
-  knowsAbout: [
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Node.js",
-    "AI Integration",
-    "Business Automation",
-    "SaaS Development",
-    "CRM Systems",
-    "LangChain",
-    "FastAPI",
-  ],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Arshman Ahmad, Full Stack Developer",
-  description:
-    "Building scalable web applications, AI solutions & business automation for startups and businesses.",
-  author: {
-    "@type": "Person",
-    name: "Arshman Ahmad",
-  },
-};
-
 export default function Home() {
+  const structuredData = getStructuredData();
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
+      {structuredData.map((schema, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+      ))}
       <Background />
       <Navigation />
       <main>
@@ -82,6 +48,7 @@ export default function Home() {
         <About />
         <ClientReviews testimonials={testimonials} />
         <Contact personalInfo={personalInfo} />
+        <SocialPresence profiles={socialProfiles} />
       </main>
       <Footer />
       <WhatsAppFloat />

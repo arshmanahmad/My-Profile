@@ -9,34 +9,38 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#141E2E",
+        /* Palette 1 — Graphite Base (surfaces) */
+        background: "#0D1117",
         surface: {
-          DEFAULT: "#1E2D42",
-          alt: "#243548",
-          muted: "#2A3A50",
-          elevated: "#2F4158",
+          DEFAULT: "#181F2A",
+          alt: "#1F2836",
+          muted: "#252D3A",
+          elevated: "#283040",
         },
-        foreground: "#F4F8FC",
+        /* Palette 2 — Steel Slate (accent) */
+        foreground: "#E4E6EA",
         primary: {
-          DEFAULT: "#8EB8E8",
-          dark: "#6E96BE",
-          light: "#B8D4F0",
-          muted: "#5A8AB8",
+          DEFAULT: "#6E8FAD",
+          dark: "#4F6F8C",
+          light: "#91AEC8",
+          muted: "#5A7A96",
         },
+        /* Palette 3 — Stone Pearl (neutrals) */
         secondary: {
-          DEFAULT: "#96AABE",
-          light: "#C8D8E8",
+          DEFAULT: "#939EAB",
+          light: "#B5BFC9",
+          warm: "#B5A896",
         },
         accent: {
-          DEFAULT: "#7EB0DC",
-          glow: "#3D5068",
-          circuit: "#8C9AB0",
+          DEFAULT: "#7A96B0",
+          glow: "#2A3444",
+          circuit: "#7A8796",
         },
-        muted: "#8A9BB0",
+        muted: "#707B88",
         border: {
-          DEFAULT: "#344860",
-          subtle: "rgba(140, 154, 176, 0.12)",
-          strong: "rgba(142, 184, 232, 0.28)",
+          DEFAULT: "#2E3848",
+          subtle: "rgba(147, 158, 171, 0.1)",
+          strong: "rgba(110, 143, 173, 0.22)",
         },
       },
       fontFamily: {
@@ -85,25 +89,24 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "brand-gradient":
-          "linear-gradient(135deg, #B8D4F0 0%, #8EB8E8 45%, #6E96BE 100%)",
+          "linear-gradient(135deg, #91AEC8 0%, #6E8FAD 50%, #4F6F8C 100%)",
         "brand-gradient-subtle":
-          "linear-gradient(135deg, rgba(184,212,240,0.15) 0%, rgba(142,184,232,0.08) 100%)",
+          "linear-gradient(135deg, rgba(145,174,200,0.12) 0%, rgba(110,143,173,0.06) 100%)",
         "page-gradient":
-          "radial-gradient(ellipse 120% 80% at 50% -10%, rgba(73,85,106,0.45) 0%, #1E2D42 38%, #141E2E 100%)",
+          "radial-gradient(ellipse 120% 80% at 50% -10%, rgba(42,52,68,0.5) 0%, #121820 40%, #0D1117 100%)",
         "surface-gradient":
-          "linear-gradient(165deg, rgba(47,65,88,0.95) 0%, rgba(30,45,66,0.98) 50%, rgba(26,38,56,1) 100%)",
+          "linear-gradient(165deg, rgba(40,48,64,0.95) 0%, rgba(24,31,42,0.98) 50%, rgba(13,17,23,1) 100%)",
       },
       boxShadow: {
-        card: "0 1px 0 rgba(200,216,232,0.04) inset, 0 4px 24px rgba(0,0,0,0.28), 0 0 0 1px rgba(140,154,176,0.1)",
+        card: "0 1px 0 rgba(228,230,234,0.03) inset, 0 4px 24px rgba(0,0,0,0.32), 0 0 0 1px rgba(147,158,171,0.08)",
         "card-hover":
-          "0 1px 0 rgba(200,216,232,0.06) inset, 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(142,184,232,0.18), 0 0 48px rgba(142,184,232,0.06)",
-        profile:
-          "0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(140,154,176,0.12)",
-        glow: "0 0 32px rgba(142,184,232,0.12)",
-        nav: "0 4px 24px rgba(0,0,0,0.25), 0 0 0 1px rgba(140,154,176,0.08)",
-        button: "0 2px 12px rgba(142,184,232,0.2), 0 1px 0 rgba(255,255,255,0.1) inset",
+          "0 1px 0 rgba(228,230,234,0.05) inset, 0 12px 40px rgba(0,0,0,0.38), 0 0 0 1px rgba(110,143,173,0.14), 0 0 40px rgba(110,143,173,0.05)",
+        profile: "0 8px 32px rgba(0,0,0,0.42), 0 0 0 1px rgba(147,158,171,0.1)",
+        glow: "0 0 32px rgba(110,143,173,0.1)",
+        nav: "0 4px 24px rgba(0,0,0,0.28), 0 0 0 1px rgba(147,158,171,0.06)",
+        button: "0 2px 12px rgba(110,143,173,0.18), 0 1px 0 rgba(255,255,255,0.06) inset",
         "button-hover":
-          "0 8px 28px rgba(142,184,232,0.3), 0 1px 0 rgba(255,255,255,0.15) inset",
+          "0 8px 28px rgba(110,143,173,0.22), 0 1px 0 rgba(255,255,255,0.08) inset",
       },
     },
   },

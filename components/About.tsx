@@ -33,7 +33,7 @@ export default function About() {
                 className="absolute -inset-3 rounded-[28px] opacity-30 blur-2xl pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(ellipse at center, rgba(142,184,232,0.12) 0%, transparent 70%)",
+                    "radial-gradient(ellipse at center, rgba(110,143,173,0.08) 0%, transparent 70%)",
                 }}
               />
               <div className="premium-card-static overflow-hidden shadow-profile relative">

@@ -82,7 +82,7 @@ export default function WhatsAppFloat() {
         href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`Chat on WhatsApp — ${WHATSAPP_DISPLAY}`}
+        aria-label={`Chat on WhatsApp, ${WHATSAPP_DISPLAY}`}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.97 }}
         animate={
@@ -106,7 +106,7 @@ export default function WhatsAppFloat() {
         {!hovered && (
           <span
             className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 status-dot bg-emerald-400"
-            style={{ borderColor: "#141E2E" }}
+            style={{ borderColor: "#0D1117" }}
           />
         )}
       </motion.a>
