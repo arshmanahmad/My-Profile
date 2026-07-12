@@ -38,7 +38,6 @@ function ProjectStatus({ project }: { project: Project }) {
     </span>
   );
 }
-
 function ProjectLinks({ project }: { project: Project }) {
   if (project.inDevelopment) return null;
 
