@@ -24,6 +24,7 @@ export default function Stats({ stats }: StatsProps) {
                   <AnimatedCounter
                     value={stat.value}
                     suffix={stat.suffix}
+                    startFrom={5}
                     duration={2}
                   />
                 </div>

@@ -1,6 +1,7 @@
 import Background from "@/components/Background";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import IntroVideo from "@/components/IntroVideo";
 import Stats from "@/components/Stats";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
@@ -22,6 +23,7 @@ import {
   testimonials,
   personalInfo,
   socialProfiles,
+  introVideo,
 } from "@/lib/data";
 
 export default function Home() {
@@ -40,6 +42,7 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero personalInfo={personalInfo} />
+        <IntroVideo video={introVideo} />
         <Stats stats={stats} />
         <Services services={services} />
         <Projects projects={projects} />

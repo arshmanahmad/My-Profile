@@ -23,6 +23,28 @@ export const brandAssets = {
   profilePicture: "/assets/main-content/profile-picture.png",
 } as const;
 
+export type IntroVideoProvider = "instagram" | "hosted";
+
+export interface IntroVideo {
+  title: string;
+  description: string;
+  provider: IntroVideoProvider;
+  url: string;
+  embedUrl?: string;
+  poster?: string;
+  hostedSrc?: string;
+}
+
+export const introVideo: IntroVideo = {
+  title: "Meet ARSHMANDEV",
+  description:
+    "A quick introduction to who I am, what I build, and how I help startups and businesses ship reliable web and app products.",
+  provider: "instagram",
+  url: "https://www.instagram.com/arshmandev/reel/Das8EiCtFrK/",
+  embedUrl: "https://www.instagram.com/reel/Das8EiCtFrK/embed",
+  poster: brandAssets.profilePicture,
+};
+
 export interface StatItem {
   value: number;
   suffix: string;

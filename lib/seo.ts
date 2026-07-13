@@ -1,4 +1,4 @@
-import { personalInfo, projects, services, brandAssets } from "./data";
+import { personalInfo, projects, services, brandAssets, introVideo } from "./data";
 
 function resolveSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
@@ -202,6 +202,22 @@ export function getSmarledgerSchema() {
   };
 }
 
+export function getIntroVideoSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "@id": `${siteUrl}/#intro-video`,
+    name: introVideo.title,
+    description: introVideo.description,
+    contentUrl: introVideo.url,
+    embedUrl: introVideo.embedUrl ?? introVideo.url,
+    thumbnailUrl: `${siteUrl}${introVideo.poster ?? brandAssets.profilePicture}`,
+    uploadDate: "2024-01-01",
+    author: { "@id": `${siteUrl}/#person` },
+    publisher: { "@id": `${siteUrl}/#person` },
+  };
+}
+
 export function getStructuredData() {
   return [
     getPersonSchema(),
@@ -209,5 +225,6 @@ export function getStructuredData() {
     getProfessionalServiceSchema(),
     getProjectsSchema(),
     getSmarledgerSchema(),
+    getIntroVideoSchema(),
   ].filter(Boolean);
 }

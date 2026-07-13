@@ -7,6 +7,7 @@ interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   duration?: number;
+  startFrom?: number;
   className?: string;
 }
 
@@ -14,12 +15,13 @@ export default function AnimatedCounter({
   value,
   suffix = "",
   duration = 2,
+  startFrom = 0,
   className = "",
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
   const prefersReducedMotion = useReducedMotion();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(startFrom);
 
   useEffect(() => {
     if (!isInView) return;
@@ -28,18 +30,18 @@ export default function AnimatedCounter({
       return;
     }
 
-    let start = 0;
     const startTime = performance.now();
+    const range = value - startFrom;
     const animate = (now: number) => {
       const elapsed = now - startTime;
       const progress = Math.min(elapsed / (duration * 1000), 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(eased * value));
+      setCount(Math.floor(startFrom + eased * range));
       if (progress < 1) requestAnimationFrame(animate);
       else setCount(value);
     };
     requestAnimationFrame(animate);
-  }, [isInView, value, duration, prefersReducedMotion]);
+  }, [isInView, value, duration, prefersReducedMotion, startFrom]);
 
   return (
     <motion.span
