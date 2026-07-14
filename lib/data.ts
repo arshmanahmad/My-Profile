@@ -3,13 +3,13 @@ export const personalInfo = {
   brandName: "ARSHMANDEV",
   brandTagline: "BUILD • CODE • SOLVE",
   title: "Full Stack Developer",
-  titleExtended: "Full Stack Developer & AI Engineer",
+  titleExtended: "Founder & Lead Engineer",
   tagline:
     "React · Next.js · TypeScript · Node.js · AI Integrations · Business Automation",
   description:
-    "ARSHMANDEV delivers high-performance web apps, mobile solutions, and custom automated systems for startups using the latest React, Next.js, and Node.js ecosystems.",
+    "ARSHMANDEV is a development team led by Arshman Ahmad. We build web apps, mobile apps, and custom systems for startups and businesses, mainly with React, Next.js, Node.js, and TypeScript.",
   about:
-    "I'm a technical architect focused on Reliable Delivery. I build scalable products, automation systems, and AI-powered software that help startups and businesses ship faster with confidence.",
+    "ARSHMANDEV is led by Arshman Ahmad and backed by a focused specialist team across frontend, backend, AI, and QA. We ship solid products with clear ownership, clean architecture, and features that actually help the business.",
   email: "arshman.codes@gmail.com",
   phone: "+92 329 4494502",
   phoneDisplay: "03294494502",
@@ -20,19 +20,61 @@ export const personalInfo = {
   calendly: "#contact",
 };
 
+export const teamMembers = [
+  {
+    id: "lead",
+    name: "Arshman Ahmad",
+    role: "Founder & Lead Engineer",
+    focus: "Architecture · Delivery · Client partnership",
+    isLead: true,
+  },
+  {
+    id: "frontend",
+    name: "Frontend",
+    role: "UI Engineering",
+    focus: "React · Next.js · Product interfaces",
+    initials: "FE",
+    isLead: false,
+  },
+  {
+    id: "backend",
+    name: "Backend",
+    role: "Systems & APIs",
+    focus: "Node.js · Databases · Integrations",
+    initials: "BE",
+    isLead: false,
+  },
+  {
+    id: "ai",
+    name: "AI",
+    role: "AI / Automation",
+    focus: "LLM workflows · Agents · Automation",
+    initials: "AI",
+    isLead: false,
+  },
+  {
+    id: "qa",
+    name: "QA",
+    role: "Quality & Release",
+    focus: "Testing · Stability · Launch checks",
+    initials: "QA",
+    isLead: false,
+  },
+] as const;
+
 export const valueProps = [
   {
     id: "engineering",
-    title: "Engineering Mastery",
+    title: "Solid engineering",
     description:
-      "Designing scalable architectures that withstand the test of time and traffic. Our technical approach is rooted in precision and performance.",
+      "Clear architecture, maintainable code, and systems that can grow with real traffic, not shortcuts that break later.",
     icon: "code",
   },
   {
-    id: "cinematic",
-    title: "Cinematic Experience",
+    id: "delivery",
+    title: "Reliable delivery",
     description:
-      "Digital interfaces shouldn't just work—they should inspire. We blend technical rigor with editorial aesthetics for unforgettable UX.",
+      "Regular updates, honest timelines, and a process you can follow from the first call through launch and support.",
     icon: "sparkles",
   },
 ] as const;
@@ -158,6 +200,7 @@ export interface Project {
   experience: string;
   type: ProjectType;
   typeLabel: string;
+  stack: string[];
   demo?: string;
   github?: string;
   inDevelopment?: boolean;
@@ -169,8 +212,9 @@ export const projects: Project[] = [
     title: "True-Chance",
     type: "ai-hiring",
     typeLabel: "AI Hiring",
+    stack: ["Next.js", "AI / LLM", "Node.js"],
     experience:
-      "One of the most impactful projects I've built: an AI-powered hiring platform that solves a real HR problem. Companies create career pages from our dashboard and post job openings directly. Candidates visit the career page and complete AI-based interviews, allowing many applicants to be assessed simultaneously against the same opportunity. Interview scores are delivered back to the company so HR can shortlist the best candidates without wasting time on manual screening. The entire system is AI-driven and fully automated, currently live in production.",
+      "AI hiring platform where companies create career pages, candidates take AI interviews, and scores go back to HR for shortlisting. Live in production.",
     demo: "https://www.true-chance.com/",
   },
   {
@@ -178,8 +222,9 @@ export const projects: Project[] = [
     title: "BSello",
     type: "marketplace",
     typeLabel: "Marketplace",
+    stack: ["React", "Chat", "Payments"],
     experience:
-      "Built a secure marketplace platform connecting buyers and sellers for social media account transactions. Developed a dedicated chatbot supporting one-to-one and one-to-many communication in a protected environment. Implemented secure payment flows from buyer to seller with scam prevention built in, including scam detection within the chatbot, blocked user management, and a complete end-to-end system designed for safe, trustworthy deals.",
+      "Marketplace for buying and selling social accounts, with protected chat, payments, and scam-prevention built into the flow.",
     demo: "https://bsello.com/",
   },
   {
@@ -187,8 +232,9 @@ export const projects: Project[] = [
     title: "Wytify",
     type: "content-ai",
     typeLabel: "Content AI",
+    stack: ["AI", "SEO", "Full Stack"],
     experience:
-      "Led AI engineering and full-stack development on a fully automated article generation platform. Users select a membership plan, choose a topic area, and the system automatically generates relevant keywords. After keyword selection, the platform scrapes the top ten Google competitors for that topic and uses those results to guide article generation and SEO analysis, optimizing content based on real competitive data. Currently in active development.",
+      "Article generation platform with keyword research, competitor scraping, and SEO-oriented content workflows. In active development.",
     inDevelopment: true,
   },
   {
@@ -196,8 +242,9 @@ export const projects: Project[] = [
     title: "Medi-Report-AI",
     type: "medical-ai",
     typeLabel: "Medical AI",
+    stack: ["Python", "ML", "API"],
     experience:
-      "Developed a virtual doctor data engine powered by AI and machine learning. Trained the model on comprehensive medical data to deliver accurate responses across a wide range of user inputs, including disease risk level assessment, personalized recommendations, full diet plans, estimated recovery duration based on risk level, and more.",
+      "Medical report engine that assesses risk, suggests plans, and estimates recovery based on trained medical data.",
     github: "https://github.com/arshmanahmad/Medi-Report-AI-Backend",
   },
   {
@@ -205,8 +252,9 @@ export const projects: Project[] = [
     title: "Web-Scraper",
     type: "automation",
     typeLabel: "Automation",
+    stack: ["Node.js", "Playwright"],
     experience:
-      "Built a Node.js web scraper using Playwright to extract detailed product information from Ali1688.com product pages. Engineered human-like browsing behavior patterns to avoid detection and integrated CAPTCHA solving capabilities for reliable, automated data extraction at scale.",
+      "Playwright scraper for product pages with human-like browsing patterns and CAPTCHA handling for reliable extraction.",
     github: "https://github.com/arshmanahmad/Website-Scraping",
   },
   {
@@ -214,8 +262,9 @@ export const projects: Project[] = [
     title: "Smarledger",
     type: "business-erp",
     typeLabel: "Business ERP",
+    stack: ["Multi-tenant", "Node.js", "ERP"],
     experience:
-      "Smarledger is a multi-tenant business management platform supporting many business types: Mobile, Cosmetics, Cars, Sanitary, and more, all running on the same backend infrastructure. Users select their business type during account creation and the system adapts accordingly, making Smarledger a flexible, scalable software solution for diverse retail and service operations.",
+      "Multi-tenant business management backend that adapts to different retail types from a shared infrastructure.",
     github: "https://github.com/arshmanahmad/SmarledgerStoreBackend",
   },
 ];
@@ -231,37 +280,37 @@ export const processSteps: ProcessStep[] = [
     step: 1,
     title: "Discovery",
     description:
-      "We dive deep into your industry, target audience, and business goals. Through collaborative workshops, we define the exact vision and technical constraints to ensure the roadmap is perfectly aligned with your requirements.",
+      "We talk through your goals, users, and constraints until the problem is clear, then decide what to build first.",
   },
   {
     step: 2,
     title: "Planning",
     description:
-      "Architecture, milestones, and delivery timelines are defined before a single line of code. You get a clear roadmap covering scope, risks, and technical decisions.",
+      "Architecture, milestones, and timelines are set before coding starts, so you know the path and the risks.",
   },
   {
     step: 3,
     title: "Development",
     description:
-      "Clean, maintainable code ships in transparent iterations. You receive regular updates, demos, and progress checkpoints throughout the build.",
+      "Clean, maintainable code shipped in small iterations with regular demos and progress updates.",
   },
   {
     step: 4,
     title: "Testing",
     description:
-      "Rigorous QA across devices, browsers, and edge cases ensures reliability, security, and performance before launch.",
+      "QA across devices and edge cases so launches feel stable, not like a first draft.",
   },
   {
     step: 5,
     title: "Deployment",
     description:
-      "Smooth production launch with CI/CD, monitoring, and infrastructure ready for real users from day one.",
+      "Production launch with CI/CD and monitoring set up so the app is ready for real users.",
   },
   {
     step: 6,
     title: "Support",
     description:
-      "Long-term maintenance, feature updates, and optimization as your product and business continue to grow.",
+      "Maintenance, improvements, and new features as the product and business keep growing.",
   },
 ];
 
@@ -355,12 +404,12 @@ export const testimonials: Testimonial[] = [
 ];
 
 export const projectSummaries: Record<number, string> = {
-  1: "AI recruitment platform with LLM-powered candidate assessments and automated interview scoring.",
-  2: "Marketplace for social accounts with escrow, scam prevention, and real-time messaging.",
-  3: "AI suite for article generation, competitor scraping, and SEO keyword research.",
-  4: "Virtual doctor / ML engine for medical report analysis and personalized recommendations.",
-  5: "Playwright-based headless browser automation for reliable product data extraction.",
-  6: "Multi-tenant ERP-style business management platform across diverse retail verticals.",
+  1: "AI hiring with career pages, interviews, and HR scoring. Live in production.",
+  2: "Social account marketplace with protected chat, payments, and scam prevention.",
+  3: "AI content workflows for keywords, competitor research, and article generation.",
+  4: "Medical ML engine for risk assessment, recommendations, and recovery estimates.",
+  5: "Playwright product scraper with anti-detection browsing patterns.",
+  6: "Multi-tenant business management backend for multiple retail types.",
 };
 
 export type SocialPlatform = "linkedin" | "github" | "x" | "instagram";

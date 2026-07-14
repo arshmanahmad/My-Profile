@@ -41,7 +41,7 @@ export default function Services({ services }: ServicesProps) {
               Solutions That Drive Business Growth
             </h2>
             <p className="section-subtext">
-              Professional web &amp; app development — SaaS, AI, CRM,
+              Professional web &amp; app development: SaaS, AI, CRM,
               automation, and custom software.
             </p>
           </div>

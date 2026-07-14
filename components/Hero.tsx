@@ -9,6 +9,7 @@ import {
   CalendarCheck2,
 } from "lucide-react";
 import { personalInfo as PersonalInfo, brandAssets } from "@/lib/data";
+import { TeamAvatarStack } from "./TeamPresence";
 import {
   SiReact,
   SiNextdotjs,
@@ -23,7 +24,7 @@ interface HeroProps {
 const trustStrip = [
   { icon: CheckCircle2, label: "5+ Years Experience" },
   { icon: Rocket, label: "50+ Projects Delivered" },
-  { icon: CalendarCheck2, label: "Available for Hire" },
+  { icon: CalendarCheck2, label: "Team Available" },
 ];
 
 const floatingTech = [
@@ -90,7 +91,7 @@ export default function Hero({ personalInfo }: HeroProps) {
 
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-3"
+              className="flex flex-wrap items-center gap-3 mb-8"
             >
               <a href="#contact" className="btn-primary">
                 Book a Call
@@ -99,6 +100,10 @@ export default function Hero({ personalInfo }: HeroProps) {
               <a href="#projects" className="btn-outline">
                 View Projects
               </a>
+            </motion.div>
+
+            <motion.div variants={itemVariants}>
+              <TeamAvatarStack />
             </motion.div>
           </motion.div>
 

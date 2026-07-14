@@ -36,9 +36,8 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
             <div className="section-badge">Why Work With Me</div>
             <h2 className="section-heading">Built for Serious Clients</h2>
             <p className="section-subtext">
-              Development is more than just writing code; it&apos;s about forming
-              a partnership focused on your business success and long-term
-              technical stability.
+              Development is a partnership: clear updates, honest timelines, and
+              code your team can keep building on.
             </p>
           </div>
         </MotionReveal>

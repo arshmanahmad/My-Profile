@@ -12,9 +12,9 @@ export default function Footer() {
           <div className="md:col-span-4">
             <Logo linked={false} showWordmark className="mb-4" />
             <p className="text-sm text-muted leading-[1.7] max-w-sm">
-              {personalInfo.brandName} – Building the future of software with
-              cinematic precision and technical mastery. Crafting high-performance
-              digital instruments for industry leaders.
+              A focused development team led by Arshman Ahmad. Web apps, APIs,
+              AI features, and production-ready systems for startups and
+              businesses.
             </p>
           </div>
 

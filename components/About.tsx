@@ -12,6 +12,7 @@ import {
   SiMongodb,
 } from "react-icons/si";
 import MotionReveal from "./MotionReveal";
+import { TeamPanel } from "./TeamPresence";
 import { brandAssets, personalInfo } from "@/lib/data";
 
 const techIcons = [
@@ -25,7 +26,7 @@ const techIcons = [
 
 const metaItems = [
   { icon: MapPin, label: "Remote / Worldwide" },
-  { icon: BadgeCheck, label: "Result-Focused Specialist" },
+  { icon: BadgeCheck, label: "Lead + Specialist Team" },
   { icon: Clock, label: "Quick Response Time" },
 ];
 
@@ -63,6 +64,9 @@ export default function About() {
                   <p className="label-mono text-primary mt-2">
                     {personalInfo.titleExtended}
                   </p>
+                  <p className="text-xs text-muted mt-2">
+                    ARSHMANDEV · Lead of the delivery team
+                  </p>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {metaItems.map(({ icon: Icon, label }) => (
@@ -99,23 +103,23 @@ export default function About() {
 
           <MotionReveal delay={100}>
             <div>
-              <div className="section-badge mb-5">About Me</div>
+              <div className="section-badge mb-5">About</div>
               <h2 className="section-heading mb-6 !text-left">
-                Full Stack Developer Focused on Results
+                A focused team built for delivery
               </h2>
               <p className="text-base text-secondary leading-[1.75] mb-4 max-w-xl">
                 {personalInfo.about}
               </p>
               <p className="text-base text-secondary leading-[1.75] mb-8 max-w-xl">
-                With expertise in React, Next.js, TypeScript, Node.js, and AI
-                integrations, I partner with startups and business owners to
-                turn complex requirements into clean, maintainable software.
+                You work directly with the lead engineer, supported by specialists
+                across frontend, backend, AI, and QA, so projects move faster
+                without losing quality or ownership.
               </p>
 
               <p className="label-mono text-muted mb-4">
-                Technologies I Work With
+                Core technologies
               </p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-10">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
                 {techIcons.map(({ icon: Icon, label, color }) => (
                   <motion.div
                     key={label}
@@ -131,7 +135,9 @@ export default function About() {
                 ))}
               </div>
 
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-border-subtle">
+              <TeamPanel />
+
+              <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-border-subtle">
                 {[
                   { value: "05+", label: "Years Experience" },
                   { value: "50+", label: "Projects Completed" },
