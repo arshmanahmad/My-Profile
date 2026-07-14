@@ -106,7 +106,7 @@ export default function WhatsAppFloat() {
         {!hovered && (
           <span
             className="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 status-dot bg-emerald-400"
-            style={{ borderColor: "#0D1117" }}
+            style={{ borderColor: "#070A0F" }}
           />
         )}
       </motion.a>

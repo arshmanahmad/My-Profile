@@ -53,11 +53,11 @@ export default function Navigation() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1200px] mx-auto px-6 h-[4.25rem] flex items-center justify-between">
-        <Logo onClick={handleLinkClick} height={48} />
+      <div className="max-w-[1200px] mx-auto px-6 h-[4.25rem] flex items-center justify-between gap-4">
+        <Logo onClick={handleLinkClick} />
 
         <nav
-          className="hidden lg:flex items-center gap-0.5"
+          className="hidden lg:flex items-center gap-1 absolute left-1/2 -translate-x-1/2"
           aria-label="Main navigation"
         >
           {NAV_LINKS.map((link) => {
@@ -66,9 +66,9 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`relative px-3.5 py-2 text-[0.8125rem] font-medium rounded-lg transition-colors duration-300 ease-premium ${
+                className={`relative px-3.5 py-2 text-[0.8125rem] font-medium transition-colors duration-300 ease-premium ${
                   isActive
-                    ? "text-primary-light"
+                    ? "text-foreground"
                     : "text-muted hover:text-foreground"
                 }`}
               >
@@ -76,20 +76,23 @@ export default function Navigation() {
                 {isActive && (
                   <motion.span
                     layoutId="nav-indicator"
-                    className="absolute inset-x-3 -bottom-px h-px rounded-full bg-gradient-to-r from-primary/60 to-primary-light/40"
+                    className="absolute inset-x-3.5 -bottom-0.5 h-[2px] rounded-full bg-primary"
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
               </a>
             );
           })}
+        </nav>
+
+        <div className="hidden lg:block">
           <a
             href="#contact"
-            className="ml-4 btn-primary !py-2 !px-4 !text-[0.8125rem] !rounded-[12px]"
+            className="btn-primary !py-2 !px-5 !text-[0.8125rem]"
           >
             Book a Call
           </a>
-        </nav>
+        </div>
 
         <button
           className="lg:hidden p-2.5 rounded-lg text-primary-light hover:bg-primary/8 transition-colors duration-300"

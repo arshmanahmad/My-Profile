@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import {
   seoTitle,
@@ -9,10 +9,24 @@ import {
 } from "@/lib/seo";
 import { personalInfo, brandAssets } from "@/lib/data";
 
-const inter = Inter({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-inter",
-  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const body = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -86,7 +100,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0D1117",
+  themeColor: "#070A0F",
   width: "device-width",
   initialScale: 1,
 };
@@ -97,12 +111,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html
+      lang="en"
+      className={`${display.variable} ${body.variable} ${mono.variable}`}
+    >
       <head>
         <link rel="apple-touch-icon" href={brandAssets.logo} />
       </head>
       <body
-        className={`${inter.className} bg-background text-foreground antialiased`}
+        className={`${body.className} bg-background text-foreground antialiased`}
       >
         {children}
       </body>

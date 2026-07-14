@@ -8,6 +8,7 @@ import {
   Target,
   Gauge,
   Shield,
+  ArrowRight,
   LucideIcon,
 } from "lucide-react";
 import MotionReveal from "./MotionReveal";
@@ -28,39 +29,34 @@ interface WhyWorkWithMeProps {
 
 export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
   return (
-    <section id="why" className="relative z-10 section-alt">
+    <section id="why" className="relative z-10">
       <div className="section-container">
         <MotionReveal>
-          <div className="section-header">
-            <div className="section-badge mx-auto w-fit">Why Work With Me</div>
-            <h2 className="section-heading">
-              Built for{" "}
-              <span className="gradient-text">Serious Clients</span>
-            </h2>
+          <div className="section-header-left max-w-3xl">
+            <div className="section-badge">Why Work With Me</div>
+            <h2 className="section-heading">Built for Serious Clients</h2>
             <p className="section-subtext">
-              More than code. A partnership focused on your business success.
+              Development is more than just writing code; it&apos;s about forming
+              a partnership focused on your business success and long-term
+              technical stability.
             </p>
           </div>
         </MotionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10">
           {items.map((item, i) => {
             const Icon = iconMap[item.icon] ?? Code2;
             return (
-              <MotionReveal key={item.title} delay={i * 60}>
+              <MotionReveal key={item.title} delay={i * 55}>
                 <motion.article
                   whileHover={{ y: -3 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="premium-card p-7 md:p-8 h-full group"
+                  className="premium-card p-7 h-full group"
                 >
-                  <div className="w-11 h-11 rounded-[14px] flex items-center justify-center mb-5 icon-box group-hover:scale-[1.04] transition-transform duration-400 ease-premium">
-                    <Icon
-                      size={19}
-                      className="text-primary-light"
-                      strokeWidth={1.75}
-                    />
+                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box">
+                    <Icon size={18} className="text-primary" strokeWidth={1.75} />
                   </div>
-                  <h3 className="text-[0.9375rem] font-semibold text-foreground mb-2.5 font-sans tracking-tight">
+                  <h3 className="font-display text-[0.9375rem] font-semibold text-foreground mb-2.5 tracking-tight">
                     {item.title}
                   </h3>
                   <p className="text-sm text-muted leading-[1.65]">
@@ -71,6 +67,23 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
             );
           })}
         </div>
+
+        <MotionReveal delay={150}>
+          <div className="premium-card-static p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+            <div>
+              <p className="font-display text-xl font-semibold text-foreground mb-1">
+                Ready to start your project?
+              </p>
+              <p className="text-sm text-muted">
+                Let&apos;s discuss how we can scale your business together.
+              </p>
+            </div>
+            <a href="#contact" className="btn-primary shrink-0">
+              Schedule a Consultation
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </a>
+          </div>
+        </MotionReveal>
       </div>
     </section>
   );

@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Play, ArrowRight, ExternalLink } from "lucide-react";
-import { SiInstagram } from "react-icons/si";
 import MotionReveal from "./MotionReveal";
 import { IntroVideo as IntroVideoData, personalInfo } from "@/lib/data";
 
@@ -37,7 +36,8 @@ function VideoPlayer({
 }) {
   const prefersReducedMotion = useReducedMotion();
   const embedUrl =
-    video.embedUrl ?? (video.provider === "instagram" ? getInstagramEmbedUrl(video.url) : null);
+    video.embedUrl ??
+    (video.provider === "instagram" ? getInstagramEmbedUrl(video.url) : null);
 
   if (video.provider === "hosted" && video.hostedSrc) {
     return (
@@ -58,8 +58,8 @@ function VideoPlayer({
 
   return (
     <motion.div
-      whileHover={prefersReducedMotion || playing ? undefined : { y: -4 }}
-      transition={{ duration: 0.4, ease: EASE }}
+      whileHover={prefersReducedMotion || playing ? undefined : { scale: 1.01 }}
+      transition={{ duration: 0.45, ease: EASE }}
       className={`intro-video-frame premium-card-static overflow-hidden shadow-profile relative group${
         playing ? " intro-video-frame--playing" : ""
       }`}
@@ -76,23 +76,28 @@ function VideoPlayer({
               src={video.poster}
               alt=""
               fill
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 340px"
-              priority={false}
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 560px"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/35 to-background/20" />
-          <div className="intro-video-play-btn relative z-10 flex items-center justify-center w-16 h-16 rounded-full border border-primary/25 bg-primary/15 backdrop-blur-md transition-transform duration-400 group-hover:scale-105">
-            <Play size={28} className="text-primary-light ml-1" fill="currentColor" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/25" />
+          <div className="intro-video-play-btn relative z-10 flex items-center justify-center w-[4.5rem] h-[4.5rem] rounded-full border border-primary/30 bg-primary/15 backdrop-blur-md transition-transform duration-400 group-hover:scale-105">
+            <Play
+              size={30}
+              className="text-primary-light ml-1"
+              fill="currentColor"
+            />
           </div>
-          <span className="relative z-10 text-sm font-medium text-foreground/90">
-            Watch introduction
+          <span className="relative z-10 label-mono text-primary">
+            Watch Introduction
           </span>
-          <div className="intro-video-shine" aria-hidden="true" />
+          <div className="absolute bottom-4 inset-x-6 h-1 rounded-full bg-white/10 overflow-hidden">
+            <div className="h-full w-1/3 rounded-full bg-primary/70" />
+          </div>
         </button>
       ) : (
         embedUrl && (
-          <div className="intro-video-embed" aria-hidden="false">
+          <div className="intro-video-embed">
             <iframe
               src={embedUrl}
               title={`${video.title} on Instagram`}
@@ -113,22 +118,18 @@ export default function IntroVideo({ video }: IntroVideoProps) {
   const [playing, setPlaying] = useState(false);
 
   return (
-    <section id="intro" className="relative z-10 section-strip">
-      <div className="section-container !py-16 md:!py-20">
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-16 items-center [&>*]:min-w-0">
-          <MotionReveal>
+    <section id="intro" className="relative z-10">
+      <div className="section-container !py-16 md:!py-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <MotionReveal direction="right">
             <div className="max-w-xl">
               <div className="section-badge mb-5">Introduction</div>
               <h2 className="section-heading mb-5 !text-left">
                 Meet{" "}
-                <span className="gradient-text">{personalInfo.brandName}</span>
+                <span className="text-primary">{personalInfo.brandName}</span>
               </h2>
-              <p className="text-base text-muted leading-[1.75] mb-4">
+              <p className="text-base text-secondary leading-[1.75] mb-8">
                 {video.description}
-              </p>
-              <p className="text-base text-muted leading-[1.75] mb-8">
-                Watch a short intro to learn how I approach web development, app
-                development, and building products that deliver real business value.
               </p>
 
               <div className="flex flex-wrap gap-2.5 mb-8">
@@ -150,7 +151,6 @@ export default function IntroVideo({ video }: IntroVideoProps) {
                   rel="noopener noreferrer"
                   className="btn-outline"
                 >
-                  <SiInstagram size={16} />
                   Open on Instagram
                   <ExternalLink size={14} strokeWidth={2} />
                 </a>
@@ -158,23 +158,15 @@ export default function IntroVideo({ video }: IntroVideoProps) {
             </div>
           </MotionReveal>
 
-          <MotionReveal delay={100} direction="left">
-            <div className="relative w-full max-w-[340px] mx-auto lg:ml-auto lg:mr-0">
-              <div
-                className="absolute -inset-4 rounded-[28px] opacity-35 blur-2xl pointer-events-none"
-                style={{
-                  background:
-                    "radial-gradient(ellipse at center, rgba(110,143,173,0.1) 0%, transparent 70%)",
-                }}
-                aria-hidden="true"
-              />
+          <MotionReveal delay={120} direction="left">
+            <div className="relative w-full max-w-[560px] mx-auto lg:ml-auto lg:mr-0">
               <VideoPlayer
                 video={video}
                 playing={playing}
                 onPlay={() => setPlaying(true)}
               />
-              <p className="mt-4 text-center text-xs text-muted/70">
-                Like or comment on Instagram using the button above.
+              <p className="mt-4 text-sm text-muted">
+                Meet {personalInfo.brandName} Instagram intro reel.
               </p>
             </div>
           </MotionReveal>

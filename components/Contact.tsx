@@ -8,11 +8,11 @@ import {
   MapPin,
   Github,
   Linkedin,
-  ExternalLink,
   Send,
   CheckCircle,
   AlertCircle,
   Loader2,
+  Clock,
 } from "lucide-react";
 import MotionReveal from "./MotionReveal";
 import { personalInfo as PersonalInfo } from "@/lib/data";
@@ -55,42 +55,24 @@ export default function Contact({ personalInfo }: ContactProps) {
     }
   };
 
-  const socialLinks = [
-    {
-      href: personalInfo.github,
-      icon: Github,
-      label: "GitHub",
-      sub: "@arshmanahmad",
-      color: "#C8D8E8",
-    },
-    {
-      href: personalInfo.linkedin,
-      icon: Linkedin,
-      label: "LinkedIn",
-      sub: "Arshman Ahmad",
-      color: "#5BA4E8",
-    },
-  ];
-
   return (
-    <section id="contact" className="relative z-10">
+    <section id="contact" className="relative z-10 section-alt">
       <div className="section-container">
         <MotionReveal>
-          <div className="section-header">
-            <div className="section-badge mx-auto w-fit">Contact</div>
+          <div className="section-header-left max-w-3xl">
+            <div className="section-badge">Contact</div>
             <h2 className="section-heading">
-              Let&apos;s Build Something{" "}
-              <span className="gradient-text">Great Together</span>
+              Let&apos;s Build Something Great Together
             </h2>
             <p className="section-subtext">
-              Have a project in mind? Let&apos;s discuss how I can help you
-              build, automate, and scale your business.
+              Discuss build / automate / scale. I&apos;m here to help you
+              transform your complex ideas into streamlined digital reality.
             </p>
           </div>
         </MotionReveal>
 
-        <div className="grid lg:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto">
-          <MotionReveal delay={50} className="lg:col-span-3">
+        <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 md:gap-8">
+          <MotionReveal delay={50}>
             <div className="premium-card-static p-7 md:p-9 h-full">
               {submitted ? (
                 <motion.div
@@ -102,7 +84,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                   <div className="w-16 h-16 rounded-full bg-emerald-400/10 border border-emerald-400/20 flex items-center justify-center mb-5">
                     <CheckCircle size={32} className="text-emerald-400" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2 font-sans tracking-tight">
+                  <h3 className="font-display text-lg font-semibold text-foreground mb-2">
                     Message Sent!
                   </h3>
                   <p className="text-sm text-muted max-w-xs leading-relaxed">
@@ -112,7 +94,7 @@ export default function Contact({ personalInfo }: ContactProps) {
                   <button
                     type="button"
                     onClick={() => setSubmitted(false)}
-                    className="mt-7 text-sm text-primary-light hover:text-primary transition-colors duration-300"
+                    className="mt-7 text-sm text-primary hover:text-primary-light transition-colors"
                   >
                     Send another message
                   </button>
@@ -128,52 +110,54 @@ export default function Contact({ personalInfo }: ContactProps) {
                       {error}
                     </div>
                   )}
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground/90 mb-2"
-                    >
-                      Your Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      disabled={loading}
-                      autoComplete="name"
-                      value={form.name}
-                      onChange={(e) =>
-                        setForm({ ...form, name: e.target.value })
-                      }
-                      className="input-field w-full px-4 py-3.5 rounded-[14px] text-sm outline-none disabled:opacity-50"
-                      placeholder="John Doe"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-foreground/90 mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      disabled={loading}
-                      autoComplete="email"
-                      value={form.email}
-                      onChange={(e) =>
-                        setForm({ ...form, email: e.target.value })
-                      }
-                      className="input-field w-full px-4 py-3.5 rounded-[14px] text-sm outline-none disabled:opacity-50"
-                      placeholder="you@company.com"
-                    />
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="label-mono text-muted block mb-2"
+                      >
+                        Full Name
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        required
+                        disabled={loading}
+                        autoComplete="name"
+                        value={form.name}
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
+                        className="input-field w-full px-4 py-3.5 text-sm disabled:opacity-50"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="label-mono text-muted block mb-2"
+                      >
+                        Email Address
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        disabled={loading}
+                        autoComplete="email"
+                        value={form.email}
+                        onChange={(e) =>
+                          setForm({ ...form, email: e.target.value })
+                        }
+                        className="input-field w-full px-4 py-3.5 text-sm disabled:opacity-50"
+                        placeholder="john@example.com"
+                      />
+                    </div>
                   </div>
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-medium text-foreground/90 mb-2"
+                      className="label-mono text-muted block mb-2"
                     >
                       Project Details
                     </label>
@@ -181,19 +165,19 @@ export default function Contact({ personalInfo }: ContactProps) {
                       id="message"
                       required
                       disabled={loading}
-                      rows={5}
+                      rows={6}
                       value={form.message}
                       onChange={(e) =>
                         setForm({ ...form, message: e.target.value })
                       }
-                      className="input-field w-full px-4 py-3.5 rounded-[14px] text-sm outline-none resize-none disabled:opacity-50"
-                      placeholder="Tell me about your project, timeline, and goals..."
+                      className="input-field w-full px-4 py-3.5 text-sm resize-none disabled:opacity-50"
+                      placeholder="tell me about your project, goals, and timeline..."
                     />
                   </div>
                   <button
                     type="submit"
                     disabled={loading}
-                    className="btn-primary w-full justify-center !py-3.5 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:transform-none"
+                    className="btn-primary w-full justify-center !py-3.5 !rounded-xl disabled:opacity-60"
                   >
                     {loading ? (
                       <>
@@ -212,43 +196,61 @@ export default function Contact({ personalInfo }: ContactProps) {
             </div>
           </MotionReveal>
 
-          <MotionReveal delay={100} className="lg:col-span-2">
-            <div className="space-y-4 h-full flex flex-col">
+          <MotionReveal delay={100}>
+            <div className="space-y-4">
+              <div className="relative premium-card-static p-5 overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-secondary-warm" />
+                <div className="flex items-center gap-2 mb-3 pl-2">
+                  <span className="w-2 h-2 rounded-full bg-secondary-warm" />
+                  <h3 className="font-display text-sm font-semibold text-foreground">
+                    Open to Projects
+                  </h3>
+                </div>
+                <ul className="space-y-2.5 pl-2 text-sm text-secondary">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle size={14} className="text-primary shrink-0" />
+                    Freelance availability
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <Clock size={14} className="text-primary shrink-0" />
+                    24h response time
+                  </li>
+                </ul>
+              </div>
+
               {[
                 {
                   icon: Mail,
-                  label: "Email",
+                  label: "Email Me",
                   value: personalInfo.email,
                   href: `mailto:${personalInfo.email}`,
                 },
                 {
                   icon: Phone,
                   label: "Phone",
-                  value: personalInfo.phoneDisplay,
+                  value: personalInfo.phone,
                   href: `tel:${personalInfo.phone}`,
                 },
                 {
                   icon: MapPin,
                   label: "Location",
                   value: personalInfo.location,
-                  href: null,
+                  href: null as string | null,
                 },
               ].map(({ icon: Icon, label, value, href }) => (
                 <div
                   key={label}
-                  className="premium-card p-5 flex items-center gap-4 !transform-none hover:!transform-none hover:border-primary/20"
+                  className="premium-card-static p-4 flex items-center gap-4"
                 >
-                  <div className="w-10 h-10 rounded-[14px] flex items-center justify-center shrink-0 icon-box">
-                    <Icon size={17} className="text-primary-light" strokeWidth={1.75} />
+                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center shrink-0 icon-box">
+                    <Icon size={16} className="text-primary" strokeWidth={1.75} />
                   </div>
-                  <div>
-                    <p className="text-[0.6875rem] text-muted uppercase tracking-[0.1em] font-medium mb-0.5">
-                      {label}
-                    </p>
+                  <div className="min-w-0">
+                    <p className="label-mono text-muted mb-0.5">{label}</p>
                     {href ? (
                       <a
                         href={href}
-                        className="text-sm font-medium text-foreground hover:text-primary-light transition-colors duration-300"
+                        className="text-sm font-medium text-foreground hover:text-primary transition-colors break-all"
                       >
                         {value}
                       </a>
@@ -261,47 +263,25 @@ export default function Contact({ personalInfo }: ContactProps) {
                 </div>
               ))}
 
-              <div className="premium-card-static p-6 flex-1">
-                <h3 className="text-sm font-semibold text-foreground mb-4 font-sans tracking-tight">
-                  Connect Online
-                </h3>
-                <div className="space-y-2">
-                  {socialLinks.map(({ href, icon: Icon, label, sub, color }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-4 p-3.5 rounded-[14px] transition-all duration-300 hover:bg-primary/5 group"
-                    >
-                      <Icon size={19} style={{ color }} />
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-foreground">
-                          {label}
-                        </p>
-                        <p className="text-xs text-muted truncate">{sub}</p>
-                      </div>
-                      <ExternalLink
-                        size={13}
-                        className="text-muted group-hover:text-primary-light transition-colors duration-300 shrink-0"
-                      />
-                    </a>
-                  ))}
-                </div>
-
-                <div className="mt-5 p-4 rounded-[14px] icon-box">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 status-dot" />
-                    <span className="text-sm font-semibold text-primary-light">
-                      Open to Projects
-                    </span>
-                  </div>
-                  <ul className="space-y-1.5 text-xs text-muted leading-relaxed">
-                    <li>Available for freelance &amp; contract work</li>
-                    <li>Fast response within 24 hours</li>
-                    <li>Free initial consultation call</li>
-                  </ul>
-                </div>
+              <div className="grid grid-cols-2 gap-3">
+                <a
+                  href={personalInfo.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
+                >
+                  <Github size={15} />
+                  GitHub
+                </a>
+                <a
+                  href={personalInfo.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
+                >
+                  <Linkedin size={15} />
+                  LinkedIn
+                </a>
               </div>
             </div>
           </MotionReveal>

@@ -6,6 +6,7 @@ import { brandAssets } from "@/lib/data";
 interface LogoProps {
   height?: number;
   showWordmark?: boolean;
+  showMark?: boolean;
   className?: string;
   onClick?: () => void;
   href?: string;
@@ -13,7 +14,7 @@ interface LogoProps {
 }
 
 export function LogoMark({
-  height = 48,
+  height = 40,
   className = "",
 }: {
   height?: number;
@@ -33,8 +34,9 @@ export function LogoMark({
 }
 
 export default function Logo({
-  height = 48,
+  height = 36,
   showWordmark = true,
+  showMark = false,
   className = "",
   onClick,
   href = "#home",
@@ -42,14 +44,16 @@ export default function Logo({
 }: LogoProps) {
   const content = (
     <>
-      <LogoMark
-        height={height}
-        className="transition-transform duration-400 ease-premium group-hover:scale-[1.03]"
-      />
+      {showMark && (
+        <LogoMark
+          height={height}
+          className="transition-transform duration-400 ease-premium group-hover:scale-[1.03]"
+        />
+      )}
       {showWordmark && (
-        <span className="font-sans text-lg font-semibold tracking-tight text-foreground">
+        <span className="font-display text-[1.05rem] sm:text-lg font-bold tracking-[0.04em] uppercase">
           <span className="text-foreground">ARSHMAN</span>
-          <span className="gradient-text">DEV</span>
+          <span className="text-primary">DEV</span>
         </span>
       )}
     </>

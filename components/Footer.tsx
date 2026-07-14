@@ -1,69 +1,28 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { SiWhatsapp } from "react-icons/si";
+import { Mail, MapPin, Github, Linkedin } from "lucide-react";
 import { personalInfo } from "@/lib/data";
 import Logo from "./Logo";
 
 export default function Footer() {
   const year = new Date().getFullYear();
 
-  const socialLinks = [
-    { href: personalInfo.github, icon: Github, label: "GitHub" },
-    { href: personalInfo.linkedin, icon: Linkedin, label: "LinkedIn" },
-    { href: `mailto:${personalInfo.email}`, icon: Mail, label: "Email" },
-    {
-      href: `https://wa.me/${personalInfo.whatsapp}`,
-      icon: SiWhatsapp,
-      label: "WhatsApp",
-    },
-  ];
-
   return (
     <footer className="relative z-10 border-t border-border-subtle">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(13,17,23,0) 0%, rgba(13,17,23,0.85) 100%)",
-        }}
-        aria-hidden="true"
-      />
       <div className="section-container !py-14 md:!py-16 relative">
         <div className="grid md:grid-cols-12 gap-10 md:gap-8 mb-12">
-          <div className="md:col-span-5">
-            <Logo linked={false} showWordmark height={48} className="mb-4" />
+          <div className="md:col-span-4">
+            <Logo linked={false} showWordmark className="mb-4" />
             <p className="text-sm text-muted leading-[1.7] max-w-sm">
-              {personalInfo.brandName}: full stack web &amp; app development
-              services. Building scalable applications, AI solutions, and business
-              automation for startups and businesses worldwide.
+              {personalInfo.brandName} – Building the future of software with
+              cinematic precision and technical mastery. Crafting high-performance
+              digital instruments for industry leaders.
             </p>
-            <div className="flex items-center gap-2.5 mt-6">
-              {socialLinks.map(({ href, icon: Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("mailto") ? undefined : "_blank"}
-                  rel={
-                    href.startsWith("mailto")
-                      ? undefined
-                      : "noopener noreferrer"
-                  }
-                  aria-label={label}
-                  className="w-10 h-10 rounded-[12px] flex items-center justify-center text-muted hover:text-primary-light transition-all duration-300 icon-box hover:scale-105"
-                >
-                  <Icon size={16} strokeWidth={1.75} />
-                </a>
-              ))}
-            </div>
           </div>
 
-          <div className="md:col-span-3">
-            <p className="text-[0.6875rem] font-semibold text-muted uppercase tracking-[0.12em] mb-4">
+          <div className="md:col-span-2">
+            <p className="font-display text-sm font-semibold text-foreground mb-4">
               Navigation
             </p>
-            <nav
-              className="flex flex-col gap-2.5"
-              aria-label="Footer navigation"
-            >
+            <nav className="flex flex-col gap-2.5" aria-label="Footer navigation">
               {[
                 { label: "Home", href: "#home" },
                 { label: "Services", href: "#services" },
@@ -75,7 +34,7 @@ export default function Footer() {
                 <a
                   key={label}
                   href={href}
-                  className="text-sm text-muted hover:text-primary-light transition-colors duration-300 w-fit"
+                  className="text-sm text-muted hover:text-primary transition-colors w-fit"
                 >
                   {label}
                 </a>
@@ -83,17 +42,17 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="md:col-span-4">
-            <p className="text-[0.6875rem] font-semibold text-muted uppercase tracking-[0.12em] mb-4">
+          <div className="md:col-span-3">
+            <p className="font-display text-sm font-semibold text-foreground mb-4">
               Services
             </p>
             <ul className="flex flex-col gap-2.5">
               {[
                 "SaaS Development",
-                "AI Integration",
-                "Business Automation",
-                "CRM Systems",
-                "Web Applications",
+                "AI Implementation",
+                "Workflow Automation",
+                "Custom CRM Solutions",
+                "Modern Web Apps",
               ].map((service) => (
                 <li key={service} className="text-sm text-muted">
                   {service}
@@ -101,15 +60,56 @@ export default function Footer() {
               ))}
             </ul>
           </div>
+
+          <div className="md:col-span-3">
+            <p className="font-display text-sm font-semibold text-foreground mb-4">
+              Get In Touch
+            </p>
+            <ul className="space-y-3 mb-5">
+              <li>
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="flex items-center gap-2.5 text-sm text-muted hover:text-primary transition-colors"
+                >
+                  <Mail size={14} className="text-primary shrink-0" />
+                  {personalInfo.email}
+                </a>
+              </li>
+              <li className="flex items-center gap-2.5 text-sm text-muted">
+                <MapPin size={14} className="text-primary shrink-0" />
+                Remote / Global
+              </li>
+            </ul>
+            <div className="flex items-center gap-2.5">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/40 transition-colors"
+              >
+                <Github size={15} />
+              </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/40 transition-colors"
+              >
+                <Linkedin size={15} />
+              </a>
+            </div>
+          </div>
         </div>
 
         <div className="divider-gradient mb-6" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-          <p>© {year} Arshman Ahmad. All rights reserved.</p>
-          <p className="text-muted/70">
-            Built with Next.js, TypeScript &amp; Tailwind CSS
+          <p>
+            © {year} Arshman Ahmad. Built with Next.js &amp; Tailwind CSS.
           </p>
+          <p className="text-muted/80">Available for new projects</p>
         </div>
       </div>
     </footer>

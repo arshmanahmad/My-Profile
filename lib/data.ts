@@ -3,10 +3,13 @@ export const personalInfo = {
   brandName: "ARSHMANDEV",
   brandTagline: "BUILD • CODE • SOLVE",
   title: "Full Stack Developer",
+  titleExtended: "Full Stack Developer & AI Engineer",
   tagline:
     "React · Next.js · TypeScript · Node.js · AI Integrations · Business Automation",
   description:
-    "ARSHMANDEV delivers web development, app development, and custom software for startups and businesses, helping you build modern products, automate workflows, and launch faster.",
+    "ARSHMANDEV delivers high-performance web apps, mobile solutions, and custom automated systems for startups using the latest React, Next.js, and Node.js ecosystems.",
+  about:
+    "I'm a technical architect focused on Reliable Delivery. I build scalable products, automation systems, and AI-powered software that help startups and businesses ship faster with confidence.",
   email: "arshman.codes@gmail.com",
   phone: "+92 329 4494502",
   phoneDisplay: "03294494502",
@@ -16,6 +19,23 @@ export const personalInfo = {
   linkedin: "https://linkedin.com/in/arshmanahmad",
   calendly: "#contact",
 };
+
+export const valueProps = [
+  {
+    id: "engineering",
+    title: "Engineering Mastery",
+    description:
+      "Designing scalable architectures that withstand the test of time and traffic. Our technical approach is rooted in precision and performance.",
+    icon: "code",
+  },
+  {
+    id: "cinematic",
+    title: "Cinematic Experience",
+    description:
+      "Digital interfaces shouldn't just work—they should inspire. We blend technical rigor with editorial aesthetics for unforgettable UX.",
+    icon: "sparkles",
+  },
+] as const;
 
 export const brandAssets = {
   logo: "/assets/main-content/logo.png",
@@ -38,7 +58,7 @@ export interface IntroVideo {
 export const introVideo: IntroVideo = {
   title: "Meet ARSHMANDEV",
   description:
-    "A quick introduction to who I am, what I build, and how I help startups and businesses ship reliable web and app products.",
+    "A software architect dedicated to crafting high-performance digital experiences. Watch a quick introduction to who I am, what I build, and how I help startups and businesses ship reliable web and app products.",
   provider: "instagram",
   url: "https://www.instagram.com/arshmandev/reel/Das8EiCtFrK/",
   embedUrl: "https://www.instagram.com/reel/Das8EiCtFrK/embed",
@@ -53,9 +73,9 @@ export interface StatItem {
 
 export const stats: StatItem[] = [
   { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 15, suffix: "+", label: "Modern Techs" },
   { value: 50, suffix: "+", label: "Projects Completed" },
   { value: 20, suffix: "+", label: "Business Solutions" },
-  { value: 15, suffix: "+", label: "Modern Technologies" },
 ];
 
 export interface Service {
@@ -70,64 +90,74 @@ export const services: Service[] = [
     id: "saas",
     title: "SaaS Development",
     description:
-      "End-to-end SaaS products with subscription billing, dashboards, and scalable multi-tenant architecture.",
+      "Subscriptions, dashboards, multi-tenant platforms built for scale.",
     icon: "cloud",
   },
   {
     id: "ai",
     title: "AI Integration",
     description:
-      "Intelligent features powered by LLMs, LangChain, and custom AI workflows that automate decisions.",
+      "LLMs, LangChain, and custom AI workflows to augment intelligence.",
     icon: "brain",
   },
   {
     id: "automation",
     title: "Business Automation",
     description:
-      "Streamline repetitive tasks, connect tools, and build bots that save hours every week.",
+      "Connect tools and build bots to save hours of manual work weekly.",
     icon: "zap",
   },
   {
     id: "crm",
     title: "CRM Systems",
     description:
-      "Custom CRM platforms tailored to your sales pipeline, client management, and reporting needs.",
+      "Manage sales pipelines, clients, and reporting in one unified custom hub.",
     icon: "users",
   },
   {
     id: "web",
     title: "Web Applications",
     description:
-      "Fast, responsive web apps built with React and Next.js, optimized for performance and SEO.",
+      "High-performance React/Next.js apps optimized for SEO and conversion.",
     icon: "globe",
   },
   {
     id: "mobile",
     title: "Mobile Applications",
     description:
-      "Cross-platform mobile experiences with React Native: one codebase, native feel.",
+      "React Native cross-platform apps that feel native and perform beautifully.",
     icon: "smartphone",
   },
   {
     id: "api",
     title: "API Development",
     description:
-      "Robust RESTful and real-time APIs with Node.js and FastAPI: secure, documented, and scalable.",
+      "REST and Realtime architectures with Node.js and FastAPI backends.",
     icon: "code",
   },
   {
     id: "custom",
     title: "Custom Software",
     description:
-      "Bespoke software solutions designed around your unique business processes and goals.",
+      "Bespoke systems architected specifically around your unique business processes.",
     icon: "puzzle",
   },
 ];
+
+export type ProjectType =
+  | "ai-hiring"
+  | "marketplace"
+  | "content-ai"
+  | "medical-ai"
+  | "automation"
+  | "business-erp";
 
 export interface Project {
   id: number;
   title: string;
   experience: string;
+  type: ProjectType;
+  typeLabel: string;
   demo?: string;
   github?: string;
   inDevelopment?: boolean;
@@ -137,6 +167,8 @@ export const projects: Project[] = [
   {
     id: 1,
     title: "True-Chance",
+    type: "ai-hiring",
+    typeLabel: "AI Hiring",
     experience:
       "One of the most impactful projects I've built: an AI-powered hiring platform that solves a real HR problem. Companies create career pages from our dashboard and post job openings directly. Candidates visit the career page and complete AI-based interviews, allowing many applicants to be assessed simultaneously against the same opportunity. Interview scores are delivered back to the company so HR can shortlist the best candidates without wasting time on manual screening. The entire system is AI-driven and fully automated, currently live in production.",
     demo: "https://www.true-chance.com/",
@@ -144,6 +176,8 @@ export const projects: Project[] = [
   {
     id: 2,
     title: "BSello",
+    type: "marketplace",
+    typeLabel: "Marketplace",
     experience:
       "Built a secure marketplace platform connecting buyers and sellers for social media account transactions. Developed a dedicated chatbot supporting one-to-one and one-to-many communication in a protected environment. Implemented secure payment flows from buyer to seller with scam prevention built in, including scam detection within the chatbot, blocked user management, and a complete end-to-end system designed for safe, trustworthy deals.",
     demo: "https://bsello.com/",
@@ -151,6 +185,8 @@ export const projects: Project[] = [
   {
     id: 3,
     title: "Wytify",
+    type: "content-ai",
+    typeLabel: "Content AI",
     experience:
       "Led AI engineering and full-stack development on a fully automated article generation platform. Users select a membership plan, choose a topic area, and the system automatically generates relevant keywords. After keyword selection, the platform scrapes the top ten Google competitors for that topic and uses those results to guide article generation and SEO analysis, optimizing content based on real competitive data. Currently in active development.",
     inDevelopment: true,
@@ -158,6 +194,8 @@ export const projects: Project[] = [
   {
     id: 4,
     title: "Medi-Report-AI",
+    type: "medical-ai",
+    typeLabel: "Medical AI",
     experience:
       "Developed a virtual doctor data engine powered by AI and machine learning. Trained the model on comprehensive medical data to deliver accurate responses across a wide range of user inputs, including disease risk level assessment, personalized recommendations, full diet plans, estimated recovery duration based on risk level, and more.",
     github: "https://github.com/arshmanahmad/Medi-Report-AI-Backend",
@@ -165,6 +203,8 @@ export const projects: Project[] = [
   {
     id: 5,
     title: "Web-Scraper",
+    type: "automation",
+    typeLabel: "Automation",
     experience:
       "Built a Node.js web scraper using Playwright to extract detailed product information from Ali1688.com product pages. Engineered human-like browsing behavior patterns to avoid detection and integrated CAPTCHA solving capabilities for reliable, automated data extraction at scale.",
     github: "https://github.com/arshmanahmad/Website-Scraping",
@@ -172,6 +212,8 @@ export const projects: Project[] = [
   {
     id: 6,
     title: "Smarledger",
+    type: "business-erp",
+    typeLabel: "Business ERP",
     experience:
       "Smarledger is a multi-tenant business management platform supporting many business types: Mobile, Cosmetics, Cars, Sanitary, and more, all running on the same backend infrastructure. Users select their business type during account creation and the system adapts accordingly, making Smarledger a flexible, scalable software solution for diverse retail and service operations.",
     github: "https://github.com/arshmanahmad/SmarledgerStoreBackend",
@@ -189,37 +231,37 @@ export const processSteps: ProcessStep[] = [
     step: 1,
     title: "Discovery",
     description:
-      "Understanding your goals, users, and business requirements through focused conversations.",
+      "We dive deep into your industry, target audience, and business goals. Through collaborative workshops, we define the exact vision and technical constraints to ensure the roadmap is perfectly aligned with your requirements.",
   },
   {
     step: 2,
     title: "Planning",
     description:
-      "Defining architecture, timelines, milestones, and a clear roadmap before writing code.",
+      "Architecture, milestones, and delivery timelines are defined before a single line of code. You get a clear roadmap covering scope, risks, and technical decisions.",
   },
   {
     step: 3,
     title: "Development",
     description:
-      "Building with clean, maintainable code, with regular updates and transparent progress.",
+      "Clean, maintainable code ships in transparent iterations. You receive regular updates, demos, and progress checkpoints throughout the build.",
   },
   {
     step: 4,
     title: "Testing",
     description:
-      "Rigorous QA across devices and edge cases to ensure reliability and performance.",
+      "Rigorous QA across devices, browsers, and edge cases ensures reliability, security, and performance before launch.",
   },
   {
     step: 5,
     title: "Deployment",
     description:
-      "Smooth launch with CI/CD, monitoring setup, and production-ready infrastructure.",
+      "Smooth production launch with CI/CD, monitoring, and infrastructure ready for real users from day one.",
   },
   {
     step: 6,
-    title: "Ongoing Support",
+    title: "Support",
     description:
-      "Long-term maintenance, feature updates, and optimization as your business grows.",
+      "Long-term maintenance, feature updates, and optimization as your product and business continue to grow.",
   },
 ];
 
@@ -233,37 +275,37 @@ export const whyWorkWithMe: WhyItem[] = [
   {
     title: "Fast Communication",
     description:
-      "Quick responses, clear updates, and proactive communication throughout every project.",
+      "Real-time updates and clear dialogue. You'll never be left wondering about the status of your project.",
     icon: "message",
   },
   {
-    title: "Clean & Maintainable Code",
+    title: "Clean & Maintainable",
     description:
-      "Well-structured, documented code that's easy for your team to extend and maintain.",
+      "Future-proof architecture using industry best practices. Your codebase remains an asset, not a liability.",
     icon: "code",
   },
   {
     title: "Scalable Architecture",
     description:
-      "Systems designed to grow with your business, from MVP to enterprise scale.",
+      "Systems designed to grow. We build for today's needs while anticipating tomorrow's traffic and complexity.",
     icon: "layers",
   },
   {
-    title: "Business-Oriented Solutions",
+    title: "Business-Oriented",
     description:
-      "Every feature is tied to a real business outcome, not just technical complexity.",
+      "Focused on your ROI and outcomes. We prioritize features that deliver actual value to your bottom line.",
     icon: "target",
   },
   {
-    title: "Performance Optimization",
+    title: "Performance First",
     description:
-      "Fast load times, efficient APIs, and Lighthouse scores that impress users and search engines.",
+      "Lightning-fast load times and optimized workflows. Experience software that feels as fast as thought.",
     icon: "gauge",
   },
   {
     title: "Long-Term Support",
     description:
-      "I don't disappear after launch. Ongoing maintenance and improvements when you need them.",
+      "A reliable partner for your journey. We provide continuous maintenance and strategic advice post-launch.",
     icon: "shield",
   },
 ];
@@ -284,7 +326,7 @@ export const testimonials: Testimonial[] = [
     role: "Product Manager",
     platform: "linkedin",
     rating: 5,
-    text: "Delivered an HR portal that transformed how our team operates. Clean code, great communication, shipped ahead of schedule!",
+    text: "HR portal project; clean code; delivered ahead of schedule. The attention to detail and technical precision is exactly what our team needed.",
   },
   {
     id: 2,
@@ -292,7 +334,7 @@ export const testimonials: Testimonial[] = [
     role: "Operations Lead",
     platform: "whatsapp",
     rating: 5,
-    text: "The automation bot he built saves us 30+ hours every week. Best investment we've made this year.",
+    text: "Automation saves 30+ hours per week. Arshman transformed our operational bottlenecks into a streamlined, high-performance engine.",
   },
   {
     id: 3,
@@ -300,7 +342,7 @@ export const testimonials: Testimonial[] = [
     role: "CTO, StartupBase",
     platform: "linkedin",
     rating: 5,
-    text: "Full-stack expertise at its best. Payment integration was flawless and exceeded all expectations.",
+    text: "Strong full-stack delivery and payment integration. Handling complex fiscal logic with such ease is a testament to their technical mastery.",
   },
   {
     id: 4,
@@ -308,9 +350,18 @@ export const testimonials: Testimonial[] = [
     role: "AI Product Lead",
     platform: "linkedin",
     rating: 5,
-    text: "LangChain chatbot cut our support tickets by 40%. Exceptional AI integration skills and deep technical knowledge.",
+    text: "LangChain chatbot reduced tickets by 40%. The AI implementation was seamless and integrated perfectly with our existing infrastructure.",
   },
 ];
+
+export const projectSummaries: Record<number, string> = {
+  1: "AI recruitment platform with LLM-powered candidate assessments and automated interview scoring.",
+  2: "Marketplace for social accounts with escrow, scam prevention, and real-time messaging.",
+  3: "AI suite for article generation, competitor scraping, and SEO keyword research.",
+  4: "Virtual doctor / ML engine for medical report analysis and personalized recommendations.",
+  5: "Playwright-based headless browser automation for reliable product data extraction.",
+  6: "Multi-tenant ERP-style business management platform across diverse retail verticals.",
+};
 
 export type SocialPlatform = "linkedin" | "github" | "x" | "instagram";
 

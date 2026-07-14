@@ -35,7 +35,7 @@ export default function Background() {
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse 55% 40% at 50% 5%, rgba(110,143,173,0.07) 0%, transparent 65%)",
+            "radial-gradient(ellipse 55% 40% at 70% 0%, rgba(126,200,227,0.08) 0%, transparent 65%)",
         }}
       />
 
@@ -48,7 +48,7 @@ export default function Background() {
           height: "380px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(147,158,171,0.07) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(126,200,227,0.06) 0%, transparent 70%)",
           filter: "blur(80px)",
         }}
       />
@@ -62,7 +62,7 @@ export default function Background() {
           height: "420px",
           borderRadius: "50%",
           background:
-            "radial-gradient(circle, rgba(110,143,173,0.05) 0%, transparent 70%)",
+            "radial-gradient(circle, rgba(91,168,196,0.05) 0%, transparent 70%)",
           filter: "blur(90px)",
           animationDelay: "-8s",
         }}
@@ -75,7 +75,7 @@ export default function Background() {
             width: "320px",
             height: "320px",
             background:
-              "radial-gradient(circle, rgba(110,143,173,0.035) 0%, transparent 70%)",
+              "radial-gradient(circle, rgba(126,200,227,0.04) 0%, transparent 70%)",
             filter: "blur(50px)",
           }}
           animate={{
