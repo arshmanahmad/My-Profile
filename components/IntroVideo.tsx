@@ -76,8 +76,8 @@ function VideoPlayer({
               src={video.poster}
               alt=""
               fill
-              className="object-cover object-center"
-              sizes="(max-width: 768px) 100vw, 560px"
+              className="object-cover object-top"
+              sizes="360px"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/40 to-background/25" />
@@ -159,13 +159,13 @@ export default function IntroVideo({ video }: IntroVideoProps) {
           </MotionReveal>
 
           <MotionReveal delay={120} direction="left">
-            <div className="relative w-full max-w-[560px] mx-auto lg:ml-auto lg:mr-0">
+            <div className="relative w-full flex flex-col items-center lg:items-end">
               <VideoPlayer
                 video={video}
                 playing={playing}
                 onPlay={() => setPlaying(true)}
               />
-              <p className="mt-4 text-sm text-muted">
+              <p className="mt-4 text-sm text-muted text-center lg:text-right w-full max-w-[360px]">
                 Meet {personalInfo.brandName} Instagram intro reel.
               </p>
             </div>

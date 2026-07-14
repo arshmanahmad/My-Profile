@@ -519,12 +519,14 @@ body {
   border: 1px solid rgba(96, 165, 250, 0.25);
 }
 
-/* ─── Intro Video ─── */
+/* ─── Intro Video (Instagram Reel = portrait) ─── */
 
 .intro-video-frame {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  max-width: 360px;
+  margin-inline: auto;
+  aspect-ratio: 9 / 16;
   border-radius: var(--radius-xl);
 }
 
@@ -538,18 +540,20 @@ body {
 
 .intro-video-iframe {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 0;
   width: 100%;
-  height: calc(100% + 132px);
-  margin-top: -58px;
-  margin-bottom: -74px;
+  min-width: 100%;
+  height: 100%;
   border: 0;
+  transform: translateX(-50%);
 }
 
+/* Instagram embed chrome crop (header/footer) while keeping reel visible */
 .intro-video-frame--playing .intro-video-iframe {
-  margin-top: -52px;
-  margin-bottom: -80px;
+  top: -54px;
+  height: calc(100% + 120px);
+  transform: translateX(-50%);
 }
 
 .intro-video-play {
@@ -634,10 +638,6 @@ body {
   .section-header,
   .section-header-left {
     margin-bottom: 3rem;
-  }
-
-  .intro-video-frame {
-    aspect-ratio: 9 / 16;
   }
 }
 
