@@ -141,7 +141,6 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <ProjectStatus project={project} />
       </div>
-
       <p
         id={panelId}
         className={`text-sm text-secondary leading-[1.7] mb-5 pl-3 ${
