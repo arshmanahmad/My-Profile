@@ -8,7 +8,6 @@ import MotionReveal from "./MotionReveal";
 import { IntroVideo as IntroVideoData, personalInfo } from "@/lib/data";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-
 const trustChips = [
   "5+ Years Experience",
   "Full Stack Developer",
