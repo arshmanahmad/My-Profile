@@ -16,6 +16,7 @@ const trustChips = [
 interface IntroVideoProps {
   video: IntroVideoData;
 }
+
 export function getInstagramEmbedUrl(reelUrl: string): string | null {
   const match = reelUrl.match(/\/reel\/([^/?]+)/);
   if (!match?.[1]) return null;
