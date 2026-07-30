@@ -12,6 +12,7 @@ const trustChips = [
   "Full Stack Developer",
   "Available for Hire",
 ];
+
 interface IntroVideoProps {
   video: IntroVideoData;
 }
