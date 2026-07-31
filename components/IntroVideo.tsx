@@ -20,7 +20,6 @@ export function getInstagramEmbedUrl(reelUrl: string): string | null {
   if (!match?.[1]) return null;
   return `https://www.instagram.com/reel/${match[1]}/embed`;
 }
-
 function VideoPlayer({
   video,
   playing,
