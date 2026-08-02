@@ -14,8 +14,9 @@ import {
   Loader2,
   Clock,
 } from "lucide-react";
-import MotionReveal from "./MotionReveal";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { personalInfo as PersonalInfo } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 interface ContactProps {
   personalInfo: typeof PersonalInfo;
@@ -72,7 +73,7 @@ export default function Contact({ personalInfo }: ContactProps) {
         </MotionReveal>
 
         <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-6 md:gap-8">
-          <MotionReveal delay={50}>
+          <MotionReveal delay={50} direction="right">
             <div className="premium-card-static p-7 md:p-9 h-full">
               {submitted ? (
                 <motion.div
@@ -174,9 +175,12 @@ export default function Contact({ personalInfo }: ContactProps) {
                       placeholder="tell me about your project, goals, and timeline..."
                     />
                   </div>
-                  <button
+                  <motion.button
                     type="submit"
                     disabled={loading}
+                    whileHover={{ y: -2, scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
                     className="btn-primary w-full justify-center !py-3.5 !rounded-xl disabled:opacity-60"
                   >
                     {loading ? (
@@ -190,33 +194,35 @@ export default function Contact({ personalInfo }: ContactProps) {
                         <Send size={16} strokeWidth={2} />
                       </>
                     )}
-                  </button>
+                  </motion.button>
                 </form>
               )}
             </div>
           </MotionReveal>
 
-          <MotionReveal delay={100}>
-            <div className="space-y-4">
-              <div className="relative premium-card-static p-5 overflow-hidden">
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-secondary-warm" />
-                <div className="flex items-center gap-2 mb-3 pl-2">
-                  <span className="w-2 h-2 rounded-full bg-secondary-warm" />
-                  <h3 className="font-display text-sm font-semibold text-foreground">
-                    Open to Projects
-                  </h3>
+          <MotionReveal delay={120} direction="left">
+            <MotionStagger fast className="space-y-4">
+              <MotionItem>
+                <div className="relative premium-card-static p-5 overflow-hidden">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-secondary-warm" />
+                  <div className="flex items-center gap-2 mb-3 pl-2">
+                    <span className="w-2 h-2 rounded-full bg-secondary-warm" />
+                    <h3 className="font-display text-sm font-semibold text-foreground">
+                      Open to Projects
+                    </h3>
+                  </div>
+                  <ul className="space-y-2.5 pl-2 text-sm text-secondary">
+                    <li className="flex items-center gap-2">
+                      <CheckCircle size={14} className="text-primary shrink-0" />
+                      Freelance availability
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Clock size={14} className="text-primary shrink-0" />
+                      24h response time
+                    </li>
+                  </ul>
                 </div>
-                <ul className="space-y-2.5 pl-2 text-sm text-secondary">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle size={14} className="text-primary shrink-0" />
-                    Freelance availability
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Clock size={14} className="text-primary shrink-0" />
-                    24h response time
-                  </li>
-                </ul>
-              </div>
+              </MotionItem>
 
               {[
                 {
@@ -238,52 +244,65 @@ export default function Contact({ personalInfo }: ContactProps) {
                   href: null as string | null,
                 },
               ].map(({ icon: Icon, label, value, href }) => (
-                <div
-                  key={label}
-                  className="premium-card-static p-4 flex items-center gap-4"
-                >
-                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center shrink-0 icon-box">
-                    <Icon size={16} className="text-primary" strokeWidth={1.75} />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="label-mono text-muted mb-0.5">{label}</p>
-                    {href ? (
-                      <a
-                        href={href}
-                        className="text-sm font-medium text-foreground hover:text-primary transition-colors break-all"
-                      >
-                        {value}
-                      </a>
-                    ) : (
-                      <p className="text-sm font-medium text-foreground">
-                        {value}
-                      </p>
-                    )}
-                  </div>
-                </div>
+                <MotionItem key={label}>
+                  <motion.div
+                    whileHover={{ y: -3, scale: 1.01 }}
+                    transition={{ duration: 0.3, ease: EASE_PREMIUM }}
+                    className="premium-card-static p-4 flex items-center gap-4"
+                  >
+                    <div className="w-10 h-10 rounded-[12px] flex items-center justify-center shrink-0 icon-box">
+                      <Icon
+                        size={16}
+                        className="text-primary"
+                        strokeWidth={1.75}
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="label-mono text-muted mb-0.5">{label}</p>
+                      {href ? (
+                        <a
+                          href={href}
+                          className="text-sm font-medium text-foreground hover:text-primary transition-colors break-all"
+                        >
+                          {value}
+                        </a>
+                      ) : (
+                        <p className="text-sm font-medium text-foreground">
+                          {value}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                </MotionItem>
               ))}
 
-              <div className="grid grid-cols-2 gap-3">
-                <a
-                  href={personalInfo.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
-                >
-                  <Github size={15} />
-                  GitHub
-                </a>
-                <a
-                  href={personalInfo.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
-                >
-                  <Linkedin size={15} />
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+              <MotionItem>
+                <div className="grid grid-cols-2 gap-3">
+                  <motion.a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
+                  >
+                    <Github size={15} />
+                    GitHub
+                  </motion.a>
+                  <motion.a
+                    href={personalInfo.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="premium-card-static p-3.5 flex items-center justify-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-secondary hover:text-primary hover:border-primary/30 transition-colors"
+                  >
+                    <Linkedin size={15} />
+                    LinkedIn
+                  </motion.a>
+                </div>
+              </MotionItem>
+            </MotionStagger>
           </MotionReveal>
         </div>
       </div>

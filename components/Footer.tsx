@@ -1,6 +1,11 @@
+"use client";
+
 import { Mail, MapPin, Github, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 import { personalInfo } from "@/lib/data";
 import Logo from "./Logo";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,17 +13,17 @@ export default function Footer() {
   return (
     <footer className="relative z-10 border-t border-border-subtle">
       <div className="section-container !py-14 md:!py-16 relative">
-        <div className="grid md:grid-cols-12 gap-10 md:gap-8 mb-12">
-          <div className="md:col-span-4">
+        <MotionStagger className="grid md:grid-cols-12 gap-10 md:gap-8 mb-12">
+          <MotionItem className="md:col-span-4">
             <Logo linked={false} showWordmark className="mb-4" />
             <p className="text-sm text-muted leading-[1.7] max-w-sm">
               A focused development team led by Arshman Ahmad. Web apps, APIs,
               AI features, and production-ready systems for startups and
               businesses.
             </p>
-          </div>
+          </MotionItem>
 
-          <div className="md:col-span-2">
+          <MotionItem className="md:col-span-2">
             <p className="font-display text-sm font-semibold text-foreground mb-4">
               Navigation
             </p>
@@ -40,9 +45,9 @@ export default function Footer() {
                 </a>
               ))}
             </nav>
-          </div>
+          </MotionItem>
 
-          <div className="md:col-span-3">
+          <MotionItem className="md:col-span-3">
             <p className="font-display text-sm font-semibold text-foreground mb-4">
               Services
             </p>
@@ -59,9 +64,9 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </MotionItem>
 
-          <div className="md:col-span-3">
+          <MotionItem className="md:col-span-3">
             <p className="font-display text-sm font-semibold text-foreground mb-4">
               Get In Touch
             </p>
@@ -81,36 +86,43 @@ export default function Footer() {
               </li>
             </ul>
             <div className="flex items-center gap-2.5">
-              <a
+              <motion.a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
+                whileHover={{ y: -2, scale: 1.06 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ duration: 0.3, ease: EASE_PREMIUM }}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/40 transition-colors"
               >
                 <Github size={15} />
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
+                whileHover={{ y: -2, scale: 1.06 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ duration: 0.3, ease: EASE_PREMIUM }}
                 className="w-9 h-9 rounded-full border border-border flex items-center justify-center text-muted hover:text-primary hover:border-primary/40 transition-colors"
               >
                 <Linkedin size={15} />
-              </a>
+              </motion.a>
             </div>
+          </MotionItem>
+        </MotionStagger>
+
+        <MotionReveal delay={80} direction="scale">
+          <div className="divider-gradient mb-6" />
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
+            <p>
+              © {year} Arshman Ahmad. Built with Next.js &amp; Tailwind CSS.
+            </p>
+            <p className="text-muted/80">Available for new projects</p>
           </div>
-        </div>
-
-        <div className="divider-gradient mb-6" />
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-muted">
-          <p>
-            © {year} Arshman Ahmad. Built with Next.js &amp; Tailwind CSS.
-          </p>
-          <p className="text-muted/80">Available for new projects</p>
-        </div>
+        </MotionReveal>
       </div>
     </footer>
   );

@@ -11,8 +11,9 @@ import {
   ArrowRight,
   LucideIcon,
 } from "lucide-react";
-import MotionReveal from "./MotionReveal";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { WhyItem } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 const iconMap: Record<string, LucideIcon> = {
   message: MessageSquare,
@@ -42,19 +43,23 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
           </div>
         </MotionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10">
-          {items.map((item, i) => {
+        <MotionStagger className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-10">
+          {items.map((item) => {
             const Icon = iconMap[item.icon] ?? Code2;
             return (
-              <MotionReveal key={item.title} delay={i * 55}>
+              <MotionItem key={item.title} className="h-full">
                 <motion.article
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -5, scale: 1.01 }}
+                  transition={{ duration: 0.4, ease: EASE_PREMIUM }}
                   className="premium-card p-7 h-full group"
                 >
-                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box">
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.3, ease: EASE_PREMIUM }}
+                    className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box"
+                  >
                     <Icon size={18} className="text-primary" strokeWidth={1.75} />
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-[0.9375rem] font-semibold text-foreground mb-2.5 tracking-tight">
                     {item.title}
                   </h3>
@@ -62,13 +67,17 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
                     {item.description}
                   </p>
                 </motion.article>
-              </MotionReveal>
+              </MotionItem>
             );
           })}
-        </div>
+        </MotionStagger>
 
-        <MotionReveal delay={150}>
-          <div className="premium-card-static p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
+        <MotionReveal delay={120} direction="scale">
+          <motion.div
+            whileHover={{ scale: 1.01 }}
+            transition={{ duration: 0.35, ease: EASE_PREMIUM }}
+            className="premium-card-static p-6 md:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-5"
+          >
             <div>
               <p className="font-display text-xl font-semibold text-foreground mb-1">
                 Ready to start your project?
@@ -81,7 +90,7 @@ export default function WhyWorkWithMe({ items }: WhyWorkWithMeProps) {
               Schedule a Consultation
               <ArrowRight size={16} strokeWidth={2.5} />
             </a>
-          </div>
+          </motion.div>
         </MotionReveal>
       </div>
     </section>

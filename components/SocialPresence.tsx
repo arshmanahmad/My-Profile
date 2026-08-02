@@ -4,8 +4,9 @@ import type { ElementType } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SiLinkedin, SiGithub, SiX, SiInstagram } from "react-icons/si";
-import MotionReveal from "./MotionReveal";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { SocialProfile, SocialPlatform } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 const platformIcons: Record<SocialPlatform, ElementType> = {
   linkedin: SiLinkedin,
@@ -29,22 +30,26 @@ export default function SocialPresence({ profiles }: SocialPresenceProps) {
           </div>
         </MotionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {profiles.map((profile, i) => {
+        <MotionStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {profiles.map((profile) => {
             const Icon = platformIcons[profile.platform];
             return (
-              <MotionReveal key={profile.id} delay={i * 55}>
+              <MotionItem key={profile.id} className="h-full">
                 <motion.a
                   href={profile.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -3 }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.35, ease: EASE_PREMIUM }}
                   className="social-card group block rounded-2xl p-6 h-full"
                 >
-                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box">
+                  <motion.div
+                    whileHover={{ rotate: -8, scale: 1.1 }}
+                    className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box"
+                  >
                     <Icon size={18} className="text-primary" />
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-1 tracking-tight">
                     {profile.name}
                   </h3>
@@ -54,10 +59,10 @@ export default function SocialPresence({ profiles }: SocialPresenceProps) {
                     <ArrowRight size={14} />
                   </span>
                 </motion.a>
-              </MotionReveal>
+              </MotionItem>
             );
           })}
-        </div>
+        </MotionStagger>
       </div>
     </section>
   );

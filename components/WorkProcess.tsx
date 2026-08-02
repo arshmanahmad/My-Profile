@@ -189,23 +189,35 @@ export default function WorkProcess({ steps }: WorkProcessProps) {
           <motion.article
             key={current.step}
             initial={
-              prefersReducedMotion ? false : { opacity: 0, y: 20 }
+              prefersReducedMotion
+                ? false
+                : { opacity: 0, y: 24, scale: 0.97, filter: "blur(6px)" }
             }
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
             exit={
-              prefersReducedMotion ? undefined : { opacity: 0, y: -16 }
+              prefersReducedMotion
+                ? undefined
+                : { opacity: 0, y: -18, scale: 0.98, filter: "blur(4px)" }
             }
-            transition={{ duration: 0.4, ease: EASE }}
+            transition={{ duration: 0.45, ease: EASE }}
             className="premium-card-static p-8 md:p-10 absolute inset-0"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-11 h-11 rounded-[12px] flex items-center justify-center icon-box">
+              <motion.div
+                key={`icon-${current.step}`}
+                initial={
+                  prefersReducedMotion ? false : { rotate: -12, scale: 0.85 }
+                }
+                animate={{ rotate: 0, scale: 1 }}
+                transition={{ duration: 0.4, ease: EASE }}
+                className="w-11 h-11 rounded-[12px] flex items-center justify-center icon-box"
+              >
                 <CurrentIcon
                   size={20}
                   className="text-primary"
                   strokeWidth={1.75}
                 />
-              </div>
+              </motion.div>
               <span className="label-mono text-primary">
                 Phase {pad(current.step)}
               </span>
@@ -231,7 +243,9 @@ export default function WorkProcess({ steps }: WorkProcessProps) {
           style={{ height: `${100 + steps.length * 70}vh` }}
         >
           <div className="sticky top-0 h-screen flex items-center">
-            <div className="section-container !py-0 w-full">{scrubUi}</div>
+            <div className="section-container !py-0 w-full">
+              <MotionReveal amount={0.25}>{scrubUi}</MotionReveal>
+            </div>
           </div>
         </div>
       </section>

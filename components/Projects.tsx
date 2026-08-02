@@ -16,10 +16,9 @@ import {
   LayoutDashboard,
   LucideIcon,
 } from "lucide-react";
-import MotionReveal from "./MotionReveal";
-import { Project, ProjectType, projectSummaries } from "@/lib/data";
-
-const EASE = [0.16, 1, 0.3, 1] as const;
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
+import { Project, ProjectType } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 const typeMeta: Record<
   ProjectType,
@@ -97,13 +96,17 @@ function ProjectLinks({ project }: { project: Project }) {
 function ProjectCard({ project }: { project: Project }) {
   const [expanded, setExpanded] = useState(false);
   const panelId = `project-experience-${project.id}`;
-  const summary = projectSummaries[project.id] ?? project.experience;
   const meta = typeMeta[project.type];
   const Icon = meta.icon;
   const indexLabel = String(project.id).padStart(2, "0");
+  const canExpand = project.experience.length > 180;
 
   return (
-    <article className="group relative flex flex-col h-full rounded-2xl border border-border-subtle bg-surface p-6 md:p-7 shadow-card hover:border-primary/25 hover:shadow-card-hover transition-all duration-400 ease-premium">
+    <motion.article
+      whileHover={{ y: -5, scale: 1.01 }}
+      transition={{ duration: 0.4, ease: EASE_PREMIUM }}
+      className="group relative flex flex-col h-full rounded-2xl border border-border-subtle bg-surface p-6 md:p-7 shadow-card hover:border-primary/25 hover:shadow-card-hover transition-all duration-400 ease-premium"
+    >
       <div
         className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full opacity-80"
         style={{ background: meta.accent }}
@@ -141,13 +144,14 @@ function ProjectCard({ project }: { project: Project }) {
         </div>
         <ProjectStatus project={project} />
       </div>
+
       <p
         id={panelId}
         className={`text-sm text-secondary leading-[1.7] mb-5 pl-3 ${
-          !expanded ? "line-clamp-3" : ""
+          !expanded && canExpand ? "line-clamp-4" : ""
         }`}
       >
-        {expanded ? project.experience : summary}
+        {project.experience}
       </p>
 
       <div className="flex flex-wrap gap-2 mb-5 pl-3">
@@ -162,24 +166,28 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       <div className="mt-auto pt-4 border-t border-border-subtle flex items-center justify-between gap-3 pl-3">
-        <button
-          type="button"
-          onClick={() => setExpanded((v) => !v)}
-          aria-expanded={expanded}
-          aria-controls={panelId}
-          className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-muted hover:text-primary transition-colors"
-        >
-          {expanded ? "Show less" : "More detail"}
-          <motion.span
-            animate={{ rotate: expanded ? 180 : 0 }}
-            transition={{ duration: 0.35, ease: EASE }}
+        {canExpand ? (
+          <button
+            type="button"
+            onClick={() => setExpanded((v) => !v)}
+            aria-expanded={expanded}
+            aria-controls={panelId}
+            className="inline-flex items-center gap-1.5 text-[0.8125rem] font-medium text-muted hover:text-primary transition-colors"
           >
-            <ChevronDown size={14} strokeWidth={2} />
-          </motion.span>
-        </button>
+            {expanded ? "Show less" : "Read full experience"}
+            <motion.span
+              animate={{ rotate: expanded ? 180 : 0 }}
+              transition={{ duration: 0.35, ease: EASE_PREMIUM }}
+            >
+              <ChevronDown size={14} strokeWidth={2} />
+            </motion.span>
+          </button>
+        ) : (
+          <span />
+        )}
         <ProjectLinks project={project} />
       </div>
-    </article>
+    </motion.article>
   );
 }
 
@@ -199,25 +207,28 @@ export default function Projects({ projects }: ProjectsProps) {
           </div>
         </MotionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 items-stretch">
-          {projects.map((project, i) => (
-            <MotionReveal key={project.id} delay={i * 50} className="h-full">
+        <MotionStagger className="grid grid-cols-1 md:grid-cols-2 gap-5 lg:gap-6 items-stretch">
+          {projects.map((project) => (
+            <MotionItem key={project.id} className="h-full">
               <ProjectCard project={project} />
-            </MotionReveal>
+            </MotionItem>
           ))}
-        </div>
+        </MotionStagger>
 
-        <MotionReveal delay={160}>
+        <MotionReveal delay={160} direction="scale">
           <div className="mt-10 flex justify-center">
-            <a
+            <motion.a
               href="https://github.com/arshmanahmad"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline !rounded-xl"
+              whileHover={{ y: -2, scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.3, ease: EASE_PREMIUM }}
             >
               <FileText size={16} />
               More on GitHub
-            </a>
+            </motion.a>
           </div>
         </MotionReveal>
       </div>

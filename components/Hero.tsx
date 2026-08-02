@@ -44,11 +44,12 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 28, filter: "blur(8px)" },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: EASE },
+    filter: "blur(0px)",
+    transition: { duration: 0.8, ease: EASE },
   },
 };
 
@@ -93,13 +94,25 @@ export default function Hero({ personalInfo }: HeroProps) {
               variants={itemVariants}
               className="flex flex-wrap items-center gap-3 mb-8"
             >
-              <a href="#contact" className="btn-primary">
+              <motion.a
+                href="#contact"
+                className="btn-primary"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.3, ease: EASE }}
+              >
                 Book a Call
                 <ArrowRight size={16} strokeWidth={2.5} />
-              </a>
-              <a href="#projects" className="btn-outline">
+              </motion.a>
+              <motion.a
+                href="#projects"
+                className="btn-outline"
+                whileHover={{ y: -2, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ duration: 0.3, ease: EASE }}
+              >
                 View Projects
-              </a>
+              </motion.a>
             </motion.div>
 
             <motion.div variants={itemVariants}>
@@ -108,22 +121,32 @@ export default function Hero({ personalInfo }: HeroProps) {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 28, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
+            initial={{ opacity: 0, y: 36, scale: 0.96, filter: "blur(10px)" }}
+            animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1, delay: 0.15, ease: EASE }}
             className="relative flex justify-center lg:justify-end w-full"
           >
             <div className="relative w-full max-w-[420px]">
-              <div
+              <motion.div
                 className="absolute -inset-6 rounded-[28px] border border-white/10 pointer-events-none"
                 aria-hidden="true"
+                animate={
+                  prefersReducedMotion
+                    ? undefined
+                    : { opacity: [0.4, 0.85, 0.4] }
+                }
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
               <div
                 className="absolute -right-3 -bottom-3 w-[88%] h-[88%] rounded-[22px] border border-primary/25 pointer-events-none"
                 aria-hidden="true"
               />
 
-              <div className="relative rounded-[22px] overflow-hidden border border-primary/30 shadow-profile aspect-[4/5] bg-surface">
+              <motion.div
+                whileHover={prefersReducedMotion ? undefined : { scale: 1.015 }}
+                transition={{ duration: 0.5, ease: EASE }}
+                className="relative rounded-[22px] overflow-hidden border border-primary/30 shadow-profile aspect-[4/5] bg-surface"
+              >
                 <Image
                   src={brandAssets.profilePicture}
                   alt={personalInfo.name}
@@ -134,13 +157,18 @@ export default function Hero({ personalInfo }: HeroProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-transparent" />
 
-                <div className="absolute top-4 right-4 tech-pill !gap-2 !py-1.5">
+                <motion.div
+                  className="absolute top-4 right-4 tech-pill !gap-2 !py-1.5"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.85, duration: 0.5, ease: EASE }}
+                >
                   <span className="w-2 h-2 rounded-full bg-emerald-400 status-dot" />
                   <span className="label-mono !text-[0.625rem] !tracking-[0.1em] text-emerald-300">
                     Open to Work
                   </span>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {!prefersReducedMotion &&
                 floatingTech.map(({ icon: Icon, label, color, className }, i) => (
@@ -172,17 +200,33 @@ export default function Hero({ personalInfo }: HeroProps) {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.7, ease: EASE }}
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.1, delayChildren: 0.85 },
+            },
+          }}
           className="mt-14 md:mt-16 pt-6 border-t border-border-subtle"
         >
           <div className="flex flex-wrap gap-x-8 gap-y-4">
             {trustStrip.map(({ icon: Icon, label }) => (
-              <div key={label} className="trust-strip-item">
+              <motion.div
+                key={label}
+                className="trust-strip-item"
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { duration: 0.55, ease: EASE },
+                  },
+                }}
+              >
                 <Icon size={14} className="text-primary shrink-0" />
                 {label}
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>

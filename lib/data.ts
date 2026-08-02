@@ -214,7 +214,7 @@ export const projects: Project[] = [
     typeLabel: "AI Hiring",
     stack: ["Next.js", "AI / LLM", "Node.js"],
     experience:
-      "AI hiring platform where companies create career pages, candidates take AI interviews, and scores go back to HR for shortlisting. Live in production.",
+      "One of the most impactful projects I've built: an AI-powered hiring platform that solves a real HR problem. Companies create career pages from our dashboard and post job openings directly. Candidates visit the career page and complete AI-based interviews, allowing many applicants to be assessed simultaneously against the same opportunity. Interview scores are delivered back to the company so HR can shortlist the best candidates without wasting time on manual screening. The entire system is AI-driven and fully automated, currently live in production.",
     demo: "https://www.true-chance.com/",
   },
   {
@@ -224,7 +224,7 @@ export const projects: Project[] = [
     typeLabel: "Marketplace",
     stack: ["React", "Chat", "Payments"],
     experience:
-      "Marketplace for buying and selling social accounts, with protected chat, payments, and scam-prevention built into the flow.",
+      "Built a secure marketplace platform connecting buyers and sellers for social media account transactions. Developed a dedicated chatbot supporting one-to-one and one-to-many communication in a protected environment. Implemented secure payment flows from buyer to seller with scam prevention built in, including scam detection within the chatbot, blocked user management, and a complete end-to-end system designed for safe, trustworthy deals.",
     demo: "https://bsello.com/",
   },
   {
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     typeLabel: "Content AI",
     stack: ["AI", "SEO", "Full Stack"],
     experience:
-      "Article generation platform with keyword research, competitor scraping, and SEO-oriented content workflows. In active development.",
+      "Led AI engineering and full-stack development on a fully automated article generation platform. Users select a membership plan, choose a topic area, and the system automatically generates relevant keywords. After keyword selection, the platform scrapes the top ten Google competitors for that topic and uses those results to guide article generation and SEO analysis, optimizing content based on real competitive data. Currently in active development.",
     inDevelopment: true,
   },
   {
@@ -244,7 +244,7 @@ export const projects: Project[] = [
     typeLabel: "Medical AI",
     stack: ["Python", "ML", "API"],
     experience:
-      "Medical report engine that assesses risk, suggests plans, and estimates recovery based on trained medical data.",
+      "Developed a virtual doctor data engine powered by AI and machine learning. Trained the model on comprehensive medical data to deliver accurate responses across a wide range of user inputs, including disease risk level assessment, personalized recommendations, full diet plans, estimated recovery duration based on risk level, and more.",
     github: "https://github.com/arshmanahmad/Medi-Report-AI-Backend",
   },
   {
@@ -254,7 +254,7 @@ export const projects: Project[] = [
     typeLabel: "Automation",
     stack: ["Node.js", "Playwright"],
     experience:
-      "Playwright scraper for product pages with human-like browsing patterns and CAPTCHA handling for reliable extraction.",
+      "Built a Node.js web scraper using Playwright to extract detailed product information from Ali1688.com product pages. Engineered human-like browsing behavior patterns to avoid detection and integrated CAPTCHA solving capabilities for reliable, automated data extraction at scale.",
     github: "https://github.com/arshmanahmad/Website-Scraping",
   },
   {
@@ -264,7 +264,7 @@ export const projects: Project[] = [
     typeLabel: "Business ERP",
     stack: ["Multi-tenant", "Node.js", "ERP"],
     experience:
-      "Multi-tenant business management backend that adapts to different retail types from a shared infrastructure.",
+      "Smarledger is a multi-tenant business management platform supporting many business types: Mobile, Cosmetics, Cars, Sanitary, and more, all running on the same backend infrastructure. Users select their business type during account creation and the system adapts accordingly, making Smarledger a flexible, scalable software solution for diverse retail and service operations.",
     github: "https://github.com/arshmanahmad/SmarledgerStoreBackend",
   },
 ];
@@ -402,15 +402,6 @@ export const testimonials: Testimonial[] = [
     text: "LangChain chatbot reduced tickets by 40%. The AI implementation was seamless and integrated perfectly with our existing infrastructure.",
   },
 ];
-
-export const projectSummaries: Record<number, string> = {
-  1: "AI hiring with career pages, interviews, and HR scoring. Live in production.",
-  2: "Social account marketplace with protected chat, payments, and scam prevention.",
-  3: "AI content workflows for keywords, competitor research, and article generation.",
-  4: "Medical ML engine for risk assessment, recommendations, and recovery estimates.",
-  5: "Playwright product scraper with anti-detection browsing patterns.",
-  6: "Multi-tenant business management backend for multiple retail types.",
-};
 
 export type SocialPlatform = "linkedin" | "github" | "x" | "instagram";
 

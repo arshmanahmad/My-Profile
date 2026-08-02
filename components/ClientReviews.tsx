@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { SiLinkedin, SiWhatsapp } from "react-icons/si";
-import MotionReveal from "./MotionReveal";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { Testimonial } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 type Platform = "linkedin" | "whatsapp";
 
@@ -21,8 +22,8 @@ function ReviewCard({ review }: { review: Testimonial }) {
 
   return (
     <motion.article
-      whileHover={{ y: -3 }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={{ duration: 0.4, ease: EASE_PREMIUM }}
       className="premium-card p-6 md:p-7 flex flex-col h-full"
     >
       <div className="flex items-start justify-between gap-3 mb-5">
@@ -57,7 +58,15 @@ function ReviewCard({ review }: { review: Testimonial }) {
         aria-label={`${review.rating} out of 5 stars`}
       >
         {Array.from({ length: review.rating }).map((_, i) => (
-          <Star key={i} size={13} className="text-primary fill-primary" />
+          <motion.span
+            key={i}
+            initial={{ opacity: 0, scale: 0.6 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.08 * i, duration: 0.35, ease: EASE_PREMIUM }}
+          >
+            <Star size={13} className="text-primary fill-primary" />
+          </motion.span>
         ))}
       </div>
     </motion.article>
@@ -83,16 +92,18 @@ export default function ClientReviews({ testimonials }: ClientReviewsProps) {
           </div>
         </MotionReveal>
 
-        <MotionReveal delay={40}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10 md:mb-12 max-w-4xl mx-auto">
-            {[
-              { value: "5.0", label: "Average Rating" },
-              { value: "100%", label: "Satisfaction" },
-              { value: "50+", label: "Happy Clients" },
-              { value: "5+", label: "Years Experience" },
-            ].map(({ value, label }, i) => (
+        <MotionStagger
+          fast
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-10 md:mb-12 max-w-4xl mx-auto"
+        >
+          {[
+            { value: "5.0", label: "Average Rating" },
+            { value: "100%", label: "Satisfaction" },
+            { value: "50+", label: "Happy Clients" },
+            { value: "5+", label: "Years Experience" },
+          ].map(({ value, label }, i) => (
+            <MotionItem key={label}>
               <div
-                key={label}
                 className={`text-center relative ${
                   i > 0
                     ? "md:before:absolute md:before:left-0 md:before:top-1/2 md:before:-translate-y-1/2 md:before:h-10 md:before:w-px md:before:bg-border"
@@ -104,17 +115,17 @@ export default function ClientReviews({ testimonials }: ClientReviewsProps) {
                 </div>
                 <div className="label-mono text-muted">{label}</div>
               </div>
-            ))}
-          </div>
-        </MotionReveal>
-
-        <div className="grid sm:grid-cols-2 gap-4 md:gap-5">
-          {testimonials.map((review, i) => (
-            <MotionReveal key={review.id} delay={i * 55}>
-              <ReviewCard review={review} />
-            </MotionReveal>
+            </MotionItem>
           ))}
-        </div>
+        </MotionStagger>
+
+        <MotionStagger className="grid sm:grid-cols-2 gap-4 md:gap-5">
+          {testimonials.map((review) => (
+            <MotionItem key={review.id} className="h-full">
+              <ReviewCard review={review} />
+            </MotionItem>
+          ))}
+        </MotionStagger>
       </div>
     </section>
   );

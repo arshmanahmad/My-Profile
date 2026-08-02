@@ -128,38 +128,64 @@ export default function IntroVideo({ video }: IntroVideoProps) {
               </p>
 
               <div className="flex flex-wrap gap-2.5 mb-8">
-                {trustChips.map((chip) => (
-                  <div key={chip} className="trust-chip">
+                {trustChips.map((chip, i) => (
+                  <motion.div
+                    key={chip}
+                    className="trust-chip"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: 0.12 + i * 0.08,
+                      duration: 0.45,
+                      ease: EASE,
+                    }}
+                  >
                     {chip}
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                <a href="#contact" className="btn-primary">
+                <motion.a
+                  href="#contact"
+                  className="btn-primary"
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: EASE }}
+                >
                   Book a Call
                   <ArrowRight size={16} strokeWidth={2.5} />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href={video.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-outline"
+                  whileHover={{ y: -2, scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3, ease: EASE }}
                 >
                   Open on Instagram
                   <ExternalLink size={14} strokeWidth={2} />
-                </a>
+                </motion.a>
               </div>
             </div>
           </MotionReveal>
 
-          <MotionReveal delay={120} direction="left">
+          <MotionReveal delay={160} direction="left">
             <div className="relative w-full flex flex-col items-center lg:items-end">
-              <VideoPlayer
-                video={video}
-                playing={playing}
-                onPlay={() => setPlaying(true)}
-              />
+              <motion.div
+                whileHover={{ scale: 1.015, y: -4 }}
+                transition={{ duration: 0.45, ease: EASE }}
+                className="w-full flex justify-center lg:justify-end"
+              >
+                <VideoPlayer
+                  video={video}
+                  playing={playing}
+                  onPlay={() => setPlaying(true)}
+                />
+              </motion.div>
               <p className="mt-4 text-sm text-muted text-center lg:text-right w-full max-w-[360px]">
                 Meet {personalInfo.brandName} Instagram intro reel.
               </p>

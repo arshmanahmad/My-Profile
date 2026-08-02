@@ -46,7 +46,10 @@ export default function Navigation() {
   const handleLinkClick = () => setMobileOpen(false);
 
   return (
-    <header
+    <motion.header
+      initial={{ opacity: 0, y: -16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-premium ${
         scrolled
           ? "glass-surface shadow-nav border-b border-border-subtle"
@@ -86,12 +89,15 @@ export default function Navigation() {
         </nav>
 
         <div className="hidden lg:block">
-          <a
+          <motion.a
             href="#contact"
             className="btn-primary !py-2 !px-5 !text-[0.8125rem]"
+            whileHover={{ y: -1, scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             Book a Call
-          </a>
+          </motion.a>
         </div>
 
         <button
@@ -148,6 +154,6 @@ export default function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

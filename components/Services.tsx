@@ -12,8 +12,9 @@ import {
   Puzzle,
   LucideIcon,
 } from "lucide-react";
-import MotionReveal from "./MotionReveal";
+import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { Service } from "@/lib/data";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 const iconMap: Record<string, LucideIcon> = {
   cloud: Cloud,
@@ -47,23 +48,27 @@ export default function Services({ services }: ServicesProps) {
           </div>
         </MotionReveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
-          {services.map((service, i) => {
+        <MotionStagger className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+          {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Code2;
             return (
-              <MotionReveal key={service.id} delay={i * 45}>
+              <MotionItem key={service.id} className="h-full">
                 <motion.article
-                  whileHover={{ y: -4 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  transition={{ duration: 0.4, ease: EASE_PREMIUM }}
                   className="premium-card p-6 h-full flex flex-col group cursor-default"
                 >
-                  <div className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box">
+                  <motion.div
+                    whileHover={{ rotate: -6, scale: 1.08 }}
+                    transition={{ duration: 0.35, ease: EASE_PREMIUM }}
+                    className="w-10 h-10 rounded-[12px] flex items-center justify-center mb-5 icon-box"
+                  >
                     <Icon
                       size={18}
                       className="text-primary"
                       strokeWidth={1.75}
                     />
-                  </div>
+                  </motion.div>
                   <h3 className="font-display text-[0.9375rem] font-semibold text-foreground mb-2.5 tracking-tight">
                     {service.title}
                   </h3>
@@ -71,10 +76,10 @@ export default function Services({ services }: ServicesProps) {
                     {service.description}
                   </p>
                 </motion.article>
-              </MotionReveal>
+              </MotionItem>
             );
           })}
-        </div>
+        </MotionStagger>
       </div>
     </section>
   );
