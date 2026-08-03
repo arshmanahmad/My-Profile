@@ -6,7 +6,6 @@ import { SiLinkedin, SiWhatsapp } from "react-icons/si";
 import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { Testimonial } from "@/lib/data";
 import { EASE_PREMIUM } from "@/lib/motion";
-
 type Platform = "linkedin" | "whatsapp";
 
 const platformConfig: Record<
