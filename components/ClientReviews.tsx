@@ -7,6 +7,7 @@ import MotionReveal, { MotionStagger, MotionItem } from "./MotionReveal";
 import { Testimonial } from "@/lib/data";
 import { EASE_PREMIUM } from "@/lib/motion";
 type Platform = "linkedin" | "whatsapp";
+
 const platformConfig: Record<
   Platform,
   { icon: React.ElementType; label: string }
