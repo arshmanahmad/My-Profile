@@ -17,7 +17,6 @@ const platformConfig: Record<
 };
 function ReviewCard({ review }: { review: Testimonial }) {
   const { icon: PIcon, label } = platformConfig[review.platform];
-
   return (
     <motion.article
       whileHover={{ y: -6, scale: 1.01 }}
