@@ -14,6 +14,8 @@ const platformConfig: Record<
   linkedin: { icon: SiLinkedin, label: "LinkedIn" },
   whatsapp: { icon: SiWhatsapp, label: "WhatsApp" },
 };
+
+
 function ReviewCard({ review }: { review: Testimonial }) {
   const { icon: PIcon, label } = platformConfig[review.platform];
   return (
