@@ -15,7 +15,6 @@ const platformConfig: Record<
   whatsapp: { icon: SiWhatsapp, label: "WhatsApp" },
 };
 
-
 function ReviewCard({ review }: { review: Testimonial }) {
   const { icon: PIcon, label } = platformConfig[review.platform];
   return (
